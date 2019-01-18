@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Julius+Sans+One|Slabo+13px|Open+Sans:300" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://codecreative.io/assets/main.min.d206194abbd1ce5a0ca819b68f103dc21cb08c4864ac772c71d5e60a0e10d86e.css">
+<title>Interface Design Patterns: Namespace Pattern | CodeCreative | A ServiceNow Blog</title>
+<meta name="description" content="The namespace pattern provides a simple mechanism for organizing reusable functions and objects. Personally, this is my preferred pattern for swiss army knife type Util libraries.">
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?d=20181101201248">
+<link rel="canonical" href="https://codecreative.io/blog/interface-design-patterns-namespace-pattern/"><meta property="og:site_name" content="CodeCreative | A ServiceNow Blog">
+<meta property="og:title" content="Interface Design Patterns: Namespace Pattern">
+<meta property="og:url" content="https://codecreative.io/blog/interface-design-patterns-namespace-pattern/">
+
+<meta property="og:type" content="article">
+
+<meta property="og:description" content="The namespace pattern provides a simple mechanism for organizing reusable functions and objects. Personally, this is my preferred pattern for swiss army knife type Util libraries.">
+
+<meta property="og:image" content="https://codecreative.io/blog/interface-design-patterns-namespace-pattern/images/social.png">
+
+<meta itemprop="name" content="Interface Design Patterns: Namespace Pattern">
+<meta itemprop="url" content="https://codecreative.io/blog/interface-design-patterns-namespace-pattern/">
+<meta itemprop="description" content="The namespace pattern provides a simple mechanism for organizing reusable functions and objects. Personally, this is my preferred pattern for swiss army knife type Util libraries.">
+
+<meta itemprop="thumbnailUrl" content="https://codecreative.io/blog/interface-design-patterns-namespace-pattern/images/social.png">
+<link rel="image_src" href="https://codecreative.io/blog/interface-design-patterns-namespace-pattern/images/social.png">
+<meta itemprop="image" content="https://codecreative.io/blog/interface-design-patterns-namespace-pattern/images/social.png">
+
+
+<meta name="twitter:title" content="Interface Design Patterns: Namespace Pattern">
+<meta name="twitter:image" content="https://codecreative.io/blog/interface-design-patterns-namespace-pattern/images/social.png">
+<meta name="twitter:url" content="https://codecreative.io/blog/interface-design-patterns-namespace-pattern/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:description" content="The namespace pattern provides a simple mechanism for organizing reusable functions and objects. Personally, this is my preferred pattern for swiss army knife type Util libraries.">
+
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-90280965-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-90280965-1');
+</script>
+
+<script type="application/ld+json">
+{
+    "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https://codecreative.io/"
+    },
+    "name" : "Interface Design Patterns: Namespace Pattern",
+    "headline" : "Interface Design Patterns: Namespace Pattern",
+    "description" : "The namespace pattern provides a simple mechanism for organizing reusable functions and objects. Personally, this is my preferred pattern for swiss army knife type Util libraries.","image": "https://codecreative.io/blog/interface-design-patterns-namespace-pattern/images/social.png","inLanguage" : "en-US",
+      "author" : "Travis Toulson",
+      "creator" : "Travis Toulson","publisher": "Travis Toulson",
+    "copyrightHolder" : "Travis Toulson",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-01-15 18:51:14 &#43;0000 UTC",
+    "dateModified" : "2019-01-15 18:51:14 &#43;0000 UTC",
+    "url" : "https://codecreative.io/blog/interface-design-patterns-namespace-pattern/",
+    "wordCount" : "431",
+    "keywords" : [ "Blog" ]
+}
+</script>
+
+
+  </head>
+  <body><header role="banner">
+  <h1 class="logo">
+      <a href="/">
+         <img src="/assets/codecreativelogo.png" alt="Interface Design Patterns: Namespace Pattern" />
+         <span class="sr-only">CodeCreative Logo, click to navigate home</span>
+      </a>
+    </h1>
+
+  <div class="menuToggle">
+    <button class="hamburger" type="button" onclick="toggleMenu()">
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+      <span class="sr-only">Toggle Menu</span>
+    </button>
+  </div>
+
+  <nav class="fullNav">
+    <ul>
+      
+      
+        <li title="Home">
+          <a class="" href="/">Home</a>
+        </li>
+      
+        <li title="Blog">
+          <a class="" href="/blog/">Blog</a>
+        </li>
+      
+        <li title="About">
+          <a class="" href="/about/">About</a>
+        </li>
+      
+        <li title="Contact">
+          <a class="" href="/contact/">Contact</a>
+        </li>
+      
+    </ul>
+  </nav>
+</header>
+<main>
+  <header class="banner">
+    <h1>Interface Design Patterns: Namespace Pattern</h1>
+  </header>
+
+  <div class="content text-content">
+    <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+      <header class="post-header">
+        <h1 class="post-title p-name sr-only" itemprop="name headline">Interface Design Patterns: Namespace Pattern</h1>
+        <p class="post-meta">
+            <time class="dt-published" datetime="2019-01-15T18:51:14Z" itemprop="datePublished">
+            January 15, 2019
+            </time>
+          
+            
+            • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">Travis Toulson</span></span>
+          
+        </p>
+      </header>
+
+      <div class="post-content e-content" itemprop="articleBody">
+        
+
+<p><a href="/blog/interface-design-patterns-for-script-includes">Back to Interface Design Patterns for Script Includes</a></p>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>The namespace pattern provides a simple mechanism for organizing reusable functions and objects. One of the challenging aspects of using alternative Script Include patterns is that they become harder to identify when used. For example, if I use the <a href="/blog/interface-design-patterns-function-pattern">Function Pattern</a> in a Business Rule it may be challenging for other developers to quickly identify that getMyTeamMembers() refers to a Script Include instead of a function defined in the script or a Global Business Rule. Using the Namespace Pattern can help clarify since the syntax more closely resembles the traditional <a href="/blog/interface-design-patterns-class-pattern">Class Pattern</a>.</p>
+
+<p>Personally, this is my preferred pattern for those UserUtils, TaskUtils, and other swiss army knife type libraries.</p>
+
+<h2 id="problem-definition">Problem Definition</h2>
+
+<p>The development team has identified several duplicated segments of code in the ServiceNow instance related to getting information about the current user. In order to reduce duplication and improve maintainability, the team would like to create a utility library to consolidate the repeated code.</p>
+
+<h2 id="example-solution">Example Solution</h2>
+
+<p>For this solution, we will create a simple utility Script Include that allows us to obtain data related to the Currently Logged In User:</p>
+
+<h3 id="script-include-getmyteammembers">Script Include: getMyTeamMembers</h3>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">CurrentUser</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">getSubscribedProducts</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// call GlideRecord to get products the user is subscribed to
+</span><span class="c1"></span>  <span class="p">},</span>
+
+  <span class="nx">getTeamMembers</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// call GlideRecord to get a list of sys_user records in the same groups
+</span><span class="c1"></span>  <span class="p">},</span>
+
+  <span class="nx">getManagedTeamMembers</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// call GlideRecord to get a list of sys_user records the current user manages
+</span><span class="c1"></span>  <span class="p">},</span>
+
+  <span class="nx">getRecord</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// return sys_user record for currently logged in user
+</span><span class="c1"></span>  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Now we can easily call any of these functions with a clear namespace as follows:</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">CurrentUser</span><span class="p">.</span><span class="nx">getSubscribedProducts</span><span class="p">();</span>
+<span class="nx">CurrentUser</span><span class="p">.</span><span class="nx">getTeamMembers</span><span class="p">();</span>
+<span class="nx">CurrentUser</span><span class="p">.</span><span class="nx">getManagedTeamMembers</span><span class="p">();</span>
+<span class="nx">CurrentUser</span><span class="p">.</span><span class="nx">getRecord</span><span class="p">();</span>
+</code></pre></div>
+<h2 id="advantages">Advantages</h2>
+
+<ol>
+<li>The pattern removes a potentially confusing no-op / empty initialize pattern that frequently shows up in the <a href="/blog/interface-design-patterns-class-pattern">Class Pattern</a></li>
+<li>More clearly communicates the loose relationship between the functions</li>
+<li>Evolves quickly and easily to future requirements as long as the relationship between the functions remains loose and state data is not stored on the object  itself.</li>
+<li>More clearly communicates that the called script is a Script Include than the <a href="/blog/interface-design-patterns-function-pattern">Function Pattern</a></li>
+</ol>
+
+<h2 id="disadvantages">Disadvantages</h2>
+
+<ol>
+<li>This pattern can be a signal that the data design is not well understood particularly if the team is using an Object Oriented paradigm.</li>
+<li>Utility scripts have a tendency to bloat over time as more functions and subtle variations of functions get added.</li>
+<li>Implemented improperly, this pattern can result in a tangled mess of interconnected functions and tangled state data. Keep functions simple, single purpose, and with all necessary data passed in the signature to mitigate this issue.</li>
+</ol>
+
+      </div>
+
+      <a class="u-url" href="/blog/interface-design-patterns-namespace-pattern" hidden></a>
+    </article><div class="subscribe-form">
+  
+  <div id="mc_embed_signup">
+    <form action="https://codecreative.us14.list-manage.com/subscribe/post?u=98c1070493fa133df8ea08394&amp;id=f759c17295" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+      <div id="mc_embed_signup_scroll">
+        <h2>Subscribe</h2>
+        <div class="subtext">Sign up with your email address to receive news and updates.</div>
+        <div>
+          <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Email Address" required>
+
+          
+          <div class="sr-only" aria-hidden="true">
+            <input type="text" name="b_98c1070493fa133df8ea08394_f759c17295" tabindex="-1" value="">
+          </div>
+
+          <input type="submit" value="Sign Up" name="subscribe" id="mc-embedded-subscribe" class="button">
+        </div>
+      </div>
+    </form>
+  </div>
+  
+</div>
+</div>
+
+      </main><footer>
+  <div class="footer-content-wrap">
+    <p class="text-align-center">
+      <a href="/servicenow">Blog</a>
+      &nbsp;|&nbsp;
+      <a href="/about">About</a>
+      &nbsp;|&nbsp;
+      <a href="/contact">Contact</a>
+    </p>
+    <div class="text-align-center">
+      
+    </div>
+  </div>
+</footer>
+<script type="text/javascript" src="/assets/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Julius+Sans+One|Slabo+13px|Open+Sans:300" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://codecreative.io/assets/main.min.d206194abbd1ce5a0ca819b68f103dc21cb08c4864ac772c71d5e60a0e10d86e.css">
+<title>Interface Design Patterns: Revealing Module Pattern | CodeCreative | A ServiceNow Blog</title>
+<meta name="description" content="The Revealing Module pattern can easily imitate either the Class Pattern or the Namespace Pattern with the added advantage of private state and private functions.">
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?d=20181101201248">
+<link rel="canonical" href="https://codecreative.io/blog/interface-design-patterns-revealing-module-pattern/"><meta property="og:site_name" content="CodeCreative | A ServiceNow Blog">
+<meta property="og:title" content="Interface Design Patterns: Revealing Module Pattern">
+<meta property="og:url" content="https://codecreative.io/blog/interface-design-patterns-revealing-module-pattern/">
+
+<meta property="og:type" content="article">
+
+<meta property="og:description" content="The Revealing Module pattern can easily imitate either the Class Pattern or the Namespace Pattern with the added advantage of private state and private functions.">
+
+<meta property="og:image" content="https://codecreative.io/blog/interface-design-patterns-revealing-module-pattern/images/social.png">
+
+<meta itemprop="name" content="Interface Design Patterns: Revealing Module Pattern">
+<meta itemprop="url" content="https://codecreative.io/blog/interface-design-patterns-revealing-module-pattern/">
+<meta itemprop="description" content="The Revealing Module pattern can easily imitate either the Class Pattern or the Namespace Pattern with the added advantage of private state and private functions.">
+
+<meta itemprop="thumbnailUrl" content="https://codecreative.io/blog/interface-design-patterns-revealing-module-pattern/images/social.png">
+<link rel="image_src" href="https://codecreative.io/blog/interface-design-patterns-revealing-module-pattern/images/social.png">
+<meta itemprop="image" content="https://codecreative.io/blog/interface-design-patterns-revealing-module-pattern/images/social.png">
+
+
+<meta name="twitter:title" content="Interface Design Patterns: Revealing Module Pattern">
+<meta name="twitter:image" content="https://codecreative.io/blog/interface-design-patterns-revealing-module-pattern/images/social.png">
+<meta name="twitter:url" content="https://codecreative.io/blog/interface-design-patterns-revealing-module-pattern/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:description" content="The Revealing Module pattern can easily imitate either the Class Pattern or the Namespace Pattern with the added advantage of private state and private functions.">
+
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-90280965-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-90280965-1');
+</script>
+
+<script type="application/ld+json">
+{
+    "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https://codecreative.io/"
+    },
+    "name" : "Interface Design Patterns: Revealing Module Pattern",
+    "headline" : "Interface Design Patterns: Revealing Module Pattern",
+    "description" : "The Revealing Module pattern can easily imitate either the Class Pattern or the Namespace Pattern with the added advantage of private state and private functions.","image": "https://codecreative.io/blog/interface-design-patterns-revealing-module-pattern/images/social.png","inLanguage" : "en-US",
+      "author" : "Travis Toulson",
+      "creator" : "Travis Toulson","publisher": "Travis Toulson",
+    "copyrightHolder" : "Travis Toulson",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-01-17 19:40:38 &#43;0000 UTC",
+    "dateModified" : "2019-01-17 19:40:38 &#43;0000 UTC",
+    "url" : "https://codecreative.io/blog/interface-design-patterns-revealing-module-pattern/",
+    "wordCount" : "841",
+    "keywords" : [ "Blog" ]
+}
+</script>
+
+
+  </head>
+  <body><header role="banner">
+  <h1 class="logo">
+      <a href="/">
+         <img src="/assets/codecreativelogo.png" alt="Interface Design Patterns: Revealing Module Pattern" />
+         <span class="sr-only">CodeCreative Logo, click to navigate home</span>
+      </a>
+    </h1>
+
+  <div class="menuToggle">
+    <button class="hamburger" type="button" onclick="toggleMenu()">
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+      <span class="sr-only">Toggle Menu</span>
+    </button>
+  </div>
+
+  <nav class="fullNav">
+    <ul>
+      
+      
+        <li title="Home">
+          <a class="" href="/">Home</a>
+        </li>
+      
+        <li title="Blog">
+          <a class="" href="/blog/">Blog</a>
+        </li>
+      
+        <li title="About">
+          <a class="" href="/about/">About</a>
+        </li>
+      
+        <li title="Contact">
+          <a class="" href="/contact/">Contact</a>
+        </li>
+      
+    </ul>
+  </nav>
+</header>
+<main>
+  <header class="banner">
+    <h1>Interface Design Patterns: Revealing Module Pattern</h1>
+  </header>
+
+  <div class="content text-content">
+    <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+      <header class="post-header">
+        <h1 class="post-title p-name sr-only" itemprop="name headline">Interface Design Patterns: Revealing Module Pattern</h1>
+        <p class="post-meta">
+            <time class="dt-published" datetime="2019-01-17T19:40:38Z" itemprop="datePublished">
+            January 17, 2019
+            </time>
+          
+            
+            • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">Travis Toulson</span></span>
+          
+        </p>
+      </header>
+
+      <div class="post-content e-content" itemprop="articleBody">
+        
+
+<p><a href="/blog/interface-design-patterns-for-script-includes">Back to Interface Design Patterns for Script Includes</a></p>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>The Revealing Module pattern can easily imitate either the <a href="/blog/interface-design-patterns-class-pattern">Class Pattern</a> or the <a href="/blog/interface-design-patterns-namespace-pattern">Namespace Pattern</a> with the added advantage of private state and private functions. This is most helpful in Scoped Applications where the app developer may prefer to keep implementation details hidden while exposing clear public interfaces. But it can also be used to help maintain clear API boundaries over time where traditional Javascript classes and objects would tend towards bloat.</p>
+
+<p>To be clear, I am taking a loose definition of the Javascript module patterns in that I do not consider an Immediately-Invoked Function Expression (IIFE) to be necessary to call it a module. With that, let&rsquo;s take a look at a scenario:</p>
+
+<h2 id="problem-definition">Problem Definition</h2>
+
+<p>The app development team has created an integration Scoped App that allows ServiceNow to integrate multiple file storage repositories (Attachments, DropBox, Sharepoint, etc) into a single repository. The underlying implementation is somewhat complex involving a local file cache, web services, and rules to determine which file store is used for different processes.</p>
+
+<p>The team is concerned about granting direct table access to users since at best some data will make no sense to the user and at worst, random table edits could corrupt the application data. To remedy this, the team has locked all tables within the scope to only allow access via a Script Include API.</p>
+
+<h2 id="example-solution">Example Solution</h2>
+
+<p>For this solution, we will create a Script Include which can be accessed by all Scopes but is ultimately Protected to mask the source code when purchased from the store.</p>
+
+<h3 id="script-include-revealing-module-pattern">Script Include: Revealing Module Pattern</h3>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js">  <span class="kd">var</span> <span class="nx">FileStore</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">function</span> <span class="nx">_getFromCache</span><span class="p">(</span><span class="nx">filename</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// internal function to attempt a retrieval from cache table
+</span><span class="c1"></span>    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">_saveToCache</span><span class="p">(</span><span class="nx">filename</span><span class="p">,</span> <span class="nx">base64</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// internal function to store a file in the local cache
+</span><span class="c1"></span>    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">_getFromWebService</span><span class="p">(</span><span class="nx">filename</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// internal function to get a file from web service
+</span><span class="c1"></span>    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">_saveToWebService</span><span class="p">(</span><span class="nx">filename</span><span class="p">,</span> <span class="nx">base64</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// internal function to save file to web service
+</span><span class="c1"></span>    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">_saveLocalFileMetaData</span><span class="p">(</span><span class="nx">filename</span><span class="p">,</span> <span class="nx">filemeta</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// internal function to store web service retrieval location, correlation id&#39;s etc
+</span><span class="c1"></span>    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">getFile</span><span class="p">(</span><span class="nx">filename</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kd">var</span> <span class="nx">file</span> <span class="o">=</span> <span class="nx">_getFromCache</span><span class="p">(</span><span class="nx">filename</span><span class="p">);</span>
+
+      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">file</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">file</span> <span class="o">=</span> <span class="nx">_getFromWebService</span><span class="p">(</span><span class="nx">filename</span><span class="p">);</span>
+        <span class="nx">_saveToCache</span><span class="p">(</span><span class="nx">filename</span><span class="p">,</span> <span class="nx">file</span><span class="p">);</span>
+      <span class="p">}</span>
+
+      <span class="k">return</span> <span class="nx">file</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">saveFile</span><span class="p">(</span><span class="nx">filename</span><span class="p">,</span> <span class="nx">base64</span><span class="p">)</span> <span class="p">{</span>
+      <span class="kd">var</span> <span class="nx">meta</span> <span class="o">=</span> <span class="nx">_saveToWebService</span><span class="p">(</span><span class="nx">filename</span><span class="p">,</span> <span class="nx">base64</span><span class="p">);</span>
+      <span class="nx">_saveLocalFileMetaData</span><span class="p">(</span><span class="nx">filename</span><span class="p">,</span> <span class="nx">meta</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="s1">&#39;getFile&#39;</span><span class="o">:</span> <span class="nx">getFile</span><span class="p">,</span>
+      <span class="s1">&#39;saveFile&#39;</span><span class="o">:</span> <span class="nx">saveFile</span>
+    <span class="p">};</span>
+  <span class="p">})();</span>
+</code></pre></div>
+<p>The core aspect of the Revealing Module Pattern is the use of a closure which returns the public interface for the API. In our example, the public interface includes both the getFile and saveFile functions. But under the hood, you can see many internal functions which are not accessible to the outside world. In fact, the outside world doesn&rsquo;t even know they exist. The Class Pattern and Namespace Pattern have no similar capability, all functions and properties are considered public.</p>
+
+<p>In the above implementation, we used the IIFE to yield a Namespace Pattern like interface which can be called as follows:</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">FileStore</span><span class="p">.</span><span class="nx">getFile</span><span class="p">(</span><span class="s1">&#39;filename&#39;</span><span class="p">);</span>
+<span class="nx">FileStore</span><span class="p">.</span><span class="nx">saveFile</span><span class="p">(</span><span class="s1">&#39;filename&#39;</span><span class="p">,</span> <span class="s1">&#39;Base64 encoded string representing the file data&#39;</span><span class="p">);</span>
+</code></pre></div>
+<p>We can also imitate the Function Pattern and Class Pattern by using a Constructor Function instead of the IIFE:</p>
+
+<h3 id="script-include-constructor-function-approach">Script Include: Constructor Function Approach</h3>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">FileStore</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">filename</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">function</span> <span class="nx">_getFromCache</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// internal function to attempt a retrieval from cache table
+</span><span class="c1"></span>  <span class="p">}</span>
+
+  <span class="kd">function</span> <span class="nx">_saveToCache</span><span class="p">(</span><span class="nx">base64</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// internal function to store a file in the local cache
+</span><span class="c1"></span>  <span class="p">}</span>
+
+  <span class="kd">function</span> <span class="nx">_getFromWebService</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// internal function to get a file from web service
+</span><span class="c1"></span>  <span class="p">}</span>
+
+  <span class="kd">function</span> <span class="nx">_saveToWebService</span><span class="p">(</span><span class="nx">base64</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// internal function to save file to web service
+</span><span class="c1"></span>  <span class="p">}</span>
+
+  <span class="kd">function</span> <span class="nx">_saveLocalFileMetaData</span><span class="p">(</span><span class="nx">filemeta</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// internal function to store web service retrieval location, correlation id&#39;s etc
+</span><span class="c1"></span>  <span class="p">}</span>
+
+  <span class="kd">function</span> <span class="nx">getFile</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">file</span> <span class="o">=</span> <span class="nx">_getFromCache</span><span class="p">();</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">file</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">file</span> <span class="o">=</span> <span class="nx">_getFromWebService</span><span class="p">();</span>
+      <span class="nx">_saveToCache</span><span class="p">(</span><span class="nx">file</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="nx">file</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kd">function</span> <span class="nx">saveFile</span><span class="p">(</span><span class="nx">base64</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">meta</span> <span class="o">=</span> <span class="nx">_saveToWebService</span><span class="p">(</span><span class="nx">base64</span><span class="p">);</span>
+    <span class="nx">_saveLocalFileMetaData</span><span class="p">(</span><span class="nx">meta</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="p">{</span>
+    <span class="s1">&#39;getFile&#39;</span><span class="o">:</span> <span class="nx">getFile</span><span class="p">,</span>
+    <span class="s1">&#39;saveFile&#39;</span><span class="o">:</span> <span class="nx">saveFile</span>
+  <span class="p">};</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>The Constructor Function allows us to pass parameters that are accessible to all functions within the closure. Similarly, functions can also share internal variables defined within the closure. Once again, the Class Pattern has no similar ability to maintain internal, private state: all state is completely public.</p>
+
+<p>Here is how this this variation is used:</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">FileStore</span><span class="p">(</span><span class="s1">&#39;filename&#39;</span><span class="p">);</span>
+<span class="nx">fs</span><span class="p">.</span><span class="nx">getFile</span><span class="p">();</span>
+<span class="nx">fs</span><span class="p">.</span><span class="nx">saveFile</span><span class="p">(</span><span class="s1">&#39;Base64 encoded string representing the file data&#39;</span><span class="p">);</span>
+
+<span class="c1">// OR, use the new keyword which opens up the ability to use public state variables by using the &#39;this&#39; keyword in the closure
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">fs</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FileStore</span><span class="p">(</span><span class="s1">&#39;filename&#39;</span><span class="p">);</span>
+<span class="nx">fs</span><span class="p">.</span><span class="nx">getFile</span><span class="p">();</span>
+<span class="nx">fs</span><span class="p">.</span><span class="nx">saveFile</span><span class="p">(</span><span class="s1">&#39;Base64 encoded string representing the file data&#39;</span><span class="p">);</span>
+</code></pre></div>
+<h2 id="advantages">Advantages</h2>
+
+<ol>
+<li>Most similar to the traditional Class Pattern</li>
+<li>Allows for private functions and private state variables</li>
+<li>Can allow hiding complex behavior or intellectual property in Scoped Apps</li>
+<li>Clarifies the intent of the API by explicitly defining the public interface</li>
+<li>Can be repurposed to return any of the previously mentioned Patterns yielding the advantages of other patterns while mitigating the disadvantages.</li>
+</ol>
+
+<h2 id="disadvantages">Disadvantages</h2>
+
+<ol>
+<li>Technically, it executes slower than the traditional Class Pattern (the difference is negligible unless you are operating at a scale where every ms counts)</li>
+<li>Closures are often considered a complex subject in Javascript and may be difficult to understand for beginner developers.</li>
+</ol>
+
+      </div>
+
+      <a class="u-url" href="/blog/interface-design-patterns-revealing-module-pattern" hidden></a>
+    </article><div class="subscribe-form">
+  
+  <div id="mc_embed_signup">
+    <form action="https://codecreative.us14.list-manage.com/subscribe/post?u=98c1070493fa133df8ea08394&amp;id=f759c17295" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+      <div id="mc_embed_signup_scroll">
+        <h2>Subscribe</h2>
+        <div class="subtext">Sign up with your email address to receive news and updates.</div>
+        <div>
+          <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Email Address" required>
+
+          
+          <div class="sr-only" aria-hidden="true">
+            <input type="text" name="b_98c1070493fa133df8ea08394_f759c17295" tabindex="-1" value="">
+          </div>
+
+          <input type="submit" value="Sign Up" name="subscribe" id="mc-embedded-subscribe" class="button">
+        </div>
+      </div>
+    </form>
+  </div>
+  
+</div>
+</div>
+
+      </main><footer>
+  <div class="footer-content-wrap">
+    <p class="text-align-center">
+      <a href="/servicenow">Blog</a>
+      &nbsp;|&nbsp;
+      <a href="/about">About</a>
+      &nbsp;|&nbsp;
+      <a href="/contact">Contact</a>
+    </p>
+    <div class="text-align-center">
+      
+    </div>
+  </div>
+</footer>
+<script type="text/javascript" src="/assets/main.js"></script>
+</body>
+</html>

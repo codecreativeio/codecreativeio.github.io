@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Julius+Sans+One|Slabo+13px|Open+Sans:300" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://codecreative.io/assets/main.min.d206194abbd1ce5a0ca819b68f103dc21cb08c4864ac772c71d5e60a0e10d86e.css">
+<title>Interface Design Patterns: Global Include Pattern | CodeCreative | A ServiceNow Blog</title>
+<meta name="description" content="The Global Include pattern is simply a way of running a script file held in a Script Include. It is an odd, powerful, and potentially dangerous tool that allows for many different purposes such as monkey patching.">
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?d=20181101201248">
+<link rel="canonical" href="https://codecreative.io/blog/interface-design-patterns-global-include-pattern/"><meta property="og:site_name" content="CodeCreative | A ServiceNow Blog">
+<meta property="og:title" content="Interface Design Patterns: Global Include Pattern">
+<meta property="og:url" content="https://codecreative.io/blog/interface-design-patterns-global-include-pattern/">
+
+<meta property="og:type" content="article">
+
+<meta property="og:description" content="The Global Include pattern is simply a way of running a script file held in a Script Include. It is an odd, powerful, and potentially dangerous tool that allows for many different purposes such as monkey patching.">
+
+<meta property="og:image" content="https://codecreative.io/blog/interface-design-patterns-global-include-pattern/images/social.png">
+
+<meta itemprop="name" content="Interface Design Patterns: Global Include Pattern">
+<meta itemprop="url" content="https://codecreative.io/blog/interface-design-patterns-global-include-pattern/">
+<meta itemprop="description" content="The Global Include pattern is simply a way of running a script file held in a Script Include. It is an odd, powerful, and potentially dangerous tool that allows for many different purposes such as monkey patching.">
+
+<meta itemprop="thumbnailUrl" content="https://codecreative.io/blog/interface-design-patterns-global-include-pattern/images/social.png">
+<link rel="image_src" href="https://codecreative.io/blog/interface-design-patterns-global-include-pattern/images/social.png">
+<meta itemprop="image" content="https://codecreative.io/blog/interface-design-patterns-global-include-pattern/images/social.png">
+
+
+<meta name="twitter:title" content="Interface Design Patterns: Global Include Pattern">
+<meta name="twitter:image" content="https://codecreative.io/blog/interface-design-patterns-global-include-pattern/images/social.png">
+<meta name="twitter:url" content="https://codecreative.io/blog/interface-design-patterns-global-include-pattern/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:description" content="The Global Include pattern is simply a way of running a script file held in a Script Include. It is an odd, powerful, and potentially dangerous tool that allows for many different purposes such as monkey patching.">
+
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-90280965-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-90280965-1');
+</script>
+
+<script type="application/ld+json">
+{
+    "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https://codecreative.io/"
+    },
+    "name" : "Interface Design Patterns: Global Include Pattern",
+    "headline" : "Interface Design Patterns: Global Include Pattern",
+    "description" : "The Global Include pattern is simply a way of running a script file held in a Script Include. It is an odd, powerful, and potentially dangerous tool that allows for many different purposes such as monkey patching.","image": "https://codecreative.io/blog/interface-design-patterns-global-include-pattern/images/social.png","inLanguage" : "en-US",
+      "author" : "Travis Toulson",
+      "creator" : "Travis Toulson","publisher": "Travis Toulson",
+    "copyrightHolder" : "Travis Toulson",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-01-15 19:23:43 &#43;0000 UTC",
+    "dateModified" : "2019-01-15 19:23:43 &#43;0000 UTC",
+    "url" : "https://codecreative.io/blog/interface-design-patterns-global-include-pattern/",
+    "wordCount" : "790",
+    "keywords" : [ "Blog" ]
+}
+</script>
+
+
+  </head>
+  <body><header role="banner">
+  <h1 class="logo">
+      <a href="/">
+         <img src="/assets/codecreativelogo.png" alt="Interface Design Patterns: Global Include Pattern" />
+         <span class="sr-only">CodeCreative Logo, click to navigate home</span>
+      </a>
+    </h1>
+
+  <div class="menuToggle">
+    <button class="hamburger" type="button" onclick="toggleMenu()">
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+      <span class="sr-only">Toggle Menu</span>
+    </button>
+  </div>
+
+  <nav class="fullNav">
+    <ul>
+      
+      
+        <li title="Home">
+          <a class="" href="/">Home</a>
+        </li>
+      
+        <li title="Blog">
+          <a class="" href="/blog/">Blog</a>
+        </li>
+      
+        <li title="About">
+          <a class="" href="/about/">About</a>
+        </li>
+      
+        <li title="Contact">
+          <a class="" href="/contact/">Contact</a>
+        </li>
+      
+    </ul>
+  </nav>
+</header>
+<main>
+  <header class="banner">
+    <h1>Interface Design Patterns: Global Include Pattern</h1>
+  </header>
+
+  <div class="content text-content">
+    <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+      <header class="post-header">
+        <h1 class="post-title p-name sr-only" itemprop="name headline">Interface Design Patterns: Global Include Pattern</h1>
+        <p class="post-meta">
+            <time class="dt-published" datetime="2019-01-15T19:23:43Z" itemprop="datePublished">
+            January 15, 2019
+            </time>
+          
+            
+            • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">Travis Toulson</span></span>
+          
+        </p>
+      </header>
+
+      <div class="post-content e-content" itemprop="articleBody">
+        
+
+<p><a href="/blog/interface-design-patterns-for-script-includes">Back to Interface Design Patterns for Script Includes</a></p>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>The Global Include pattern is simply a way of running a script file held in a Script Include. It is an odd, powerful, and potentially <strong>dangerous</strong> tool that allows for many different purposes from leveraging external javascript libraries to importing a collection of functions into the global scope, to monkey patching.</p>
+
+<p>One of the most useful purposes is monkey patching which allows us to modify behaviors of existing Script Includes and even ServiceNow provided classes. One example is provided by the esteemed Steve Bell in <a href="https://community.servicenow.com/community?id=community_blog&amp;sys_id=b96c2ea1dbd0dbc01dcaf3231f9619b9">Mini-Lab Extending the GlideRecord Object</a>.</p>
+
+<p>But there is one other <strong>big</strong> use case: cross-cutting concerns such as logging (and other Aspect-Oriented Programming topics).</p>
+
+<h2 id="problem-definition">Problem Definition</h2>
+
+<p>The development team needs to add logging to various Script Includes, in particular their KBArticles script. The team is concerned that adding this logging will negatively impact readability of the core logic and would prefer to separate the logging from the core script as much as possible. Ideally, this logging can be turned on and off.</p>
+
+<p><strong>Warning!!!!  Do not try this with out of box objects such as GlideRecord. Your instance will likely break, requiring a restart</strong></p>
+
+<h2 id="example-solution">Example Solution</h2>
+
+<p>For this solution, we will need a few things:</p>
+
+<ol>
+<li>A Global Include Patterned Script Include that injects logging</li>
+<li>A KBArticles Script Include into which logging is injected</li>
+<li>A Background Script to demonstrate logging turned on</li>
+<li>A Background Script to demonstrate logging turned off</li>
+</ol>
+
+<h3 id="script-include-global-include-pattern">Script Include: Global Include Pattern</h3>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js">  <span class="kd">function</span> <span class="nx">wrapWithLogging</span><span class="p">(</span><span class="nx">fn</span><span class="p">,</span> <span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">gs</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Call &#39;</span> <span class="o">+</span> <span class="nx">name</span><span class="p">);</span>
+        <span class="nx">fn</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">arguments</span><span class="p">);</span>
+        <span class="nx">gs</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;End &#39;</span> <span class="o">+</span> <span class="nx">name</span><span class="p">);</span>
+    <span class="p">};</span>
+  <span class="p">}</span>
+
+  <span class="nx">KBArticles</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">publish</span> <span class="o">=</span> <span class="nx">wrapWithLogging</span><span class="p">(</span><span class="nx">KBArticles</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">publish</span><span class="p">,</span> <span class="s1">&#39;publish&#39;</span><span class="p">);</span>
+  <span class="nx">KBArticles</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">retire</span> <span class="o">=</span> <span class="nx">wrapWithLogging</span><span class="p">(</span><span class="nx">KBArticles</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">retire</span><span class="p">,</span> <span class="s1">&#39;retire&#39;</span><span class="p">);</span>
+</code></pre></div>
+<p>Wait, where&rsquo;s the class?  Where are the functions?  The Global Include Pattern doesn&rsquo;t have to contain anything we are accustomed to seeing. It can be a plain ol script executed from start to finish. In this case, we are using a Javascript closure (wrapWithLogging and its inner function) to wrap the behavior of the KBArticles.publish and KBArticles.retire functions.</p>
+
+<p>But how does this behavior get injected?  Let&rsquo;s take a look at KBArticles:</p>
+
+<h3 id="script-include-kbarticles">Script Include: KBArticles</h3>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">KBArticles</span> <span class="o">=</span> <span class="nx">Class</span><span class="p">.</span><span class="nx">create</span><span class="p">();</span>
+<span class="nx">KBArticles</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">logOutput</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">logOutput</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">gs</span><span class="p">.</span><span class="nx">include</span><span class="p">(</span><span class="s1">&#39;KBArticlesLog&#39;</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+
+    <span class="nx">publish</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">kb</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s1">&#39;Publish the Article!&#39;</span><span class="p">);</span>
+    <span class="p">},</span>
+
+    <span class="nx">retire</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">kb</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s1">&#39;Retire the Article :(&#39;</span><span class="p">);</span>
+    <span class="p">},</span>
+
+    <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;KBArticles&#39;</span>
+<span class="p">};</span>
+</code></pre></div>
+<p>The KBArticles Script Include is a fairly straight forward <a href="/blog/interface-design-patterns-class-pattern">Class Pattern</a> with a publish and retire function. If you pay close attention to the initialize function, it will execute our Global Include via gs.include if logOutput is passed as true to the constructor.</p>
+
+<p>This means we can easily add quite a bit of logging, including logging function arguments, to KBArticles with only a couple lines of code in the initialize function. Perfectly readable and completely instrumented!</p>
+
+<p>Let&rsquo;s run a couple background scripts to see how it works:</p>
+
+<h3 id="background-script-1-logging-off">Background Script 1: Logging Off</h3>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">kb</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">KBArticles</span><span class="p">();</span>
+<span class="nx">kb</span><span class="p">.</span><span class="nx">publish</span><span class="p">();</span>
+<span class="nx">kb</span><span class="p">.</span><span class="nx">retire</span><span class="p">();</span>
+
+<span class="cm">/*
+</span><span class="cm">Result:
+</span><span class="cm">*** Script: Publish the Article!
+</span><span class="cm">*** Script: Retire the Article :(
+</span><span class="cm">*/</span>
+</code></pre></div>
+<p>With logging turned off (no paramters or false parameter passed to the constructor), we only get the output of the publish and retire functions. None of the instrumented logging shows up.</p>
+
+<h3 id="background-script-2-logging-on">Background Script 2: Logging On</h3>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">kb</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">KBArticles</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+<span class="nx">kb</span><span class="p">.</span><span class="nx">publish</span><span class="p">();</span>
+<span class="nx">kb</span><span class="p">.</span><span class="nx">retire</span><span class="p">();</span>
+
+<span class="cm">/*
+</span><span class="cm">Result:
+</span><span class="cm">*** Script: Call publish
+</span><span class="cm">*** Script: Publish the Article!
+</span><span class="cm">*** Script: End publish
+</span><span class="cm">*** Script: Call retire
+</span><span class="cm">*** Script: Retire the Article :(
+</span><span class="cm">*** Script: End retire
+</span><span class="cm">*/</span>
+</code></pre></div>
+<p>With logging turned on, we get the fully enhanced behavior as injected by the KBArticlesLog Global Include. Now imagine the on/off switch being powered by a System Property.</p>
+
+<p>This is just the tip of the iceberg for what this pattern can accomplish. Consider any number of the following cross-cutting behaviors:
+  1. Logging
+  2. Capturing Metrics and Statistics
+  3. Adding additional functions to an object (Plugin / Mixin)
+  4. Polyfill (Get those ES6 functions before ServiceNow adds ES6 support)
+  5. Stopwatch / Performance Management
+  6. As a general purpose Decorator Pattern</p>
+
+<h2 id="advantages">Advantages</h2>
+
+<ol>
+<li>Requires an explicit import which none of the other patterns require</li>
+<li>Allows injection of behavior into other scripts without interfering with the readability of the core logic</li>
+<li>Very flexible pattern that can have many potential uses</li>
+<li>Can help keep other scripts shorter and more readable<br /></li>
+</ol>
+
+<h2 id="disadvantages">Disadvantages</h2>
+
+<ol>
+<li>Isn&rsquo;t clear about what is being imported (everything is imported into the global object)</li>
+<li>When used on Objects that live across multiple transactions (such as GlideRecord and other ServiceNow Java Classes), the short lived nature of Script Includes can cause errors that can only be fixed by restarting the server</li>
+<li>Overuse can cause code to be scattered and developer intent to be unclear</li>
+<li>Most uses can be replaced by Object Oriented patterns and Functional Patterns such as the Decorator Pattern, Chain of Responsibility, and basic Composition.</li>
+</ol>
+
+      </div>
+
+      <a class="u-url" href="/blog/interface-design-patterns-global-include-pattern" hidden></a>
+    </article><div class="subscribe-form">
+  
+  <div id="mc_embed_signup">
+    <form action="https://codecreative.us14.list-manage.com/subscribe/post?u=98c1070493fa133df8ea08394&amp;id=f759c17295" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+      <div id="mc_embed_signup_scroll">
+        <h2>Subscribe</h2>
+        <div class="subtext">Sign up with your email address to receive news and updates.</div>
+        <div>
+          <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Email Address" required>
+
+          
+          <div class="sr-only" aria-hidden="true">
+            <input type="text" name="b_98c1070493fa133df8ea08394_f759c17295" tabindex="-1" value="">
+          </div>
+
+          <input type="submit" value="Sign Up" name="subscribe" id="mc-embedded-subscribe" class="button">
+        </div>
+      </div>
+    </form>
+  </div>
+  
+</div>
+</div>
+
+      </main><footer>
+  <div class="footer-content-wrap">
+    <p class="text-align-center">
+      <a href="/servicenow">Blog</a>
+      &nbsp;|&nbsp;
+      <a href="/about">About</a>
+      &nbsp;|&nbsp;
+      <a href="/contact">Contact</a>
+    </p>
+    <div class="text-align-center">
+      
+    </div>
+  </div>
+</footer>
+<script type="text/javascript" src="/assets/main.js"></script>
+</body>
+</html>
