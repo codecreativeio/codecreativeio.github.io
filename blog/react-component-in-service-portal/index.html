@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Julius+Sans+One|Slabo+13px|Open+Sans:300" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://codecreative.io/assets/main.min.d206194abbd1ce5a0ca819b68f103dc21cb08c4864ac772c71d5e60a0e10d86e.css">
+<title>React Component in Service Portal | CodeCreative | A ServiceNow Blog</title>
+<meta name="description" content="So once again I am hearing rumors that React may be coming to Service Portal. But what if it&#39;s already possible to use React within Widgets.">
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?d=20181101201248">
+<link rel="canonical" href="https://codecreative.io/blog/react-component-in-service-portal/"><meta property="og:site_name" content="CodeCreative | A ServiceNow Blog">
+<meta property="og:title" content="React Component in Service Portal">
+<meta property="og:url" content="https://codecreative.io/blog/react-component-in-service-portal/">
+
+<meta property="og:type" content="article">
+
+<meta property="og:description" content="So once again I am hearing rumors that React may be coming to Service Portal. But what if it&#39;s already possible to use React within Widgets.">
+
+<meta property="og:image" content="https://codecreative.io/blog/react-component-in-service-portal/images/social.png">
+
+<meta itemprop="name" content="React Component in Service Portal">
+<meta itemprop="url" content="https://codecreative.io/blog/react-component-in-service-portal/">
+<meta itemprop="description" content="So once again I am hearing rumors that React may be coming to Service Portal. But what if it&#39;s already possible to use React within Widgets.">
+
+<meta itemprop="thumbnailUrl" content="https://codecreative.io/blog/react-component-in-service-portal/images/social.png">
+<link rel="image_src" href="https://codecreative.io/blog/react-component-in-service-portal/images/social.png">
+<meta itemprop="image" content="https://codecreative.io/blog/react-component-in-service-portal/images/social.png">
+
+
+<meta name="twitter:title" content="React Component in Service Portal">
+<meta name="twitter:image" content="https://codecreative.io/blog/react-component-in-service-portal/images/social.png">
+<meta name="twitter:url" content="https://codecreative.io/blog/react-component-in-service-portal/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:description" content="So once again I am hearing rumors that React may be coming to Service Portal. But what if it&#39;s already possible to use React within Widgets.">
+
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-90280965-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-90280965-1');
+</script>
+
+<script type="application/ld+json">
+{
+    "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https://codecreative.io/"
+    },
+    "name" : "React Component in Service Portal",
+    "headline" : "React Component in Service Portal",
+    "description" : "So once again I am hearing rumors that React may be coming to Service Portal. But what if it&#39;s already possible to use React within Widgets.","image": "https://codecreative.io/blog/react-component-in-service-portal/images/social.png","inLanguage" : "en-US",
+      "author" : "Travis Toulson",
+      "creator" : "Travis Toulson","publisher": "Travis Toulson",
+    "copyrightHolder" : "Travis Toulson",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-01-22 14:16:59 &#43;0000 UTC",
+    "dateModified" : "2019-01-22 14:16:59 &#43;0000 UTC",
+    "url" : "https://codecreative.io/blog/react-component-in-service-portal/",
+    "wordCount" : "673",
+    "keywords" : [ "Blog" ]
+}
+</script>
+
+
+  </head>
+  <body><header role="banner">
+  <h1 class="logo">
+      <a href="/">
+         <img src="/assets/codecreativelogo.png" alt="React Component in Service Portal" />
+         <span class="sr-only">CodeCreative Logo, click to navigate home</span>
+      </a>
+    </h1>
+
+  <div class="menuToggle">
+    <button class="hamburger" type="button" onclick="toggleMenu()">
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+      <span class="sr-only">Toggle Menu</span>
+    </button>
+  </div>
+
+  <nav class="fullNav">
+    <ul>
+      
+      
+        <li title="Home">
+          <a class="" href="/">Home</a>
+        </li>
+      
+        <li title="Blog">
+          <a class="" href="/blog/">Blog</a>
+        </li>
+      
+        <li title="About">
+          <a class="" href="/about/">About</a>
+        </li>
+      
+        <li title="Contact">
+          <a class="" href="/contact/">Contact</a>
+        </li>
+      
+    </ul>
+  </nav>
+</header>
+<main>
+  <header class="banner">
+    <h1>React Component in Service Portal</h1>
+  </header>
+
+  <div class="content text-content">
+    <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+      <header class="post-header">
+        <h1 class="post-title p-name sr-only" itemprop="name headline">React Component in Service Portal</h1>
+        <p class="post-meta">
+            <time class="dt-published" datetime="2019-01-22T14:16:59Z" itemprop="datePublished">
+            January 22, 2019
+            </time>
+          
+            
+            • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">Travis Toulson</span></span>
+          
+        </p>
+      </header>
+
+      <div class="post-content e-content" itemprop="articleBody">
+        
+
+<p>So once again I am hearing rumors that React may be coming to Service Portal. I know many folks who were upset with the use of AngularJS in Service Portal and even with the general lack of modern frameworks built into ServiceNow. But what if the future was now (thanks to science)?</p>
+
+<p>Well, today I spent some time at lunch exploring that possibility and it turns out React may have been able to work within Service Portal just fine all along.</p>
+
+<h2 id="the-plan">The Plan</h2>
+
+<p>I needed something simple to try so I grabbed the <a href="https://reactjs.org/">ToDo</a> application component on the React homepage and some instructions from the <a href="https://reactjs.org/docs/add-react-to-a-website.html">React docs</a>.</p>
+
+<p>The plan was simple, run the Todo app React component as a Widget in Service Portal.</p>
+
+<h2 id="step-1-add-react-to-the-portal">Step 1: Add React to the Portal</h2>
+
+<figure>
+  <img src="images/Add React to Theme.png" />
+  <figcaption>
+    Add React to Portal Theme
+  </figcaption>
+</figure>
+
+<p>First, I needed to include the React libraries in the Portal. This is easier than it sounds since Service Portal allows us to include external JS libraries on the Theme record.</p>
+
+<p>Opening the Stock Theme allowed me to add two React JS Includes in the Related List:</p>
+
+<ul>
+<li><a href="https://unpkg.com/react@16/umd/react.development.js">https://unpkg.com/react@16/umd/react.development.js</a></li>
+<li><a href="https://unpkg.com/react-dom@16/umd/react-dom.development.js">https://unpkg.com/react-dom@16/umd/react-dom.development.js</a></li>
+</ul>
+
+<h2 id="step-2-create-a-new-widget">Step 2: Create a New Widget</h2>
+
+<figure>
+  <img src="images/React Widget Code.png" />
+  <figcaption>
+    Code for React Powered Widget
+  </figcaption>
+</figure>
+
+<p>Next, I created a New Widget using the Widget Editor UI that I aptly named React Test. In this case, I chose to create a test page called react_test to make experimenting a little easier.</p>
+
+<p>I pasted the ToDo component script from the React homepage into the Client Script block. I had to remove the JSX checkbox since ServiceNow doesn&rsquo;t (publicly at least) support JSX parsing.</p>
+
+<p>I made one little tweak in that I passed a title variable from the outer function (Angular Controller) to the React Component just to demonstrate that data can be passed.</p>
+
+<p>I also added one line of CSS to show that the Widget CSS will apply to the React component.</p>
+
+<p>Here are the resulting scripts:</p>
+
+<p><strong>HTML Template</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;todos-example&#34;</span><span class="p">/&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span></code></pre></div>
+<p><strong>CSS - SCSS</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="nt">label</span> <span class="p">{</span>
+    <span class="k">display</span><span class="p">:</span> <span class="kc">block</span><span class="p">;</span>
+<span class="p">}</span></code></pre></div>
+<p><strong>Client Script</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="cm">/* widget controller */</span>
+
+    <span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+
+    <span class="nx">c</span><span class="p">.</span><span class="nx">title</span> <span class="o">=</span> <span class="s2">&#34;To do app&#34;</span><span class="p">;</span>
+
+  <span class="k">class</span> <span class="nx">TodoApp</span> <span class="k">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+  <span class="nx">constructor</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">super</span><span class="p">(</span><span class="nx">props</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">state</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">items</span><span class="o">:</span> <span class="p">[],</span> <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;&#39;</span> <span class="p">};</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">handleChange</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">handleChange</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">handleSubmit</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">handleSubmit</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span>
+      <span class="s2">&#34;div&#34;</span><span class="p">,</span>
+      <span class="kc">null</span><span class="p">,</span>
+      <span class="nx">React</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span>
+        <span class="s2">&#34;h3&#34;</span><span class="p">,</span>
+        <span class="kc">null</span><span class="p">,</span>
+        <span class="nx">c</span><span class="p">.</span><span class="nx">title</span>
+      <span class="p">),</span>
+      <span class="nx">React</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="nx">TodoList</span><span class="p">,</span> <span class="p">{</span> <span class="nx">items</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">items</span> <span class="p">}),</span>
+      <span class="nx">React</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span>
+        <span class="s2">&#34;form&#34;</span><span class="p">,</span>
+        <span class="p">{</span> <span class="nx">onSubmit</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">handleSubmit</span> <span class="p">},</span>
+        <span class="nx">React</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span>
+          <span class="s2">&#34;label&#34;</span><span class="p">,</span>
+          <span class="p">{</span> <span class="nx">htmlFor</span><span class="o">:</span> <span class="s2">&#34;new-todo&#34;</span> <span class="p">},</span>
+          <span class="s2">&#34;What needs to be done?&#34;</span>
+        <span class="p">),</span>
+        <span class="nx">React</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">&#34;input&#34;</span><span class="p">,</span> <span class="p">{</span>
+          <span class="nx">id</span><span class="o">:</span> <span class="s2">&#34;new-todo&#34;</span><span class="p">,</span>
+          <span class="nx">onChange</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">handleChange</span><span class="p">,</span>
+          <span class="nx">value</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">text</span>
+        <span class="p">}),</span>
+        <span class="nx">React</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span>
+          <span class="s2">&#34;button&#34;</span><span class="p">,</span>
+          <span class="kc">null</span><span class="p">,</span>
+          <span class="s2">&#34;Add #&#34;</span><span class="p">,</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nx">length</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="p">)</span>
+      <span class="p">)</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">handleChange</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span> <span class="nx">text</span><span class="o">:</span> <span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">value</span> <span class="p">});</span>
+  <span class="p">}</span>
+
+  <span class="nx">handleSubmit</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">text</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">const</span> <span class="nx">newItem</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="nx">text</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">text</span><span class="p">,</span>
+      <span class="nx">id</span><span class="o">:</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span>
+    <span class="p">};</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">(</span><span class="nx">state</span> <span class="p">=&gt;</span> <span class="p">({</span>
+      <span class="nx">items</span><span class="o">:</span> <span class="nx">state</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="nx">newItem</span><span class="p">),</span>
+      <span class="nx">text</span><span class="o">:</span> <span class="s1">&#39;&#39;</span>
+    <span class="p">}));</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">class</span> <span class="nx">TodoList</span> <span class="k">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span>
+      <span class="s2">&#34;ul&#34;</span><span class="p">,</span>
+      <span class="kc">null</span><span class="p">,</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">items</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">item</span> <span class="p">=&gt;</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span>
+        <span class="s2">&#34;li&#34;</span><span class="p">,</span>
+        <span class="p">{</span> <span class="nx">key</span><span class="o">:</span> <span class="nx">item</span><span class="p">.</span><span class="nx">id</span> <span class="p">},</span>
+        <span class="nx">item</span><span class="p">.</span><span class="nx">text</span>
+      <span class="p">))</span>
+    <span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">ReactDOM</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="nx">React</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="nx">TodoApp</span><span class="p">,</span> <span class="kc">null</span><span class="p">),</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;todos-example&#39;</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="test-it-out">Test it Out</h2>
+
+<figure>
+  <img src="images/Test the React Widget.png" />
+  <figcaption>
+    React Widget Rendered in the Service Portal
+  </figcaption>
+</figure>
+
+<p>At that point I opened my react_test page and was able to confirm that the component works exactly the same as it does on the React Homepage.</p>
+
+<h2 id="next-steps">Next Steps</h2>
+
+<p>This was a pretty simple test and with React Widgets possibly coming to ServiceNow natively, it may not be worth exploring this too much further.</p>
+
+<p>That said, for this to be truly useful we would ideally want to bind Widget data, options, and server objects from the Angular Scope to the React Component to really give this setup legs. I can easily see ServiceNow implementing an Angular directive under the hood to create these bindings and support React Component powered Widgets moving forward.</p>
+
+<p>I&rsquo;m betting similar can be done for other view libraries as well.</p>
+
+<h2 id="bonus">Bonus</h2>
+
+<p>For those who would rather scrap the Service Portal lifting all together in favor of a React, Vue, or other library based toolchain on ServiceNow:</p>
+
+<p><a href="downloads/react_widget_update_set.zip">Download the Update Set</a> which includes the Widget example and a Custom Processor example. I used the processor approach pre-Service Portal to create an AngularJS based toolchain.</p>
+
+      </div>
+
+      <a class="u-url" href="/blog/react-component-in-service-portal" hidden></a>
+    </article><div class="subscribe-form">
+  
+  <div id="mc_embed_signup">
+    <form action="https://codecreative.us14.list-manage.com/subscribe/post?u=98c1070493fa133df8ea08394&amp;id=f759c17295" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+      <div id="mc_embed_signup_scroll">
+        <h2>Subscribe</h2>
+        <div class="subtext">Sign up with your email address to receive news and updates.</div>
+        <div>
+          <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Email Address" required>
+
+          
+          <div class="sr-only" aria-hidden="true">
+            <input type="text" name="b_98c1070493fa133df8ea08394_f759c17295" tabindex="-1" value="">
+          </div>
+
+          <input type="submit" value="Sign Up" name="subscribe" id="mc-embedded-subscribe" class="button">
+        </div>
+      </div>
+    </form>
+  </div>
+  
+</div>
+</div>
+
+      </main><footer>
+  <div class="footer-content-wrap">
+    <p class="text-align-center">
+      <a href="/servicenow">Blog</a>
+      &nbsp;|&nbsp;
+      <a href="/about">About</a>
+      &nbsp;|&nbsp;
+      <a href="/contact">Contact</a>
+    </p>
+    <div class="text-align-center">
+      
+    </div>
+  </div>
+</footer>
+<script type="text/javascript" src="/assets/main.js"></script>
+</body>
+</html>
