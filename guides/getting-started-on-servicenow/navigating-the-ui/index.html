@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+  <head><meta charset="utf-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Julius+Sans+One|Slabo+13px|Open+Sans:300" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+<link rel="stylesheet" href="https://codecreative.io/assets/main.min.89ccf047fd57f3ef4acadb519befb792b78ff0f547ecc764de06c48b177aaeb5.css">
+<title>Exercise: Navigating the UI | CodeCreative | A ServiceNow Blog</title>
+<meta name="description" content="Now that we have a Personal Developer Instance, let&#39;s learn how to get around and handle the basics of using ServiceNow. These techniques will set the foundation for everything else you can do with ServiceNow.">
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?d=20181101201248">
+<link rel="canonical" href="https://codecreative.io/guides/getting-started-on-servicenow/navigating-the-ui/"><meta property="og:site_name" content="CodeCreative | A ServiceNow Blog">
+<meta property="og:title" content="Exercise: Navigating the UI">
+<meta property="og:url" content="https://codecreative.io/guides/getting-started-on-servicenow/navigating-the-ui/">
+
+<meta property="og:type" content="article">
+
+<meta property="og:description" content="Now that we have a Personal Developer Instance, let&#39;s learn how to get around and handle the basics of using ServiceNow. These techniques will set the foundation for everything else you can do with ServiceNow.">
+
+  
+    <meta property="og:image" content="https://codecreative.io/guides/getting-started-on-servicenow/social.png">
+  
+
+<meta itemprop="name" content="Exercise: Navigating the UI">
+<meta itemprop="url" content="https://codecreative.io/guides/getting-started-on-servicenow/navigating-the-ui/">
+<meta itemprop="description" content="Now that we have a Personal Developer Instance, let&#39;s learn how to get around and handle the basics of using ServiceNow. These techniques will set the foundation for everything else you can do with ServiceNow.">
+
+  
+  <meta itemprop="thumbnailUrl" content="https://codecreative.io/guides/getting-started-on-servicenow/social.png">
+  <link rel="image_src" href="https://codecreative.io/guides/getting-started-on-servicenow/social.png">
+  <meta itemprop="image" content="https://codecreative.io/guides/getting-started-on-servicenow/social.png">
+  
+
+
+<meta name="twitter:title" content="Exercise: Navigating the UI">
+
+<meta name="twitter:image" content="https://codecreative.io/guides/getting-started-on-servicenow/social.png">
+
+<meta name="twitter:url" content="https://codecreative.io/guides/getting-started-on-servicenow/navigating-the-ui/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:description" content="Now that we have a Personal Developer Instance, let&#39;s learn how to get around and handle the basics of using ServiceNow. These techniques will set the foundation for everything else you can do with ServiceNow.">
+
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-90280965-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-90280965-1');
+</script>
+
+<script type="application/ld+json">
+{
+    "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https://codecreative.io/"
+    },
+    "name" : "Exercise: Navigating the UI",
+    "headline" : "Exercise: Navigating the UI",
+    "description" : "Now that we have a Personal Developer Instance, let&#39;s learn how to get around and handle the basics of using ServiceNow. These techniques will set the foundation for everything else you can do with ServiceNow.","image": "https://codecreative.io/guides/getting-started-on-servicenow/social.png","inLanguage" : "en-US",
+      "author" : "Travis Toulson",
+      "creator" : "Travis Toulson","publisher": "Travis Toulson",
+    "copyrightHolder" : "Travis Toulson",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-02-23 20:20:49 &#43;0000 UTC",
+    "dateModified" : "2019-02-23 20:20:49 &#43;0000 UTC",
+    "url" : "https://codecreative.io/guides/getting-started-on-servicenow/navigating-the-ui/",
+    "wordCount" : "674",
+    "keywords" : [ "Blog" ]
+}
+</script>
+
+
+  </head>
+  <body><header role="banner">
+  <h1 class="logo">
+      <a href="/">
+         <img src="/assets/codecreativelogo.png" alt="Exercise: Navigating the UI" />
+         <span class="sr-only">CodeCreative Logo, click to navigate home</span>
+      </a>
+    </h1>
+
+  <div class="menuToggle">
+    <button class="hamburger" type="button" onclick="toggleMenu()">
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+      <span class="sr-only">Toggle Menu</span>
+    </button>
+  </div>
+
+  <nav class="fullNav">
+    <ul>
+      
+      
+        <li title="Home">
+          <a class="" href="/">Home</a>
+        </li>
+      
+        <li title="Blog">
+          <a class="" href="/blog/">Blog</a>
+        </li>
+      
+        <li title="About">
+          <a class="" href="/about/">About</a>
+        </li>
+      
+        <li title="Contact">
+          <a class="" href="/contact/">Contact</a>
+        </li>
+      
+        <li title="Guides">
+          <a class="" href="/guides/">Guides</a>
+        </li>
+      
+    </ul>
+  </nav>
+</header>
+<main>
+  <header class="banner">
+    <h1>Getting Started on ServiceNow</h1>
+  </header>
+
+  <div class="content text-content guide-content">
+    <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+      <section class="guide-nav">
+        <nav>
+          <h1>Getting Started on ServiceNow</h1>
+          <ul>
+            <li>
+              <a href="https://codecreative.io/guides/getting-started-on-servicenow/">
+                Guide Index
+              </a>
+            </li>
+            
+            
+              
+                <li>
+                  <a href="https://codecreative.io/guides/getting-started-on-servicenow/what-is-servicenow/">
+                    What is ServiceNow?
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://codecreative.io/guides/getting-started-on-servicenow/what-is-a-servicenow-instance/">
+                    What is a ServiceNow Instance?
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://codecreative.io/guides/getting-started-on-servicenow/get-a-personal-developer-instance/">
+                    Exercise: Get a Personal Developer Instance
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  Exercise: Navigating the UI
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://codecreative.io/guides/getting-started-on-servicenow/filtering-records-in-the-list-view/">
+                    Exercise: Filtering Records in the List View
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://codecreative.io/guides/getting-started-on-servicenow/creating-and-editing-records/">
+                    Exercise: Creating and Editing Records
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://codecreative.io/guides/getting-started-on-servicenow/next-steps/">
+                    Next Steps
+                  </a>
+                </li>
+              
+            
+          </ul>
+        </nav>
+      </section>
+
+      <section class="guide-article">
+        <header class="post-header">
+          <h1 class="post-title p-name" itemprop="name headline">Exercise: Navigating the UI</h1>
+          <p class="post-meta">
+              <time class="dt-published" datetime="2019-02-23T20:20:49Z" itemprop="datePublished">
+              February 23, 2019
+              </time>
+            
+              
+              • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">Travis Toulson</span></span>
+            
+          </p>
+        </header>
+
+        <div class="post-content e-content" itemprop="articleBody">
+          
+
+<p><strong>Objective:</strong> Practice basic ServiceNow usage including:</p>
+
+<ul>
+<li><p>Navigating ServiceNow</p></li>
+
+<li><p>Viewing records in lists and forms</p></li>
+</ul>
+
+<p>Now that we have a Personal Developer Instance, let&rsquo;s learn how to get around and handle the basics of using ServiceNow. These techniques will set the foundation for everything else you can do with ServiceNow.</p>
+
+<h2 id="exercise">Exercise</h2>
+
+<p>Follow the below instructions to complete the exercise:</p>
+
+<ol>
+<li><p>Log in to your Personal Developer Instance</p></li>
+
+<li><p><span id="step-2"></span> Using the <strong>Filter navigator</strong>, filter the Application menus and Modules to those containing the word <strong>Incident</strong> <a href="#application-navigator">(Learn more about the Application Navigator)</a></p>
+
+<ol>
+<li><p>Identify the search box in the top left titled <strong>Filter Navigator</strong></p></li>
+
+<li><p>Type <strong>Incident</strong> into the Filter Navigator field</p></li>
+
+<li><p>Observe that the list of Application Menus and Modules has filtered</p></li>
+</ol></li>
+
+<li><p><span id="step-3"></span> Navigate to  <strong>Incident &gt; Open</strong> to display a list of all open Incident records <a href="#list-view">(Learn more about the List View)</a></p>
+
+<ol>
+<li><p>Find the <strong>Incident</strong> Application menu</p></li>
+
+<li><p>Under the <strong>Incident</strong> Application menu, find the <strong>Open</strong> Module</p></li>
+
+<li><p>Click the <strong>Open</strong> module</p></li>
+</ol></li>
+
+<li><p><span id="step-4"></span> Open the first Incident record in the list to the Form View <a href="#form-view">(Learn more about the Form View)</a></p>
+
+<ol>
+<li>Click the underlined text in the first column of the record, which in this case should be the Incident&rsquo;s Number</li>
+</ol></li>
+
+<li><p><span id="step-5"></span> Using the Filter navigator, navigate to <strong>Incident &gt; Overview</strong> <a href="#other-page-types">(Learn more about other Page Types)</a></p></li>
+</ol>
+
+<h2 id="review">Review</h2>
+
+<h3 id="application-navigator">Application Navigator</h3>
+
+<figure>
+  <img src="images/Application Navigator.png" />
+  <figcaption>
+    Components of the Application Navigator
+  </figcaption>
+</figure>
+
+<p>The primary method of navigation in ServiceNow is the Application Navigator. It is composed of the Filter navigator, Application menus, and Modules.</p>
+
+<h3 id="application-menus">Application Menus</h3>
+
+<p>Application menus, sometimes referred to as Applications, are the major categories that make up the navigation.  All modules will appear under an Application menu. Generally each Global Application and Scoped Application will have at least one Application Menu, though some have multiple.</p>
+
+<h3 id="modules">Modules</h3>
+
+<p>Modules are the actual navigational links in the Application Navigator. Most Modules will link you to a predefined list view of records but there are many other types of pages to explore in ServiceNow.</p>
+
+<h3 id="filter-navigator">Filter navigator</h3>
+
+<p>Application menus and Modules can pile up quickly in ServiceNow, especially for Administrators. The Filter navigator helps you to quickly find the modules you are hunting for. It will find any module that contains the search text somewhere within the module name.</p>
+
+<p>This is really powerful since it means we can type <strong>Portal</strong> to find the <strong>Service Portal</strong> modules as one example. Or you could type <strong>bug</strong> to find a list of <strong>debug</strong> modules.</p>
+
+<p><a href="#step-2">(Return to Step 2)</a></p>
+
+<h3 id="list-view">List View</h3>
+
+<figure>
+  <img src="images/List View.png" />
+  <figcaption>
+    List View
+  </figcaption>
+</figure>
+
+<p>The list view is a page that displays zero or more records from the same data table. In this exercise, we viewed a list of records on the Incident table. Each row in the list represents a single record and each column represents a field on the record.</p>
+
+<p>There are many actions that can be performed from the list view which we will cover in another exercise.</p>
+
+<p>Nearly all data in ServiceNow is stored on a data table in the database. Also, every table in ServiceNow has a list view although not all list views are exposed with a Module. Keep this in mind as you continue your ServiceNow journey as this is one of the most important concepts in ServiceNow.</p>
+
+<p><a href="#step-3">(Return to Step 3)</a></p>
+
+<h3 id="form-view">Form View</h3>
+
+<figure>
+  <img src="images/Form View.png" />
+  <figcaption>
+    Form View
+  </figcaption>
+</figure>
+
+<p>The form view is a page that displays the fields and values for a single record on a data table. Forms are divided up into sections and can also use both one and two column layouts.</p>
+
+<p>There are many actions that can be performed from the form view which we will cover in another exercise.</p>
+
+<p>All records on a list view have a form view.</p>
+
+<p><a href="#step-4">(Return to Step 4)</a></p>
+
+<h3 id="other-page-types">Other Page Types</h3>
+
+<figure>
+  <img src="images/Homepage View.png" />
+  <figcaption>
+    Homepage View
+  </figcaption>
+</figure>
+
+<p>ServiceNow also has many other unique page types. Some are more universal such as the homepage view displayed above. Some are specialized like Knowledge Base, Service Catalog, and Service Portal pages. Still others are entirely custom, purpose built UI&rsquo;s such as Project Management Gantt Charts.</p>
+
+<p>It can be helpful to navigate around ServiceNow and explore the different UI types to get a feel for what is available.</p>
+
+<p><a href="#step-5">(Return to Step 5)</a></p>
+
+        </div>
+
+        <a class="u-url" href="/guides/getting-started-on-servicenow/navigating-the-ui" hidden></a>
+
+        <nav class="pagination">
+          
+            <a href="https://codecreative.io/guides/getting-started-on-servicenow/get-a-personal-developer-instance/" class="pagination-prev">
+              <h4>Previous</h4>
+              <div class="pagination-label">Exercise: Get a Personal Developer Instance</div>
+            </a>
+          
+
+          
+            <a href="https://codecreative.io/guides/getting-started-on-servicenow/filtering-records-in-the-list-view/" class="pagination-next">
+              <h4>Next</h4>
+              <div class="pagination-label">Exercise: Filtering Records in the List View</div>
+            </a>
+          
+        </nav>
+      </section>
+    </article><div class="subscribe-form">
+  
+  <div id="mc_embed_signup">
+    <form action="https://codecreative.us14.list-manage.com/subscribe/post?u=98c1070493fa133df8ea08394&amp;id=f759c17295" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+      <div id="mc_embed_signup_scroll">
+        <h2>Subscribe</h2>
+        <div class="subtext">Sign up with your email address to receive news and updates.</div>
+        <div>
+          <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Email Address" required>
+
+          
+          <div class="sr-only" aria-hidden="true">
+            <input type="text" name="b_98c1070493fa133df8ea08394_f759c17295" tabindex="-1" value="">
+          </div>
+
+          <input type="submit" value="Sign Up" name="subscribe" id="mc-embedded-subscribe" class="button">
+        </div>
+      </div>
+    </form>
+  </div>
+  
+</div>
+</div>
+
+      </main><footer>
+  <div class="footer-content-wrap">
+    <p class="text-align-center">
+      <a href="/servicenow">Blog</a>
+      &nbsp;|&nbsp;
+      <a href="/about">About</a>
+      &nbsp;|&nbsp;
+      <a href="/contact">Contact</a>
+    </p>
+    <div class="text-align-center">
+      
+    </div>
+  </div>
+</footer>
+<script type="text/javascript" src="/assets/main.js"></script>
+</body>
+</html>

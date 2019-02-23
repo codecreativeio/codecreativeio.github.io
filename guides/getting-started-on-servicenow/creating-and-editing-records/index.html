@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+  <head><meta charset="utf-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Julius+Sans+One|Slabo+13px|Open+Sans:300" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+<link rel="stylesheet" href="https://codecreative.io/assets/main.min.89ccf047fd57f3ef4acadb519befb792b78ff0f547ecc764de06c48b177aaeb5.css">
+<title>Exercise: Creating and Editing Records | CodeCreative | A ServiceNow Blog</title>
+<meta name="description" content="ServiceNow wouldn&#39;t be very useful if you couldn&#39;t change the records. Thankfully, there are many different ways to change the data as long as the user has permission.">
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?d=20181101201248">
+<link rel="canonical" href="https://codecreative.io/guides/getting-started-on-servicenow/creating-and-editing-records/"><meta property="og:site_name" content="CodeCreative | A ServiceNow Blog">
+<meta property="og:title" content="Exercise: Creating and Editing Records">
+<meta property="og:url" content="https://codecreative.io/guides/getting-started-on-servicenow/creating-and-editing-records/">
+
+<meta property="og:type" content="article">
+
+<meta property="og:description" content="ServiceNow wouldn&#39;t be very useful if you couldn&#39;t change the records. Thankfully, there are many different ways to change the data as long as the user has permission.">
+
+  
+    <meta property="og:image" content="https://codecreative.io/guides/getting-started-on-servicenow/social.png">
+  
+
+<meta itemprop="name" content="Exercise: Creating and Editing Records">
+<meta itemprop="url" content="https://codecreative.io/guides/getting-started-on-servicenow/creating-and-editing-records/">
+<meta itemprop="description" content="ServiceNow wouldn&#39;t be very useful if you couldn&#39;t change the records. Thankfully, there are many different ways to change the data as long as the user has permission.">
+
+  
+  <meta itemprop="thumbnailUrl" content="https://codecreative.io/guides/getting-started-on-servicenow/social.png">
+  <link rel="image_src" href="https://codecreative.io/guides/getting-started-on-servicenow/social.png">
+  <meta itemprop="image" content="https://codecreative.io/guides/getting-started-on-servicenow/social.png">
+  
+
+
+<meta name="twitter:title" content="Exercise: Creating and Editing Records">
+
+<meta name="twitter:image" content="https://codecreative.io/guides/getting-started-on-servicenow/social.png">
+
+<meta name="twitter:url" content="https://codecreative.io/guides/getting-started-on-servicenow/creating-and-editing-records/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:description" content="ServiceNow wouldn&#39;t be very useful if you couldn&#39;t change the records. Thankfully, there are many different ways to change the data as long as the user has permission.">
+
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-90280965-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-90280965-1');
+</script>
+
+<script type="application/ld+json">
+{
+    "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https://codecreative.io/"
+    },
+    "name" : "Exercise: Creating and Editing Records",
+    "headline" : "Exercise: Creating and Editing Records",
+    "description" : "ServiceNow wouldn&#39;t be very useful if you couldn&#39;t change the records. Thankfully, there are many different ways to change the data as long as the user has permission.","image": "https://codecreative.io/guides/getting-started-on-servicenow/social.png","inLanguage" : "en-US",
+      "author" : "Travis Toulson",
+      "creator" : "Travis Toulson","publisher": "Travis Toulson",
+    "copyrightHolder" : "Travis Toulson",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-02-23 20:20:49 &#43;0000 UTC",
+    "dateModified" : "2019-02-23 20:20:49 &#43;0000 UTC",
+    "url" : "https://codecreative.io/guides/getting-started-on-servicenow/creating-and-editing-records/",
+    "wordCount" : "660",
+    "keywords" : [ "Blog" ]
+}
+</script>
+
+
+  </head>
+  <body><header role="banner">
+  <h1 class="logo">
+      <a href="/">
+         <img src="/assets/codecreativelogo.png" alt="Exercise: Creating and Editing Records" />
+         <span class="sr-only">CodeCreative Logo, click to navigate home</span>
+      </a>
+    </h1>
+
+  <div class="menuToggle">
+    <button class="hamburger" type="button" onclick="toggleMenu()">
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+      <span class="sr-only">Toggle Menu</span>
+    </button>
+  </div>
+
+  <nav class="fullNav">
+    <ul>
+      
+      
+        <li title="Home">
+          <a class="" href="/">Home</a>
+        </li>
+      
+        <li title="Blog">
+          <a class="" href="/blog/">Blog</a>
+        </li>
+      
+        <li title="About">
+          <a class="" href="/about/">About</a>
+        </li>
+      
+        <li title="Contact">
+          <a class="" href="/contact/">Contact</a>
+        </li>
+      
+        <li title="Guides">
+          <a class="" href="/guides/">Guides</a>
+        </li>
+      
+    </ul>
+  </nav>
+</header>
+<main>
+  <header class="banner">
+    <h1>Getting Started on ServiceNow</h1>
+  </header>
+
+  <div class="content text-content guide-content">
+    <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+      <section class="guide-nav">
+        <nav>
+          <h1>Getting Started on ServiceNow</h1>
+          <ul>
+            <li>
+              <a href="https://codecreative.io/guides/getting-started-on-servicenow/">
+                Guide Index
+              </a>
+            </li>
+            
+            
+              
+                <li>
+                  <a href="https://codecreative.io/guides/getting-started-on-servicenow/what-is-servicenow/">
+                    What is ServiceNow?
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://codecreative.io/guides/getting-started-on-servicenow/what-is-a-servicenow-instance/">
+                    What is a ServiceNow Instance?
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://codecreative.io/guides/getting-started-on-servicenow/get-a-personal-developer-instance/">
+                    Exercise: Get a Personal Developer Instance
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://codecreative.io/guides/getting-started-on-servicenow/navigating-the-ui/">
+                    Exercise: Navigating the UI
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://codecreative.io/guides/getting-started-on-servicenow/filtering-records-in-the-list-view/">
+                    Exercise: Filtering Records in the List View
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  Exercise: Creating and Editing Records
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://codecreative.io/guides/getting-started-on-servicenow/next-steps/">
+                    Next Steps
+                  </a>
+                </li>
+              
+            
+          </ul>
+        </nav>
+      </section>
+
+      <section class="guide-article">
+        <header class="post-header">
+          <h1 class="post-title p-name" itemprop="name headline">Exercise: Creating and Editing Records</h1>
+          <p class="post-meta">
+              <time class="dt-published" datetime="2019-02-23T20:20:49Z" itemprop="datePublished">
+              February 23, 2019
+              </time>
+            
+              
+              • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">Travis Toulson</span></span>
+            
+          </p>
+        </header>
+
+        <div class="post-content e-content" itemprop="articleBody">
+          
+
+<p><strong>Objective:</strong> Practice creating and editing records in the list and form view:</p>
+
+<p>ServiceNow wouldn&rsquo;t be very useful if you couldn&rsquo;t change the records. Thankfully, there are many different ways to change the data as long as the user has permission. If you are operating in your personal developer instance, you should have admin privileges which will let you edit just about anything.</p>
+
+<h2 id="exercise">Exercise</h2>
+
+<ol>
+<li><p>In your Personal Developer Instance, navigate to <strong>Incident &gt; Open</strong></p></li>
+
+<li><p>Filter the list to show Incidents where Active is true AND State is In Progress</p></li>
+
+<li><p><span id="step-3"></span> Change an Incident record&rsquo;s State to <strong>On Hold</strong> using the list edit <a href="#list-edit">(Learn more about list edit)</a></p>
+
+<ol>
+<li><p>Choose a record to update</p></li>
+
+<li><p>Double click the value in the State field to open the field edit pop up</p></li>
+
+<li><p>Select <strong>On Hold</strong> from the dropdown box</p></li>
+
+<li><p>Click the green check mark icon</p></li>
+
+<li><p>Observe that the State field updates to <strong>On Hold</strong></p></li>
+</ol></li>
+
+<li><p><span id="step-4"></span> Change the state on multiple records to <strong>On Hold</strong> using the list edit <a href="#multiple-record-editing">(Learn more about editing multiple records in the list view)</a></p>
+
+<ol>
+<li><p>Click the <strong>In Progress</strong> value on a different record</p></li>
+
+<li><p>Hold the <strong>Shift</strong> key on your keyboard and press the <strong>down arrow</strong> key 5 times to select 6 records in total</p></li>
+
+<li><p>Double click the value in the State field in any of the selected fields to open the field edit pop up</p></li>
+
+<li><p>Select <strong>On Hold</strong> from the dropdown box</p></li>
+
+<li><p>Click the green check mark icon</p></li>
+
+<li><p>Observe that the State field on all 6 selected fields update to <strong>On Hold</strong></p></li>
+</ol></li>
+
+<li><p>Create a new Incident record</p>
+
+<ol>
+<li><p>Click the <strong>New</strong> button in the list header</p></li>
+
+<li><p>In the <strong>Caller</strong> field, type <strong>Fred</strong></p></li>
+
+<li><p>Select <strong>Fred Luddy</strong> from the auto complete</p></li>
+
+<li><p>Type <strong>My computer won&rsquo;t turn on</strong> into the <strong>Short description</strong> field</p></li>
+
+<li><p>Click the <strong>Submit</strong> button in the form header</p></li>
+</ol></li>
+
+<li><p>Update an existing Incident record using the form view</p>
+
+<ol>
+<li><p>Choose a record to update</p></li>
+
+<li><p>Click the value in the <strong>Number</strong> field (Ex: INC0000001) to open the record in the form view</p></li>
+
+<li><p>Change the <strong>Contact Type</strong> to <strong>Phone</strong></p></li>
+
+<li><p>Right click in the form header to show the form context menu</p></li>
+
+<li><p>Click <strong>Save</strong> in the form context menu</p></li>
+
+<li><p>Observe that the record is saved and the form view is reloaded</p></li>
+
+<li><p>Type <strong>We&rsquo;ll take a look at this right away!</strong> into the <strong>Work Notes</strong> field</p></li>
+
+<li><p>Click the <strong>Update</strong> button in the form header</p></li>
+
+<li><p>Observe that the record is saved and you are returned to the list view</p></li>
+</ol></li>
+</ol>
+
+<h2 id="review">Review</h2>
+
+<h3 id="list-edit">List Edit</h3>
+
+<figure>
+  <img src="images/List Edit.png" />
+  <figcaption>
+    List Edit
+  </figcaption>
+</figure>
+
+<p>List editing allows quick record changes to be made without having to open up the form view. There are many potential caveats to this style of editing.</p>
+
+<ol>
+<li><p>The user must have the correct permissions to edit the field.</p></li>
+
+<li><p>Business rules that require certain fields may prevent list editing. For example, in a baseline instance if you try to update the <strong>Priority</strong> field, it will revert to the previous value. This is because of a rule that calculates the Priority based on the Impact and Urgency fields.</p></li>
+
+<li><p>Other rules implemented by an administrator, such as UI Policies and Client Scripts, often don&rsquo;t apply to the list view. For this reason, some administrators will disable list editing all together.</p></li>
+
+<li><p>Even if list editing is enabled, some field types and tables do not support list editing</p></li>
+</ol>
+
+<p><a href="#step-3">(Return to Step 3)</a></p>
+
+<h3 id="multiple-record-editing">Multiple Record Editing</h3>
+
+<figure>
+  <img src="images/Multiple Record Editing List View.png" />
+  <figcaption>
+    Multiple Record Editing List View
+  </figcaption>
+</figure>
+
+<p>Editing multiple records at one time is one of those features that many users wish existed long before they realize it has been there the whole time. Of course, the way we demonstrated in this exercise is subject to all the same caveats as regular list editing.</p>
+
+<p>But it is also possible to edit multiple records using the form view instead by selecting multiple records in the list view and using the <strong>Update Selected</strong> option in the list context menu. This will allow you to edit multiple fields on multiple records with one update.</p>
+
+<figure>
+  <img src="images/Multiple Record Editing Form View.png" />
+  <figcaption>
+    Multiple Record Editing Form View
+  </figcaption>
+</figure>
+
+<p>Both of these options make batch operations much more efficient.</p>
+
+<p><a href="#step-4">(Return to Step 4)</a></p>
+
+        </div>
+
+        <a class="u-url" href="/guides/getting-started-on-servicenow/creating-and-editing-records" hidden></a>
+
+        <nav class="pagination">
+          
+            <a href="https://codecreative.io/guides/getting-started-on-servicenow/filtering-records-in-the-list-view/" class="pagination-prev">
+              <h4>Previous</h4>
+              <div class="pagination-label">Exercise: Filtering Records in the List View</div>
+            </a>
+          
+
+          
+            <a href="https://codecreative.io/guides/getting-started-on-servicenow/next-steps/" class="pagination-next">
+              <h4>Next</h4>
+              <div class="pagination-label">Next Steps</div>
+            </a>
+          
+        </nav>
+      </section>
+    </article><div class="subscribe-form">
+  
+  <div id="mc_embed_signup">
+    <form action="https://codecreative.us14.list-manage.com/subscribe/post?u=98c1070493fa133df8ea08394&amp;id=f759c17295" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+      <div id="mc_embed_signup_scroll">
+        <h2>Subscribe</h2>
+        <div class="subtext">Sign up with your email address to receive news and updates.</div>
+        <div>
+          <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Email Address" required>
+
+          
+          <div class="sr-only" aria-hidden="true">
+            <input type="text" name="b_98c1070493fa133df8ea08394_f759c17295" tabindex="-1" value="">
+          </div>
+
+          <input type="submit" value="Sign Up" name="subscribe" id="mc-embedded-subscribe" class="button">
+        </div>
+      </div>
+    </form>
+  </div>
+  
+</div>
+</div>
+
+      </main><footer>
+  <div class="footer-content-wrap">
+    <p class="text-align-center">
+      <a href="/servicenow">Blog</a>
+      &nbsp;|&nbsp;
+      <a href="/about">About</a>
+      &nbsp;|&nbsp;
+      <a href="/contact">Contact</a>
+    </p>
+    <div class="text-align-center">
+      
+    </div>
+  </div>
+</footer>
+<script type="text/javascript" src="/assets/main.js"></script>
+</body>
+</html>

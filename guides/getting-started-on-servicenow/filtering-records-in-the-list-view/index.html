@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html>
+  <head><meta charset="utf-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Julius+Sans+One|Slabo+13px|Open+Sans:300" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+<link rel="stylesheet" href="https://codecreative.io/assets/main.min.89ccf047fd57f3ef4acadb519befb792b78ff0f547ecc764de06c48b177aaeb5.css">
+<title>Exercise: Filtering Records in the List View | CodeCreative | A ServiceNow Blog</title>
+<meta name="description" content="Mastering the list view is one of the more critical skills for new ServiceNow users. In this first List View exercise, we&#39;ll focus on different ways of filtering records.">
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?d=20181101201248">
+<link rel="canonical" href="https://codecreative.io/guides/getting-started-on-servicenow/filtering-records-in-the-list-view/"><meta property="og:site_name" content="CodeCreative | A ServiceNow Blog">
+<meta property="og:title" content="Exercise: Filtering Records in the List View">
+<meta property="og:url" content="https://codecreative.io/guides/getting-started-on-servicenow/filtering-records-in-the-list-view/">
+
+<meta property="og:type" content="article">
+
+<meta property="og:description" content="Mastering the list view is one of the more critical skills for new ServiceNow users. In this first List View exercise, we&#39;ll focus on different ways of filtering records.">
+
+  
+    <meta property="og:image" content="https://codecreative.io/guides/getting-started-on-servicenow/social.png">
+  
+
+<meta itemprop="name" content="Exercise: Filtering Records in the List View">
+<meta itemprop="url" content="https://codecreative.io/guides/getting-started-on-servicenow/filtering-records-in-the-list-view/">
+<meta itemprop="description" content="Mastering the list view is one of the more critical skills for new ServiceNow users. In this first List View exercise, we&#39;ll focus on different ways of filtering records.">
+
+  
+  <meta itemprop="thumbnailUrl" content="https://codecreative.io/guides/getting-started-on-servicenow/social.png">
+  <link rel="image_src" href="https://codecreative.io/guides/getting-started-on-servicenow/social.png">
+  <meta itemprop="image" content="https://codecreative.io/guides/getting-started-on-servicenow/social.png">
+  
+
+
+<meta name="twitter:title" content="Exercise: Filtering Records in the List View">
+
+<meta name="twitter:image" content="https://codecreative.io/guides/getting-started-on-servicenow/social.png">
+
+<meta name="twitter:url" content="https://codecreative.io/guides/getting-started-on-servicenow/filtering-records-in-the-list-view/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:description" content="Mastering the list view is one of the more critical skills for new ServiceNow users. In this first List View exercise, we&#39;ll focus on different ways of filtering records.">
+
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-90280965-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-90280965-1');
+</script>
+
+<script type="application/ld+json">
+{
+    "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https://codecreative.io/"
+    },
+    "name" : "Exercise: Filtering Records in the List View",
+    "headline" : "Exercise: Filtering Records in the List View",
+    "description" : "Mastering the list view is one of the more critical skills for new ServiceNow users. In this first List View exercise, we&#39;ll focus on different ways of filtering records.","image": "https://codecreative.io/guides/getting-started-on-servicenow/social.png","inLanguage" : "en-US",
+      "author" : "Travis Toulson",
+      "creator" : "Travis Toulson","publisher": "Travis Toulson",
+    "copyrightHolder" : "Travis Toulson",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-02-23 20:20:49 &#43;0000 UTC",
+    "dateModified" : "2019-02-23 20:20:49 &#43;0000 UTC",
+    "url" : "https://codecreative.io/guides/getting-started-on-servicenow/filtering-records-in-the-list-view/",
+    "wordCount" : "1110",
+    "keywords" : [ "Blog" ]
+}
+</script>
+
+
+  </head>
+  <body><header role="banner">
+  <h1 class="logo">
+      <a href="/">
+         <img src="/assets/codecreativelogo.png" alt="Exercise: Filtering Records in the List View" />
+         <span class="sr-only">CodeCreative Logo, click to navigate home</span>
+      </a>
+    </h1>
+
+  <div class="menuToggle">
+    <button class="hamburger" type="button" onclick="toggleMenu()">
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+      <span class="sr-only">Toggle Menu</span>
+    </button>
+  </div>
+
+  <nav class="fullNav">
+    <ul>
+      
+      
+        <li title="Home">
+          <a class="" href="/">Home</a>
+        </li>
+      
+        <li title="Blog">
+          <a class="" href="/blog/">Blog</a>
+        </li>
+      
+        <li title="About">
+          <a class="" href="/about/">About</a>
+        </li>
+      
+        <li title="Contact">
+          <a class="" href="/contact/">Contact</a>
+        </li>
+      
+        <li title="Guides">
+          <a class="" href="/guides/">Guides</a>
+        </li>
+      
+    </ul>
+  </nav>
+</header>
+<main>
+  <header class="banner">
+    <h1>Getting Started on ServiceNow</h1>
+  </header>
+
+  <div class="content text-content guide-content">
+    <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+      <section class="guide-nav">
+        <nav>
+          <h1>Getting Started on ServiceNow</h1>
+          <ul>
+            <li>
+              <a href="https://codecreative.io/guides/getting-started-on-servicenow/">
+                Guide Index
+              </a>
+            </li>
+            
+            
+              
+                <li>
+                  <a href="https://codecreative.io/guides/getting-started-on-servicenow/what-is-servicenow/">
+                    What is ServiceNow?
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://codecreative.io/guides/getting-started-on-servicenow/what-is-a-servicenow-instance/">
+                    What is a ServiceNow Instance?
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://codecreative.io/guides/getting-started-on-servicenow/get-a-personal-developer-instance/">
+                    Exercise: Get a Personal Developer Instance
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://codecreative.io/guides/getting-started-on-servicenow/navigating-the-ui/">
+                    Exercise: Navigating the UI
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  Exercise: Filtering Records in the List View
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://codecreative.io/guides/getting-started-on-servicenow/creating-and-editing-records/">
+                    Exercise: Creating and Editing Records
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://codecreative.io/guides/getting-started-on-servicenow/next-steps/">
+                    Next Steps
+                  </a>
+                </li>
+              
+            
+          </ul>
+        </nav>
+      </section>
+
+      <section class="guide-article">
+        <header class="post-header">
+          <h1 class="post-title p-name" itemprop="name headline">Exercise: Filtering Records in the List View</h1>
+          <p class="post-meta">
+              <time class="dt-published" datetime="2019-02-23T20:20:49Z" itemprop="datePublished">
+              February 23, 2019
+              </time>
+            
+              
+              • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">Travis Toulson</span></span>
+            
+          </p>
+        </header>
+
+        <div class="post-content e-content" itemprop="articleBody">
+          
+
+<p><strong>Objective:</strong> Practice filtering records in the list view:</p>
+
+<p>Mastering the list view is one of the more critical skills for new ServiceNow users. In this first List View exercise, we&rsquo;ll focus on different ways of filtering records.</p>
+
+<h2 id="exercise">Exercise</h2>
+
+<ol>
+<li><p>In your Personal Developer Instance, navigate to <strong>Incident &gt; All</strong></p></li>
+
+<li><p><span id="step-2"></span> Using the list header search, find all Incidents containing the <strong>Short Description</strong> SAP <a href="#list-header-search">(Learn more about the list header search)</a></p>
+
+<ol>
+<li><p>Locate the list header search next to the <strong>New</strong> button in the list header</p></li>
+
+<li><p>Change the dropdown selection to <strong>Short description</strong></p></li>
+
+<li><p>Type <strong>*SAP</strong> in the Search field</p></li>
+
+<li><p>Press the <strong>enter</strong> key on the keyboard</p></li>
+
+<li><p>Observe that the list has been filtered to show only items where the Short Description contains the text <strong>SAP</strong></p></li>
+</ol></li>
+
+<li><p><span id="step-3"></span> Use the context menu to show only the current items where the <strong>State</strong> field is <strong>In Progress</strong> <a href="#list-context-menu">(Learn more about the list context menu)</a></p>
+
+<ol>
+<li><p>Find a record where the <strong>State</strong> is <strong>In Progress</strong></p></li>
+
+<li><p>Right click the <strong>In Progress</strong> text in the record&rsquo;s <strong>State</strong> column</p></li>
+
+<li><p>In the context menu that is displayed, click <strong>Show Matching</strong></p></li>
+
+<li><p>Observe that the list has been filtered to show items where the Short Description contains the text <strong>SAP</strong> and are also in the <strong>In Progress</strong> State</p></li>
+</ol></li>
+
+<li><p><span id="step-4"></span> Use the <strong>Remove next condition</strong> icon (&gt;) to remove the <strong>Short description contains SAP</strong> condition in the filter breadcrumbs <a href="#filter-breadcrumbs">(Learn more about the filter breadcrumbs)</a></p>
+
+<ol>
+<li><p>Locate the filter breadcrumbs next to the filter icon</p></li>
+
+<li><p>Hover over the right angle bracket (&gt;) before <strong>Short description contains SAP</strong></p></li>
+
+<li><p>Observe the hover text says <strong>Remove next condition</strong></p></li>
+
+<li><p>Click the right angle bracket (&gt;)</p></li>
+
+<li><p>Observe the <strong>Short description contains SAP</strong> condition is removed from the filter.</p></li>
+</ol></li>
+
+<li><p><span id="step-5"></span> Use the filter condition builder to add a condition that shows only Critical Priority Incidents <a href="#filter-condition-builder">(Learn more about the filter condition builder)</a></p>
+
+<ol>
+<li><p>Click the filter icon to open the condition builder</p></li>
+
+<li><p>Observe that the State condition is still applied</p></li>
+
+<li><p>Click the <strong>And</strong> button next to the State condition</p></li>
+
+<li><p>Select <strong>Priority</strong> from the <strong>&ndash;choose field&ndash;</strong> dropdown</p></li>
+
+<li><p>Select <strong>1 - Critical</strong> from the third dropdown in the new condition</p></li>
+
+<li><p>Click the <strong>Run</strong> button</p></li>
+
+<li><p>Observe that the filter breadcrumb and list of Incidents have updated to reflect the changes to the filter conditions</p></li>
+</ol></li>
+</ol>
+
+<h2 id="review">Review</h2>
+
+<h3 id="list-header-search">List Header Search</h3>
+
+<figure>
+  <img src="images/List Header Search.png" />
+  <figcaption>
+    List Header Search
+  </figcaption>
+</figure>
+
+<p>The list header search is a quick way to perform simple text searches on the currently displayed list. It allows selecting a specific field to search or selecting <strong>for text</strong> to perform a search across all searchable fields.</p>
+
+<p>The search also supports a few wildcards to assist with particular types of searches such as <strong>starts with</strong> or <strong>contains</strong>. Here is a list of the wildcards available using the <strong>SAP</strong> search text as an example:</p>
+
+<ul>
+<li><strong>*SAP</strong>: Contains the text SAP</li>
+<li><strong>%SAP</strong>: Ends with the text SAP</li>
+<li><strong>SAP%</strong>: Starts with the text SAP</li>
+<li><strong>SAP</strong>: Is exactly the text SAP</li>
+<li><strong>!*SAP</strong>: Does not contain the text SAP</li>
+<li><strong>!=SAP</strong>: Is not the text SAP</li>
+</ul>
+
+<p><a href="#step-2">(Return to Step 2)</a></p>
+
+<h3 id="list-context-menu">List Context Menu</h3>
+
+<figure>
+  <img src="images/List Context Menu.png" />
+  <figcaption>
+    List Context Menu
+  </figcaption>
+</figure>
+
+<p>The list context menu provides a number of actions that can be performed against a specific row or field in the list view. When a user right clicks a value in the list view, the context menu takes note of the field and the value clicked. In this exercise we explored the <strong>Show Matching</strong> capability but it is worthwhile to explore some of the other more frequently used options on your own:</p>
+
+<p>Filtering Options add a condition to the end (right) of the filter:</p>
+
+<ul>
+<li><p><strong>Show Matching</strong>: Filters to show records where [field] IS [value]</p></li>
+
+<li><p><strong>Filter Out</strong>: Filters to show records where [field] IS NOT [value]</p></li>
+
+<li><p><strong>Show After</strong>: Filters to show records where [date field] &gt;= [value]</p></li>
+
+<li><p><strong>Show Before</strong>: Filters to show records where [date field] &lt;= [value]</p></li>
+</ul>
+
+<p>Clipboard options are a quick way to copy information about a record:</p>
+
+<ul>
+<li><p><strong>Copy URL to clipboard</strong>: Copies to your clipboard the web address that will navigate directly to the form view of the record</p></li>
+
+<li><p><strong>Copy sys_id</strong>: Copies to your clipboard the unique id for the record</p></li>
+</ul>
+
+<p><a href="#step-3">(Return to Step 3)</a></p>
+
+<h3 id="filter-breadcrumbs">Filter Breadcrumbs</h3>
+
+<figure>
+  <img src="images/Filter Breadcrumbs.png" />
+  <figcaption>
+    Filter Breadcrumbs
+  </figcaption>
+</figure>
+
+<figure>
+  <img src="images/Filter Breadcrumb Context Menu.png" />
+  <figcaption>
+    Filter Breadcrumb Context Menu
+  </figcaption>
+</figure>
+
+<p>The filter breadcrumbs show the current filter that is applied to the list view. The breadcrumbs appear simple but hide a significant amount of powerful behavior. The actions you can explore on the filter breadcrumbs include:</p>
+
+<ul>
+<li><p><strong>Remove a filter condition</strong> - Click the right angle bracket (&gt;) before any condition to remove it</p></li>
+
+<li><p><strong>Remove all filter conditions after a selected one</strong> - Click any filter condition to remove all the conditions after it (to the right)</p></li>
+
+<li><p><strong>Copy filter to clipboard</strong> - Right click any filter condition and click <strong>Copy Query</strong> to copy the encoded query, the text representation of the query, for the conditions up until the selected one. This is used extensively by Admins and Developers on ServiceNow.</p></li>
+
+<li><p><strong>Copy the URL to clipboard</strong> - Right click any filter condition and click <strong>Copy URL</strong> to copy the web address to the current list with the filter applied. This is helpful for sharing links with coworkers.</p></li>
+
+<li><p><strong>Open list in new window</strong> - Right click any filter condition and click <strong>Open in new window</strong> to open the list in a new window</p></li>
+</ul>
+
+<p><a href="#step-4">(Return to Step 4)</a></p>
+
+<h3 id="filter-condition-builder">Filter Condition Builder</h3>
+
+<figure>
+  <img src="images/Condition Builder.png" />
+  <figcaption>
+    Condition Builder
+  </figcaption>
+</figure>
+
+<p>Mastering the filter condition builder is an absolute MUST! Whether a user, an admin, or a developer, nearly everyone will spend most of their time filtering lists in ServiceNow using the condition builder. Additionally, the condition builder is seen throughout ServiceNow in many different ways from reports to setting conditions and rules for different scripts.</p>
+
+<p>Most of ServiceNow is driven by filtering and matching lists of records based on conditions and then taking action on the filtered list, so spend as much time as you can getting accustomed to using this tool.</p>
+
+<p>There are many buttons and actions we did not cover in this particular exercise that are worth exploring. Here is a list to summarize what the filter condition builder can do:</p>
+
+<p>Buttons:
+- <strong>Run</strong>: Executes the currently set filter and returns the filtered list of records</p>
+
+<ul>
+<li><p><strong>Save&hellip;</strong>: Saves the current filter, allowing a user to save a personalized list of filters that can be accessed through the list view&rsquo;s hamburger menu at the top left corner</p></li>
+
+<li><p><strong>AND</strong>: Allows the user to specify multiple conditions which must all be matched for a result to be included in the filtered list</p></li>
+
+<li><p><strong>OR</strong>: Allows the user to specify multiple conditions, one of which must match for a result to be included in the filtered list</p></li>
+
+<li><p><strong>Add Sort</strong>: Allows the user to sort list view results by a specified field</p></li>
+
+<li><p><strong>Delete (X)</strong>: Allows the user to remove specific filter conditions from the condition builder</p></li>
+</ul>
+
+<p><a href="#step-5">(Return to Step 4)</a></p>
+
+        </div>
+
+        <a class="u-url" href="/guides/getting-started-on-servicenow/filtering-records-in-the-list-view" hidden></a>
+
+        <nav class="pagination">
+          
+            <a href="https://codecreative.io/guides/getting-started-on-servicenow/navigating-the-ui/" class="pagination-prev">
+              <h4>Previous</h4>
+              <div class="pagination-label">Exercise: Navigating the UI</div>
+            </a>
+          
+
+          
+            <a href="https://codecreative.io/guides/getting-started-on-servicenow/creating-and-editing-records/" class="pagination-next">
+              <h4>Next</h4>
+              <div class="pagination-label">Exercise: Creating and Editing Records</div>
+            </a>
+          
+        </nav>
+      </section>
+    </article><div class="subscribe-form">
+  
+  <div id="mc_embed_signup">
+    <form action="https://codecreative.us14.list-manage.com/subscribe/post?u=98c1070493fa133df8ea08394&amp;id=f759c17295" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+      <div id="mc_embed_signup_scroll">
+        <h2>Subscribe</h2>
+        <div class="subtext">Sign up with your email address to receive news and updates.</div>
+        <div>
+          <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Email Address" required>
+
+          
+          <div class="sr-only" aria-hidden="true">
+            <input type="text" name="b_98c1070493fa133df8ea08394_f759c17295" tabindex="-1" value="">
+          </div>
+
+          <input type="submit" value="Sign Up" name="subscribe" id="mc-embedded-subscribe" class="button">
+        </div>
+      </div>
+    </form>
+  </div>
+  
+</div>
+</div>
+
+      </main><footer>
+  <div class="footer-content-wrap">
+    <p class="text-align-center">
+      <a href="/servicenow">Blog</a>
+      &nbsp;|&nbsp;
+      <a href="/about">About</a>
+      &nbsp;|&nbsp;
+      <a href="/contact">Contact</a>
+    </p>
+    <div class="text-align-center">
+      
+    </div>
+  </div>
+</footer>
+<script type="text/javascript" src="/assets/main.js"></script>
+</body>
+</html>

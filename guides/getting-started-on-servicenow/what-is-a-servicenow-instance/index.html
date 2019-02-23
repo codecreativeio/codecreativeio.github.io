@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+  <head><meta charset="utf-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Julius+Sans+One|Slabo+13px|Open+Sans:300" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+<link rel="stylesheet" href="https://codecreative.io/assets/main.min.89ccf047fd57f3ef4acadb519befb792b78ff0f547ecc764de06c48b177aaeb5.css">
+<title>What is a ServiceNow Instance? | CodeCreative | A ServiceNow Blog</title>
+<meta name="description" content="As mentioned in the previous section, ServiceNow operates using a single tenant architecture meaning that each customer gets their own copy or multiple copies of ServiceNow in the cloud. These copies are known as ServiceNow instances.">
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?d=20181101201248">
+<link rel="canonical" href="https://codecreative.io/guides/getting-started-on-servicenow/what-is-a-servicenow-instance/"><meta property="og:site_name" content="CodeCreative | A ServiceNow Blog">
+<meta property="og:title" content="What is a ServiceNow Instance?">
+<meta property="og:url" content="https://codecreative.io/guides/getting-started-on-servicenow/what-is-a-servicenow-instance/">
+
+<meta property="og:type" content="article">
+
+<meta property="og:description" content="As mentioned in the previous section, ServiceNow operates using a single tenant architecture meaning that each customer gets their own copy or multiple copies of ServiceNow in the cloud. These copies are known as ServiceNow instances.">
+
+  
+    <meta property="og:image" content="https://codecreative.io/guides/getting-started-on-servicenow/social.png">
+  
+
+<meta itemprop="name" content="What is a ServiceNow Instance?">
+<meta itemprop="url" content="https://codecreative.io/guides/getting-started-on-servicenow/what-is-a-servicenow-instance/">
+<meta itemprop="description" content="As mentioned in the previous section, ServiceNow operates using a single tenant architecture meaning that each customer gets their own copy or multiple copies of ServiceNow in the cloud. These copies are known as ServiceNow instances.">
+
+  
+  <meta itemprop="thumbnailUrl" content="https://codecreative.io/guides/getting-started-on-servicenow/social.png">
+  <link rel="image_src" href="https://codecreative.io/guides/getting-started-on-servicenow/social.png">
+  <meta itemprop="image" content="https://codecreative.io/guides/getting-started-on-servicenow/social.png">
+  
+
+
+<meta name="twitter:title" content="What is a ServiceNow Instance?">
+
+<meta name="twitter:image" content="https://codecreative.io/guides/getting-started-on-servicenow/social.png">
+
+<meta name="twitter:url" content="https://codecreative.io/guides/getting-started-on-servicenow/what-is-a-servicenow-instance/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:description" content="As mentioned in the previous section, ServiceNow operates using a single tenant architecture meaning that each customer gets their own copy or multiple copies of ServiceNow in the cloud. These copies are known as ServiceNow instances.">
+
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-90280965-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-90280965-1');
+</script>
+
+<script type="application/ld+json">
+{
+    "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https://codecreative.io/"
+    },
+    "name" : "What is a ServiceNow Instance?",
+    "headline" : "What is a ServiceNow Instance?",
+    "description" : "As mentioned in the previous section, ServiceNow operates using a single tenant architecture meaning that each customer gets their own copy or multiple copies of ServiceNow in the cloud. These copies are known as ServiceNow instances.","image": "https://codecreative.io/guides/getting-started-on-servicenow/social.png","inLanguage" : "en-US",
+      "author" : "Travis Toulson",
+      "creator" : "Travis Toulson","publisher": "Travis Toulson",
+    "copyrightHolder" : "Travis Toulson",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-02-23 20:20:49 &#43;0000 UTC",
+    "dateModified" : "2019-02-23 20:20:49 &#43;0000 UTC",
+    "url" : "https://codecreative.io/guides/getting-started-on-servicenow/what-is-a-servicenow-instance/",
+    "wordCount" : "745",
+    "keywords" : [ "Blog" ]
+}
+</script>
+
+
+  </head>
+  <body><header role="banner">
+  <h1 class="logo">
+      <a href="/">
+         <img src="/assets/codecreativelogo.png" alt="What is a ServiceNow Instance?" />
+         <span class="sr-only">CodeCreative Logo, click to navigate home</span>
+      </a>
+    </h1>
+
+  <div class="menuToggle">
+    <button class="hamburger" type="button" onclick="toggleMenu()">
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+      <span class="sr-only">Toggle Menu</span>
+    </button>
+  </div>
+
+  <nav class="fullNav">
+    <ul>
+      
+      
+        <li title="Home">
+          <a class="" href="/">Home</a>
+        </li>
+      
+        <li title="Blog">
+          <a class="" href="/blog/">Blog</a>
+        </li>
+      
+        <li title="About">
+          <a class="" href="/about/">About</a>
+        </li>
+      
+        <li title="Contact">
+          <a class="" href="/contact/">Contact</a>
+        </li>
+      
+        <li title="Guides">
+          <a class="" href="/guides/">Guides</a>
+        </li>
+      
+    </ul>
+  </nav>
+</header>
+<main>
+  <header class="banner">
+    <h1>Getting Started on ServiceNow</h1>
+  </header>
+
+  <div class="content text-content guide-content">
+    <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+      <section class="guide-nav">
+        <nav>
+          <h1>Getting Started on ServiceNow</h1>
+          <ul>
+            <li>
+              <a href="https://codecreative.io/guides/getting-started-on-servicenow/">
+                Guide Index
+              </a>
+            </li>
+            
+            
+              
+                <li>
+                  <a href="https://codecreative.io/guides/getting-started-on-servicenow/what-is-servicenow/">
+                    What is ServiceNow?
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  What is a ServiceNow Instance?
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://codecreative.io/guides/getting-started-on-servicenow/get-a-personal-developer-instance/">
+                    Exercise: Get a Personal Developer Instance
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://codecreative.io/guides/getting-started-on-servicenow/navigating-the-ui/">
+                    Exercise: Navigating the UI
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://codecreative.io/guides/getting-started-on-servicenow/filtering-records-in-the-list-view/">
+                    Exercise: Filtering Records in the List View
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://codecreative.io/guides/getting-started-on-servicenow/creating-and-editing-records/">
+                    Exercise: Creating and Editing Records
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://codecreative.io/guides/getting-started-on-servicenow/next-steps/">
+                    Next Steps
+                  </a>
+                </li>
+              
+            
+          </ul>
+        </nav>
+      </section>
+
+      <section class="guide-article">
+        <header class="post-header">
+          <h1 class="post-title p-name" itemprop="name headline">What is a ServiceNow Instance?</h1>
+          <p class="post-meta">
+              <time class="dt-published" datetime="2019-02-23T20:20:49Z" itemprop="datePublished">
+              February 23, 2019
+              </time>
+            
+              
+              • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">Travis Toulson</span></span>
+            
+          </p>
+        </header>
+
+        <div class="post-content e-content" itemprop="articleBody">
+          
+
+<figure>
+  <img src="images/A ServiceNow Instance.png" />
+  <figcaption>
+    This is a ServiceNow Instance
+  </figcaption>
+</figure>
+
+<p>As mentioned in the previous section, ServiceNow operates using a single tenant architecture meaning that each customer gets their own copy or multiple copies of ServiceNow in the cloud. These copies are known as ServiceNow instances. Users can access an instance via web browser using each instance&rsquo;s unique URL such as <code>https://companyname.service-now.com</code>.</p>
+
+<p>Each instance can run multiple applications side by side, so a single instance could potentially host an ITSM, HR, CSM, and Custom Apps all at the same base URL. This allows ServiceNow to act as a single system of record for multiple business applications, enriching each application through the sharing of data. For example, the HR application could kick off an Employee Onboarding Workflow which in turn creates a series of Requests in the ITSM application for setting up the new employee&rsquo;s computer.</p>
+
+<p>The single tenant architecture also means that each instance is isolated from every other ServiceNow instance. Isolating instances allows organizations to keep their data and processes separate.  Some organizations will use multiple instances to ensure processes with sensitive data are kept separate from more democratized processes.</p>
+
+<h2 id="using-multiple-instances">Using Multiple Instances</h2>
+
+<p>A more common way that organizations use multiple instances is to separate different environments for development purposes, most commonly:</p>
+
+<ul>
+<li>Development Instance (companynamedev.service-now.com)</li>
+<li>Test Instance (companynametest.service-now.com)</li>
+<li>Production Instance (companyname.service-now.com)</li>
+</ul>
+
+<p>Or as they are more commonly called: dev, test, and prod. Notice in the sample URLs above, the dev and test instances are post-fixed with dev and test (companyname<strong>dev</strong> and companyname<strong>test</strong>). This is most often how you will see the instance URLs represented with the production containing only the company name or instance name.</p>
+
+<p>Occasionally, you may come across organizations with only two or more than three instances and even encounter other identifiers such as QA, Staging, or Sandbox. Using multiple instances in this way allows developers to work in non-prod instances and promote development work using a standardized process. This ensures changes to the instance (like customizing forms or adding new code) can be thoroughly tested before promoting them into the prod environment.</p>
+
+<h2 id="an-example">An Example</h2>
+
+<figure>
+  <img src="images/Visualizing ServiceNow Instances.png" />
+  <figcaption>
+    An example ServiceNow environment for two companies
+  </figcaption>
+</figure>
+
+<p>The example ServiceNow environment shows two hypothetical ServiceNow customers: Dallas Dogfood Company and Dixie Rose Delivery Services. (I may have taken a couple family dog names and used them to invent fake company names). As you can see, each company has opted for three instances: dev, test, and prod.</p>
+
+<p>In total, there are 6 ServiceNow instances. Each instance has a unique set of users who are authorized to use the instance, unique groups the users can be assigned to, and unique data stored in the other tables. A change in one instance has no impact on any of the other instances. If Dallas Dogfood makes a change in the dallasdogfooddev instance, it only affects dallasdogfooddev. It has no impact on test or prod and no impact on the Dixie Rose Delivery Services Instances.</p>
+
+<p>In fact, even if the same usernames exist in each instance, they are not guaranteed to have the same password. The user could (and for security reasons most likely should) set a different password in every instance.</p>
+
+<p>Each instance could also have different apps installed in them. Dixie Rose Delivery may be leveraging the CSM Field Services to conduct their deliveries while Dallas Dogfood may instead be using the ITSM and ITOM suite of applications to manage their automated plant. Additionally, Dixie Rose Delivery could be exploring the use of the ITBM Project Management application in the dixierosedev environment without actually deploying it to production.</p>
+
+<h2 id="promoting-and-cloning">Promoting and Cloning</h2>
+
+<p>As a final note on instances, it is helpful to note that once Dixie Rose Deliveries has evaluated they have multiple options for bringing their dev and production instances back into sync with one another.</p>
+
+<p>First, they could chose to install the ITBM Project Management application in Production and promote up any changes they made in ServiceNow. You may hear this referred to as promoting Update Sets.</p>
+
+<p>Alternatively, they could decide that ITBM is a poor fit for their organization and instead choose to clone the production instance over the dev instance. This in effect will make dev a carbon copy of prod, making it ready for further development and enhancement. If you choose to pursue a career in ServiceNow Administration, Implementation, or Development, you will become more familiar with these topics.</p>
+
+<p>Now that we have learned what a ServiceNow instance is, the next step is to get our own ServiceNow instance to explore!</p>
+
+        </div>
+
+        <a class="u-url" href="/guides/getting-started-on-servicenow/what-is-a-servicenow-instance" hidden></a>
+
+        <nav class="pagination">
+          
+            <a href="https://codecreative.io/guides/getting-started-on-servicenow/what-is-servicenow/" class="pagination-prev">
+              <h4>Previous</h4>
+              <div class="pagination-label">What is ServiceNow?</div>
+            </a>
+          
+
+          
+            <a href="https://codecreative.io/guides/getting-started-on-servicenow/get-a-personal-developer-instance/" class="pagination-next">
+              <h4>Next</h4>
+              <div class="pagination-label">Exercise: Get a Personal Developer Instance</div>
+            </a>
+          
+        </nav>
+      </section>
+    </article><div class="subscribe-form">
+  
+  <div id="mc_embed_signup">
+    <form action="https://codecreative.us14.list-manage.com/subscribe/post?u=98c1070493fa133df8ea08394&amp;id=f759c17295" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+      <div id="mc_embed_signup_scroll">
+        <h2>Subscribe</h2>
+        <div class="subtext">Sign up with your email address to receive news and updates.</div>
+        <div>
+          <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Email Address" required>
+
+          
+          <div class="sr-only" aria-hidden="true">
+            <input type="text" name="b_98c1070493fa133df8ea08394_f759c17295" tabindex="-1" value="">
+          </div>
+
+          <input type="submit" value="Sign Up" name="subscribe" id="mc-embedded-subscribe" class="button">
+        </div>
+      </div>
+    </form>
+  </div>
+  
+</div>
+</div>
+
+      </main><footer>
+  <div class="footer-content-wrap">
+    <p class="text-align-center">
+      <a href="/servicenow">Blog</a>
+      &nbsp;|&nbsp;
+      <a href="/about">About</a>
+      &nbsp;|&nbsp;
+      <a href="/contact">Contact</a>
+    </p>
+    <div class="text-align-center">
+      
+    </div>
+  </div>
+</footer>
+<script type="text/javascript" src="/assets/main.js"></script>
+</body>
+</html>
