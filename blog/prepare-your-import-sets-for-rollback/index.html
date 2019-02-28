@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+  <head><meta charset="utf-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Julius+Sans+One|Slabo+13px|Open+Sans:300" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+<link rel="stylesheet" href="https://codecreative.io/assets/main.min.89ccf047fd57f3ef4acadb519befb792b78ff0f547ecc764de06c48b177aaeb5.css">
+<title>Prepare Your Import Sets for Rollback | CodeCreative | A ServiceNow Blog</title>
+<meta name="description" content="Few things are worse than performing a bulk import of data into ServiceNow only to realize you got something horribly wrong in the Transform Map. Recently I have been toying with a combination of pre-import steps that can be taken to enable rolling back these changes.">
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?d=20181101201248">
+<link rel="canonical" href="https://codecreative.io/blog/prepare-your-import-sets-for-rollback/"><meta property="og:site_name" content="CodeCreative | A ServiceNow Blog">
+<meta property="og:title" content="Prepare Your Import Sets for Rollback">
+<meta property="og:url" content="https://codecreative.io/blog/prepare-your-import-sets-for-rollback/">
+
+<meta property="og:type" content="article">
+
+<meta property="og:description" content="Few things are worse than performing a bulk import of data into ServiceNow only to realize you got something horribly wrong in the Transform Map. Recently I have been toying with a combination of pre-import steps that can be taken to enable rolling back these changes.">
+
+  
+    <meta property="og:image" content="https://codecreative.io/blog/prepare-your-import-sets-for-rollback/images/social.png">
+  
+
+<meta itemprop="name" content="Prepare Your Import Sets for Rollback">
+<meta itemprop="url" content="https://codecreative.io/blog/prepare-your-import-sets-for-rollback/">
+<meta itemprop="description" content="Few things are worse than performing a bulk import of data into ServiceNow only to realize you got something horribly wrong in the Transform Map. Recently I have been toying with a combination of pre-import steps that can be taken to enable rolling back these changes.">
+
+  
+  <meta itemprop="thumbnailUrl" content="https://codecreative.io/blog/prepare-your-import-sets-for-rollback/images/social.png">
+  <link rel="image_src" href="https://codecreative.io/blog/prepare-your-import-sets-for-rollback/images/social.png">
+  <meta itemprop="image" content="https://codecreative.io/blog/prepare-your-import-sets-for-rollback/images/social.png">
+  
+
+
+<meta name="twitter:title" content="Prepare Your Import Sets for Rollback">
+
+<meta name="twitter:image" content="https://codecreative.io/blog/prepare-your-import-sets-for-rollback/images/social.png">
+
+<meta name="twitter:url" content="https://codecreative.io/blog/prepare-your-import-sets-for-rollback/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:description" content="Few things are worse than performing a bulk import of data into ServiceNow only to realize you got something horribly wrong in the Transform Map. Recently I have been toying with a combination of pre-import steps that can be taken to enable rolling back these changes.">
+
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-90280965-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-90280965-1');
+</script>
+
+<script type="application/ld+json">
+{
+    "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https://codecreative.io/"
+    },
+    "name" : "Prepare Your Import Sets for Rollback",
+    "headline" : "Prepare Your Import Sets for Rollback",
+    "description" : "Few things are worse than performing a bulk import of data into ServiceNow only to realize you got something horribly wrong in the Transform Map. Recently I have been toying with a combination of pre-import steps that can be taken to enable rolling back these changes.","image": "https://codecreative.io/blog/prepare-your-import-sets-for-rollback/images/social.png","inLanguage" : "en-US",
+      "author" : "Travis Toulson",
+      "creator" : "Travis Toulson","publisher": "Travis Toulson",
+    "copyrightHolder" : "Travis Toulson",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-02-28 08:42:07 &#43;0000 UTC",
+    "dateModified" : "2019-02-28 08:42:07 &#43;0000 UTC",
+    "url" : "https://codecreative.io/blog/prepare-your-import-sets-for-rollback/",
+    "wordCount" : "671",
+    "keywords" : [ "Blog" ]
+}
+</script>
+
+
+  </head>
+  <body><header role="banner">
+  <h1 class="logo">
+      <a href="/">
+         <img src="/assets/codecreativelogo.png" alt="Prepare Your Import Sets for Rollback" />
+         <span class="sr-only">CodeCreative Logo, click to navigate home</span>
+      </a>
+    </h1>
+
+  <div class="menuToggle">
+    <button class="hamburger" type="button" onclick="toggleMenu()">
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+      <span class="sr-only">Toggle Menu</span>
+    </button>
+  </div>
+
+  <nav class="fullNav">
+    <ul>
+      
+      
+        <li title="Home">
+          <a class="" href="/">Home</a>
+        </li>
+      
+        <li title="Blog">
+          <a class="" href="/blog/">Blog</a>
+        </li>
+      
+        <li title="About">
+          <a class="" href="/about/">About</a>
+        </li>
+      
+        <li title="Contact">
+          <a class="" href="/contact/">Contact</a>
+        </li>
+      
+        <li title="Guides">
+          <a class="" href="/guides/">Guides</a>
+        </li>
+      
+    </ul>
+  </nav>
+</header>
+<main>
+  <header class="banner">
+    <h1>Prepare Your Import Sets for Rollback</h1>
+  </header>
+
+  <div class="content text-content">
+    <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+      <header class="post-header">
+        <h1 class="post-title p-name sr-only" itemprop="name headline">Prepare Your Import Sets for Rollback</h1>
+        <p class="post-meta">
+            <time class="dt-published" datetime="2019-02-28T08:42:07Z" itemprop="datePublished">
+            February 28, 2019
+            </time>
+          
+            
+            • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">Travis Toulson</span></span>
+          
+        </p>
+      </header>
+
+      <div class="post-content e-content" itemprop="articleBody">
+        
+
+<p>Few things are worse than performing a bulk import of data into ServiceNow only to realize you got something horribly wrong in the Transform Map. With a well planned coalesce, this often won&rsquo;t create an issue since you can just reimport and overwrite. But sometimes things don&rsquo;t go as planned and we need the nuclear option. Up until this point, I am still unaware of any baseline method of rollback for import sets.</p>
+
+<p>So, recently I have been toying with a combination of pre-import steps that can be taken to enable rolling back imports. While not a true database transaction rollback, it can help recover from &lsquo;oops&rsquo;.</p>
+
+<h2 id="import-set-rollback-process">Import Set Rollback Process</h2>
+
+<p>So let&rsquo;s take a quick look at the process before breaking it down.</p>
+
+<p><strong>Preparation Steps</strong></p>
+
+<p>Execute these steps before running any import:</p>
+
+<ol>
+<li>Export XML from all tables you plan to import</li>
+<li>Add a tag to identify all newly imported records</li>
+<li>Change the <strong>Choice action</strong> option on field maps to <strong>reject</strong></li>
+</ol>
+
+<p><strong>Recovery Steps</strong></p>
+
+<p>Execute these steps after a botched import to recover:</p>
+
+<ol>
+<li>Delete all records tagged with your imported tag</li>
+<li>Import the previously exported XML</li>
+</ol>
+
+<h2 id="preparation-steps">Preparation Steps</h2>
+
+<p>In order to rollback an import set, we need to make sure we capture certain pieces of information up front. The XML export will provide us with a way to recover the current state of all existing records in your target tables. ServiceNow&rsquo;s XML exports are very robust and I can&rsquo;t stress the importance of this step. I once recovered an accidentally overwritten sys_user table from an XML snapshot, passwords and all.</p>
+
+<h3 id="add-a-tag">Add a Tag</h3>
+
+<p>In addition to restoring existing records, we also want to delete any newly imported records. I&rsquo;ve found that an easy way to identify them is to create a new Tag (label) record. To accomplish this, you can navigate to <strong>System Definition &gt; Tags</strong> and create a new Tag record. Then, create a Transform Script like the following:</p>
+
+<p><strong>Transform Script</strong>
+<strong>When:</strong> onBefore
+<strong>Order:</strong> 100
+<strong>Script:</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="p">(</span><span class="kd">function</span> <span class="nx">runTransformScript</span><span class="p">(</span><span class="nx">source</span><span class="p">,</span> <span class="nx">map</span><span class="p">,</span> <span class="nx">log</span><span class="p">,</span> <span class="nx">target</span> <span class="cm">/*undefined onStart*/</span> <span class="p">)</span> <span class="p">{</span>
+  <span class="cm">/*
+</span><span class="cm">    Change to the sys_id of your Tag record.
+</span><span class="cm">    This will add the tag to newly created records
+</span><span class="cm">  */</span>
+  <span class="kd">var</span> <span class="nx">tagSysId</span> <span class="o">=</span> <span class="s1">&#39;2e4144a113fba300630d5d422244b0aa&#39;</span><span class="p">;</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="nx">action</span> <span class="o">==</span> <span class="s1">&#39;insert&#39;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;label_entry&#39;</span><span class="p">);</span>
+    <span class="nx">gr</span><span class="p">.</span><span class="nx">initialize</span><span class="p">();</span>
+    <span class="nx">gr</span><span class="p">.</span><span class="nx">table</span> <span class="o">=</span> <span class="nx">target</span><span class="p">.</span><span class="nx">getTableName</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+    <span class="nx">gr</span><span class="p">.</span><span class="nx">label</span> <span class="o">=</span> <span class="nx">tagSysId</span><span class="p">;</span>
+    <span class="nx">gr</span><span class="p">.</span><span class="nx">table_key</span> <span class="o">=</span> <span class="nx">target</span><span class="p">.</span><span class="nx">sys_id</span> <span class="o">+</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+    <span class="nx">gr</span><span class="p">.</span><span class="nx">title</span> <span class="o">=</span> <span class="nx">target</span><span class="p">.</span><span class="nx">getDisplayValue</span><span class="p">();</span>
+    <span class="nx">gr</span><span class="p">.</span><span class="nx">insert</span><span class="p">();</span>
+  <span class="p">}</span>
+
+<span class="p">})(</span><span class="nx">source</span><span class="p">,</span> <span class="nx">map</span><span class="p">,</span> <span class="nx">log</span><span class="p">,</span> <span class="nx">target</span><span class="p">);</span>
+</code></pre></div>
+<p>Now you have an easy way to identify all the records created by the import that doesn&rsquo;t involve magical date/time stamps and hoping no one else created records at the same time.</p>
+
+<h3 id="choice-action-reject">Choice Action Reject</h3>
+
+<p>Lastly, we need to change all <strong>Choice Actions</strong> to <strong>reject</strong> or <strong>ignore</strong>. I personally prefer <strong>reject</strong> because then I get a Skipped count to indicate issues. This step prevents the Transform Map from generating incidental records which will not get tagged by the script above. You may find that you can adjust the above script to tag Choice creation as well but I haven&rsquo;t taken it that far yet.</p>
+
+<h2 id="recovery-steps">Recovery Steps</h2>
+
+<p>With those 3 preparation steps we can ensure:</p>
+
+<ol>
+<li>All existing records can be restored via XML import</li>
+<li>All new records can be deleted via script</li>
+</ol>
+
+<h2 id="delete-new-records">Delete New Records</h2>
+
+<p>To delete the newly created records you can run the following background script:</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">tagSysId</span> <span class="o">=</span> <span class="s1">&#39;2e4144a113fba300630d5d422244b0aa&#39;</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="s1">&#39;pm_project&#39;</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="nx">table</span><span class="p">);</span>
+<span class="nx">gr</span><span class="p">.</span><span class="nx">addEncodedQuery</span><span class="p">(</span><span class="s1">&#39;sys_tags.&#39;</span> <span class="o">+</span> <span class="nx">tagSysId</span> <span class="o">+</span> <span class="s1">&#39;=&#39;</span> <span class="o">+</span> <span class="nx">tagSysId</span><span class="p">);</span>
+<span class="nx">gr</span><span class="p">.</span><span class="nx">deleteMultiple</span><span class="p">();</span>
+</code></pre></div>
+<p>You can also convert this to an onStart Transform Script to have the records auto delete on reimport.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Unfortunately, I&rsquo;ve yet to find any built in rollbacks in ServiceNow for Import Sets. With a little foresight and preparation, though, we can take steps to ensure that we can recover from any import mishaps. As always, trying things out in Dev and Test should always be your first line of defense. But it&rsquo;s always nice to know you can setup a fallback plan. I, for one, like to think I can get out of trouble faster than I got into it.</p>
+
+<p>And if you&rsquo;ve got a better way, I&rsquo;d love to know!</p>
+
+      </div>
+
+      <a class="u-url" href="/blog/prepare-your-import-sets-for-rollback" hidden></a>
+    </article><div class="subscribe-form">
+  
+  <div id="mc_embed_signup">
+    <form action="https://codecreative.us14.list-manage.com/subscribe/post?u=98c1070493fa133df8ea08394&amp;id=f759c17295" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+      <div id="mc_embed_signup_scroll">
+        <h2>Subscribe</h2>
+        <div class="subtext">Sign up with your email address to receive news and updates.</div>
+        <div>
+          <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Email Address" required>
+
+          
+          <div class="sr-only" aria-hidden="true">
+            <input type="text" name="b_98c1070493fa133df8ea08394_f759c17295" tabindex="-1" value="">
+          </div>
+
+          <input type="submit" value="Sign Up" name="subscribe" id="mc-embedded-subscribe" class="button">
+        </div>
+      </div>
+    </form>
+  </div>
+  
+</div>
+</div>
+
+      </main><footer>
+  <div class="footer-content-wrap">
+    <p class="text-align-center">
+      <a href="/servicenow">Blog</a>
+      &nbsp;|&nbsp;
+      <a href="/about">About</a>
+      &nbsp;|&nbsp;
+      <a href="/contact">Contact</a>
+    </p>
+    <div class="text-align-center">
+      
+    </div>
+  </div>
+</footer>
+<script type="text/javascript" src="/assets/main.js"></script>
+</body>
+</html>
