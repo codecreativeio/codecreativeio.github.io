@@ -70,7 +70,7 @@
     "datePublished": "2019-03-31 21:38:31 &#43;0000 UTC",
     "dateModified" : "2019-03-31 21:38:31 &#43;0000 UTC",
     "url" : "https://codecreative.io/blog/is-gliderecord-getvalue-the-king-of-the-string/",
-    "wordCount" : "3405",
+    "wordCount" : "3577",
     "keywords" : [ "Blog" ]
 }
 </script>
@@ -175,6 +175,8 @@
 <p>The most important takeaway I can offer is this: know your return types and develop defensively. Follow that guideline, and any of the string coercion methods will work for you.</p>
 
 <p>If you are interested, keep reading for further analysis and feel free to download the Get Value Analysis app to pull samples in your own instance to contribute to the conversation.</p>
+
+<p><strong>Update (04/07/2019):</strong> Thanks to some sleuthing by Kevin Gravois, it appears that toString may not be as unusual as I initially thought and could in fact be a superior method to plus-quote-quote and String constructor. More details in the toString analysis.</p>
 
 <hr />
 
@@ -417,6 +419,8 @@
 
 <h3 id="plus-quote-quote">Plus-Quote-Quote</h3>
 
+<p><strong>Updated (04/07/2019):</strong> This section has been updated to reflect the findings presented by Kevin Gravois</p>
+
 <p>Example:</p>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;incident&#39;</span><span class="p">);</span>
 <span class="nx">gr</span><span class="p">.</span><span class="nx">setLimit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
@@ -430,8 +434,8 @@
 <p><strong>Criteria Results</strong></p>
 
 <ul>
-<li>Expected Type Returned: <strong>Pass</strong></li>
-<li>Expected Value Returned: <strong>Pass</strong></li>
+<li>Expected Type Returned: <strong>Fail</strong></li>
+<li>Expected Value Returned: <strong>Fail</strong></li>
 <li>Consistent Readability: <strong>Fail</strong></li>
 <li>Long Term Stability: <strong>Pass</strong></li>
 </ul>
@@ -440,7 +444,7 @@
 
 <ul>
 <li>Used in ~400+ Scripts in a Baseline Instance implies this method&rsquo;s use isn&rsquo;t going away any time soon</li>
-<li>Always returns a string</li>
+<li>Always returns a string, except in the case of the Wiki field type</li>
 <li>Consistent script readability in all scenarios</li>
 <li>Returns the expected &lsquo;true&rsquo; and &lsquo;false&rsquo; string representations for booleans</li>
 </ul>
@@ -448,19 +452,24 @@
 <p><strong>Cons:</strong></p>
 
 <ul>
+<li>Throws an error on empty Wiki fields</li>
 <li>Not ServiceNow&rsquo;s Documented method</li>
 <li>May not be explicit enough for inexperienced developers</li>
 </ul>
 
 <p>This was the most unexpected part of the analysis. I assumed that if there were differences, they would fall in favor of getValue but that was not the case at all. Sure, this method is not documented by ServiceNow but it is extensively used by ServiceNow&rsquo;s developers. So unless ServiceNow imposes a major change, we can expect implicit type coercion to continue to work in future versions. That combined with the anecdotal evidence that I&rsquo;ve been using this method myself since roughly 2011 gives me a fair amount of confidence in it.</p>
 
-<p>The biggest plus though is that it always returns a string. Empty field? That&rsquo;s an empty string. This simplifies type checking and gives me exactly what I would have expected from the getValue API&rsquo;s. Simpler scripts without the risk of TypeErrors. Now that&rsquo;s an approach I can live with.</p>
+<p>The biggest plus though is that it almost always returns a string. Empty field? That&rsquo;s an empty string. This simplifies type checking and gives me exactly what I would have expected from the getValue API&rsquo;s. Simpler scripts without the risk of TypeErrors. Now that&rsquo;s an approach I can live with.</p>
 
-<p>Controlling for the null and boolean values, Plus-Quote-Quote was consistent with getValue&rsquo;s results 100% of the time.</p>
+<p>Controlling for the null and boolean values, Plus-Quote-Quote was consistent with getValue&rsquo;s results nearly 100% of the time.</p>
 
-<p>That said, the one major drawback I can see is that plus-quote-quote is by definition implicit string coercion. That key word <em>implicit</em> means inexperienced developers may not recognize the syntax. Obviously, that is a hazard I am willing to take. Some may disagree, but I failed this method for readability on account of the number of inexperienced programmers who have asked me what the <em>+ &ldquo;</em> is at the end of my lines of code.</p>
+<p>That said, the biggest drawback is an obscure error that is thrown when a Wiki field is empty. The getValue and toString functions return a null value instead which is far better than an error. This appears to be an issue that is specific to the Wiki processing though and seems to be a bug rather than by design. Even though I failed this method on return values for this reason, I am more than willing to work around this one field type that I rarely encounter.</p>
+
+<p>One other drawback I can see is that plus-quote-quote is by definition implicit string coercion. That key word <em>implicit</em> means inexperienced developers may not recognize the syntax. Obviously, that is a hazard I am willing to take. Some may disagree, but I failed this method for readability on account of the number of inexperienced programmers who have asked me what the <em>+ &ldquo;</em> is at the end of my lines of code.</p>
 
 <h3 id="string-constructor">String constructor</h3>
+
+<p><strong>Updated (04/07/2019):</strong> This section has been updated to reflect the findings presented by Kevin Gravois</p>
 
 <p>Example:</p>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;incident&#39;</span><span class="p">);</span>
@@ -475,8 +484,8 @@
 <p><strong>Criteria Results</strong></p>
 
 <ul>
-<li>Expected Type Returned: <strong>Pass</strong></li>
-<li>Expected Value Returned: <strong>Pass</strong></li>
+<li>Expected Type Returned: <strong>Fail</strong></li>
+<li>Expected Value Returned: <strong>Fail</strong></li>
 <li>Consistent Readability: <strong>Pass</strong></li>
 <li>Long Term Stability: <strong>Pass</strong></li>
 </ul>
@@ -484,7 +493,7 @@
 <p><strong>Pros:</strong></p>
 
 <ul>
-<li>Always returns a string</li>
+<li>Always returns a string, except in the case of the Wiki field type</li>
 <li>Consistent script readability in all scenarios</li>
 <li>Returns the expected &lsquo;true&rsquo; and &lsquo;false&rsquo; string representations for booleans</li>
 </ul>
@@ -492,15 +501,18 @@
 <p><strong>Cons:</strong></p>
 
 <ul>
+<li>Throws an error on empty Wiki fields</li>
 <li>Not ServiceNow&rsquo;s Documented method</li>
 <li>Used in at least 50+ Scripts in a Baseline Instance implies this method may be replaceable but it has some staying power</li>
 </ul>
 
 <p>This method was 100% consistent with the results of Plus-Quote-Quote samples. The main exception is that it is much less frequently used by ServiceNow. While that may imply a greater risk of replacement, String is a JavaScript native implementation. I don&rsquo;t expect many changes to this function but I could be wrong on that.</p>
 
-<p>Additionally, this method is more explicit for newer developers. This one is a tough call but ultimately I chose to stick with Plus-Quote-Quote due to it&rsquo;s wider use.</p>
+<p>Additionally, this method is more explicit for newer developers.</p>
 
 <h3 id="tostring-function">toString Function</h3>
+
+<p><strong>Updated (04/07/2019):</strong> This section has been updated to reflect the findings presented by Kevin Gravois</p>
 
 <p>Example:</p>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;incident&#39;</span><span class="p">);</span>
@@ -515,8 +527,8 @@
 <p><strong>Criteria Results</strong></p>
 
 <ul>
-<li>Expected Type Returned: <strong>Fail</strong></li>
-<li>Expected Value Returned: <strong>Fail</strong></li>
+<li>Expected Type Returned: <strong>Pass</strong></li>
+<li>Expected Value Returned: <strong>Pass</strong></li>
 <li>Consistent Readability: <strong>Pass</strong></li>
 <li>Long Term Stability: <strong>Pass</strong></li>
 </ul>
@@ -524,7 +536,7 @@
 <p><strong>Pros:</strong></p>
 
 <ul>
-<li>Always returns a string</li>
+<li>Always returns a string, except the buggy wiki field</li>
 <li>Returns the expected &lsquo;true&rsquo; and &lsquo;false&rsquo; string representations for booleans</li>
 <li>Used in 350+ Scripts in a Baseline Instance implies this method may be replaceable</li>
 <li>Documented ServiceNow function</li>
@@ -533,19 +545,18 @@
 <p><strong>Cons:</strong></p>
 
 <ul>
-<li>There is no explanation for the difference between this string representation and getValue&rsquo;s</li>
-<li>Can return a NULL value instead of a String</li>
+<li>Technically, the Wiki field can return a null but that field type gives every string coercion method issues</li>
 </ul>
 
-<p>Lastly, we have the drunk uncle of the bunch. The toString makes absolutely no sense to me. In some cases on Wiki Text fields (possibly others?) it returns null like getValue. But it returns a proper &lsquo;true&rsquo; and &lsquo;false&rsquo; like plus-quote-quote and String constructor. Once upon a time using toString could result in pointing to the Java toString function which would yield odd results but I haven&rsquo;t tried it since Calgary when I stopped using it and those results didn&rsquo;t show up in my samples so I guess that has been worked out.</p>
+<p>After the findings Kevin Gravois presented to me in a slack conversation, I am entirely taking back my &ldquo;drunk uncle&rdquo; comments about toString. It turns out the only field type throwing null values around for this method was the Wiki field. Furthermore, that same field type throws errors on plus-quote-quote and String constructor methods. My error handling was swallowing and logging the errors but I overlooked it in my initial analysis.</p>
 
-<p>It is used by ServiceNow pretty extensively but it&rsquo;s hard to tell how exactly that function is being used since it can be used in many different scenarios.</p>
+<p>That said, toString is consistent with the plus-quote-quote and String constructor methods in every other scenario and even I admit that null value is superior to an error.</p>
 
-<p>Further more, there is no explanation as to why toString and getValue would yield different string results for the same field when they are both documented and maintained by ServiceNow.</p>
+<p>Best of all, this function has a consistent signature and can be used with dot-walking reflecting the best strengths of GlideElement getValue. And unlike GlideElement getValue, toString is still available in Scoped applications.</p>
 
-<p>I suppose if toString were the recommended best practice and used more extensively than getValue, then getValue would be the drunk uncle. But that&rsquo;s not how the chips fell for toString.</p>
+<p>Lastly, toString is pretty darn clear as to its intent from a readability perspective. Much more so than my favored plus-quote-quote.</p>
 
-<p>I want to love it. It so closely resembles GlideElement&rsquo;s getValue function. And yet, it scares the crap out of me. I may need to test this one further.</p>
+<p>Will I be switching to toString? I don&rsquo;t know. Old habits are hard to break and plus-quote-quote works in all other scenarios just fine. But I&rsquo;d be lying if I didn&rsquo;t acknowledge that toString seemingly has all the advantages and none of the disadvantages.</p>
 
 <h2 id="don-t-take-my-word-for-it">Don&rsquo;t Take My Word For It</h2>
 
