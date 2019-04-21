@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+  <head><meta charset="utf-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Julius+Sans+One|Slabo+13px|Open+Sans:300" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+<link rel="stylesheet" href="https://codecreative.io/assets/main.min.f3d1ef93d0edf3bd8b05a1c5c552fed91f01e0e9624c4f1e35f60b3339173f9d.css">
+<title>CSS and SCSS Processing | CodeCreative | A ServiceNow Blog</title>
+<meta name="description" content="So far we have reviewed many different CSS fields across the Service Portal framework. Since CSS evaluation is highly dependent on it&#39;s order, it helps to understand how these different fields get ordered and processed.">
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?d=20181101201248">
+<link rel="canonical" href="https://codecreative.io/guides/getting-started-with-service-portal/css-and-scss-processing/"><meta property="og:site_name" content="CodeCreative | A ServiceNow Blog">
+<meta property="og:title" content="CSS and SCSS Processing">
+<meta property="og:url" content="https://codecreative.io/guides/getting-started-with-service-portal/css-and-scss-processing/">
+
+<meta property="og:type" content="article">
+
+<meta property="og:description" content="So far we have reviewed many different CSS fields across the Service Portal framework. Since CSS evaluation is highly dependent on it&#39;s order, it helps to understand how these different fields get ordered and processed.">
+
+  
+    <meta property="og:image" content="https://codecreative.io/guides/getting-started-with-service-portal/social.png">
+  
+
+<meta itemprop="name" content="CSS and SCSS Processing">
+<meta itemprop="url" content="https://codecreative.io/guides/getting-started-with-service-portal/css-and-scss-processing/">
+<meta itemprop="description" content="So far we have reviewed many different CSS fields across the Service Portal framework. Since CSS evaluation is highly dependent on it&#39;s order, it helps to understand how these different fields get ordered and processed.">
+
+  
+  <meta itemprop="thumbnailUrl" content="https://codecreative.io/guides/getting-started-with-service-portal/social.png">
+  <link rel="image_src" href="https://codecreative.io/guides/getting-started-with-service-portal/social.png">
+  <meta itemprop="image" content="https://codecreative.io/guides/getting-started-with-service-portal/social.png">
+  
+
+
+<meta name="twitter:title" content="CSS and SCSS Processing">
+
+<meta name="twitter:image" content="https://codecreative.io/guides/getting-started-with-service-portal/social.png">
+
+<meta name="twitter:url" content="https://codecreative.io/guides/getting-started-with-service-portal/css-and-scss-processing/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:description" content="So far we have reviewed many different CSS fields across the Service Portal framework. Since CSS evaluation is highly dependent on it&#39;s order, it helps to understand how these different fields get ordered and processed.">
+
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-90280965-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-90280965-1');
+</script>
+
+<script type="application/ld+json">
+{
+    "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https://codecreative.io/"
+    },
+    "name" : "CSS and SCSS Processing",
+    "headline" : "CSS and SCSS Processing",
+    "description" : "So far we have reviewed many different CSS fields across the Service Portal framework. Since CSS evaluation is highly dependent on it&#39;s order, it helps to understand how these different fields get ordered and processed.","image": "https://codecreative.io/guides/getting-started-with-service-portal/social.png","inLanguage" : "en-US",
+      "author" : "Travis Toulson",
+      "creator" : "Travis Toulson","publisher": "Travis Toulson",
+    "copyrightHolder" : "Travis Toulson",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-04-21 17:55:11 &#43;0000 UTC",
+    "dateModified" : "2019-04-21 17:55:11 &#43;0000 UTC",
+    "url" : "https://codecreative.io/guides/getting-started-with-service-portal/css-and-scss-processing/",
+    "wordCount" : "751",
+    "keywords" : [ "Blog" ]
+}
+</script>
+
+
+  </head>
+  <body><header role="banner">
+  <h1 class="logo">
+      <a href="/">
+         <img src="/assets/codecreativelogo.png" alt="CSS and SCSS Processing" />
+         <span class="sr-only">CodeCreative Logo, click to navigate home</span>
+      </a>
+    </h1>
+
+  <div class="menuToggle">
+    <button class="hamburger" type="button" onclick="toggleMenu()">
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+      <span class="sr-only">Toggle Menu</span>
+    </button>
+  </div>
+
+  <nav class="fullNav">
+    <ul>
+      
+      
+        <li title="Home">
+          <a class="" href="/">Home</a>
+        </li>
+      
+        <li title="Blog">
+          <a class="" href="/blog/">Blog</a>
+        </li>
+      
+        <li title="Guides">
+          <a class="" href="/guides/">Guides</a>
+        </li>
+      
+        <li title="About">
+          <a class="" href="/about/">About</a>
+        </li>
+      
+        <li title="Contact">
+          <a class="" href="/contact/">Contact</a>
+        </li>
+      
+    </ul>
+  </nav>
+</header>
+<main>
+  <header class="banner">
+    <h1>Getting Started with Service Portal</h1>
+  </header>
+
+  <div class="content text-content guide-content">
+    <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+      <section class="guide-nav">
+        <nav>
+          <h1>Getting Started with Service Portal</h1>
+          <ul>
+            <li>
+              <a href="https://codecreative.io/guides/getting-started-with-service-portal/">
+                Guide Index
+              </a>
+            </li>
+            
+            
+              
+                <li>
+                  <a href="https://codecreative.io/guides/getting-started-with-service-portal/what-is-service-portal/">
+                    What is Service Portal?
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://codecreative.io/guides/getting-started-with-service-portal/branding-the-portal/">
+                    Exercise: Branding the Portal
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://codecreative.io/guides/getting-started-with-service-portal/creating-a-theme/">
+                    Exercise: Creating a Theme
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://codecreative.io/guides/getting-started-with-service-portal/overriding-styles-with-css-includes/">
+                    Exercise: Overriding Styles with CSS Includes
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://codecreative.io/guides/getting-started-with-service-portal/building-a-homepage/">
+                    Exercise: Building a Homepage
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://codecreative.io/guides/getting-started-with-service-portal/configuring-widgets/">
+                    Exercise: Configuring Widgets
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  CSS and SCSS Processing
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://codecreative.io/guides/getting-started-with-service-portal/next-steps/">
+                    Next Steps
+                  </a>
+                </li>
+              
+            
+          </ul>
+        </nav>
+      </section>
+
+      <section class="guide-article">
+        <header class="post-header">
+          <h1 class="post-title p-name" itemprop="name headline">CSS and SCSS Processing</h1>
+          <p class="post-meta">
+              <time class="dt-published" datetime="2019-04-21T17:55:11Z" itemprop="datePublished">
+              April 21, 2019
+              </time>
+            
+              
+              • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">Travis Toulson</span></span>
+            
+          </p>
+        </header>
+
+        <div class="post-content e-content" itemprop="articleBody">
+          
+
+<p>So far we have reviewed many different CSS fields across the Service Portal framework. Since CSS evaluation is highly dependent on it&rsquo;s order, it helps to understand how these different fields get ordered and processed.</p>
+
+<p>Unfortunately, much of the documentation around this can lead to even more confusion. In order to understand the whole picture, we first have to understand that Service Portal does not generate a single blob of CSS. In fact, it generates many smaller blobs many of which are generated by passing them separately through a SASS processor.</p>
+
+<p>Here is a high level visualization of the process:</p>
+
+<figure>
+  <img src="images/service-portal-sass-css-build-process.png" />
+  <figcaption>
+    Service Portal SASS - CSS Build Process
+  </figcaption>
+</figure>
+
+<p>Each of the green rectangles represents a CSS file or CSS style tag that is included in the final Service Portal HTML. They are listed from top to bottom in the same order that they are listed in the resulting HTML.</p>
+
+<p>Each of the gray rectangles represents a SASS Variable sheet that is concatenated with the SASS of the resulting CSS before being processed. Notice that the Portal CSS Variables field, Theme CSS Variables field, and the Bootstrap / ServiceNow SASS Variable sheet are appended multiple times.</p>
+
+<p>This causes any CSS rules included in the Portal and Theme records to be duplicated many times in the final output CSS. The SASS preprocessor build process also has some potentially unexpected behaviors in that SASS Variables used in the CSS Includes, Page record, Widget records, and Widget Instance records are handled individually. They are not processed together. In other words, CSS on a Widget Instance can not refer to a SASS variable defined in the Widget record.</p>
+
+<p>Let&rsquo;s take a look at how best to use this information in each of the CSS fields in Service Portal:</p>
+
+<h2 id="use-of-portal-and-theme-css">Use of Portal and Theme CSS</h2>
+
+<p>Since any CSS styles in Portal and Theme records get duplicated many times, avoid using them. On the other hand, Portal and Theme records are a great place for defining and overriding SASS variables. In most cases, we would expect the Portal variables to override the Theme variables. This allows us to vary a Theme on a portal by portal basis.</p>
+
+<p>Due to the order in which Portal and Theme variables are processed, though, we need to use the <strong>!default</strong> declaration in each variable of the Theme record. This instructs the SASS processor to only assign the variable with the Theme record <strong>if</strong> the variable has not been previously assigned (by the Portal record).</p>
+
+<p>In versions prior to Kingston, the Portal and Theme processing order are switched. Prior to Kingston, you will not use the <strong>!default</strong> declaration in the Theme record.</p>
+
+<h2 id="use-of-css-includes">Use of CSS Includes</h2>
+
+<p>Prior to Madrid, CSS Includes do not support SASS variables. This greatly limits their flexibility in terms of helping to develop a configurable theme. They can still be used for certain Bootstrap overrides where no variable is provided by Bootstrap.</p>
+
+<p>Starting in Madrid, though, CSS Includes support SASS variables and become the workhorse for powerful, customizable themes. With SASS variable support it is possible to import or generate CSS for building a library of UI widgets that is easily configured on a portal by portal basis. Instead of using Bootstrap provided panels, you could create your own common UI components and build widgets around those.</p>
+
+<p>Keep in mind, though, variables should be declared in the Portal and Theme. They should only be applied in CSS Includes, otherwise the other components will be unaware of the variables / variable overrides.</p>
+
+<h2 id="use-of-page-widget-and-widget-instance-css">Use of Page, Widget, and Widget Instance CSS</h2>
+
+<p>The remaining locations for CSS are more straight forward. Once you get past the Portal, Theme, and CSS Includes, most of the remaining CSS will fall into the Widget record. That&rsquo;s not to say you shouldn&rsquo;t put CSS in the Page or Widget instance but well designed CSS is broadly reusable. Page and Widget Instance records by definition are very narrowly scoped and therefore mostly used to override defaults in very specific circumstances.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Due to the particular processing model Service Portal uses for the various CSS fields, there are a few guidelines that can help keep SASS and CSS well structured in any Service Portal:</p>
+
+<ol>
+<li>Avoid using CSS styles in Portal and Theme records (use variables only)</li>
+<li>Use <strong>!default</strong> on variables in the Theme record in Kingston and later</li>
+<li>Understand the <strong>Final CSS Sequence</strong> and the <strong>SASS Build Process</strong> pictured above to determine the source order of cascading rules</li>
+<li>Don&rsquo;t forget that CSS Specificity and <strong>!important</strong> can ignore source order</li>
+</ol>
+
+        </div>
+
+        <a class="u-url" href="/guides/getting-started-with-service-portal/css-and-scss-processing" hidden></a>
+
+        <nav class="pagination">
+          
+            <a href="https://codecreative.io/guides/getting-started-with-service-portal/configuring-widgets/" class="pagination-prev">
+              <h4>Previous</h4>
+              <div class="pagination-label">Exercise: Configuring Widgets</div>
+            </a>
+          
+
+          
+            <a href="https://codecreative.io/guides/getting-started-with-service-portal/next-steps/" class="pagination-next">
+              <h4>Next</h4>
+              <div class="pagination-label">Next Steps</div>
+            </a>
+          
+        </nav>
+      </section>
+    </article><div class="subscribe-form">
+  
+  <div id="mc_embed_signup">
+    <form action="https://codecreative.us14.list-manage.com/subscribe/post?u=98c1070493fa133df8ea08394&amp;id=f759c17295" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+      <div id="mc_embed_signup_scroll">
+        <h2>Subscribe</h2>
+        <div class="subtext">Sign up with your email address to receive news and updates.</div>
+        <div>
+          <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Email Address" required>
+
+          
+          <div class="sr-only" aria-hidden="true">
+            <input type="text" name="b_98c1070493fa133df8ea08394_f759c17295" tabindex="-1" value="">
+          </div>
+
+          <input type="submit" value="Sign Up" name="subscribe" id="mc-embedded-subscribe" class="button">
+        </div>
+      </div>
+    </form>
+  </div>
+  
+</div>
+</div>
+
+      </main><footer>
+  <div class="footer-content-wrap">
+    <p class="text-align-center">
+      <a href="/blog">Blog</a>
+      &nbsp;|&nbsp;
+      <a href="/guides">Guides</a>
+      &nbsp;|&nbsp;
+      <a href="/about">About</a>
+      &nbsp;|&nbsp;
+      <a href="/contact">Contact</a>
+    </p>
+    <div class="text-align-center">
+      
+    </div>
+  </div>
+</footer>
+<script type="text/javascript" src="/assets/main.js"></script>
+</body>
+</html>
