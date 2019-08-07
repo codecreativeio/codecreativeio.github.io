@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+  <head><meta charset="utf-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Julius+Sans+One|Slabo+13px|Open+Sans:300" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+<link rel="stylesheet" href="https://codecreative.io/assets/main.min.f3d1ef93d0edf3bd8b05a1c5c552fed91f01e0e9624c4f1e35f60b3339173f9d.css">
+<title>Time Zones: Why You Punish Me | CodeCreative | A ServiceNow Blog</title>
+<meta name="description" content="Hootie captured my current frustrations about time best, I think I&rsquo;m out of my mind / thinking about time. That reference is apparently about 24 years old&hellip; enough time for Hootie to become Darius, cycle through R&amp;B and Country before circling back to the Blowfish he left in the Cracked Rear View so long ago. But that&rsquo;s not the time I&rsquo;m talking about today.
+No my friends, today it&rsquo;s all about Time Zones in ServiceNow.">
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?d=20181101201248">
+<link rel="canonical" href="https://codecreative.io/blog/time-zones-why-you-punish-me/"><meta property="og:site_name" content="CodeCreative | A ServiceNow Blog">
+<meta property="og:title" content="Time Zones: Why You Punish Me">
+<meta property="og:url" content="https://codecreative.io/blog/time-zones-why-you-punish-me/">
+
+<meta property="og:type" content="article">
+
+<meta property="og:description" content="Hootie captured my current frustrations about time best, I think I&rsquo;m out of my mind / thinking about time. That reference is apparently about 24 years old&hellip; enough time for Hootie to become Darius, cycle through R&amp;B and Country before circling back to the Blowfish he left in the Cracked Rear View so long ago. But that&rsquo;s not the time I&rsquo;m talking about today.
+No my friends, today it&rsquo;s all about Time Zones in ServiceNow.">
+
+  
+    <meta property="og:image" content="https://codecreative.io/blog/time-zones-why-you-punish-me/images/social.png">
+  
+
+<meta itemprop="name" content="Time Zones: Why You Punish Me">
+<meta itemprop="url" content="https://codecreative.io/blog/time-zones-why-you-punish-me/">
+<meta itemprop="description" content="">
+
+  
+  <meta itemprop="thumbnailUrl" content="https://codecreative.io/blog/time-zones-why-you-punish-me/images/social.png">
+  <link rel="image_src" href="https://codecreative.io/blog/time-zones-why-you-punish-me/images/social.png">
+  <meta itemprop="image" content="https://codecreative.io/blog/time-zones-why-you-punish-me/images/social.png">
+  
+
+
+<meta name="twitter:title" content="Time Zones: Why You Punish Me">
+
+<meta name="twitter:image" content="https://codecreative.io/blog/time-zones-why-you-punish-me/images/social.png">
+
+<meta name="twitter:url" content="https://codecreative.io/blog/time-zones-why-you-punish-me/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:description" content="Hootie captured my current frustrations about time best, I think I&rsquo;m out of my mind / thinking about time. That reference is apparently about 24 years old&hellip; enough time for Hootie to become Darius, cycle through R&amp;B and Country before circling back to the Blowfish he left in the Cracked Rear View so long ago. But that&rsquo;s not the time I&rsquo;m talking about today.
+No my friends, today it&rsquo;s all about Time Zones in ServiceNow.">
+
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-90280965-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-90280965-1');
+</script>
+
+<script type="application/ld+json">
+{
+    "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https://codecreative.io/"
+    },
+    "name" : "Time Zones: Why You Punish Me",
+    "headline" : "Time Zones: Why You Punish Me",
+    "description" : "Hootie captured my current frustrations about time best, I think I&rsquo;m out of my mind / thinking about time. That reference is apparently about 24 years old&hellip; enough time for Hootie to become Darius, cycle through R&amp;B and Country before circling back to the Blowfish he left in the Cracked Rear View so long ago. But that&rsquo;s not the time I&rsquo;m talking about today.
+No my friends, today it&rsquo;s all about Time Zones in ServiceNow.","image": "https://codecreative.io/blog/time-zones-why-you-punish-me/images/social.png","inLanguage" : "en-US",
+      "author" : "Travis Toulson",
+      "creator" : "Travis Toulson","publisher": "Travis Toulson",
+    "copyrightHolder" : "Travis Toulson",
+    "copyrightYear" : "2019",
+    "datePublished": "2019-08-06 16:22:11 &#43;0000 UTC",
+    "dateModified" : "2019-08-06 16:22:11 &#43;0000 UTC",
+    "url" : "https://codecreative.io/blog/time-zones-why-you-punish-me/",
+    "wordCount" : "944",
+    "keywords" : [ "Blog" ]
+}
+</script>
+
+
+  </head>
+  <body><header role="banner">
+  <h1 class="logo">
+      <a href="/">
+         <img src="/assets/codecreativelogo.png" alt="Time Zones: Why You Punish Me" />
+         <span class="sr-only">CodeCreative Logo, click to navigate home</span>
+      </a>
+    </h1>
+
+  <div class="menuToggle">
+    <button class="hamburger" type="button" onclick="toggleMenu()">
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+      <span class="sr-only">Toggle Menu</span>
+    </button>
+  </div>
+
+  <nav class="fullNav">
+    <ul>
+      
+      
+        <li title="Home">
+          <a class="" href="/">Home</a>
+        </li>
+      
+        <li title="Blog">
+          <a class="" href="/blog/">Blog</a>
+        </li>
+      
+        <li title="Guides">
+          <a class="" href="/guides/">Guides</a>
+        </li>
+      
+        <li title="About">
+          <a class="" href="/about/">About</a>
+        </li>
+      
+        <li title="Contact">
+          <a class="" href="/contact/">Contact</a>
+        </li>
+      
+    </ul>
+  </nav>
+</header>
+<main>
+  <header class="banner">
+    <h1>Time Zones: Why You Punish Me</h1>
+  </header>
+
+  <div class="content text-content">
+    <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+      <header class="post-header">
+        <h1 class="post-title p-name sr-only" itemprop="name headline">Time Zones: Why You Punish Me</h1>
+        <p class="post-meta">
+            <time class="dt-published" datetime="2019-08-06T16:22:11Z" itemprop="datePublished">
+            August 06, 2019
+            </time>
+          
+            
+            • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">Travis Toulson</span></span>
+          
+        </p>
+      </header>
+
+      <div class="post-content e-content" itemprop="articleBody">
+        
+
+<p>Hootie captured my current frustrations about time best, <em>I think I&rsquo;m out of my mind / thinking about time</em>. That reference is apparently about 24 years old&hellip; enough time for Hootie to become Darius, cycle through R&amp;B and Country before circling back to the Blowfish he left in the Cracked Rear View so long ago. But that&rsquo;s not the time I&rsquo;m talking about today.</p>
+
+<p>No my friends, today it&rsquo;s all about Time Zones in ServiceNow. Time is one of my least favorite data constructs to work with. Sure, on the surface it seems simple, harmless even. But as some members of my team discovered, there can be a whole lot of <em>pain and sorrow running free</em> when it comes to working with time zones (particularly in Service Portal and Custom UIs).</p>
+
+<h2 id="who-s-time-is-it-anyway">Who&rsquo;s Time is it Anyway</h2>
+
+<p>The big error many developers make is thinking about time and time zones as relative to our own physical location. This turns out to be a huge oversimplification. In fact, in the simplest case, there are at least 5 potential time zones to consider:</p>
+
+<h3 id="utc">UTC</h3>
+
+<p><a href="https://en.wikipedia.org/wiki/Coordinated_Universal_Time">Coordinated Universal Time</a> is the big time standard. ServiceNow stores date and time objects internally in the database in this time zone as the number of ms since 1970-01-01 00:00:00.</p>
+
+<h3 id="system-time-zone">System Time Zone</h3>
+
+<p>The system time zone is the one ServiceNow stores in the glide.sys.default.tz System Property (System Properties &gt; Basic Configuration). When the API documentation refers to system time zone, this is the one that it means (such as with GlideDateTime&rsquo;s getValue function). It is also used as a User&rsquo;s default local time zone.</p>
+
+<h3 id="user-s-profile-time-zone">User&rsquo;s Profile Time Zone</h3>
+
+<p>The user&rsquo;s profile time zone is referred to as the user&rsquo;s time zone or local time zone in the API documentation. For disambiguation, I will refer to it as the user&rsquo;s profile time zone. This is because it is specified on the User&rsquo;s sys_user record as part of their profile. The value defaults to the system time zone.</p>
+
+<p>This time zone is the one used in all GlideDate and GlideDateTime fields. So when a user updates a date time selection on a form, this is the time zone that ServiceNow assumes.</p>
+
+<h3 id="browser-time-zone">Browser Time Zone</h3>
+
+<p>When using AngularJS or MomentJS style date and time formatting libraries, they know nothing about ServiceNow&rsquo;s time zone properties. As such, they by default assume the time zone of the computer and browser being used. It&rsquo;s important to note that this is NOT the same as the user&rsquo;s profile time or the user&rsquo;s physical location.</p>
+
+<p>This is the timezone the computer believes itself to be in as displayed on it&rsquo;s clock.</p>
+
+<h3 id="users-physical-location">Users Physical Location</h3>
+
+<p>This is the time zone we all assume most of the time, the physical location of the user.</p>
+
+<h2 id="servicenow-time-zone-conversions">ServiceNow Time Zone Conversions</h2>
+
+<p>So why do I highlight each of these distinct time zones? First and foremost, to show that there is a lot of both explicit and implicit time zone converting going on.</p>
+
+<figure>
+  <img src="images/ServiceNow Time Zone Conversions.png" />
+  <figcaption>
+    ServiceNow Time Zone Conversions
+  </figcaption>
+</figure>
+
+<p>For example, take a scenario where you have two users as in the image above. Each user has their own profile, browser, and physical time zones creating assumptions regarding how the system should operate. If User B was traveling to a location in a time zone outside of their profile&rsquo;s time zone. Depending on their laptop and network connectivity, their browser time zone could be in sync with either the profile time zone, their physical time zone, or potentially neither.</p>
+
+<p>Which time zone is the right one to use? It&rsquo;s hard to say but I&rsquo;m going to go with whichever one the users tell you when they kick your story back during acceptance testing!</p>
+
+<p>What&rsquo;s truly interesting is that it doesn&rsquo;t even take two users to create confusion. In the scenario my team was troubleshooting, we had the following:</p>
+
+<p>Time Zone Configuration:
+- System - UTC
+- User profile - UTC
+- Browser / Physical - CST</p>
+
+<p>What happened:
+- User set a record start to 08:00
+- User navigated to portal and saw 03:00
+- User reported a time zone defect</p>
+
+<p>If you look closely, you&rsquo;ll notice that CST is UTC -5 and that&rsquo;s the exact gap between the written time and the read time. You see, our widget used getNumericValue to obtain the UTC value but then processed it through AngularJS&rsquo;s formatters to render the time in the browser&rsquo;s time. In this case, the code was correct but the user still had unexpected results. In this case, I&rsquo;d call the unexpected results a good thing because they highlighted an issue in the underlying system configuration. Oddly, this is something we likely would not have caught it if we had used the user profile time instead of browser time.</p>
+
+<h2 id="helpful-tips">Helpful Tips</h2>
+
+<p>Look, time zones can be hard. I remember when posting blog articles on the ServiceNow Community and it would show some wild post times because my profile was wonky. ServiceNow does a lot to simplify working with time zones in their API and following a few simple tips can reduce the number of bugs:</p>
+
+<p>Writing Date Times:
+- Use the GlideDateTime API
+- Don&rsquo;t mix and match value and display value in the same operations. If you getDisplayValue, use setDisplayValue.</p>
+
+<p>Formatting Date Times:
+- When in doubt use getDisplayValue
+- When custom formatting, try to leverage a library like MomentJS and use GlideDateTime&rsquo;s getNumericValue function to provide the library a value it can use</p>
+
+<p>Most of all, keep in mind which time zones are doing the writing, which are doing the reading, and which your user expects to see.</p>
+
+<p>Keep it simple, let ServiceNow do the work, and maybe you can avoid <em>wasting, wasting, wasting time</em> troubleshooting.</p>
+
+      </div>
+
+      <a class="u-url" href="/blog/time-zones-why-you-punish-me" hidden></a>
+    </article><div class="subscribe-form">
+  
+  <div id="mc_embed_signup">
+    <form action="https://codecreative.us14.list-manage.com/subscribe/post?u=98c1070493fa133df8ea08394&amp;id=f759c17295" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+      <div id="mc_embed_signup_scroll">
+        <h2>Subscribe</h2>
+        <div class="subtext">Sign up with your email address to receive news and updates.</div>
+        <div>
+          <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Email Address" required>
+
+          
+          <div class="sr-only" aria-hidden="true">
+            <input type="text" name="b_98c1070493fa133df8ea08394_f759c17295" tabindex="-1" value="">
+          </div>
+
+          <input type="submit" value="Sign Up" name="subscribe" id="mc-embedded-subscribe" class="button">
+        </div>
+      </div>
+    </form>
+  </div>
+  
+</div>
+</div>
+
+      </main><footer>
+  <div class="footer-content-wrap">
+    <p class="text-align-center">
+      <a href="/blog">Blog</a>
+      &nbsp;|&nbsp;
+      <a href="/guides">Guides</a>
+      &nbsp;|&nbsp;
+      <a href="/about">About</a>
+      &nbsp;|&nbsp;
+      <a href="/contact">Contact</a>
+    </p>
+    <div class="text-align-center">
+      
+    </div>
+  </div>
+</footer>
+<script type="text/javascript" src="/assets/main.js"></script>
+</body>
+</html>
