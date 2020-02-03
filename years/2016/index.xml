@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>2016 on CodeCreative | A ServiceNow Blog</title>
@@ -55,7 +55,7 @@ Don’t let the Service Portal Configuration link in the application fool you.</
       <pubDate>Fri, 06 May 2016 16:00:00 +0000</pubDate>
       
       <guid>https://codecreative.io/blog/servicenow-engagement-the-path-forward/</guid>
-      <description>&amp;ldquo;No application is safe. I’m telling you, name any application we use and I could rebuild it better on this platform. This could replace SAP.&amp;rdquo;
+      <description>&amp;ldquo;No application is safe. I’m telling you, name any application we use and I could rebuild it better on this platform. This could replace SAP.&amp;quot;
 John didn’t have to respond. His “you’re crazier than a shithouse rat” look was well practiced by this point in our friendship. In hindsight, tilting at SAP may have been carrying it a little far but hey, where would we be if we never looked at things and thought of what they might be.</description>
     </item>
     

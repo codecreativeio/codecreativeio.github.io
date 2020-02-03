@@ -58,18 +58,18 @@
     "@type" : "BlogPosting",
     "mainEntityOfPage": {
          "@type": "WebPage",
-         "@id": "https://codecreative.io/"
+         "@id": "https:\/\/codecreative.io\/"
     },
     "name" : "Prepare Your Import Sets for Rollback",
     "headline" : "Prepare Your Import Sets for Rollback",
-    "description" : "Few things are worse than performing a bulk import of data into ServiceNow only to realize you got something horribly wrong in the Transform Map. Recently I have been toying with a combination of pre-import steps that can be taken to enable rolling back these changes.","image": "https://codecreative.io/blog/prepare-your-import-sets-for-rollback/images/social.png","inLanguage" : "en-US",
+    "description" : "Few things are worse than performing a bulk import of data into ServiceNow only to realize you got something horribly wrong in the Transform Map. Recently I have been toying with a combination of pre-import steps that can be taken to enable rolling back these changes.","image": "https:\/\/codecreative.io\/blog\/prepare-your-import-sets-for-rollback\/images\/social.png","inLanguage" : "en-US",
       "author" : "Travis Toulson",
       "creator" : "Travis Toulson","publisher": "Travis Toulson",
     "copyrightHolder" : "Travis Toulson",
     "copyrightYear" : "2019",
-    "datePublished": "2019-02-28 08:42:07 &#43;0000 UTC",
-    "dateModified" : "2019-02-28 08:42:07 &#43;0000 UTC",
-    "url" : "https://codecreative.io/blog/prepare-your-import-sets-for-rollback/",
+    "datePublished": "2019-02-28 08:42:07 \x2b0000 UTC",
+    "dateModified" : "2019-02-28 08:42:07 \x2b0000 UTC",
+    "url" : "https:\/\/codecreative.io\/blog\/prepare-your-import-sets-for-rollback\/",
     "wordCount" : "671",
     "keywords" : [ "Blog" ]
 }
@@ -143,43 +143,27 @@
       </header>
 
       <div class="post-content e-content" itemprop="articleBody">
-        
-
-<p>Few things are worse than performing a bulk import of data into ServiceNow only to realize you got something horribly wrong in the Transform Map. With a well planned coalesce, this often won&rsquo;t create an issue since you can just reimport and overwrite. But sometimes things don&rsquo;t go as planned and we need the nuclear option. Up until this point, I am still unaware of any baseline method of rollback for import sets.</p>
-
+        <p>Few things are worse than performing a bulk import of data into ServiceNow only to realize you got something horribly wrong in the Transform Map. With a well planned coalesce, this often won&rsquo;t create an issue since you can just reimport and overwrite. But sometimes things don&rsquo;t go as planned and we need the nuclear option. Up until this point, I am still unaware of any baseline method of rollback for import sets.</p>
 <p>So, recently I have been toying with a combination of pre-import steps that can be taken to enable rolling back imports. While not a true database transaction rollback, it can help recover from &lsquo;oops&rsquo;.</p>
-
 <h2 id="import-set-rollback-process">Import Set Rollback Process</h2>
-
 <p>So let&rsquo;s take a quick look at the process before breaking it down.</p>
-
 <p><strong>Preparation Steps</strong></p>
-
 <p>Execute these steps before running any import:</p>
-
 <ol>
 <li>Export XML from all tables you plan to import</li>
 <li>Add a tag to identify all newly imported records</li>
 <li>Change the <strong>Choice action</strong> option on field maps to <strong>reject</strong></li>
 </ol>
-
 <p><strong>Recovery Steps</strong></p>
-
 <p>Execute these steps after a botched import to recover:</p>
-
 <ol>
 <li>Delete all records tagged with your imported tag</li>
 <li>Import the previously exported XML</li>
 </ol>
-
 <h2 id="preparation-steps">Preparation Steps</h2>
-
 <p>In order to rollback an import set, we need to make sure we capture certain pieces of information up front. The XML export will provide us with a way to recover the current state of all existing records in your target tables. ServiceNow&rsquo;s XML exports are very robust and I can&rsquo;t stress the importance of this step. I once recovered an accidentally overwritten sys_user table from an XML snapshot, passwords and all.</p>
-
 <h3 id="add-a-tag">Add a Tag</h3>
-
 <p>In addition to restoring existing records, we also want to delete any newly imported records. I&rsquo;ve found that an easy way to identify them is to create a new Tag (label) record. To accomplish this, you can navigate to <strong>System Definition &gt; Tags</strong> and create a new Tag record. Then, create a Transform Script like the following:</p>
-
 <p><strong>Transform Script</strong>
 <strong>When:</strong> onBefore
 <strong>Order:</strong> 100
@@ -192,48 +176,36 @@
   <span class="kd">var</span> <span class="nx">tagSysId</span> <span class="o">=</span> <span class="s1">&#39;2e4144a113fba300630d5d422244b0aa&#39;</span><span class="p">;</span>
 
   <span class="k">if</span> <span class="p">(</span><span class="nx">action</span> <span class="o">==</span> <span class="s1">&#39;insert&#39;</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;label_entry&#39;</span><span class="p">);</span>
-    <span class="nx">gr</span><span class="p">.</span><span class="nx">initialize</span><span class="p">();</span>
-    <span class="nx">gr</span><span class="p">.</span><span class="nx">table</span> <span class="o">=</span> <span class="nx">target</span><span class="p">.</span><span class="nx">getTableName</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
-    <span class="nx">gr</span><span class="p">.</span><span class="nx">label</span> <span class="o">=</span> <span class="nx">tagSysId</span><span class="p">;</span>
-    <span class="nx">gr</span><span class="p">.</span><span class="nx">table_key</span> <span class="o">=</span> <span class="nx">target</span><span class="p">.</span><span class="nx">sys_id</span> <span class="o">+</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
-    <span class="nx">gr</span><span class="p">.</span><span class="nx">title</span> <span class="o">=</span> <span class="nx">target</span><span class="p">.</span><span class="nx">getDisplayValue</span><span class="p">();</span>
-    <span class="nx">gr</span><span class="p">.</span><span class="nx">insert</span><span class="p">();</span>
+  	<span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;label_entry&#39;</span><span class="p">)</span><span class="p">;</span>
+  	<span class="nx">gr</span><span class="p">.</span><span class="nx">initialize</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+  	<span class="nx">gr</span><span class="p">.</span><span class="nx">table</span> <span class="o">=</span> <span class="nx">target</span><span class="p">.</span><span class="nx">getTableName</span><span class="p">(</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+  	<span class="nx">gr</span><span class="p">.</span><span class="nx">label</span> <span class="o">=</span> <span class="nx">tagSysId</span><span class="p">;</span>
+  	<span class="nx">gr</span><span class="p">.</span><span class="nx">table_key</span> <span class="o">=</span> <span class="nx">target</span><span class="p">.</span><span class="nx">sys_id</span> <span class="o">+</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+  	<span class="nx">gr</span><span class="p">.</span><span class="nx">title</span> <span class="o">=</span> <span class="nx">target</span><span class="p">.</span><span class="nx">getDisplayValue</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+  	<span class="nx">gr</span><span class="p">.</span><span class="nx">insert</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
   <span class="p">}</span>
 
-<span class="p">})(</span><span class="nx">source</span><span class="p">,</span> <span class="nx">map</span><span class="p">,</span> <span class="nx">log</span><span class="p">,</span> <span class="nx">target</span><span class="p">);</span>
-</code></pre></div>
-<p>Now you have an easy way to identify all the records created by the import that doesn&rsquo;t involve magical date/time stamps and hoping no one else created records at the same time.</p>
-
+<span class="p">}</span><span class="p">)</span><span class="p">(</span><span class="nx">source</span><span class="p">,</span> <span class="nx">map</span><span class="p">,</span> <span class="nx">log</span><span class="p">,</span> <span class="nx">target</span><span class="p">)</span><span class="p">;</span>
+</code></pre></div><p>Now you have an easy way to identify all the records created by the import that doesn&rsquo;t involve magical date/time stamps and hoping no one else created records at the same time.</p>
 <h3 id="choice-action-reject">Choice Action Reject</h3>
-
 <p>Lastly, we need to change all <strong>Choice Actions</strong> to <strong>reject</strong> or <strong>ignore</strong>. I personally prefer <strong>reject</strong> because then I get a Skipped count to indicate issues. This step prevents the Transform Map from generating incidental records which will not get tagged by the script above. You may find that you can adjust the above script to tag Choice creation as well but I haven&rsquo;t taken it that far yet.</p>
-
 <h2 id="recovery-steps">Recovery Steps</h2>
-
 <p>With those 3 preparation steps we can ensure:</p>
-
 <ol>
 <li>All existing records can be restored via XML import</li>
 <li>All new records can be deleted via script</li>
 </ol>
-
 <h2 id="delete-new-records">Delete New Records</h2>
-
 <p>To delete the newly created records you can run the following background script:</p>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">tagSysId</span> <span class="o">=</span> <span class="s1">&#39;2e4144a113fba300630d5d422244b0aa&#39;</span><span class="p">;</span>
 <span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="s1">&#39;pm_project&#39;</span><span class="p">;</span>
 
-<span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="nx">table</span><span class="p">);</span>
-<span class="nx">gr</span><span class="p">.</span><span class="nx">addEncodedQuery</span><span class="p">(</span><span class="s1">&#39;sys_tags.&#39;</span> <span class="o">+</span> <span class="nx">tagSysId</span> <span class="o">+</span> <span class="s1">&#39;=&#39;</span> <span class="o">+</span> <span class="nx">tagSysId</span><span class="p">);</span>
-<span class="nx">gr</span><span class="p">.</span><span class="nx">deleteMultiple</span><span class="p">();</span>
-</code></pre></div>
-<p>You can also convert this to an onStart Transform Script to have the records auto delete on reimport.</p>
-
+<span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="nx">table</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">gr</span><span class="p">.</span><span class="nx">addEncodedQuery</span><span class="p">(</span><span class="s1">&#39;sys_tags.&#39;</span> <span class="o">+</span> <span class="nx">tagSysId</span> <span class="o">+</span> <span class="s1">&#39;=&#39;</span> <span class="o">+</span> <span class="nx">tagSysId</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">gr</span><span class="p">.</span><span class="nx">deleteMultiple</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+</code></pre></div><p>You can also convert this to an onStart Transform Script to have the records auto delete on reimport.</p>
 <h2 id="conclusion">Conclusion</h2>
-
 <p>Unfortunately, I&rsquo;ve yet to find any built in rollbacks in ServiceNow for Import Sets. With a little foresight and preparation, though, we can take steps to ensure that we can recover from any import mishaps. As always, trying things out in Dev and Test should always be your first line of defense. But it&rsquo;s always nice to know you can setup a fallback plan. I, for one, like to think I can get out of trouble faster than I got into it.</p>
-
 <p>And if you&rsquo;ve got a better way, I&rsquo;d love to know!</p>
 
       </div>

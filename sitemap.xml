@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
@@ -88,6 +88,36 @@
   </url>
   
   <url>
+    <loc>https://codecreative.io/years/2020/</loc>
+    <lastmod>2020-02-03T12:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://codecreative.io/blog/</loc>
+    <lastmod>2020-02-03T12:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://codecreative.io/</loc>
+    <lastmod>2020-02-03T12:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://codecreative.io/blog/the-future-of-servicenow-ui-seismic-and-the-now-design-system/</loc>
+    <lastmod>2020-02-03T12:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://codecreative.io/years/</loc>
+    <lastmod>2020-02-03T12:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://codecreative.io/years/2019/</loc>
+    <lastmod>2019-10-17T19:43:31+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://codecreative.io/blog/is-service-portal-going-away/</loc>
     <lastmod>2019-10-17T19:43:31+00:00</lastmod>
   </url>
@@ -168,6 +198,11 @@
   </url>
   
   <url>
+    <loc>https://codecreative.io/years/2018/</loc>
+    <lastmod>2018-09-11T13:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://codecreative.io/blog/how-to-land-your-first-servicenow-role/</loc>
     <lastmod>2018-09-11T13:00:00+00:00</lastmod>
   </url>
@@ -185,6 +220,11 @@
   <url>
     <loc>https://codecreative.io/blog/fixing-scoped-apps-a-different-take/</loc>
     <lastmod>2018-04-30T00:46:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://codecreative.io/years/2017/</loc>
+    <lastmod>2017-09-15T15:30:00+00:00</lastmod>
   </url>
   
   <url>
@@ -308,6 +348,11 @@
   </url>
   
   <url>
+    <loc>https://codecreative.io/years/2016/</loc>
+    <lastmod>2016-06-23T16:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://codecreative.io/blog/share-knowledge-dont-worry-about-the-competition/</loc>
     <lastmod>2016-06-23T16:00:00+00:00</lastmod>
   </url>
@@ -353,6 +398,11 @@
   </url>
   
   <url>
+    <loc>https://codecreative.io/years/2015/</loc>
+    <lastmod>2015-06-15T16:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://codecreative.io/blog/adding-doctype-to-a-ui-page/</loc>
     <lastmod>2015-06-15T16:00:00+00:00</lastmod>
   </url>
@@ -378,42 +428,7 @@
   </url>
   
   <url>
-    <loc>https://codecreative.io/years/2015/</loc>
-    <lastmod>2015-06-15T16:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://codecreative.io/years/2016/</loc>
-    <lastmod>2016-06-23T16:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://codecreative.io/years/2017/</loc>
-    <lastmod>2017-09-15T15:30:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://codecreative.io/years/2018/</loc>
-    <lastmod>2018-09-11T13:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://codecreative.io/years/2019/</loc>
-    <lastmod>2019-10-17T19:43:31+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://codecreative.io/about/</loc>
-  </url>
-  
-  <url>
-    <loc>https://codecreative.io/blog/</loc>
-    <lastmod>2019-10-17T19:43:31+00:00</lastmod>
   </url>
   
   <url>
@@ -422,17 +437,6 @@
   
   <url>
     <loc>https://codecreative.io/guides/</loc>
-  </url>
-  
-  <url>
-    <loc>https://codecreative.io/</loc>
-    <lastmod>2019-04-21T17:55:11+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://codecreative.io/years/</loc>
-    <lastmod>2015-06-15T16:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url>
   
 </urlset>

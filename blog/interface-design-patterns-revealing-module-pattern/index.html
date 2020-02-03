@@ -58,18 +58,18 @@
     "@type" : "BlogPosting",
     "mainEntityOfPage": {
          "@type": "WebPage",
-         "@id": "https://codecreative.io/"
+         "@id": "https:\/\/codecreative.io\/"
     },
     "name" : "Interface Design Patterns: Revealing Module Pattern",
     "headline" : "Interface Design Patterns: Revealing Module Pattern",
-    "description" : "The Revealing Module pattern can easily imitate either the Class Pattern or the Namespace Pattern with the added advantage of private state and private functions.","image": "https://codecreative.io/blog/interface-design-patterns-revealing-module-pattern/images/social.png","inLanguage" : "en-US",
+    "description" : "The Revealing Module pattern can easily imitate either the Class Pattern or the Namespace Pattern with the added advantage of private state and private functions.","image": "https:\/\/codecreative.io\/blog\/interface-design-patterns-revealing-module-pattern\/images\/social.png","inLanguage" : "en-US",
       "author" : "Travis Toulson",
       "creator" : "Travis Toulson","publisher": "Travis Toulson",
     "copyrightHolder" : "Travis Toulson",
     "copyrightYear" : "2019",
-    "datePublished": "2019-01-17 19:40:38 &#43;0000 UTC",
-    "dateModified" : "2019-01-17 19:40:38 &#43;0000 UTC",
-    "url" : "https://codecreative.io/blog/interface-design-patterns-revealing-module-pattern/",
+    "datePublished": "2019-01-17 19:40:38 \x2b0000 UTC",
+    "dateModified" : "2019-01-17 19:40:38 \x2b0000 UTC",
+    "url" : "https:\/\/codecreative.io\/blog\/interface-design-patterns-revealing-module-pattern\/",
     "wordCount" : "841",
     "keywords" : [ "Blog" ]
 }
@@ -143,81 +143,66 @@
       </header>
 
       <div class="post-content e-content" itemprop="articleBody">
-        
-
-<p><a href="/blog/interface-design-patterns-for-script-includes">Back to Interface Design Patterns for Script Includes</a></p>
-
+        <p><a href="/blog/interface-design-patterns-for-script-includes">Back to Interface Design Patterns for Script Includes</a></p>
 <h2 id="introduction">Introduction</h2>
-
 <p>The Revealing Module pattern can easily imitate either the <a href="/blog/interface-design-patterns-class-pattern">Class Pattern</a> or the <a href="/blog/interface-design-patterns-namespace-pattern">Namespace Pattern</a> with the added advantage of private state and private functions. This is most helpful in Scoped Applications where the app developer may prefer to keep implementation details hidden while exposing clear public interfaces. But it can also be used to help maintain clear API boundaries over time where traditional Javascript classes and objects would tend towards bloat.</p>
-
 <p>To be clear, I am taking a loose definition of the Javascript module patterns in that I do not consider an Immediately-Invoked Function Expression (IIFE) to be necessary to call it a module. With that, let&rsquo;s take a look at a scenario:</p>
-
 <h2 id="problem-definition">Problem Definition</h2>
-
 <p>The app development team has created an integration Scoped App that allows ServiceNow to integrate multiple file storage repositories (Attachments, DropBox, Sharepoint, etc) into a single repository. The underlying implementation is somewhat complex involving a local file cache, web services, and rules to determine which file store is used for different processes.</p>
-
 <p>The team is concerned about granting direct table access to users since at best some data will make no sense to the user and at worst, random table edits could corrupt the application data. To remedy this, the team has locked all tables within the scope to only allow access via a Script Include API.</p>
-
 <h2 id="example-solution">Example Solution</h2>
-
 <p>For this solution, we will create a Script Include which can be accessed by all Scopes but is ultimately Protected to mask the source code when purchased from the store.</p>
-
 <h3 id="script-include-revealing-module-pattern">Script Include: Revealing Module Pattern</h3>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js">  <span class="kd">var</span> <span class="nx">FileStore</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kd">function</span> <span class="nx">_getFromCache</span><span class="p">(</span><span class="nx">filename</span><span class="p">)</span> <span class="p">{</span>
-      <span class="c1">// internal function to attempt a retrieval from cache table
-</span><span class="c1"></span>    <span class="p">}</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">FileStore</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">function</span> <span class="nx">_getFromCache</span><span class="p">(</span><span class="nx">filename</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// internal function to attempt a retrieval from cache table
+</span><span class="c1"></span>  <span class="p">}</span>
 
-    <span class="kd">function</span> <span class="nx">_saveToCache</span><span class="p">(</span><span class="nx">filename</span><span class="p">,</span> <span class="nx">base64</span><span class="p">)</span> <span class="p">{</span>
-      <span class="c1">// internal function to store a file in the local cache
-</span><span class="c1"></span>    <span class="p">}</span>
+  <span class="kd">function</span> <span class="nx">_saveToCache</span><span class="p">(</span><span class="nx">filename</span><span class="p">,</span> <span class="nx">base64</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// internal function to store a file in the local cache
+</span><span class="c1"></span>  <span class="p">}</span>
 
-    <span class="kd">function</span> <span class="nx">_getFromWebService</span><span class="p">(</span><span class="nx">filename</span><span class="p">)</span> <span class="p">{</span>
-      <span class="c1">// internal function to get a file from web service
-</span><span class="c1"></span>    <span class="p">}</span>
+  <span class="kd">function</span> <span class="nx">_getFromWebService</span><span class="p">(</span><span class="nx">filename</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// internal function to get a file from web service
+</span><span class="c1"></span>  <span class="p">}</span>
 
-    <span class="kd">function</span> <span class="nx">_saveToWebService</span><span class="p">(</span><span class="nx">filename</span><span class="p">,</span> <span class="nx">base64</span><span class="p">)</span> <span class="p">{</span>
-      <span class="c1">// internal function to save file to web service
-</span><span class="c1"></span>    <span class="p">}</span>
+  <span class="kd">function</span> <span class="nx">_saveToWebService</span><span class="p">(</span><span class="nx">filename</span><span class="p">,</span> <span class="nx">base64</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// internal function to save file to web service
+</span><span class="c1"></span>  <span class="p">}</span>
 
-    <span class="kd">function</span> <span class="nx">_saveLocalFileMetaData</span><span class="p">(</span><span class="nx">filename</span><span class="p">,</span> <span class="nx">filemeta</span><span class="p">)</span> <span class="p">{</span>
-      <span class="c1">// internal function to store web service retrieval location, correlation id&#39;s etc
-</span><span class="c1"></span>    <span class="p">}</span>
+  <span class="kd">function</span> <span class="nx">_saveLocalFileMetaData</span><span class="p">(</span><span class="nx">filename</span><span class="p">,</span> <span class="nx">filemeta</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// internal function to store web service retrieval location, correlation id&#39;s etc
+</span><span class="c1"></span>  <span class="p">}</span>
 
-    <span class="kd">function</span> <span class="nx">getFile</span><span class="p">(</span><span class="nx">filename</span><span class="p">)</span> <span class="p">{</span>
-      <span class="kd">var</span> <span class="nx">file</span> <span class="o">=</span> <span class="nx">_getFromCache</span><span class="p">(</span><span class="nx">filename</span><span class="p">);</span>
+  <span class="kd">function</span> <span class="nx">getFile</span><span class="p">(</span><span class="nx">filename</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">file</span> <span class="o">=</span> <span class="nx">_getFromCache</span><span class="p">(</span><span class="nx">filename</span><span class="p">)</span><span class="p">;</span>
 
-      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">file</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">file</span> <span class="o">=</span> <span class="nx">_getFromWebService</span><span class="p">(</span><span class="nx">filename</span><span class="p">);</span>
-        <span class="nx">_saveToCache</span><span class="p">(</span><span class="nx">filename</span><span class="p">,</span> <span class="nx">file</span><span class="p">);</span>
-      <span class="p">}</span>
-
-      <span class="k">return</span> <span class="nx">file</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">file</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">file</span> <span class="o">=</span> <span class="nx">_getFromWebService</span><span class="p">(</span><span class="nx">filename</span><span class="p">)</span><span class="p">;</span>
+      <span class="nx">_saveToCache</span><span class="p">(</span><span class="nx">filename</span><span class="p">,</span> <span class="nx">file</span><span class="p">)</span><span class="p">;</span>
     <span class="p">}</span>
 
-    <span class="kd">function</span> <span class="nx">saveFile</span><span class="p">(</span><span class="nx">filename</span><span class="p">,</span> <span class="nx">base64</span><span class="p">)</span> <span class="p">{</span>
-      <span class="kd">var</span> <span class="nx">meta</span> <span class="o">=</span> <span class="nx">_saveToWebService</span><span class="p">(</span><span class="nx">filename</span><span class="p">,</span> <span class="nx">base64</span><span class="p">);</span>
-      <span class="nx">_saveLocalFileMetaData</span><span class="p">(</span><span class="nx">filename</span><span class="p">,</span> <span class="nx">meta</span><span class="p">);</span>
-    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">file</span><span class="p">;</span>
+  <span class="p">}</span>
 
-    <span class="k">return</span> <span class="p">{</span>
-      <span class="s1">&#39;getFile&#39;</span><span class="o">:</span> <span class="nx">getFile</span><span class="p">,</span>
-      <span class="s1">&#39;saveFile&#39;</span><span class="o">:</span> <span class="nx">saveFile</span>
-    <span class="p">};</span>
-  <span class="p">})();</span>
-</code></pre></div>
-<p>The core aspect of the Revealing Module Pattern is the use of a closure which returns the public interface for the API. In our example, the public interface includes both the getFile and saveFile functions. But under the hood, you can see many internal functions which are not accessible to the outside world. In fact, the outside world doesn&rsquo;t even know they exist. The Class Pattern and Namespace Pattern have no similar capability, all functions and properties are considered public.</p>
+  <span class="kd">function</span> <span class="nx">saveFile</span><span class="p">(</span><span class="nx">filename</span><span class="p">,</span> <span class="nx">base64</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">meta</span> <span class="o">=</span> <span class="nx">_saveToWebService</span><span class="p">(</span><span class="nx">filename</span><span class="p">,</span> <span class="nx">base64</span><span class="p">)</span><span class="p">;</span>
+    <span class="nx">_saveLocalFileMetaData</span><span class="p">(</span><span class="nx">filename</span><span class="p">,</span> <span class="nx">meta</span><span class="p">)</span><span class="p">;</span>
+  <span class="p">}</span>
 
+  <span class="k">return</span> <span class="p">{</span>
+    <span class="s1">&#39;getFile&#39;</span><span class="o">:</span> <span class="nx">getFile</span><span class="p">,</span>
+    <span class="s1">&#39;saveFile&#39;</span><span class="o">:</span> <span class="nx">saveFile</span>
+  <span class="p">}</span><span class="p">;</span>
+<span class="p">}</span><span class="p">)</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+</code></pre></div><p>The core aspect of the Revealing Module Pattern is the use of a closure which returns the public interface for the API. In our example, the public interface includes both the getFile and saveFile functions. But under the hood, you can see many internal functions which are not accessible to the outside world. In fact, the outside world doesn&rsquo;t even know they exist. The Class Pattern and Namespace Pattern have no similar capability, all functions and properties are considered public.</p>
 <p>In the above implementation, we used the IIFE to yield a Namespace Pattern like interface which can be called as follows:</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">FileStore</span><span class="p">.</span><span class="nx">getFile</span><span class="p">(</span><span class="s1">&#39;filename&#39;</span><span class="p">);</span>
-<span class="nx">FileStore</span><span class="p">.</span><span class="nx">saveFile</span><span class="p">(</span><span class="s1">&#39;filename&#39;</span><span class="p">,</span> <span class="s1">&#39;Base64 encoded string representing the file data&#39;</span><span class="p">);</span>
-</code></pre></div>
-<p>We can also imitate the Function Pattern and Class Pattern by using a Constructor Function instead of the IIFE:</p>
-
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">FileStore</span><span class="p">.</span><span class="nx">getFile</span><span class="p">(</span><span class="s1">&#39;filename&#39;</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">FileStore</span><span class="p">.</span><span class="nx">saveFile</span><span class="p">(</span><span class="s1">&#39;filename&#39;</span><span class="p">,</span> <span class="s1">&#39;Base64 encoded string representing the file data&#39;</span><span class="p">)</span><span class="p">;</span>
+</code></pre></div><p>We can also imitate the Function Pattern and Class Pattern by using a Constructor Function instead of the IIFE:</p>
 <h3 id="script-include-constructor-function-approach">Script Include: Constructor Function Approach</h3>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">FileStore</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">filename</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kd">function</span> <span class="nx">_getFromCache</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">function</span> <span class="nx">_getFromCache</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// internal function to attempt a retrieval from cache table
 </span><span class="c1"></span>  <span class="p">}</span>
 
@@ -225,7 +210,7 @@
     <span class="c1">// internal function to store a file in the local cache
 </span><span class="c1"></span>  <span class="p">}</span>
 
-  <span class="kd">function</span> <span class="nx">_getFromWebService</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">function</span> <span class="nx">_getFromWebService</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// internal function to get a file from web service
 </span><span class="c1"></span>  <span class="p">}</span>
 
@@ -237,42 +222,38 @@
     <span class="c1">// internal function to store web service retrieval location, correlation id&#39;s etc
 </span><span class="c1"></span>  <span class="p">}</span>
 
-  <span class="kd">function</span> <span class="nx">getFile</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">file</span> <span class="o">=</span> <span class="nx">_getFromCache</span><span class="p">();</span>
+  <span class="kd">function</span> <span class="nx">getFile</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">file</span> <span class="o">=</span> <span class="nx">_getFromCache</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
 
     <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">file</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nx">file</span> <span class="o">=</span> <span class="nx">_getFromWebService</span><span class="p">();</span>
-      <span class="nx">_saveToCache</span><span class="p">(</span><span class="nx">file</span><span class="p">);</span>
+      <span class="nx">file</span> <span class="o">=</span> <span class="nx">_getFromWebService</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+      <span class="nx">_saveToCache</span><span class="p">(</span><span class="nx">file</span><span class="p">)</span><span class="p">;</span>
     <span class="p">}</span>
 
     <span class="k">return</span> <span class="nx">file</span><span class="p">;</span>
   <span class="p">}</span>
 
   <span class="kd">function</span> <span class="nx">saveFile</span><span class="p">(</span><span class="nx">base64</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">meta</span> <span class="o">=</span> <span class="nx">_saveToWebService</span><span class="p">(</span><span class="nx">base64</span><span class="p">);</span>
-    <span class="nx">_saveLocalFileMetaData</span><span class="p">(</span><span class="nx">meta</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">meta</span> <span class="o">=</span> <span class="nx">_saveToWebService</span><span class="p">(</span><span class="nx">base64</span><span class="p">)</span><span class="p">;</span>
+    <span class="nx">_saveLocalFileMetaData</span><span class="p">(</span><span class="nx">meta</span><span class="p">)</span><span class="p">;</span>
   <span class="p">}</span>
 
   <span class="k">return</span> <span class="p">{</span>
     <span class="s1">&#39;getFile&#39;</span><span class="o">:</span> <span class="nx">getFile</span><span class="p">,</span>
     <span class="s1">&#39;saveFile&#39;</span><span class="o">:</span> <span class="nx">saveFile</span>
-  <span class="p">};</span>
+  <span class="p">}</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div>
-<p>The Constructor Function allows us to pass parameters that are accessible to all functions within the closure. Similarly, functions can also share internal variables defined within the closure. Once again, the Class Pattern has no similar ability to maintain internal, private state: all state is completely public.</p>
-
+</code></pre></div><p>The Constructor Function allows us to pass parameters that are accessible to all functions within the closure. Similarly, functions can also share internal variables defined within the closure. Once again, the Class Pattern has no similar ability to maintain internal, private state: all state is completely public.</p>
 <p>Here is how this this variation is used:</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">FileStore</span><span class="p">(</span><span class="s1">&#39;filename&#39;</span><span class="p">);</span>
-<span class="nx">fs</span><span class="p">.</span><span class="nx">getFile</span><span class="p">();</span>
-<span class="nx">fs</span><span class="p">.</span><span class="nx">saveFile</span><span class="p">(</span><span class="s1">&#39;Base64 encoded string representing the file data&#39;</span><span class="p">);</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">fs</span> <span class="o">=</span> <span class="nx">FileStore</span><span class="p">(</span><span class="s1">&#39;filename&#39;</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">fs</span><span class="p">.</span><span class="nx">getFile</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">fs</span><span class="p">.</span><span class="nx">saveFile</span><span class="p">(</span><span class="s1">&#39;Base64 encoded string representing the file data&#39;</span><span class="p">)</span><span class="p">;</span>
 
 <span class="c1">// OR, use the new keyword which opens up the ability to use public state variables by using the &#39;this&#39; keyword in the closure
-</span><span class="c1"></span><span class="kd">var</span> <span class="nx">fs</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FileStore</span><span class="p">(</span><span class="s1">&#39;filename&#39;</span><span class="p">);</span>
-<span class="nx">fs</span><span class="p">.</span><span class="nx">getFile</span><span class="p">();</span>
-<span class="nx">fs</span><span class="p">.</span><span class="nx">saveFile</span><span class="p">(</span><span class="s1">&#39;Base64 encoded string representing the file data&#39;</span><span class="p">);</span>
-</code></pre></div>
-<h2 id="advantages">Advantages</h2>
-
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">fs</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FileStore</span><span class="p">(</span><span class="s1">&#39;filename&#39;</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">fs</span><span class="p">.</span><span class="nx">getFile</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">fs</span><span class="p">.</span><span class="nx">saveFile</span><span class="p">(</span><span class="s1">&#39;Base64 encoded string representing the file data&#39;</span><span class="p">)</span><span class="p">;</span>
+</code></pre></div><h2 id="advantages">Advantages</h2>
 <ol>
 <li>Most similar to the traditional Class Pattern</li>
 <li>Allows for private functions and private state variables</li>
@@ -280,9 +261,7 @@
 <li>Clarifies the intent of the API by explicitly defining the public interface</li>
 <li>Can be repurposed to return any of the previously mentioned Patterns yielding the advantages of other patterns while mitigating the disadvantages.</li>
 </ol>
-
 <h2 id="disadvantages">Disadvantages</h2>
-
 <ol>
 <li>Technically, it executes slower than the traditional Class Pattern (the difference is negligible unless you are operating at a scale where every ms counts)</li>
 <li>Closures are often considered a complex subject in Javascript and may be difficult to understand for beginner developers.</li>

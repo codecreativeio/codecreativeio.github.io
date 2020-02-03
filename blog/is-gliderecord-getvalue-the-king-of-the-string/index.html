@@ -58,18 +58,18 @@
     "@type" : "BlogPosting",
     "mainEntityOfPage": {
          "@type": "WebPage",
-         "@id": "https://codecreative.io/"
+         "@id": "https:\/\/codecreative.io\/"
     },
     "name" : "Is GlideRecord getValue the King of the String",
     "headline" : "Is GlideRecord getValue the King of the String",
-    "description" : "Everyone knows when using GlideRecord, getValue is the best practice for returning a string value.  Or is it? In this post, I conduct an analysis to see if getValue is truly the King of the String.","image": "https://codecreative.io/blog/is-gliderecord-getvalue-the-king-of-the-string/images/social.png","inLanguage" : "en-US",
+    "description" : "Everyone knows when using GlideRecord, getValue is the best practice for returning a string value.  Or is it? In this post, I conduct an analysis to see if getValue is truly the King of the String.","image": "https:\/\/codecreative.io\/blog\/is-gliderecord-getvalue-the-king-of-the-string\/images\/social.png","inLanguage" : "en-US",
       "author" : "Travis Toulson",
       "creator" : "Travis Toulson","publisher": "Travis Toulson",
     "copyrightHolder" : "Travis Toulson",
     "copyrightYear" : "2019",
-    "datePublished": "2019-03-31 21:38:31 &#43;0000 UTC",
-    "dateModified" : "2019-03-31 21:38:31 &#43;0000 UTC",
-    "url" : "https://codecreative.io/blog/is-gliderecord-getvalue-the-king-of-the-string/",
+    "datePublished": "2019-03-31 21:38:31 \x2b0000 UTC",
+    "dateModified" : "2019-03-31 21:38:31 \x2b0000 UTC",
+    "url" : "https:\/\/codecreative.io\/blog\/is-gliderecord-getvalue-the-king-of-the-string\/",
     "wordCount" : "3577",
     "keywords" : [ "Blog" ]
 }
@@ -143,207 +143,150 @@
       </header>
 
       <div class="post-content e-content" itemprop="articleBody">
-        
-
-<h2 id="king-of-the-string">King of the String</h2>
-
+        <h2 id="king-of-the-string">King of the String</h2>
 <p>This article will be long, so here&rsquo;s as quick a synopsis as I can muster. In order to determine if getValue is truly a best practice superior to other GlideRecord field string coercions, I collected and analyzed 278,738 data samples from ServiceNow records in the global scope of a Madrid Personal Developer Instance and compared the resulting types and values of 5 different methods:</p>
-
 <ul>
 <li>GlideRecord getValue (gr.getValue(&lsquo;field&rsquo;))</li>
 <li>GlideElement getValue (gr.field.getValue())</li>
-<li>Plus-Quote-Quote (gr.field + &ldquo;)</li>
+<li>Plus-Quote-Quote (gr.field + &lsquo;')</li>
 <li>String Constructor (String(gr.field))</li>
 <li>toString (gr.field.toString())</li>
 </ul>
-
 <p>I evaluated the tested methods against 4 criteria I determined at the start with the assumption that these characteristics would need to be exist for a method of accessing the internal string value of a GlideRecord&rsquo;s field to be a best practice:</p>
-
 <ul>
 <li>Tested method returns a String in all scenarios</li>
 <li>Tested method returns the expected value in all scenarios</li>
 <li>Tested method has consistent readability in multiple scenarios (immediate field vs dot-walking)</li>
 <li>Tested method is stable and not at risk to future change</li>
 </ul>
-
 <h3 id="conclusion-first">Conclusion First</h3>
-
 <p>After thorough analysis, I am still unconvinced of getValue&rsquo;s supremacy and will likely stick with my long time preferred method of plus-quote-quote. Aside from null values and boolean fields, there weren&rsquo;t anything more than a few subtle, mostly subjective differences in the tested methods.</p>
-
 <p>The important differences to note are the potential for getValue to return NULL values and its use of &ldquo;0&rdquo; and &ldquo;1&rdquo; in place of &ldquo;true&rdquo; and &ldquo;false&rdquo;. Plus-quote-quote and String constructor yielded the expected empty string and &ldquo;true&rdquo; / &ldquo;false&rdquo; strings. The oddest of the bunch was toString but it was still perfectly usable.</p>
-
 <p>The most important takeaway I can offer is this: know your return types and develop defensively. Follow that guideline, and any of the string coercion methods will work for you.</p>
-
 <p>If you are interested, keep reading for further analysis and feel free to download the Get Value Analysis app to pull samples in your own instance to contribute to the conversation.</p>
-
 <p><strong>Update (04/07/2019):</strong> Thanks to some sleuthing by Kevin Gravois, it appears that toString may not be as unusual as I initially thought and could in fact be a superior method to plus-quote-quote and String constructor. More details in the toString analysis.</p>
-
-<hr />
-
+<hr>
 <h1 id="analysis">Analysis</h1>
-
 <h2 id="intro">Intro</h2>
-
 <p>I often hear it taught that when using GlideRecord, developers should use the getValue function. I&rsquo;ve heard a number of explanations for why it is necessary but for me none of them ever stuck. Personally, I&rsquo;ve always used JavaScript&rsquo;s implicit type coercion.</p>
-
 <p>But very smart people that I trust kept insisting getValue was the best practice. So eventually, I did what any perfectly sane individual would do and ran an experiment to analyze the return values for getValue and it&rsquo;s alternatives across 17 tables and 52 ServiceNow field types in a Madrid Personal Developer Instance. In total, I captured 278,738 data samples for each of the 5 different tested methods. And of course I wrote an application for this so you can run the same tests against your own data sets and decide for yourself.</p>
-
 <p>Perfectly. Sane. Individual.</p>
-
 <h2 id="reasons-i-dismiss">Reasons I Dismiss</h2>
-
 <p>Up front I want to address the most common reasons I hear for why we should all use getValue and why they don&rsquo;t hold water for me.</p>
-
 <h3 id="getters-and-setters-are-best-practice">Getters and Setters are Best Practice</h3>
-
 <p>In a language like Java, accessor and mutator methods like getValue and setValue are considered a part of life. Tools even offer to automatically generate them for you based on a class&rsquo; internal properties. This, according to conventional wisdom, provides encapsulation of the private state of the class and also allows the class to evolve its behaviors without breaking its interface / contract.</p>
-
 <p>There&rsquo;s just a few problems I have with this argument:</p>
-
 <ol>
 <li><a href="https://medium.com/@Jernfrost/to-hell-with-setters-and-getters-7814e7b2f949">Get and Set functions are not encapsulation</a></li>
 <li>GlideRecord is a database abstraction layer, not a domain model. As a record, it&rsquo;s public interface IS it&rsquo;s internal state.</li>
 <li>JavaScript has a native language feature called getters and setters which can easily provide the same advantages</li>
 <li>The Rhino JS engine used by ServiceNow exposes <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Projects/Rhino/Embedding_tutorial#dynamic">Dynamic Properties</a> which provide the same advantages</li>
 </ol>
-
 <p>In particular, I want to focus on #3 and #4. Both JavaScript&rsquo;s native language feature <em>getters and setters</em> and Rhino&rsquo;s <em>Dynamic Properties</em> allow you to use property-like syntax for assignment and accessing with the advantages of getter and setter methods.</p>
-
 <p>Try running this in a background script:</p>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="p">{</span>
   <span class="nx">_number</span><span class="o">:</span> <span class="s1">&#39;INC000070&#39;</span><span class="p">,</span>
-  <span class="nx">get</span> <span class="nx">number</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s1">&#39;Sweet Christmas, an accessor method&#39;</span><span class="p">);</span>
+  <span class="nx">get</span> <span class="nx">number</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s1">&#39;Sweet Christmas, an accessor method&#39;</span><span class="p">)</span><span class="p">;</span>
     <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">a</span><span class="p">;</span>
-  <span class="p">},</span>
+  <span class="p">}</span><span class="p">,</span>
   <span class="nx">set</span> <span class="nx">number</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s1">&#39;Sweet Christmas, a mutator method&#39;</span><span class="p">);</span>
+    <span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s1">&#39;Sweet Christmas, a mutator method&#39;</span><span class="p">)</span><span class="p">;</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">a</span> <span class="o">=</span> <span class="nx">x</span><span class="p">;</span>
   <span class="p">}</span>
-<span class="p">};</span>
+<span class="p">}</span><span class="p">;</span>
 
 <span class="nx">gr</span><span class="p">.</span><span class="nx">number</span> <span class="o">=</span> <span class="s1">&#39;INC000080&#39;</span><span class="p">;</span>
 <span class="nx">gr</span><span class="p">.</span><span class="nx">number</span><span class="p">;</span>
-</code></pre></div>
-<p>Sweet Christmas, indeed. By the way, this same concept applies to using an assignment operator on a GlideElement property. Once upon a time the assignment below may have overwritten the GlideElement but it&rsquo;s not the case anymore. Try running this as a background script:</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;incident&#39;</span><span class="p">);</span>
-<span class="nx">gr</span><span class="p">.</span><span class="nx">setLimit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-<span class="nx">gr</span><span class="p">.</span><span class="nx">query</span><span class="p">();</span>
-<span class="nx">gr</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span>
+</code></pre></div><p>Sweet Christmas, indeed. By the way, this same concept applies to using an assignment operator on a GlideElement property. Once upon a time the assignment below may have overwritten the GlideElement but it&rsquo;s not the case anymore. Try running this as a background script:</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;incident&#39;</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">gr</span><span class="p">.</span><span class="nx">setLimit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">gr</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">gr</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
 
 <span class="c1">// Assigning to a string will change the GlideElement reference they say
 </span><span class="c1"></span><span class="nx">gr</span><span class="p">.</span><span class="nx">sys_created_on</span> <span class="o">=</span> <span class="s1">&#39;2019-04-01 00:00:00&#39;</span><span class="p">;</span>
 
 <span class="k">if</span> <span class="p">(</span><span class="nx">gr</span><span class="p">.</span><span class="nx">sys_created_on</span><span class="p">.</span><span class="nx">getValue</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s2">&#34;I guess I&#39;m still a GlideElement&#34;</span><span class="p">);</span>
-  <span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s2">&#34;My type is: &#34;</span> <span class="o">+</span> <span class="k">typeof</span> <span class="nx">gr</span><span class="p">.</span><span class="nx">sys_created_on</span><span class="p">);</span>
+  <span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s2">&#34;I guess I&#39;m still a GlideElement&#34;</span><span class="p">)</span><span class="p">;</span>
+  <span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s2">&#34;My type is: &#34;</span> <span class="o">+</span> <span class="k">typeof</span> <span class="nx">gr</span><span class="p">.</span><span class="nx">sys_created_on</span><span class="p">)</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="k">else</span> <span class="p">{</span>
-  <span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s2">&#34;Well darn, I guess I changed&#34;</span><span class="p">);</span>
+  <span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s2">&#34;Well darn, I guess I changed&#34;</span><span class="p">)</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div>
-<p>There are still some pretty convincing arguments in favor of setters for certain field types but I won&rsquo;t be going into those here.</p>
-
+</code></pre></div><p>There are still some pretty convincing arguments in favor of setters for certain field types but I won&rsquo;t be going into those here.</p>
 <p>So overall, the getter / setter &ldquo;best practice&rdquo; argument leaves me unconvinced.</p>
-
 <h3 id="type-coercion-is-essential">Type Coercion is Essential</h3>
-
 <p>I don&rsquo;t actually disagree with type coercion being essential. Type coercion IS essential when working with GlideElement in loops especially. GlideElement is an object that passes by reference and that reference&rsquo;s value is changed with each iteration of the GlideRecord&rsquo;s while loop. This means we often encounter situations where we have to coerce to a primitive data type.</p>
-
 <p>But getValue is not JavaScript type coercion, it&rsquo;s a method whose interface returns a string which as it turns out is a very important distinction. String coercion in JavaScript is performed implicitly (plus-quote-quote) or explicitly with the String constructor or toString functions.</p>
-
 <p>This was an especially important distinction when once upon a time ServiceNow had many functions which would expose a Java string object instead of a JavaScript string primitive.</p>
-
 <p>There are arguments out there that we should exclude certain approaches and I&rsquo;m open to that idea but I need evidence and data. Which brings me to the next reason that I dismiss.</p>
-
 <h3 id="because-someone-said-so">Because Someone Said So</h3>
-
 <p>Sadly, most of the arguments that I&rsquo;ve collected amount to little more than &ldquo;because someone said so&rdquo; which is occasionally made to seem more important by saying &ldquo;because it&rsquo;s a best practice&rdquo;. First of all, I try to avoid the use of the phrase &ldquo;best practice&rdquo;. Even when I do use the term it is very uncomfortable for me (<a href="/blog/6-best-practices-for-service-portal-css/">I&rsquo;m sure there&rsquo;s a few rewrites needed on this one for example</a>). &ldquo;Don&rsquo;t light yourself on fire&rdquo; is a pretty darn good example of a best practice&hellip; unless, of course, you are a stunt person and your livelihood depends on it. The fact is, best practices will almost always be highly contextual, nuanced, and often subject to change.</p>
-
 <p>An extension of this argument is the &ldquo;because ServiceNow says it&rsquo;s a best practice&rdquo;. But behind the grandeur, mythos, and legend of ServiceNow is people. Great people to be sure, but people all the same. No one is immune to making mistakes.</p>
-
 <p>For many years, I personally refused to follow the published customization best practice to inactivate the existing record and create a new custom record. My reasoning was simple. In doing so you went from one deviation from baseline to two. Also, the custom record is harder to detect than a collision with a customized record. Apparently, many developers realized the same thing and ServiceNow has changed their training to advise customizing records in place. Best practices change.</p>
-
 <p>Furthermore, just because ServiceNow says it will be supported&hellip; doesn&rsquo;t mean it will be. CMS was neglected for a couple years before Service Portal came along. I still remember the battles with the iFrame resize script version in and version out. Then there was the time that GlideRecordSecure had major issues. And let&rsquo;s not even get into breaking changes between application versions. I feel like there&rsquo;s a &ldquo;raise your hand if you&rsquo;ve ever felt personally victimized by a breaking change in ServiceNow&rdquo; moment here.</p>
-
 <p>And if I&rsquo;m coming across as overly critical of ServiceNow, I&rsquo;m not trying to be. I just want us to have realistic expectations. They are only human.</p>
-
 <p>That said, I do use a &ldquo;does ServiceNow do it&rdquo; benchmark which has served me well. If a pattern exists in ServiceNow&rsquo;s baseline code, then you can usually count on an upgrade path. It worked well for me pre-Calgary before Package calls were removed and it works well for me today.</p>
-
 <p>So if I consider all of those reasons to be poor benchmarks, how do I intend to measure the effectiveness of the getValue function and its friends?</p>
-
 <h2 id="evaluation-criteria">Evaluation Criteria</h2>
-
 <p>Well, to determine if getValue is truly a best practice, I analyzed a combination of both objective and subjective criteria. As a best practice, I would expect it to achieve all criteria in a way that is superior to all other tested methods.</p>
-
 <ol>
-<li><p><strong>Expected Type Returned:</strong> The tested method should return the correct data type in all scenarios - a JavaScript string primitive</p></li>
-
-<li><p><strong>Expected Value Returned:</strong> The tested method should return the expected value in all scenarios</p></li>
-
-<li><p><strong>Consistent Readability:</strong> The script of the tested method should be consistent in multiple scenarios whether returning a value for a direct GlideElement or dot-walking to reduce confusion for beginners</p></li>
-
-<li><p><strong>Long Term Stability:</strong> The tested method&rsquo;s results should not be at risk to change due to future upgrades. Stable methods are generally either documented or common practice used in the codebase.</p></li>
+<li>
+<p><strong>Expected Type Returned:</strong> The tested method should return the correct data type in all scenarios - a JavaScript string primitive</p>
+</li>
+<li>
+<p><strong>Expected Value Returned:</strong> The tested method should return the expected value in all scenarios</p>
+</li>
+<li>
+<p><strong>Consistent Readability:</strong> The script of the tested method should be consistent in multiple scenarios whether returning a value for a direct GlideElement or dot-walking to reduce confusion for beginners</p>
+</li>
+<li>
+<p><strong>Long Term Stability:</strong> The tested method&rsquo;s results should not be at risk to change due to future upgrades. Stable methods are generally either documented or common practice used in the codebase.</p>
+</li>
 </ol>
-
 <h2 id="tested-type-coercion-methods">Tested Type Coercion Methods</h2>
-
 <p>A total of 5 methods for type coercion were tested, analyzed, and compared against the evaluation criteria to determine if there is a clear best practice:</p>
-
 <ol>
 <li>GlideRecord getValue (gr.getValue(&lsquo;fieldName&rsquo;))</li>
 <li>GlideElement getValue (gr.fieldName.getValue())</li>
-<li>Plus-Quote-Quote (gr.fieldName + &ldquo;)</li>
+<li>Plus-Quote-Quote (gr.fieldName + &lsquo;')</li>
 <li>String Constructor (String(gr.fieldName))</li>
 <li>toString (gr.field.toString())</li>
 </ol>
-
 <p>It was important to differentiate between the GlideRecord and GlideElement versions of the getValue functions. This is commonly overlooked in most of the conversations about the getValue function. Many developers I have spoken with or whose work I have read simply speak of getValue as though there is only one function which often results in confusion and lots of questions. In this analysis, I have made sure to evaluate them separately.</p>
-
 <h2 id="analysis-of-alternatives">Analysis of Alternatives</h2>
-
 <h3 id="gliderecord-getvalue">GlideRecord getValue</h3>
-
 <p>Example:</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;incident&#39;</span><span class="p">);</span>
-<span class="nx">gr</span><span class="p">.</span><span class="nx">setLimit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-<span class="nx">gr</span><span class="p">.</span><span class="nx">query</span><span class="p">();</span>
-<span class="nx">gr</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;incident&#39;</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">gr</span><span class="p">.</span><span class="nx">setLimit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">gr</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">gr</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
 
 <span class="c1">// getValue
-</span><span class="c1"></span><span class="kd">var</span> <span class="nx">val</span> <span class="o">=</span> <span class="nx">gr</span><span class="p">.</span><span class="nx">getValue</span><span class="p">(</span><span class="s1">&#39;number&#39;</span><span class="p">);</span>
-<span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">val</span><span class="p">);</span>
-</code></pre></div>
-<p><strong>Criteria Results</strong></p>
-
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">val</span> <span class="o">=</span> <span class="nx">gr</span><span class="p">.</span><span class="nx">getValue</span><span class="p">(</span><span class="s1">&#39;number&#39;</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">val</span><span class="p">)</span><span class="p">;</span>
+</code></pre></div><p><strong>Criteria Results</strong></p>
 <ul>
 <li>Expected Type Returned: <strong>Fail</strong></li>
 <li>Expected Value Returned: <strong>Fail</strong></li>
 <li>Consistent Readability: <strong>Fail</strong></li>
 <li>Long Term Stability: <strong>Pass</strong></li>
 </ul>
-
 <p><strong>Pros:</strong></p>
-
 <ul>
 <li>ServiceNow&rsquo;s documented method of retrieving a string value implies long term stability</li>
 <li>ServiceNow&rsquo;s most extensively used variation in their baseline scripts (Over 300 Script Includes contain some form of GlideRecord getValue call)</li>
 </ul>
-
 <p><strong>Cons:</strong></p>
-
 <ul>
 <li>Can return a NULL value instead of a String</li>
 <li>Returns &lsquo;0&rsquo; or &lsquo;1&rsquo; for Boolean fields</li>
 <li>Can not be used with dot walking</li>
 </ul>
-
 <p>The criteria results look bad but it&rsquo;s not the end of the world for GlideRecord getValue. It&rsquo;s still a fine tool for the job, it just didn&rsquo;t meet my expectations.</p>
-
 <p>First of all, getValue can return a null value. In the grand scheme of things, this isn&rsquo;t a big deal. But it is really difficult for me to wrap my mind around this. The getValue function is supposed to return a string value of the underlying element in a field. What field element would have a complete absence of a string representation?</p>
-
-<p>To break this down further, this means to do anything to the alleged string, you should technically perform a null check first or filter out nulls. If you don&rsquo;t, there are a myriad of problems with null in JS from null + &ldquo; == &lsquo;null&rsquo;. That&rsquo;s a fun result. Oh and then there&rsquo;s TypeError if you try to perform a length check or indexOf check, commonly used string methods. Now normally I would advise defensive programming in the first place&hellip; but the API contract says it returns a string value! Empty string seems far more reasonable in every case I can think of.</p>
-
+<p>To break this down further, this means to do anything to the alleged string, you should technically perform a null check first or filter out nulls. If you don&rsquo;t, there are a myriad of problems with null in JS from null + '&rsquo; == &lsquo;null&rsquo;. That&rsquo;s a fun result. Oh and then there&rsquo;s TypeError if you try to perform a length check or indexOf check, commonly used string methods. Now normally I would advise defensive programming in the first place&hellip; but the API contract says it returns a string value! Empty string seems far more reasonable in every case I can think of.</p>
 <p>Next up, we have the issue that Boolean fields return a string value &lsquo;0&rsquo; or &lsquo;1&rsquo;. In a script where the field type may not be known, which type check is more clear:</p>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="k">if</span> <span class="p">(</span><span class="nx">something</span> <span class="o">==</span> <span class="s1">&#39;0&#39;</span><span class="p">)</span> <span class="p">{</span>
   <span class="c1">// Um... WAT?
@@ -352,222 +295,161 @@
 <span class="k">if</span> <span class="p">(</span><span class="nx">something</span> <span class="o">==</span> <span class="s1">&#39;false&#39;</span><span class="p">)</span> <span class="p">{</span>
   <span class="c1">// Well if I can&#39;t have a real boolean I guess this will work
 </span><span class="c1"></span><span class="p">}</span>
-</code></pre></div>
-<p>Now admittedly, there may be a getBooleanValue with which I am unfamiliar. But if I want a string representation of the boolean value, doesn&rsquo;t &lsquo;true&rsquo; and &lsquo;false&rsquo; make a whole lot more sense?</p>
-
+</code></pre></div><p>Now admittedly, there may be a getBooleanValue with which I am unfamiliar. But if I want a string representation of the boolean value, doesn&rsquo;t &lsquo;true&rsquo; and &lsquo;false&rsquo; make a whole lot more sense?</p>
 <p>Lastly, the GlideRecord&rsquo;s getValue function doesn&rsquo;t support any sort of dot-walking and has a different signature than the GlideElement getValue which results in a lot of confusion for inexperienced developers. For example, if we want to get the Assignment Group&rsquo;s Manager:</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;incident&#39;</span><span class="p">);</span>
-<span class="nx">gr</span><span class="p">.</span><span class="nx">setLimit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-<span class="nx">gr</span><span class="p">.</span><span class="nx">query</span><span class="p">();</span>
-<span class="nx">gr</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;incident&#39;</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">gr</span><span class="p">.</span><span class="nx">setLimit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">gr</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">gr</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
 
-<span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">gr</span><span class="p">.</span><span class="nx">getValue</span><span class="p">(</span><span class="s1">&#39;assignment_group&#39;</span><span class="p">));</span> <span class="c1">// how the direct field script looks
+<span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">gr</span><span class="p">.</span><span class="nx">getValue</span><span class="p">(</span><span class="s1">&#39;assignment_group&#39;</span><span class="p">)</span><span class="p">)</span><span class="p">;</span> <span class="c1">// how the direct field script looks
 </span><span class="c1"></span>
-<span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">gr</span><span class="p">.</span><span class="nx">getValue</span><span class="p">(</span><span class="s1">&#39;assignment_group.manager&#39;</span><span class="p">));</span> <span class="c1">// Doesnt work
-</span><span class="c1"></span><span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">gr</span><span class="p">.</span><span class="nx">assignment_group</span><span class="p">.</span><span class="nx">getValue</span><span class="p">(</span><span class="s1">&#39;manager&#39;</span><span class="p">));</span> <span class="c1">// Doesn&#39;t work
+<span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">gr</span><span class="p">.</span><span class="nx">getValue</span><span class="p">(</span><span class="s1">&#39;assignment_group.manager&#39;</span><span class="p">)</span><span class="p">)</span><span class="p">;</span> <span class="c1">// Doesnt work
+</span><span class="c1"></span><span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">gr</span><span class="p">.</span><span class="nx">assignment_group</span><span class="p">.</span><span class="nx">getValue</span><span class="p">(</span><span class="s1">&#39;manager&#39;</span><span class="p">)</span><span class="p">)</span><span class="p">;</span> <span class="c1">// Doesn&#39;t work
 </span><span class="c1"></span>
-<span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">gr</span><span class="p">.</span><span class="nx">assignment_group</span><span class="p">.</span><span class="nx">manager</span><span class="p">.</span><span class="nx">getValue</span><span class="p">())</span> <span class="c1">// We have to resort to the GlideElement version for dot walking
-</span><span class="c1"></span><span class="nx">gr</span><span class="p">.</span><span class="nx">getElement</span><span class="p">(</span><span class="s1">&#39;assignment_group.manager&#39;</span><span class="p">).</span><span class="nx">getValue</span><span class="p">();</span> <span class="c1">// Closest alternative? But still using GlideElement
-</span><span class="c1"></span></code></pre></div>
-<p>In the above script, we can see that the GlideRecord getValue accepts a string parameter but it can not be a dot walked field. For dot walking, we are forced to resort to the GlideElement version of getValue which does not accept a string value.</p>
-
+<span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">gr</span><span class="p">.</span><span class="nx">assignment_group</span><span class="p">.</span><span class="nx">manager</span><span class="p">.</span><span class="nx">getValue</span><span class="p">(</span><span class="p">)</span><span class="p">)</span> <span class="c1">// We have to resort to the GlideElement version for dot walking
+</span><span class="c1"></span><span class="nx">gr</span><span class="p">.</span><span class="nx">getElement</span><span class="p">(</span><span class="s1">&#39;assignment_group.manager&#39;</span><span class="p">)</span><span class="p">.</span><span class="nx">getValue</span><span class="p">(</span><span class="p">)</span><span class="p">;</span> <span class="c1">// Closest alternative? But still using GlideElement
+</span></code></pre></div><p>In the above script, we can see that the GlideRecord getValue accepts a string parameter but it can not be a dot walked field. For dot walking, we are forced to resort to the GlideElement version of getValue which does not accept a string value.</p>
 <p>To inexperienced developers this creates significant confusion and I have fielded many questions on this aspect alone. The functions look the same, but their signature&hellip; how they are used is very different. Combined with getElement accepting a dot walked parameter and good night&hellip; I&rsquo;m done.</p>
-
 <p>As for the statistics, both getValue functions returned the same values in all cases except Boolean and those dastardly null values. Sadly, this amounted to being consistent in only 57.28% of the samples and 42.31% of the field types.</p>
-
 <p>But as I said earlier, experience shows that most developers have been able to navigate these issues easily enough or have simply not encountered them to begin with. That said, it&rsquo;s hard to accept this function a best practice when other options behave more consistently.</p>
-
 <h3 id="glideelement-getvalue">GlideElement getValue</h3>
-
 <p>Example:</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;incident&#39;</span><span class="p">);</span>
-<span class="nx">gr</span><span class="p">.</span><span class="nx">setLimit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-<span class="nx">gr</span><span class="p">.</span><span class="nx">query</span><span class="p">();</span>
-<span class="nx">gr</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;incident&#39;</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">gr</span><span class="p">.</span><span class="nx">setLimit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">gr</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">gr</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
 
 <span class="c1">// getValue
-</span><span class="c1"></span><span class="kd">var</span> <span class="nx">val</span> <span class="o">=</span> <span class="nx">gr</span><span class="p">.</span><span class="nx">number</span><span class="p">.</span><span class="nx">getValue</span><span class="p">();</span>
-<span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">val</span><span class="p">);</span>
-</code></pre></div>
-<p><strong>Criteria Results</strong></p>
-
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">val</span> <span class="o">=</span> <span class="nx">gr</span><span class="p">.</span><span class="nx">number</span><span class="p">.</span><span class="nx">getValue</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">val</span><span class="p">)</span><span class="p">;</span>
+</code></pre></div><p><strong>Criteria Results</strong></p>
 <ul>
 <li>Expected Type Returned: <strong>Fail</strong></li>
 <li>Expected Value Returned: <strong>Fail</strong></li>
 <li>Consistent Readability: <strong>Pass</strong></li>
 <li>Long Term Stability: <strong>Fail</strong></li>
 </ul>
-
 <p><strong>Pros:</strong></p>
-
 <ul>
 <li>Consistent script readability in all scenarios</li>
 </ul>
-
 <p><strong>Cons:</strong></p>
-
 <ul>
 <li>Can return a NULL value instead of a String</li>
 <li>Returns &lsquo;0&rsquo; or &lsquo;1&rsquo; for Boolean fields</li>
 <li>Not documented</li>
 <li>Not available in Scoped Applications</li>
 </ul>
-
 <p>The GlideElement getValue suffers the same type return issues as the GlideRecord version mentioned above. Accepting the practice of getValue, I actually prefer GlideElement&rsquo;s version of getValue. And since I prefer it, you know it&rsquo;s the wrong way to do it! GlideElement&rsquo;s getValue is not only not documented but it is not available in Scoped Applications either which is a bit of a red flag to me that ServiceNow may not want us to use it.</p>
-
 <p>Bummer. This method had a chance to convert me.</p>
-
 <h3 id="plus-quote-quote">Plus-Quote-Quote</h3>
-
 <p><strong>Updated (04/07/2019):</strong> This section has been updated to reflect the findings presented by Kevin Gravois</p>
-
 <p>Example:</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;incident&#39;</span><span class="p">);</span>
-<span class="nx">gr</span><span class="p">.</span><span class="nx">setLimit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-<span class="nx">gr</span><span class="p">.</span><span class="nx">query</span><span class="p">();</span>
-<span class="nx">gr</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;incident&#39;</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">gr</span><span class="p">.</span><span class="nx">setLimit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">gr</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">gr</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
 
 <span class="c1">// Plus-Quote-Quote
 </span><span class="c1"></span><span class="kd">var</span> <span class="nx">val</span> <span class="o">=</span> <span class="nx">gr</span><span class="p">.</span><span class="nx">number</span> <span class="o">+</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
-<span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">val</span><span class="p">);</span>
-</code></pre></div>
-<p><strong>Criteria Results</strong></p>
-
+<span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">val</span><span class="p">)</span><span class="p">;</span>
+</code></pre></div><p><strong>Criteria Results</strong></p>
 <ul>
 <li>Expected Type Returned: <strong>Fail</strong></li>
 <li>Expected Value Returned: <strong>Fail</strong></li>
 <li>Consistent Readability: <strong>Fail</strong></li>
 <li>Long Term Stability: <strong>Pass</strong></li>
 </ul>
-
 <p><strong>Pros:</strong></p>
-
 <ul>
 <li>Used in ~400+ Scripts in a Baseline Instance implies this method&rsquo;s use isn&rsquo;t going away any time soon</li>
 <li>Always returns a string, except in the case of the Wiki field type</li>
 <li>Consistent script readability in all scenarios</li>
 <li>Returns the expected &lsquo;true&rsquo; and &lsquo;false&rsquo; string representations for booleans</li>
 </ul>
-
 <p><strong>Cons:</strong></p>
-
 <ul>
 <li>Throws an error on empty Wiki fields</li>
 <li>Not ServiceNow&rsquo;s Documented method</li>
 <li>May not be explicit enough for inexperienced developers</li>
 </ul>
-
 <p>This was the most unexpected part of the analysis. I assumed that if there were differences, they would fall in favor of getValue but that was not the case at all. Sure, this method is not documented by ServiceNow but it is extensively used by ServiceNow&rsquo;s developers. So unless ServiceNow imposes a major change, we can expect implicit type coercion to continue to work in future versions. That combined with the anecdotal evidence that I&rsquo;ve been using this method myself since roughly 2011 gives me a fair amount of confidence in it.</p>
-
 <p>The biggest plus though is that it almost always returns a string. Empty field? That&rsquo;s an empty string. This simplifies type checking and gives me exactly what I would have expected from the getValue API&rsquo;s. Simpler scripts without the risk of TypeErrors. Now that&rsquo;s an approach I can live with.</p>
-
 <p>Controlling for the null and boolean values, Plus-Quote-Quote was consistent with getValue&rsquo;s results nearly 100% of the time.</p>
-
 <p>That said, the biggest drawback is an obscure error that is thrown when a Wiki field is empty. The getValue and toString functions return a null value instead which is far better than an error. This appears to be an issue that is specific to the Wiki processing though and seems to be a bug rather than by design. Even though I failed this method on return values for this reason, I am more than willing to work around this one field type that I rarely encounter.</p>
-
-<p>One other drawback I can see is that plus-quote-quote is by definition implicit string coercion. That key word <em>implicit</em> means inexperienced developers may not recognize the syntax. Obviously, that is a hazard I am willing to take. Some may disagree, but I failed this method for readability on account of the number of inexperienced programmers who have asked me what the <em>+ &ldquo;</em> is at the end of my lines of code.</p>
-
+<p>One other drawback I can see is that plus-quote-quote is by definition implicit string coercion. That key word <em>implicit</em> means inexperienced developers may not recognize the syntax. Obviously, that is a hazard I am willing to take. Some may disagree, but I failed this method for readability on account of the number of inexperienced programmers who have asked me what the <em>+ &lsquo;'</em> is at the end of my lines of code.</p>
 <h3 id="string-constructor">String constructor</h3>
-
 <p><strong>Updated (04/07/2019):</strong> This section has been updated to reflect the findings presented by Kevin Gravois</p>
-
 <p>Example:</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;incident&#39;</span><span class="p">);</span>
-<span class="nx">gr</span><span class="p">.</span><span class="nx">setLimit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-<span class="nx">gr</span><span class="p">.</span><span class="nx">query</span><span class="p">();</span>
-<span class="nx">gr</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;incident&#39;</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">gr</span><span class="p">.</span><span class="nx">setLimit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">gr</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">gr</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
 
 <span class="c1">// String Constructor
-</span><span class="c1"></span><span class="kd">var</span> <span class="nx">val</span> <span class="o">=</span> <span class="nb">String</span><span class="p">(</span><span class="nx">gr</span><span class="p">.</span><span class="nx">number</span><span class="p">);</span>
-<span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">val</span><span class="p">);</span>
-</code></pre></div>
-<p><strong>Criteria Results</strong></p>
-
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">val</span> <span class="o">=</span> <span class="nb">String</span><span class="p">(</span><span class="nx">gr</span><span class="p">.</span><span class="nx">number</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">val</span><span class="p">)</span><span class="p">;</span>
+</code></pre></div><p><strong>Criteria Results</strong></p>
 <ul>
 <li>Expected Type Returned: <strong>Fail</strong></li>
 <li>Expected Value Returned: <strong>Fail</strong></li>
 <li>Consistent Readability: <strong>Pass</strong></li>
 <li>Long Term Stability: <strong>Pass</strong></li>
 </ul>
-
 <p><strong>Pros:</strong></p>
-
 <ul>
 <li>Always returns a string, except in the case of the Wiki field type</li>
 <li>Consistent script readability in all scenarios</li>
 <li>Returns the expected &lsquo;true&rsquo; and &lsquo;false&rsquo; string representations for booleans</li>
 </ul>
-
 <p><strong>Cons:</strong></p>
-
 <ul>
 <li>Throws an error on empty Wiki fields</li>
 <li>Not ServiceNow&rsquo;s Documented method</li>
 <li>Used in at least 50+ Scripts in a Baseline Instance implies this method may be replaceable but it has some staying power</li>
 </ul>
-
 <p>This method was 100% consistent with the results of Plus-Quote-Quote samples. The main exception is that it is much less frequently used by ServiceNow. While that may imply a greater risk of replacement, String is a JavaScript native implementation. I don&rsquo;t expect many changes to this function but I could be wrong on that.</p>
-
 <p>Additionally, this method is more explicit for newer developers.</p>
-
 <h3 id="tostring-function">toString Function</h3>
-
 <p><strong>Updated (04/07/2019):</strong> This section has been updated to reflect the findings presented by Kevin Gravois</p>
-
 <p>Example:</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;incident&#39;</span><span class="p">);</span>
-<span class="nx">gr</span><span class="p">.</span><span class="nx">setLimit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-<span class="nx">gr</span><span class="p">.</span><span class="nx">query</span><span class="p">();</span>
-<span class="nx">gr</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;incident&#39;</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">gr</span><span class="p">.</span><span class="nx">setLimit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">gr</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">gr</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
 
 <span class="c1">// String Constructor
-</span><span class="c1"></span><span class="kd">var</span> <span class="nx">val</span> <span class="o">=</span> <span class="nx">gr</span><span class="p">.</span><span class="nx">number</span><span class="p">.</span><span class="nx">toString</span><span class="p">();</span>
-<span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">val</span><span class="p">);</span>
-</code></pre></div>
-<p><strong>Criteria Results</strong></p>
-
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">val</span> <span class="o">=</span> <span class="nx">gr</span><span class="p">.</span><span class="nx">number</span><span class="p">.</span><span class="nx">toString</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">val</span><span class="p">)</span><span class="p">;</span>
+</code></pre></div><p><strong>Criteria Results</strong></p>
 <ul>
 <li>Expected Type Returned: <strong>Pass</strong></li>
 <li>Expected Value Returned: <strong>Pass</strong></li>
 <li>Consistent Readability: <strong>Pass</strong></li>
 <li>Long Term Stability: <strong>Pass</strong></li>
 </ul>
-
 <p><strong>Pros:</strong></p>
-
 <ul>
 <li>Always returns a string, except the buggy wiki field</li>
 <li>Returns the expected &lsquo;true&rsquo; and &lsquo;false&rsquo; string representations for booleans</li>
 <li>Used in 350+ Scripts in a Baseline Instance implies this method may be replaceable</li>
 <li>Documented ServiceNow function</li>
 </ul>
-
 <p><strong>Cons:</strong></p>
-
 <ul>
 <li>Technically, the Wiki field can return a null but that field type gives every string coercion method issues</li>
 </ul>
-
 <p>After the findings Kevin Gravois presented to me in a slack conversation, I am entirely taking back my &ldquo;drunk uncle&rdquo; comments about toString. It turns out the only field type throwing null values around for this method was the Wiki field. Furthermore, that same field type throws errors on plus-quote-quote and String constructor methods. My error handling was swallowing and logging the errors but I overlooked it in my initial analysis.</p>
-
 <p>That said, toString is consistent with the plus-quote-quote and String constructor methods in every other scenario and even I admit that null value is superior to an error.</p>
-
 <p>Best of all, this function has a consistent signature and can be used with dot-walking reflecting the best strengths of GlideElement getValue. And unlike GlideElement getValue, toString is still available in Scoped applications.</p>
-
 <p>Lastly, toString is pretty darn clear as to its intent from a readability perspective. Much more so than my favored plus-quote-quote.</p>
-
 <p>Will I be switching to toString? I don&rsquo;t know. Old habits are hard to break and plus-quote-quote works in all other scenarios just fine. But I&rsquo;d be lying if I didn&rsquo;t acknowledge that toString seemingly has all the advantages and none of the disadvantages.</p>
-
-<h2 id="don-t-take-my-word-for-it">Don&rsquo;t Take My Word For It</h2>
-
+<h2 id="dont-take-my-word-for-it">Don&rsquo;t Take My Word For It</h2>
 <p><a href="downloads/Get Value Analysis App 0_0_1.xml" download>Download the Get Value Analysis ServiceNow App</a></p>
-
 <p>So here&rsquo;s the thing, I&rsquo;m not the great arbiter of truth for the ServiceNow platform. I&rsquo;m just a random guy on the internet sharing what I learn. So don&rsquo;t take my word for it, run the analysis for yourself.</p>
-
 <p>Install the update set for the Get Value Analysis App. Navigate to Get Value Analysis &gt; Run Analysis and use the Service Portal page to collect samples from your own instance. Change up the Sample Sources (it doesn&rsquo;t support dot-walking right now). Improve the app. Contribute to the conversation.</p>
-
 <p>Try it on London. Try it on Jakarta. Try it on Calgary if you got it.</p>
-
 <p>If you find some interesting data points, let me know!</p>
 
       </div>

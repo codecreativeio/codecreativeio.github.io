@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ServiceNow Blog on CodeCreative | A ServiceNow Blog</title>
@@ -6,10 +6,19 @@
     <description>Recent content in ServiceNow Blog on CodeCreative | A ServiceNow Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 17 Oct 2019 19:43:31 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 03 Feb 2020 12:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://codecreative.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Future of ServiceNow UI: Seismic and the Now Design System</title>
+      <link>https://codecreative.io/blog/the-future-of-servicenow-ui-seismic-and-the-now-design-system/</link>
+      <pubDate>Mon, 03 Feb 2020 12:00:00 +0000</pubDate>
+      
+      <guid>https://codecreative.io/blog/the-future-of-servicenow-ui-seismic-and-the-now-design-system/</guid>
+      <description>The alternate working title of this article was Jace Was Right. In case you missed it over the weekend, I posted the video above to youtube covering the new UX system that powers ServiceNow Workspaces. And according to reliable information, this system will be eventually taking over most, if not all, of the web UI&amp;rsquo;s at ServiceNow including Service Portal. While there is a good chance that Service Portal will still be the primary choice for new end user interfaces for at least the next year, it&amp;rsquo;s worth exploring what this new UX system promises for the future.</description>
+    </item>
     
     <item>
       <title>Is Service Portal Going Away?</title>
@@ -200,7 +209,8 @@ During my time on the ServiceNow platform, I have had many opportunities to buil
       <guid>https://codecreative.io/blog/making-service-portal-widgets-work-together/</guid>
       <description>The following is a summary of the Making Service Portal Widgets Work Together session that I presented at Knowledge 18.
  Problem (Slide 2) Widgets don&amp;rsquo;t play well with others
-If you work with Service Portal widgets long enough, you will come across situations where you want to share data between multiple widgets. And inevitably, you will discover that sharing is not something that widgets are very good at.</description>
+If you work with Service Portal widgets long enough, you will come across situations where you want to share data between multiple widgets. And inevitably, you will discover that sharing is not something that widgets are very good at.
+(Slide 3) Widgets are isolated by design</description>
     </item>
     
     <item>
@@ -260,7 +270,7 @@ I love the lodash library. It&amp;rsquo;s great for working with arrays in a sim
       <description>WARNING: The use of HighCharts in this way may require the purchase of an additional license from Highsoft. Use in production at your own risk.
 Read the Whole Series:
  Intro to HighCharts in Service Portal Configuring HighCharts in Service Portal Generate HighChart Data in a Widget Server Script Making the HighChart Widget Reusable (This Post)  Download the Widget
-Up until now, the HighChart Widget that we&amp;rsquo;ve been working on has remained&amp;hellip; well&amp;hellip; mostly unusable.</description>
+ Up until now, the HighChart Widget that we&amp;rsquo;ve been working on has remained&amp;hellip; well&amp;hellip; mostly unusable.</description>
     </item>
     
     <item>
@@ -272,7 +282,7 @@ Up until now, the HighChart Widget that we&amp;rsquo;ve been working on has rema
       <description>WARNING: The use of HighCharts in this way may require the purchase of an additional license from Highsoft. Use in production at your own risk.
 Read the Whole Series:
  Intro to HighCharts in Service Portal Configuring HighCharts in Service Portal Generate HighChart Data in a Widget Server Script (This Post) Making the HighChart Widget Reusable  Download the Widget
-Up until now, we&amp;rsquo;ve only dealt with custom charts using HighCharts with hardcoded data.</description>
+ Up until now, we&amp;rsquo;ve only dealt with custom charts using HighCharts with hardcoded data.</description>
     </item>
     
     <item>
@@ -284,7 +294,7 @@ Up until now, we&amp;rsquo;ve only dealt with custom charts using HighCharts wit
       <description>WARNING: The use of HighCharts in this way may require the purchase of an additional license from Highsoft. Use in production at your own risk.
 Read the Whole Series:
  Intro to HighCharts in Service Portal Configuring HighCharts in Service Portal (This Post) Generate HighChart Data in a Widget Server Script Making the HighChart Widget Reusable  Download the Widget
-One of the greatest points of confusion from some of my previous articles on HighCharts stems from a lack of understanding of the HighCharts API and in particular the HighCharts configuration options object.</description>
+ One of the greatest points of confusion from some of my previous articles on HighCharts stems from a lack of understanding of the HighCharts API and in particular the HighCharts configuration options object.</description>
     </item>
     
     <item>
@@ -296,7 +306,7 @@ One of the greatest points of confusion from some of my previous articles on Hig
       <description>WARNING: The use of HighCharts in this way may require the purchase of an additional license from Highsoft. Use in production at your own risk.
 Read the Whole Series:
  Intro to HighCharts in Service Portal (This Post) Configuring HighCharts in Service Portal Generate HighChart Data in a Widget Server Script Making the HighChart Widget Reusable  Download the Widget
-About 2 years ago, I demonstrated how to build custom charts using HighCharts with a UI Page and kicked off what would eventually become Code Creative.</description>
+ About 2 years ago, I demonstrated how to build custom charts using HighCharts with a UI Page and kicked off what would eventually become Code Creative.</description>
     </item>
     
     <item>
@@ -306,7 +316,7 @@ About 2 years ago, I demonstrated how to build custom charts using HighCharts wi
       
       <guid>https://codecreative.io/blog/eliminate-unnecessary-queries-with-this-simple-check/</guid>
       <description>When I first write a script include to manipulate a GlideRecord, I usually script it to accept a sys_id or other query criteria as a parameter. Its the obvious first step, the GlideRecord has to be retrieved to manipulate it after all. Take this guy for example:
-var Test = Class.create(); Test.prototype = { initialize: function() { }, doSomethingAwesome: function(id) { var gr = new GlideRecord(&amp;#39;incident&amp;#39;); if (gr.get()) { // Something awesome gets done here  } }, type: &amp;#39;Test&amp;#39; };  The more I use the script, though, the more likely I am to run into a scenario where I already have the GlideRecord queried from another script.</description>
+var Test = Class.create(); Test.prototype = { initialize: function() { }, doSomethingAwesome: function(id) { var gr = new GlideRecord(&amp;#39;incident&amp;#39;); if (gr.get()) { // Something awesome gets done here  } }, type: &amp;#39;Test&amp;#39; }; The more I use the script, though, the more likely I am to run into a scenario where I already have the GlideRecord queried from another script.</description>
     </item>
     
     <item>
@@ -336,7 +346,7 @@ And a parable!</description>
       
       <guid>https://codecreative.io/blog/avoid-the-style-tag-in-service-portal-widgets/</guid>
       <description>Warning: This article is an example of what not to do. Avoid using these practices in your ServiceNow instance.
-Previously, we built a widget with configurable CSS styles and I briefly mentioned that using the &amp;lt;style&amp;gt; tag wasn&amp;rsquo;t a great idea. I want to revisit that thought and explore some of the problems that you might encounter when using the &amp;lt;style&amp;gt; tag in a Service Portal Widget. I will use the colored square widget again to demonstrate.</description>
+ Previously, we built a widget with configurable CSS styles and I briefly mentioned that using the &amp;lt;style&amp;gt; tag wasn&amp;rsquo;t a great idea. I want to revisit that thought and explore some of the problems that you might encounter when using the &amp;lt;style&amp;gt; tag in a Service Portal Widget. I will use the colored square widget again to demonstrate.</description>
     </item>
     
     <item>
@@ -376,7 +386,7 @@ IR_AND_QUERY   IR_AND_QUERY Results   Behind the scenes, the method previously d
       
       <guid>https://codecreative.io/blog/how-to-do-full-text-search-with-gliderecord/</guid>
       <description>UPDATE: After posting this article, Jeff Pierce reminded me of a better way than the original 123TEXTQUERY321 approach. I have since updated the scripts and article here and provided a deeper explanation in another article.
-When looking at the form filters in ServiceNow, I think all admins and developers reach a point where we start to wonder &amp;ldquo;How do I search Keywords in my scripts?&amp;rdquo; After all, that full text search using &amp;ldquo;for text&amp;rdquo; or the &amp;ldquo;Keywords&amp;rdquo; filter is so tantalizing for any custom CMS / Service Portal search feature.</description>
+ When looking at the form filters in ServiceNow, I think all admins and developers reach a point where we start to wonder &amp;ldquo;How do I search Keywords in my scripts?&amp;rdquo; After all, that full text search using &amp;ldquo;for text&amp;rdquo; or the &amp;ldquo;Keywords&amp;rdquo; filter is so tantalizing for any custom CMS / Service Portal search feature.</description>
     </item>
     
     <item>
@@ -414,7 +424,7 @@ When looking at the form filters in ServiceNow, I think all admins and developer
       
       <guid>https://codecreative.io/blog/istanbul-cms-iframes-are-missing-theme-css/</guid>
       <description>UPDATE (04/09/2017): This issue appears to be fixed in Istanbul Patch 3
-If your organization is using CMS and you are considering upgrading to Istanbul, be on the lookout for a potential issue. Theme CSS styles may not be applied to iFrame content in the CMS for some instances after upgrading to Istanbul. ServiceNow is already looking into the issue so hopefully we will have a resolution soon but I know of a few instances out there that might find this to be a deal breaker for an upgrade so I thought it best to advise the Community.</description>
+ If your organization is using CMS and you are considering upgrading to Istanbul, be on the lookout for a potential issue. Theme CSS styles may not be applied to iFrame content in the CMS for some instances after upgrading to Istanbul. ServiceNow is already looking into the issue so hopefully we will have a resolution soon but I know of a few instances out there that might find this to be a deal breaker for an upgrade so I thought it best to advise the Community.</description>
     </item>
     
     <item>
@@ -443,7 +453,7 @@ Most of the &amp;ldquo;problem&amp;rdquo; rests in Flexbox&amp;rsquo;s simplicit
       <pubDate>Wed, 25 Jan 2017 17:00:00 +0000</pubDate>
       
       <guid>https://codecreative.io/blog/4-things-to-do-before-building-a-service-portal/</guid>
-      <description>But at the end of the day, if you have a form with 100 fields that are all mandatory to be filled out before a Catalog Item can be submitted, that’s not a [Service Portal] issue.  Matt Metten   This. Read that. All of that. YES! (&amp;ldquo;I love quick time harch.&amp;rdquo;) I read that, I clicked endorse, then I wrote this. So go read that.
+      <description>But at the end of the day, if you have a form with 100 fields that are all mandatory to be filled out before a Catalog Item can be submitted, that’s not a [Service Portal] issue.  Matt Metten   This. Read that. All of that. YES! (&amp;ldquo;I love quick time harch.&amp;quot;) I read that, I clicked endorse, then I wrote this. So go read that.
 I have spent quite a bit of my time evangelizing Service Portal as well.</description>
     </item>
     
@@ -500,7 +510,7 @@ Don’t let the Service Portal Configuration link in the application fool you.</
       <pubDate>Fri, 06 May 2016 16:00:00 +0000</pubDate>
       
       <guid>https://codecreative.io/blog/servicenow-engagement-the-path-forward/</guid>
-      <description>&amp;ldquo;No application is safe. I’m telling you, name any application we use and I could rebuild it better on this platform. This could replace SAP.&amp;rdquo;
+      <description>&amp;ldquo;No application is safe. I’m telling you, name any application we use and I could rebuild it better on this platform. This could replace SAP.&amp;quot;
 John didn’t have to respond. His “you’re crazier than a shithouse rat” look was well practiced by this point in our friendship. In hindsight, tilting at SAP may have been carrying it a little far but hey, where would we be if we never looked at things and thought of what they might be.</description>
     </item>
     
@@ -549,7 +559,7 @@ This year will be my 4th Knowledge Conference, missing only K13 on account of th
       <pubDate>Mon, 15 Jun 2015 16:00:00 +0000</pubDate>
       
       <guid>https://codecreative.io/blog/adding-doctype-to-a-ui-page/</guid>
-      <description>Today, I am going to share a trick I learned to add a doctype to a UI Page based off of will.leingang&amp;rsquo;s article Making a UI Page without using the framework page template. A page&amp;rsquo;s doctype usually doesn&amp;rsquo;t seem to make a huge difference in output but occasionally, certain scripts and html/css tricks require a specific doctype. In my case, I needed the standard HTML5 doctype.
+      <description>Today, I am going to share a trick I learned to add a doctype to a UI Page based off of will.leingang&amp;lsquo;s article Making a UI Page without using the framework page template. A page&amp;rsquo;s doctype usually doesn&amp;rsquo;t seem to make a huge difference in output but occasionally, certain scripts and html/css tricks require a specific doctype. In my case, I needed the standard HTML5 doctype.
 What Not To Do As my first attempt, I foolishly tried this for the UI Page:</description>
     </item>
     

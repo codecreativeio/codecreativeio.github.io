@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>2018 on CodeCreative | A ServiceNow Blog</title>
@@ -39,7 +39,8 @@ During my time on the ServiceNow platform, I have had many opportunities to buil
       <guid>https://codecreative.io/blog/making-service-portal-widgets-work-together/</guid>
       <description>The following is a summary of the Making Service Portal Widgets Work Together session that I presented at Knowledge 18.
  Problem (Slide 2) Widgets don&amp;rsquo;t play well with others
-If you work with Service Portal widgets long enough, you will come across situations where you want to share data between multiple widgets. And inevitably, you will discover that sharing is not something that widgets are very good at.</description>
+If you work with Service Portal widgets long enough, you will come across situations where you want to share data between multiple widgets. And inevitably, you will discover that sharing is not something that widgets are very good at.
+(Slide 3) Widgets are isolated by design</description>
     </item>
     
     <item>

@@ -58,18 +58,18 @@
     "@type" : "BlogPosting",
     "mainEntityOfPage": {
          "@type": "WebPage",
-         "@id": "https://codecreative.io/"
+         "@id": "https:\/\/codecreative.io\/"
     },
     "name" : "Eliminate Unnecessary Queries With This Simple Check",
     "headline" : "Eliminate Unnecessary Queries With This Simple Check",
-    "description" : "When I first write a script include to manipulate a GlideRecord, I usually script it to accept a sys_id or other query criteria as a parameter. The more I use the script, though, the more likely I am to run into a scenario where I already have the GlideRecord queried from another script. This technique bridges the gap.","image": "https://codecreative.io/blog/eliminate-unnecessary-queries-with-this-simple-check/images/social.png","inLanguage" : "en-US",
+    "description" : "When I first write a script include to manipulate a GlideRecord, I usually script it to accept a sys_id or other query criteria as a parameter. The more I use the script, though, the more likely I am to run into a scenario where I already have the GlideRecord queried from another script. This technique bridges the gap.","image": "https:\/\/codecreative.io\/blog\/eliminate-unnecessary-queries-with-this-simple-check\/images\/social.png","inLanguage" : "en-US",
       "author" : "Travis Toulson",
       "creator" : "Travis Toulson","publisher": "Travis Toulson",
     "copyrightHolder" : "Travis Toulson",
     "copyrightYear" : "2017",
-    "datePublished": "2017-04-26 23:51:00 &#43;0000 UTC",
-    "dateModified" : "2017-04-26 23:51:00 &#43;0000 UTC",
-    "url" : "https://codecreative.io/blog/eliminate-unnecessary-queries-with-this-simple-check/",
+    "datePublished": "2017-04-26 23:51:00 \x2b0000 UTC",
+    "dateModified" : "2017-04-26 23:51:00 \x2b0000 UTC",
+    "url" : "https:\/\/codecreative.io\/blog\/eliminate-unnecessary-queries-with-this-simple-check\/",
     "wordCount" : "476",
     "keywords" : [ "Blog" ]
 }
@@ -144,38 +144,34 @@
 
       <div class="post-content e-content" itemprop="articleBody">
         <p>When I first write a script include to manipulate a GlideRecord, I usually script it to accept a sys_id or other query criteria as a parameter. Its the obvious first step, the GlideRecord has to be retrieved to manipulate it after all. Take this guy for example:</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">Test</span> <span class="o">=</span> <span class="nx">Class</span><span class="p">.</span><span class="nx">create</span><span class="p">();</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">Test</span> <span class="o">=</span> <span class="nx">Class</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
 <span class="nx">Test</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="p">},</span>
+    <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+    <span class="p">}</span><span class="p">,</span>
 
     <span class="nx">doSomethingAwesome</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">id</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;incident&#39;</span><span class="p">);</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nx">gr</span><span class="p">.</span><span class="nx">get</span><span class="p">())</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;incident&#39;</span><span class="p">)</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">gr</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="p">)</span><span class="p">)</span> <span class="p">{</span>
             <span class="c1">// Something awesome gets done here
 </span><span class="c1"></span>        <span class="p">}</span>
-    <span class="p">},</span>
+    <span class="p">}</span><span class="p">,</span>
 
     <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;Test&#39;</span>
-<span class="p">};</span>
-</code></pre></div>
-<p>The more I use the script, though, the more likely I am to run into a scenario where I already have the GlideRecord queried from another script. I hate to admit it but for a long while I used to just re-query the GlideRecord. Using the above script, this would look something like this:</p>
+<span class="p">}</span><span class="p">;</span>
+</code></pre></div><p>The more I use the script, though, the more likely I am to run into a scenario where I already have the GlideRecord queried from another script. I hate to admit it but for a long while I used to just re-query the GlideRecord. Using the above script, this would look something like this:</p>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// From some outside script
-</span><span class="c1"></span><span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;incident&#39;</span><span class="p">);</span>
-<span class="nx">gr</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;some id here&#39;</span><span class="p">);</span>
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;incident&#39;</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">gr</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;some id here&#39;</span><span class="p">)</span><span class="p">;</span>
 
-<span class="kd">var</span> <span class="nx">test</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Test</span><span class="p">();</span>
-<span class="nx">test</span><span class="p">.</span><span class="nx">doSomethingAwesome</span><span class="p">(</span><span class="nx">gr</span><span class="p">.</span><span class="nx">sys_id</span> <span class="o">+</span> <span class="s1">&#39;&#39;</span><span class="p">);</span>
-</code></pre></div>
-<p>Of course the problem there is that I am unnecessarily running an extra query. As a portal developer who is often required to pack a homepage with queries on every live table in the instance, these additional queries can start to stack up on you.</p>
-
+<span class="kd">var</span> <span class="nx">test</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Test</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">test</span><span class="p">.</span><span class="nx">doSomethingAwesome</span><span class="p">(</span><span class="nx">gr</span><span class="p">.</span><span class="nx">sys_id</span> <span class="o">+</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="p">;</span>
+</code></pre></div><p>Of course the problem there is that I am unnecessarily running an extra query. As a portal developer who is often required to pack a homepage with queries on every live table in the instance, these additional queries can start to stack up on you.</p>
 <p>One option to fix this is to go hardcore functional programming and separate the retrieval from the manipulation. In some cases this might make sense but honestly, I find that to be overkill when developing on ServiceNow as compared to say node.js or Python. I rarely run into the same issues on ServiceNow that I do when writing applications off platform. ServiceNow already has tons of API abstractions built in and I don&rsquo;t really need to further abstract the abstractions in most cases.</p>
-
 <p>That said, I&rsquo;ve settled on a simple, flexible pattern for developing API functions that will allow a function to accept either a query criteria or a GlideRecord:</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">Test</span> <span class="o">=</span> <span class="nx">Class</span><span class="p">.</span><span class="nx">create</span><span class="p">();</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">Test</span> <span class="o">=</span> <span class="nx">Class</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
 <span class="nx">Test</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="p">},</span>
+    <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+    <span class="p">}</span><span class="p">,</span>
 
     <span class="nx">doSomethingAwesome</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">input</span><span class="p">)</span> <span class="p">{</span>
         <span class="kd">var</span> <span class="nx">rec</span> <span class="o">=</span> <span class="nx">input</span><span class="p">;</span>
@@ -183,20 +179,19 @@
         <span class="c1">// If the input value is not a GlideRecord, we need to run a query.  
 </span><span class="c1"></span>        <span class="c1">// Otherwise, we assume the correct GlideRecord was passed
 </span><span class="c1"></span>        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">rec</span><span class="p">.</span><span class="nx">isValidRecord</span><span class="p">)</span> <span class="p">{</span>
-            <span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;incident&#39;</span><span class="p">);</span>
-            <span class="k">if</span> <span class="p">(</span><span class="nx">gr</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">input</span><span class="p">))</span> <span class="p">{</span>
+            <span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;incident&#39;</span><span class="p">)</span><span class="p">;</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nx">gr</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">input</span><span class="p">)</span><span class="p">)</span> <span class="p">{</span>
                 <span class="nx">rec</span> <span class="o">=</span> <span class="nx">gr</span><span class="p">;</span> <span class="c1">// Swap the criteria for the record
 </span><span class="c1"></span>            <span class="p">}</span>
         <span class="p">}</span>
 
         <span class="c1">// Something awesome gets done here and
 </span><span class="c1"></span>        <span class="c1">// the rec variable holds the GlideRecord whether from input or the query above
-</span><span class="c1"></span>    <span class="p">},</span>
+</span><span class="c1"></span>    <span class="p">}</span><span class="p">,</span>
 
     <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;Test&#39;</span>
-<span class="p">};</span>
-</code></pre></div>
-<p>Now that doSomethingAwesome function can accept a sys_id or GlideRecord directly and work the same either way. No additional queries get run, no errors if I accidentally pass the GlideRecord, no more accidentally passing a sys_id as a GlideElement instead of a string, and I don&rsquo;t have to have a bunch of extra functions on my Script Include. That simple isValidRecord check separates the criteria from the query result and I can move about my day.</p>
+<span class="p">}</span><span class="p">;</span>
+</code></pre></div><p>Now that doSomethingAwesome function can accept a sys_id or GlideRecord directly and work the same either way. No additional queries get run, no errors if I accidentally pass the GlideRecord, no more accidentally passing a sys_id as a GlideElement instead of a string, and I don&rsquo;t have to have a bunch of extra functions on my Script Include. That simple isValidRecord check separates the criteria from the query result and I can move about my day.</p>
 
       </div>
 

@@ -58,19 +58,19 @@
     "@type" : "BlogPosting",
     "mainEntityOfPage": {
          "@type": "WebPage",
-         "@id": "https://codecreative.io/"
+         "@id": "https:\/\/codecreative.io\/"
     },
     "name" : "Avoid the Style Tag in Service Portal Widgets",
     "headline" : "Avoid the Style Tag in Service Portal Widgets",
-    "description" : "Previously, we built a widget with configurable CSS styles and I briefly mentioned that using the &lt;style&gt; tag wasn&#39;t a great idea. I want to revisit that thought and explore some of the problems that you might encounter.","image": "https://codecreative.io/blog/avoid-the-style-tag-in-service-portal-widgets/images/social.png","inLanguage" : "en-US",
+    "description" : "Previously, we built a widget with configurable CSS styles and I briefly mentioned that using the \x3cstyle\x3e tag wasn\x27t a great idea. I want to revisit that thought and explore some of the problems that you might encounter.","image": "https:\/\/codecreative.io\/blog\/avoid-the-style-tag-in-service-portal-widgets\/images\/social.png","inLanguage" : "en-US",
       "author" : "Travis Toulson",
       "creator" : "Travis Toulson","publisher": "Travis Toulson",
     "copyrightHolder" : "Travis Toulson",
     "copyrightYear" : "2017",
-    "datePublished": "2017-04-12 14:41:36 &#43;0000 UTC",
-    "dateModified" : "2017-04-12 14:41:36 &#43;0000 UTC",
-    "url" : "https://codecreative.io/blog/avoid-the-style-tag-in-service-portal-widgets/",
-    "wordCount" : "671",
+    "datePublished": "2017-04-12 14:41:36 \x2b0000 UTC",
+    "dateModified" : "2017-04-12 14:41:36 \x2b0000 UTC",
+    "url" : "https:\/\/codecreative.io\/blog\/avoid-the-style-tag-in-service-portal-widgets\/",
+    "wordCount" : "668",
     "keywords" : [ "Blog" ]
 }
 </script>
@@ -143,85 +143,64 @@
       </header>
 
       <div class="post-content e-content" itemprop="articleBody">
-        
-
-<p><strong>Warning:</strong> This article is an example of what not to do. Avoid using these practices in your ServiceNow instance.</p>
-
-<hr />
-
+        <p><strong>Warning:</strong> This article is an example of what not to do. Avoid using these practices in your ServiceNow instance.</p>
+<hr>
 <p><a href="/blog/intro-to-configurable-styles-for-service-portal-widgets">Previously</a>, we built a widget with configurable CSS styles and I briefly mentioned that using the &lt;style&gt; tag wasn&rsquo;t a great idea. I want to revisit that thought and explore some of the problems that you might encounter when using the &lt;style&gt; tag in a Service Portal Widget. I will use the colored square widget again to demonstrate.</p>
-
 <h2 id="the-widget">The Widget</h2>
-
 <figure>
   <img src="images/Using+Style+Tag+in+Widget+HTML.png" />
   <figcaption>
     Using Style Tag in Widget HTML
   </figcaption>
 </figure>
-
 <p>So first, let&rsquo;s take a look at this widget. You&rsquo;ll notice that I am using a &lt;style&gt; tag instead of the ng-style directive this time. This is accomplished using the Angular.js curly brace notation around the <strong>c.options.color</strong> widget option. So far, things look good. We still have blue square and we can still configure the color of that square when we place it on Service Portal page.</p>
-
 <p>In a traditional Angular.js application, this is a perfectly legitimate way of injecting dynamic styles into the HTML as long as the style tag is within the Angular scope. In fact, when I was first approached with a question on this, I responded with the rough equivalent of &ldquo;sure, I use this approach all the time&rdquo;. I hadn&rsquo;t come up with a scenario where this presented a problem&hellip; until I started working on the previous article.</p>
-
-<hr />
-
+<hr>
 <h2 id="the-problem-of-cascading-styles">The problem of cascading styles</h2>
-
 <figure>
   <img src="images/Widget+Configuration+Unexpected+Results.gif" />
   <figcaption>
     Unexpected Results: All squares stay the same color as the last configured widget instance
   </figcaption>
 </figure>
-
 <p>It only took me a moment to realize&hellip; my widget was overriding its own CSS</p>
-
 <aside class="ccPullQuote right w-50">
   <p>It only took me a moment to realize... my widget was overriding its own CSS</p>
 </aside>
-
 <p>Until now, all my widgets either existed as a single instance on the page or required the same styled options for every instance on the page. But as I was creating one of the gifs to demonstrate configuring widget options in the previous article, I noticed that all the squares remained the same color as the last square as can be seen in the above gif.</p>
-
 <p>Whoops.</p>
-
 <p>It only took me a moment to realize what should have been evident from the start - my widget was overriding its own CSS. Think of it this way, each square on the page injects its own copy of the Widget HTML into the page. So in the above page, the HTML has been copied 3 times&hellip; and so has my style tag. The rendered HTML (minus the cruft) would resemble the following block:</p>
-<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!-- Widget Instance 1 --&gt;</span>
-<span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!--</span><span class="c"> Widget Instance 1 </span><span class="c">--&gt;</span>
+<span class="p">&lt;</span><span class="nt">style</span><span class="p"></span><span class="p">&gt;</span>
   <span class="p">.</span><span class="nc">colorSquare</span> <span class="p">{</span>
     <span class="k">background-color</span><span class="p">:</span> <span class="kc">red</span><span class="p">;</span>
   <span class="p">}</span>
-<span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;colorSquare&#34;</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="p">/</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;colorSquare&#34;</span><span class="p"></span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="p">/</span><span class="nt">div</span><span class="p">&gt;</span>
 
-<span class="c">&lt;!-- Widget Instance 2 --&gt;</span>
-<span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="c">&lt;!--</span><span class="c"> Widget Instance 2 </span><span class="c">--&gt;</span>
+<span class="p">&lt;</span><span class="nt">style</span><span class="p"></span><span class="p">&gt;</span>
   <span class="p">.</span><span class="nc">colorSquare</span> <span class="p">{</span>
     <span class="k">background-color</span><span class="p">:</span> <span class="kc">green</span><span class="p">;</span>
   <span class="p">}</span>
-<span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;colorSquare&#34;</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="p">/</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;colorSquare&#34;</span><span class="p"></span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="p">/</span><span class="nt">div</span><span class="p">&gt;</span>
 
-<span class="c">&lt;!-- Widget Instance 3 --&gt;</span>
-<span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="c">&lt;!--</span><span class="c"> Widget Instance 3 </span><span class="c">--&gt;</span>
+<span class="p">&lt;</span><span class="nt">style</span><span class="p"></span><span class="p">&gt;</span>
   <span class="p">.</span><span class="nc">colorSquare</span> <span class="p">{</span>
     <span class="k">background-color</span><span class="p">:</span> <span class="mh">#d5d5d5</span><span class="p">;</span>
   <span class="p">}</span>
-<span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;colorSquare&#34;</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span></code></pre></div>
-<p>If you didn&rsquo;t see it before, surely you see it now. The colorSquare class is replicated 3 times in 3 separate style tags. Because of how CSS works, the last background-color specified for colorSquare overrides the others. This is why all of the squares are the same color as the last.</p>
-
+<span class="p">&lt;</span><span class="p">/</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;colorSquare&#34;</span><span class="p"></span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="p">/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></div><p>If you didn&rsquo;t see it before, surely you see it now. The colorSquare class is replicated 3 times in 3 separate style tags. Because of how CSS works, the last background-color specified for colorSquare overrides the others. This is why all of the squares are the same color as the last.</p>
 <p>Now you could do some fancy footwork with dynamic class names or ID&rsquo;s but there is at least one other reason to avoid style tags in your Widget HTML.</p>
-
-<hr />
-
-<h2 id="style-tags-aren-t-scoped">Style Tags Aren&rsquo;t Scoped</h2>
-
+<hr>
+<h2 id="style-tags-arent-scoped">Style Tags Aren&rsquo;t Scoped</h2>
 <p>So one of the things I love about the CSS -SCSS code block in widgets is that the preprocessor adds a prefix to ensure that the styles are scoped to that widget only. Style tags in the HTML code block don&rsquo;t go through the preprocessor and so they aren&rsquo;t properly scoped.</p>
-
 <p>This means that you can affect the entire page and every widget on the page with some poorly planned class names. You could view this as a way to break out of the scoped model for those rare cases where you WANT your Widget to affect the outer scopes. But in general you will want to avoid this practice and keep your styles within the CSS - SCSS block and the ng-style directive.</p>
 
       </div>

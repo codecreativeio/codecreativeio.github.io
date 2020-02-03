@@ -58,18 +58,18 @@
     "@type" : "BlogPosting",
     "mainEntityOfPage": {
          "@type": "WebPage",
-         "@id": "https://codecreative.io/"
+         "@id": "https:\/\/codecreative.io\/"
     },
     "name" : "What are CSS Widget Scopes in Service Portal?",
     "headline" : "What are CSS Widget Scopes in Service Portal?",
-    "description" : "Service Portal as a Content Management System has introduced something that now seems like an obvious oversight in all other CMS applications. I&#39;m of course talking about Scoped CSS, that is CSS which only applies to a specific part of your html page.","image": "https://codecreative.io/blog/what-are-css-widget-scopes-in-service-portal/images/social.png","inLanguage" : "en-US",
+    "description" : "Service Portal as a Content Management System has introduced something that now seems like an obvious oversight in all other CMS applications. I\x27m of course talking about Scoped CSS, that is CSS which only applies to a specific part of your html page.","image": "https:\/\/codecreative.io\/blog\/what-are-css-widget-scopes-in-service-portal\/images\/social.png","inLanguage" : "en-US",
       "author" : "Travis Toulson",
       "creator" : "Travis Toulson","publisher": "Travis Toulson",
     "copyrightHolder" : "Travis Toulson",
     "copyrightYear" : "2017",
-    "datePublished": "2017-02-15 17:00:00 &#43;0000 UTC",
-    "dateModified" : "2017-02-15 17:00:00 &#43;0000 UTC",
-    "url" : "https://codecreative.io/blog/what-are-css-widget-scopes-in-service-portal/",
+    "datePublished": "2017-02-15 17:00:00 \x2b0000 UTC",
+    "dateModified" : "2017-02-15 17:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/codecreative.io\/blog\/what-are-css-widget-scopes-in-service-portal\/",
     "wordCount" : "467",
     "keywords" : [ "Blog" ]
 }
@@ -143,44 +143,33 @@
       </header>
 
       <div class="post-content e-content" itemprop="articleBody">
-        
-
-<figure>
+        <figure>
   <img src="images/Scoped+CSS+Support+Screenshot.png" />
   <figcaption>
     Scoped CSS Screenshot from CanIUse.com
   </figcaption>
 </figure>
-
 <p>Service Portal as a Content Management System has introduced something that now seems like an obvious oversight in all other CMS applications. In fact, its such a obvious, painful oversight that countless others have attempted some sort of solution. CSS Preprocessors, the HTML5 spec, and the recent CSS and JS specs all introduced scoped concepts such as a <a href="http://www.w3schools.com/tags/att_style_scoped.asp">scoped attribute</a>, scope pseudo selector, and scoping capability with Shadow DOM most of which was promptly ignored by browsers and removed from spec.</p>
-
 <p>I&rsquo;m talking about Scoped CSS, that is CSS which only applies to a specific part of your html page. ServiceNow executed this one so subtly that you may never actually notice this at work which is a real shame. I only discovered this while intentionally trying to bleed my widget CSS into the rest of the page (specifically, I tried to manipulate the html and body tags from a Widget). So with that, let&rsquo;s take a look at this glorious gift from the Service Portal team.</p>
-
 <h2 id="css-in-the-service-portal-simple-list-widget">CSS in the Service Portal Simple List Widget</h2>
-
 <figure>
   <img src="images/Service+Portal+CSS+Editor.png" />
   <figcaption>
     Service Portal CSS Editor
   </figcaption>
 </figure>
-
 <p>&ldquo;Scoped CSS&rdquo; may actually be a bit fancy terminology wise because in all reality it is still just plain ol CSS. It all starts out in the widget CSS - SCSS editor panel. This panel contains all the CSS that applies to the widget that you are editing.</p>
-
 <p>What you may not realize though, is that CSS will only apply to instances of that specific widget type (in this case the Simple List widget). Instances of different widget types will have no idea how this works. For example, take a look at the panel CSS in the Service Portal CSS Editor:</p>
 <div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="p">.</span><span class="nc">panel</span> <span class="p">{</span>
   <span class="k">position</span><span class="p">:</span> <span class="kc">relative</span><span class="p">;</span>
-<span class="p">}</span></code></pre></div>
-<p>Now, normally, CSS like that would apply to every HTML node matching the <strong>.panel</strong> selector. This could cause major problems across other widgets in your portal. What if you installed some custom portal widgets from a ServiceNow Partner, some from ServiceNow Share, and developed a few of your own. That CSS in one widget would technically apply to all widgets using the <strong>.panel</strong> selector. Imagine a widget throwing around an absolute position declaration instead&hellip; yikes.</p>
-
+<span class="p">}</span>
+</code></pre></div><p>Now, normally, CSS like that would apply to every HTML node matching the <strong>.panel</strong> selector. This could cause major problems across other widgets in your portal. What if you installed some custom portal widgets from a ServiceNow Partner, some from ServiceNow Share, and developed a few of your own. That CSS in one widget would technically apply to all widgets using the <strong>.panel</strong> selector. Imagine a widget throwing around an absolute position declaration instead&hellip; yikes.</p>
 <h2 id="css-in-the-browser">CSS in the Browser</h2>
-
 <p>But Service Portal does something cool behind the scenes. When I look at this CSS using the browser&rsquo;s web inspector I see this:</p>
 <div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="p">.</span><span class="nc">v5b255672cb03020000f8d856634c9c28</span> <span class="p">.</span><span class="nc">panel</span> <span class="p">{</span>
   <span class="k">position</span><span class="p">:</span> <span class="kc">relative</span><span class="p">;</span>
-<span class="p">}</span></code></pre></div>
-<p>Wait a second, whats that weird prefix <strong>v5b255672cb03020000f8d856634c9c28</strong>? Well, it seems that Service Portal adds a class prefix to every widget type. And because of how <a href="https://css-tricks.com/specifics-on-css-specificity/">CSS specificity</a> works, this CSS will only apply to widgets of the Simple List type. Other widget panels will be left untouched.</p>
-
+<span class="p">}</span>
+</code></pre></div><p>Wait a second, whats that weird prefix <strong>v5b255672cb03020000f8d856634c9c28</strong>? Well, it seems that Service Portal adds a class prefix to every widget type. And because of how <a href="https://css-tricks.com/specifics-on-css-specificity/">CSS specificity</a> works, this CSS will only apply to widgets of the Simple List type. Other widget panels will be left untouched.</p>
 <p>This seemingly small change has a number of implications for Service Portal developers but that is best left for another time.</p>
 
       </div>

@@ -58,18 +58,18 @@
     "@type" : "BlogPosting",
     "mainEntityOfPage": {
          "@type": "WebPage",
-         "@id": "https://codecreative.io/"
+         "@id": "https:\/\/codecreative.io\/"
     },
     "name" : "Interface Design Patterns: Namespace Pattern",
     "headline" : "Interface Design Patterns: Namespace Pattern",
-    "description" : "The namespace pattern provides a simple mechanism for organizing reusable functions and objects. Personally, this is my preferred pattern for swiss army knife type Util libraries.","image": "https://codecreative.io/blog/interface-design-patterns-namespace-pattern/images/social.png","inLanguage" : "en-US",
+    "description" : "The namespace pattern provides a simple mechanism for organizing reusable functions and objects. Personally, this is my preferred pattern for swiss army knife type Util libraries.","image": "https:\/\/codecreative.io\/blog\/interface-design-patterns-namespace-pattern\/images\/social.png","inLanguage" : "en-US",
       "author" : "Travis Toulson",
       "creator" : "Travis Toulson","publisher": "Travis Toulson",
     "copyrightHolder" : "Travis Toulson",
     "copyrightYear" : "2019",
-    "datePublished": "2019-01-15 18:51:14 &#43;0000 UTC",
-    "dateModified" : "2019-01-15 18:51:14 &#43;0000 UTC",
-    "url" : "https://codecreative.io/blog/interface-design-patterns-namespace-pattern/",
+    "datePublished": "2019-01-15 18:51:14 \x2b0000 UTC",
+    "dateModified" : "2019-01-15 18:51:14 \x2b0000 UTC",
+    "url" : "https:\/\/codecreative.io\/blog\/interface-design-patterns-namespace-pattern\/",
     "wordCount" : "431",
     "keywords" : [ "Blog" ]
 }
@@ -143,60 +143,45 @@
       </header>
 
       <div class="post-content e-content" itemprop="articleBody">
-        
-
-<p><a href="/blog/interface-design-patterns-for-script-includes">Back to Interface Design Patterns for Script Includes</a></p>
-
+        <p><a href="/blog/interface-design-patterns-for-script-includes">Back to Interface Design Patterns for Script Includes</a></p>
 <h2 id="introduction">Introduction</h2>
-
 <p>The namespace pattern provides a simple mechanism for organizing reusable functions and objects. One of the challenging aspects of using alternative Script Include patterns is that they become harder to identify when used. For example, if I use the <a href="/blog/interface-design-patterns-function-pattern">Function Pattern</a> in a Business Rule it may be challenging for other developers to quickly identify that getMyTeamMembers() refers to a Script Include instead of a function defined in the script or a Global Business Rule. Using the Namespace Pattern can help clarify since the syntax more closely resembles the traditional <a href="/blog/interface-design-patterns-class-pattern">Class Pattern</a>.</p>
-
 <p>Personally, this is my preferred pattern for those UserUtils, TaskUtils, and other swiss army knife type libraries.</p>
-
 <h2 id="problem-definition">Problem Definition</h2>
-
 <p>The development team has identified several duplicated segments of code in the ServiceNow instance related to getting information about the current user. In order to reduce duplication and improve maintainability, the team would like to create a utility library to consolidate the repeated code.</p>
-
 <h2 id="example-solution">Example Solution</h2>
-
 <p>For this solution, we will create a simple utility Script Include that allows us to obtain data related to the Currently Logged In User:</p>
-
 <h3 id="script-include-getmyteammembers">Script Include: getMyTeamMembers</h3>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">CurrentUser</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="nx">getSubscribedProducts</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">getSubscribedProducts</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// call GlideRecord to get products the user is subscribed to
-</span><span class="c1"></span>  <span class="p">},</span>
+</span><span class="c1"></span>  <span class="p">}</span><span class="p">,</span>
 
-  <span class="nx">getTeamMembers</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">getTeamMembers</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// call GlideRecord to get a list of sys_user records in the same groups
-</span><span class="c1"></span>  <span class="p">},</span>
+</span><span class="c1"></span>  <span class="p">}</span><span class="p">,</span>
 
-  <span class="nx">getManagedTeamMembers</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">getManagedTeamMembers</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// call GlideRecord to get a list of sys_user records the current user manages
-</span><span class="c1"></span>  <span class="p">},</span>
+</span><span class="c1"></span>  <span class="p">}</span><span class="p">,</span>
 
-  <span class="nx">getRecord</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">getRecord</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// return sys_user record for currently logged in user
 </span><span class="c1"></span>  <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
-<p>Now we can easily call any of these functions with a clear namespace as follows:</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">CurrentUser</span><span class="p">.</span><span class="nx">getSubscribedProducts</span><span class="p">();</span>
-<span class="nx">CurrentUser</span><span class="p">.</span><span class="nx">getTeamMembers</span><span class="p">();</span>
-<span class="nx">CurrentUser</span><span class="p">.</span><span class="nx">getManagedTeamMembers</span><span class="p">();</span>
-<span class="nx">CurrentUser</span><span class="p">.</span><span class="nx">getRecord</span><span class="p">();</span>
-</code></pre></div>
-<h2 id="advantages">Advantages</h2>
-
+</code></pre></div><p>Now we can easily call any of these functions with a clear namespace as follows:</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">CurrentUser</span><span class="p">.</span><span class="nx">getSubscribedProducts</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">CurrentUser</span><span class="p">.</span><span class="nx">getTeamMembers</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">CurrentUser</span><span class="p">.</span><span class="nx">getManagedTeamMembers</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">CurrentUser</span><span class="p">.</span><span class="nx">getRecord</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+</code></pre></div><h2 id="advantages">Advantages</h2>
 <ol>
 <li>The pattern removes a potentially confusing no-op / empty initialize pattern that frequently shows up in the <a href="/blog/interface-design-patterns-class-pattern">Class Pattern</a></li>
 <li>More clearly communicates the loose relationship between the functions</li>
 <li>Evolves quickly and easily to future requirements as long as the relationship between the functions remains loose and state data is not stored on the object  itself.</li>
 <li>More clearly communicates that the called script is a Script Include than the <a href="/blog/interface-design-patterns-function-pattern">Function Pattern</a></li>
 </ol>
-
 <h2 id="disadvantages">Disadvantages</h2>
-
 <ol>
 <li>This pattern can be a signal that the data design is not well understood particularly if the team is using an Object Oriented paradigm.</li>
 <li>Utility scripts have a tendency to bloat over time as more functions and subtle variations of functions get added.</li>

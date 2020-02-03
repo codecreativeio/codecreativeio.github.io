@@ -58,18 +58,18 @@
     "@type" : "BlogPosting",
     "mainEntityOfPage": {
          "@type": "WebPage",
-         "@id": "https://codecreative.io/"
+         "@id": "https:\/\/codecreative.io\/"
     },
     "name" : "6 Best Practices for Service Portal CSS",
     "headline" : "6 Best Practices for Service Portal CSS",
-    "description" : "When developing Service Portal styles for either the Theme or the Widgets, there is more to think about than there used to be in CMS. Service Portal offers greater modularity to protect our Widgets from our Themes and vice versa.  Read on for 6 best practices to follow when coding the CSS for your Service Portal to keep your CSS maintainable and flexible.","image": "https://codecreative.io/blog/6-best-practices-for-service-portal-css/images/social.png","inLanguage" : "en-US",
+    "description" : "When developing Service Portal styles for either the Theme or the Widgets, there is more to think about than there used to be in CMS. Service Portal offers greater modularity to protect our Widgets from our Themes and vice versa.  Read on for 6 best practices to follow when coding the CSS for your Service Portal to keep your CSS maintainable and flexible.","image": "https:\/\/codecreative.io\/blog\/6-best-practices-for-service-portal-css\/images\/social.png","inLanguage" : "en-US",
       "author" : "Travis Toulson",
       "creator" : "Travis Toulson","publisher": "Travis Toulson",
     "copyrightHolder" : "Travis Toulson",
     "copyrightYear" : "2017",
-    "datePublished": "2017-03-22 17:30:00 &#43;0000 UTC",
-    "dateModified" : "2017-03-22 17:30:00 &#43;0000 UTC",
-    "url" : "https://codecreative.io/blog/6-best-practices-for-service-portal-css/",
+    "datePublished": "2017-03-22 17:30:00 \x2b0000 UTC",
+    "dateModified" : "2017-03-22 17:30:00 \x2b0000 UTC",
+    "url" : "https:\/\/codecreative.io\/blog\/6-best-practices-for-service-portal-css\/",
     "wordCount" : "1099",
     "keywords" : [ "Blog" ]
 }
@@ -143,48 +143,31 @@
       </header>
 
       <div class="post-content e-content" itemprop="articleBody">
-        
-
-<p>When developing Service Portal styles for either the Theme or the Widgets, there is more to think about than there used to be in CMS. Service Portal offers greater modularity to protect our Widgets from our Themes and vice versa. Below are 6 best practices (they&rsquo;re more what you&rsquo;d call guidelines than actual rules) to follow when coding the CSS for your Service Portal to keep your CSS maintainable and flexible.</p>
-
+        <p>When developing Service Portal styles for either the Theme or the Widgets, there is more to think about than there used to be in CMS. Service Portal offers greater modularity to protect our Widgets from our Themes and vice versa. Below are 6 best practices (they&rsquo;re more what you&rsquo;d call guidelines than actual rules) to follow when coding the CSS for your Service Portal to keep your CSS maintainable and flexible.</p>
 <h2 id="1-avoid-common-widget-classes-in-global-css-styles">1. Avoid common widget classes in global CSS styles</h2>
-
 <p>Service Portal is based on Bootstrap, so there are a number of readily available classes with certain stylings. Service Portal is also very modular, so all the real power is in the widgets and many of those Bootstrap classes are likely to appear in your widgets.</p>
-
 <p>You can easily end up breaking widgets, especially if you are manipulating layout styles</p>
-
 <aside class="ccPullQuote right w-50">
   <p>You can easily end up breaking widgets, especially if you are manipulating layout styles</p>
 </aside>
-
 <p>With those things in mind, you should avoid manipulating classes such as those relating to panels, wells, forms, alerts, and other <a href="http://getbootstrap.com/components/">bootstrap components</a>. Changes to any of these components are likely to leak into all of your widgets unless they have explicitly defined styles.</p>
-
 <p>You can easily end up breaking widgets, especially if you are manipulating layout styles such as margin, padding, position, etc.</p>
-
 <h2 id="2-avoid-long-high-specificity-selectors-in-global-css">2. Avoid long, high specificity selectors in global CSS</h2>
-
 <p>The key to global CSS (such as CSS Includes on your Theme or Portal records) is to minimize specificity. You <strong>want</strong> your global CSS to be able to be overridden easily. The global CSS should provide reasonable defaults for the rest of the portal.</p>
-
 <p>This means that selectors that provide a &ldquo;Complete Idiots Guide to Finding This Element&rdquo; are probably a bad idea. My ideal happy place is 2 - 3 selectors deep. Since widget styles are guaranteed to be 2 selectors deep (<a href="/blog/what-are-css-widget-scopes-in-service-portal">remember CSS scoping</a>), keeping global scopes to 2 - 3 selectors deep will limit the opportunity for global styles to accidentally override your widgets.</p>
-
 <p>This also includes avoiding the use of the <strong>!important</strong> declaration in global styles which basically honey badgers selector specificity.</p>
-
 <p>In other words, this is a bad idea:</p>
 <div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="nt">html</span> <span class="nt">body</span> <span class="p">#</span><span class="nn">first-row</span> <span class="p">.</span><span class="nc">col-md-4</span> <span class="p">.</span><span class="nc">panel</span> <span class="p">{</span>
  <span class="c">/* Yep, your widget just got overridden */</span>
-<span class="p">}</span></code></pre></div>
-<h2 id="3-keep-global-styles-to-a-minimum">3. Keep global styles to a minimum</h2>
-
+<span class="p">}</span>
+</code></pre></div><h2 id="3-keep-global-styles-to-a-minimum">3. Keep global styles to a minimum</h2>
 <p>In fact, while we&rsquo;re at it, just plain keep your global styles to a minimum. The power in Service Portal is in the widgets so you should keep it there, including styles.</p>
-
 <p>Service Portal is based on Bootstrap JS, variables are available to manipulate many of Bootstrap&rsquo;s defaults, and layout is already provided&hellip; there are very few Global edits that need to be made. Here are the few examples of when you should use global styles:</p>
-
 <ul>
 <li>Overriding Bootstrap defaults where variables aren&rsquo;t provided</li>
 <li>Using CSS Includes to add required external CSS libraries (PrismJS for Code Highlighting for example)</li>
 <li>Providing custom layouts using Flexbox or other approach (requires disabling Bootstrap layout classes)</li>
 </ul>
-
 <p>But in any of these cases, there should be a very narrowly defined class selector you can use which is unlikely to be used by a widget or can be easily overridden.</p>
 <div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="c">/* Unlikely to be used */</span>
 
@@ -196,44 +179,31 @@
 
 <span class="p">.</span><span class="nc">wrapper</span> <span class="p">{</span>
   <span class="k">display</span><span class="p">:</span> <span class="kc">flex</span><span class="p">;</span>
-<span class="p">}</span></code></pre></div>
-<h2 id="4-explicitly-define-vital-css-classes-for-widgets">4. Explicitly define vital CSS classes for widgets</h2>
-
+<span class="p">}</span>
+</code></pre></div><h2 id="4-explicitly-define-vital-css-classes-for-widgets">4. Explicitly define vital CSS classes for widgets</h2>
 <p>As widget developers, we can not always trust the theme to respect our authoritah. Some selectors may seem innocuous to a theme developer but can be quite harmful to widgets. For example:</p>
 <div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="p">.</span><span class="nc">panel-heading</span> <span class="p">{</span>
   <span class="k">padding</span><span class="p">:</span> <span class="mi">10</span><span class="kt">px</span> <span class="mi">2</span><span class="kt">em</span><span class="p">;</span>
-<span class="p">}</span></code></pre></div>
-<p>The above CSS doesn&rsquo;t look so bad. Maybe the theme is designed to give a little more whitespace all around, nothing wrong with that. Unless of course your widget was expecting to have that additional width to work with, then it might be a problem.</p>
-
+<span class="p">}</span>
+</code></pre></div><p>The above CSS doesn&rsquo;t look so bad. Maybe the theme is designed to give a little more whitespace all around, nothing wrong with that. Unless of course your widget was expecting to have that additional width to work with, then it might be a problem.</p>
 <p>In these cases where you widget only works within the defined parameters, don&rsquo;t trust the theme to honor your styles. Go ahead and explicitly define the required styles right there in your widget CSS. Heck, in widgets go ahead and throw around the <strong>!important</strong> declaration if your are really concerned. Service Portal CSS scopes will keep your declaration isolated to only your widget.</p>
-
 <h2 id="5-avoid-hardcoding-colors-in-widgets">5. Avoid hardcoding colors in Widgets</h2>
-
 <p>One potential issue is text and background colors. Base colors are often defined in Bootstrap and at the theme level in the global scope. In order to make truly flexible widgets, they should support changing according to the selected theme colors.</p>
-
 <p>One way to style the colors in your widget is to hard code the value in hex or rgb within the Widget CSS. Avoid the temptation to do this. Instead leverage SCSS variables as in the following example:</p>
 <div class="highlight"><pre class="chroma"><code class="language-scss" data-lang="scss"><span class="cm">/* Widget CSS - SCSS */</span>
 <span class="nv">$specialColor</span><span class="o">:</span> <span class="mh">#FFF</span> <span class="nv">!default</span><span class="p">;</span>
 
-<span class="nc">.panel</span> <span class="nt">span</span> <span class="p">{</span>
-  <span class="nt">color</span><span class="nd">:</span> <span class="err">$</span><span class="nt">specialColor</span><span class="o">;</span>
-<span class="p">}</span></code></pre></div>
-<p>Notice the variable specialColor is declared with the <strong>!default</strong> keyword. This tells the SCSS preprocessor to <strong>#FFF</strong> as the default color only if the variable was not previously assigned&hellip; such as in the Portal SCSS field. By using variables in this way, you set sensible defaults in your Widget while allowing for simple overriding without having to raise the specificity of your selectors in your global CSS.</p>
-
+<span class="nc">.</span><span class="nc">panel</span> <span class="nt">span</span> <span class="p">{</span>
+  <span class="nt">color</span><span class="nd">:</span> <span class="err">$</span><span class="nt">specialColor</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><p>Notice the variable specialColor is declared with the <strong>!default</strong> keyword. This tells the SCSS preprocessor to <strong>#FFF</strong> as the default color only if the variable was not previously assigned&hellip; such as in the Portal SCSS field. By using variables in this way, you set sensible defaults in your Widget while allowing for simple overriding without having to raise the specificity of your selectors in your global CSS.</p>
 <p>You can also use Widget Options, especially in cases where there are specific values you want to allow and others that you want to disallow. This approach is a little more complicated but can achieve the same results of protecting your Widget styles from your global ones.</p>
-
-<h2 id="6-avoid-using-id-s">6. Avoid using ID&rsquo;s</h2>
-
+<h2 id="6-avoid-using-ids">6. Avoid using ID&rsquo;s</h2>
 <p>I used to like ID&rsquo;s a lot but the more I use AngularJS, the less I actually need them. In Service Portal there is almost no reason to use them.</p>
-
 <p>In widgets, ID&rsquo;s are pointless because an ID is only supposed to appear once in your HTML document. Widgets, by design, can have multiple instances on any given page, so its difficult to ensure an ID will only appear once.</p>
-
 <p>In global CSS, even just one ID can tip the specificity scales in the CSS and override widget styles. Following the other best practices, it is likewise best to keep ID&rsquo;s in the global CSS to a minimum.</p>
-
 <p>The one exception to this that I can think of is dynamically applied ID&rsquo;s using ng-attr-id.</p>
-
 <h2 id="conclusion">Conclusion</h2>
-
 <p>When in doubt, if you are styling a widget, code like a lion, fear nothing and be as specific as you can. If you are styling the theme, code like a lamb, avoid anything which might influence the Widget code. Following these guidelines will help keep your widgets modular, reusable, and true to their design.</p>
 
       </div>

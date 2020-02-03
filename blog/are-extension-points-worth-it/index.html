@@ -58,19 +58,19 @@
     "@type" : "BlogPosting",
     "mainEntityOfPage": {
          "@type": "WebPage",
-         "@id": "https://codecreative.io/"
+         "@id": "https:\/\/codecreative.io\/"
     },
     "name" : "Are Extension Points Worth It",
     "headline" : "Are Extension Points Worth It",
-    "description" : "Extension Points are a Scoped Application Developer tool launched in the London version of ServiceNow. In this article, we take a look at how it compares to previous ways of accomplishing similar tasks.","image": "https://codecreative.io/blog/are-extension-points-worth-it/images/social.png","inLanguage" : "en-US",
+    "description" : "Extension Points are a Scoped Application Developer tool launched in the London version of ServiceNow. In this article, we take a look at how it compares to previous ways of accomplishing similar tasks.","image": "https:\/\/codecreative.io\/blog\/are-extension-points-worth-it\/images\/social.png","inLanguage" : "en-US",
       "author" : "Travis Toulson",
       "creator" : "Travis Toulson","publisher": "Travis Toulson",
     "copyrightHolder" : "Travis Toulson",
     "copyrightYear" : "2019",
-    "datePublished": "2019-05-04 16:57:50 &#43;0000 UTC",
-    "dateModified" : "2019-05-04 16:57:50 &#43;0000 UTC",
-    "url" : "https://codecreative.io/blog/are-extension-points-worth-it/",
-    "wordCount" : "1887",
+    "datePublished": "2019-05-04 16:57:50 \x2b0000 UTC",
+    "dateModified" : "2019-05-04 16:57:50 \x2b0000 UTC",
+    "url" : "https:\/\/codecreative.io\/blog\/are-extension-points-worth-it\/",
+    "wordCount" : "1868",
     "keywords" : [ "Blog" ]
 }
 </script>
@@ -143,269 +143,224 @@
       </header>
 
       <div class="post-content e-content" itemprop="articleBody">
-        
-
-<p>One of the features that most intrigued me in ServiceNow&rsquo;s London release was Extension Points. Unfortunately, I wasn&rsquo;t doing a whole lot of custom app development in London, so that intrigue was left on the bench. Recently, though, I&rsquo;ve been doing a little more app development and starting exploring this new feature and finding myself at a cross-roads:</p>
-
+        <p>One of the features that most intrigued me in ServiceNow&rsquo;s London release was Extension Points. Unfortunately, I wasn&rsquo;t doing a whole lot of custom app development in London, so that intrigue was left on the bench. Recently, though, I&rsquo;ve been doing a little more app development and starting exploring this new feature and finding myself at a cross-roads:</p>
 <p>Do I switch to Extension Points or keep using my tried and true methods?</p>
-
 <h2 id="what-are-extension-points">What are Extension Points</h2>
-
 <p>Extension Points are a way for Scoped Application developers to introduce <strong>hooks</strong> into their code. These hooks allow other developers to introduce new logic into your application code without having to touch your code. Imagine for example you build a Risk Calculator Script Include. It&rsquo;s beautiful&hellip; perfect, you think until a customer comes along and asks if the Risk Calculator can factor in some criteria on a 3rd Party table. Without some form of hook, you would have to change your baseline code to include these 3rd Party tables. With hooks, however, you could allow your customer to inject some code into your Risk Calculator from the outside as long as it conforms to a specific interface.</p>
-
 <p>Basically, any time you have modified a ServiceNow baseline Script Include or Business Rule&hellip; hooks like Extension Points were the solution you may not have known you wanted.</p>
-
 <p>Let&rsquo;s take a look at Extension Points and two other tried and true approaches to achieve these types of hooks: Named Script Include Overrides and Property as a Script.</p>
-
 <h2 id="named-script-include-overrides">Named Script Include Overrides</h2>
-
 <p>Script Includes are hardly anything new in ServiceNow but you may not have known that you can easily leverage them to create simple hooks in your application.</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">ScriptRunner</span> <span class="o">=</span> <span class="nx">Class</span><span class="p">.</span><span class="nx">create</span><span class="p">();</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">ScriptRunner</span> <span class="o">=</span> <span class="nx">Class</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
 <span class="nx">ScriptRunner</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{},</span>
+  <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span><span class="p">}</span><span class="p">,</span>
 
-    <span class="nx">process</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">input</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">process</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">input</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// Set variable to a specifically named Script Include
-</span><span class="c1"></span>        <span class="kd">var</span> <span class="nx">hook</span> <span class="o">=</span> <span class="nx">global</span><span class="p">.</span><span class="nx">CustomerHook</span><span class="p">;</span>
+</span><span class="c1"></span>		<span class="kd">var</span> <span class="nx">hook</span> <span class="o">=</span> <span class="nx">global</span><span class="p">.</span><span class="nx">CustomerHook</span><span class="p">;</span>
 
     <span class="c1">// If the Script Include exists, use it
-</span><span class="c1"></span>        <span class="k">if</span> <span class="p">(</span><span class="nx">hook</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">return</span> <span class="k">new</span> <span class="nx">hook</span><span class="p">().</span><span class="nx">process</span><span class="p">(</span><span class="nx">input</span><span class="p">);</span>
-        <span class="p">}</span>
+</span><span class="c1"></span>		<span class="k">if</span> <span class="p">(</span><span class="nx">hook</span><span class="p">)</span> <span class="p">{</span>
+			<span class="k">return</span> <span class="k">new</span> <span class="nx">hook</span><span class="p">(</span><span class="p">)</span><span class="p">.</span><span class="nx">process</span><span class="p">(</span><span class="nx">input</span><span class="p">)</span><span class="p">;</span>
+		<span class="p">}</span>
     <span class="k">else</span> <span class="p">{</span>
       <span class="c1">// Use Default behavior
 </span><span class="c1"></span>    <span class="p">}</span>
-    <span class="p">},</span>
+	<span class="p">}</span><span class="p">,</span>
 
   <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;ScriptRunner&#39;</span>
-<span class="p">};</span>
-</code></pre></div>
-<p>The above Script Include will attempt to leverage a Script Include in the Global application scope called CustomerHook. If it exists (ie. if the customer creates it), the customer&rsquo;s behavior will be executed. Otherwise, the default application behavior will be executed. This is just a simple example. We also could have allowed the customer&rsquo;s hook to modify rather than replace our existing behavior.</p>
-
+<span class="p">}</span><span class="p">;</span>
+</code></pre></div><p>The above Script Include will attempt to leverage a Script Include in the Global application scope called CustomerHook. If it exists (ie. if the customer creates it), the customer&rsquo;s behavior will be executed. Otherwise, the default application behavior will be executed. This is just a simple example. We also could have allowed the customer&rsquo;s hook to modify rather than replace our existing behavior.</p>
 <p>This approach has been available to us since the dawn of Script Includes&hellip; in other words I don&rsquo;t know if there was a time we couldn&rsquo;t do this or something like it. Imagine how many configuration vs customization battles could have been solved if this override approach was more widely available in baseline scripts!</p>
-
 <p>One major disadvantage of this approach, though is there is no way of knowing that the hook exists without reading the code or documentation to indicate it&rsquo;s availability.</p>
-
-<p><strong>Key Features</strong>
-- Available in all versions as far as I am aware
-- Executes a single script
-- The customer must implement a Script Include of a specific name
-- Does not explicitly define the hook&rsquo;s existence
-- Is unclear about the hook&rsquo;s interface (input and output)
-- Very fast since it is a simple Script Include execution</p>
-
+<p><strong>Key Features</strong></p>
+<ul>
+<li>Available in all versions as far as I am aware</li>
+<li>Executes a single script</li>
+<li>The customer must implement a Script Include of a specific name</li>
+<li>Does not explicitly define the hook&rsquo;s existence</li>
+<li>Is unclear about the hook&rsquo;s interface (input and output)</li>
+<li>Very fast since it is a simple Script Include execution</li>
+</ul>
 <h2 id="property-as-a-script">Property as a Script</h2>
-
 <p>Another approach that I&rsquo;ve used in the past (in fact, it&rsquo;s used in one of my Store apps right now) is the Property as a Script technique. This approach uses a System Property in conjunction with GlideScopedEvaluator to execute the System Property as a Script. The gist is that the System Property&rsquo;s value field is executable JavaScript.</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">PropertyRunner</span> <span class="o">=</span> <span class="nx">Class</span><span class="p">.</span><span class="nx">create</span><span class="p">();</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">PropertyRunner</span> <span class="o">=</span> <span class="nx">Class</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
 <span class="nx">PropertyRunner</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{},</span>
+  <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span><span class="p">}</span><span class="p">,</span>
 
-    <span class="nx">process</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">input</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kd">var</span> <span class="nx">evaluator</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideScopedEvaluator</span><span class="p">();</span>
-        <span class="kd">var</span> <span class="nx">hook</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;sys_properties&#39;</span><span class="p">);</span>
+	<span class="nx">process</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">input</span><span class="p">)</span> <span class="p">{</span>
+		<span class="kd">var</span> <span class="nx">evaluator</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideScopedEvaluator</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+		<span class="kd">var</span> <span class="nx">hook</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;sys_properties&#39;</span><span class="p">)</span><span class="p">;</span>
 
     <span class="c1">// If the System Property exists, execute it as a script
-</span><span class="c1"></span>        <span class="k">if</span> <span class="p">(</span><span class="nx">hook</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;x_0505_scope_name.hook&#39;</span><span class="p">))</span> <span class="p">{</span>
-            <span class="k">return</span> <span class="nx">evaluator</span><span class="p">.</span><span class="nx">evaluateScript</span><span class="p">(</span><span class="nx">hook</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="s1">&#39;input&#39;</span><span class="o">:</span> <span class="nx">input</span> <span class="p">});</span>
-        <span class="p">}</span>
+</span><span class="c1"></span>		<span class="k">if</span> <span class="p">(</span><span class="nx">hook</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;x_0505_scope_name.hook&#39;</span><span class="p">)</span><span class="p">)</span> <span class="p">{</span>
+			<span class="k">return</span> <span class="nx">evaluator</span><span class="p">.</span><span class="nx">evaluateScript</span><span class="p">(</span><span class="nx">hook</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="s1">&#39;input&#39;</span><span class="o">:</span> <span class="nx">input</span> <span class="p">}</span><span class="p">)</span><span class="p">;</span>
+		<span class="p">}</span>
     <span class="k">else</span> <span class="p">{</span>
       <span class="c1">// Execute default behavior
 </span><span class="c1"></span>    <span class="p">}</span>
-    <span class="p">},</span>
+	<span class="p">}</span><span class="p">,</span>
 
   <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;PropertyRunner&#39;</span>
-<span class="p">};</span>
-</code></pre></div>
-<p>And the System Property value field would be something like:</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="k">new</span> <span class="nx">global</span><span class="p">.</span><span class="nx">CustomerHook</span><span class="p">().</span><span class="nx">process</span><span class="p">(</span><span class="nx">input</span><span class="p">);</span>
-</code></pre></div>
-<p>In this case, the System Property is the hook instead of a pre-defined Script Include. This has some added flexibility as the customer can structure the Script Include however they desire. It also has the advantage of being explicitly defined, you can easily create a System Property page for your application that clearly indicates this as a hook. Interestingly, I picked up this trick from ServiceNow themselves who use it in the CMS and Service Portal login redirect scripts.</p>
-
+<span class="p">}</span><span class="p">;</span>
+</code></pre></div><p>And the System Property value field would be something like:</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="k">new</span> <span class="nx">global</span><span class="p">.</span><span class="nx">CustomerHook</span><span class="p">(</span><span class="p">)</span><span class="p">.</span><span class="nx">process</span><span class="p">(</span><span class="nx">input</span><span class="p">)</span><span class="p">;</span>
+</code></pre></div><p>In this case, the System Property is the hook instead of a pre-defined Script Include. This has some added flexibility as the customer can structure the Script Include however they desire. It also has the advantage of being explicitly defined, you can easily create a System Property page for your application that clearly indicates this as a hook. Interestingly, I picked up this trick from ServiceNow themselves who use it in the CMS and Service Portal login redirect scripts.</p>
 <p>That said, there are a couple limitations that I have found. First, GlideScopedEvaluator can be picky about parameter passing. I have had issues getting it to accept JavaScript Object data types specifically. Also, it&rsquo;s performance is dog slow by comparison to the other two. More on that in a moment.</p>
-
-<p><strong>Key Features</strong>
-- Available in Kingston and above (possibly earlier versions)
-- Executes a single script
-- Customer can define the hook script as long as it conforms to the interface
-- Explicitly defines the hook&rsquo;s existence
-- Is unclear about the hook&rsquo;s interface (output specifically)
-- Worst approach for performance</p>
-
+<p><strong>Key Features</strong></p>
+<ul>
+<li>Available in Kingston and above (possibly earlier versions)</li>
+<li>Executes a single script</li>
+<li>Customer can define the hook script as long as it conforms to the interface</li>
+<li>Explicitly defines the hook&rsquo;s existence</li>
+<li>Is unclear about the hook&rsquo;s interface (output specifically)</li>
+<li>Worst approach for performance</li>
+</ul>
 <h2 id="extension-points">Extension Points</h2>
-
 <p>Lastly comes the new kid on the block, extension points. I have to say I was a bit skeptical at first but this approach really blew me away one I understood the terminology. There are three key pieces:</p>
-
 <p><strong>Extension Point:</strong> This record simply defines the hook / interface. In the record, you provide an <strong>example</strong> script that shows what the interface of the Script Include should expose. The application developer implements this record.</p>
-
 <p><strong>Extension Point Implementation:</strong> This record is a Script Include that implements the Extension Point&rsquo;s interface. The customer implements this record.</p>
-
 <p><strong>Application Code:</strong> The application code uses the GlideScriptedExtensionPoint API to execute <strong>all</strong> Extension Point Implementations associated with an Extension Point.</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">ExtensionRunner</span> <span class="o">=</span> <span class="nx">Class</span><span class="p">.</span><span class="nx">create</span><span class="p">();</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">ExtensionRunner</span> <span class="o">=</span> <span class="nx">Class</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
 <span class="nx">ExtensionRunner</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{},</span>
+  <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span><span class="p">}</span><span class="p">,</span>
 
-    <span class="nx">process</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">input</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nx">GlideScriptedExtensionPoint</span><span class="p">)</span> <span class="p">{</span>
-            <span class="kd">var</span> <span class="nx">hook</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideScriptedExtensionPoint</span><span class="p">().</span><span class="nx">getExtensions</span><span class="p">(</span><span class="s1">&#39;CustomerHook&#39;</span><span class="p">);</span>
-            <span class="k">if</span> <span class="p">(</span><span class="nx">hook</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="p">{</span>
-                <span class="k">return</span> <span class="nx">hook</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">process</span><span class="p">(</span><span class="nx">input</span><span class="p">);</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
+	<span class="nx">process</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">input</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">if</span> <span class="p">(</span><span class="nx">GlideScriptedExtensionPoint</span><span class="p">)</span> <span class="p">{</span>
+			<span class="kd">var</span> <span class="nx">hook</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideScriptedExtensionPoint</span><span class="p">(</span><span class="p">)</span><span class="p">.</span><span class="nx">getExtensions</span><span class="p">(</span><span class="s1">&#39;CustomerHook&#39;</span><span class="p">)</span><span class="p">;</span>
+			<span class="k">if</span> <span class="p">(</span><span class="nx">hook</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="p">)</span> <span class="p">{</span>
+				<span class="k">return</span> <span class="nx">hook</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="p">.</span><span class="nx">process</span><span class="p">(</span><span class="nx">input</span><span class="p">)</span><span class="p">;</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
 
     <span class="c1">// Execute default behavior
-</span><span class="c1"></span>    <span class="p">},</span>
+</span><span class="c1"></span>	<span class="p">}</span><span class="p">,</span>
 
   <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;ExtensionRunner&#39;</span>
-<span class="p">};</span>
-</code></pre></div>
-<p>First, notice that I check for the existence of GlideScriptedExtensionPoint. This should allow the script to work pre-London by skipping the Extension Point scripts (since this is a London and after feature). You&rsquo;ll also notice that I am only calling the first hook in an array. A customer can register multiple Extension Point Implementations against the same Extension Point unlike the previous two approaches.</p>
-
+<span class="p">}</span><span class="p">;</span>
+</code></pre></div><p>First, notice that I check for the existence of GlideScriptedExtensionPoint. This should allow the script to work pre-London by skipping the Extension Point scripts (since this is a London and after feature). You&rsquo;ll also notice that I am only calling the first hook in an array. A customer can register multiple Extension Point Implementations against the same Extension Point unlike the previous two approaches.</p>
 <p>Overall, I have to say that I absolutely <strong>love</strong> the way Extension Points are implemented. It&rsquo;s one of the greatest platform features I&rsquo;ve seen introduced recently and it&rsquo;s performance is closer to the Script Include than to the Property based approach. I do have some concerns about that but more on that in a moment.</p>
-
-<p><strong>Key Features</strong>
-- Available in London and above
-- Executes a multiple registered scripts
-- Customer can define the hook script as long as it conforms to the interface
-- Explicitly defines the hook&rsquo;s existence
-- Clearly defines the hook&rsquo;s interface and provides an example
-- Relatively fast performance but slower than direct Script Include
-- Customer&rsquo;s Global Script Include does not have to be available to all scopes</p>
-
+<p><strong>Key Features</strong></p>
+<ul>
+<li>Available in London and above</li>
+<li>Executes a multiple registered scripts</li>
+<li>Customer can define the hook script as long as it conforms to the interface</li>
+<li>Explicitly defines the hook&rsquo;s existence</li>
+<li>Clearly defines the hook&rsquo;s interface and provides an example</li>
+<li>Relatively fast performance but slower than direct Script Include</li>
+<li>Customer&rsquo;s Global Script Include does not have to be available to all scopes</li>
+</ul>
 <h2 id="performance-and-conclusions">Performance and Conclusions</h2>
-
 <p>Naturally, I ran each of these through some simplistic performance scenarios (scripts are below). I wanted to get a sense of how much was to much. I mean, Script Includes are used and abused all over the system without creating major performance impact. But that System Property GlideRecord call in the wrong place could add up, especially if you are looking to add hooks like WordPress (read: EVERYWHERE).</p>
-
 <p>After running the performance test a few million times I have a fair amount of confidence in the specific scenario that I am running and I think some general principle is revealed. Keep in mind a couple things though,</p>
-
 <ol>
 <li>This performance test is highly contextual and imperfect.</li>
 <li>There are only a couple of total Extension Points in use compared to a high volume of Properties and Script Includes.</li>
 <li>GlideRecord and Nested GlideRecords are the most common performance problem I encounter in the field. Only the System Property approach appears to be at risk of this.</li>
 </ol>
-
 <h3 id="performance-results">Performance Results</h3>
-
 <p><strong>Total Iterations:</strong> 1,000,000 per Technique</p>
-
 <p><strong>Execution Time for All Iterations</strong></p>
-
 <ul>
 <li><strong>Overall:</strong> 910654ms (~15.18 minutes)</li>
 <li><strong>Script Include:</strong> 9769ms (~1.07%)</li>
 <li><strong>Extension Point:</strong> 37657ms (~4.14%)</li>
 <li><strong>System Property:</strong> 863228ms (~72.83%)</li>
 </ul>
-
 <p><strong>Execution Time per Iteration</strong> - Fastest - Slowest (Average)</p>
-
 <ul>
 <li><strong>Overall:</strong> 0ms - 181ms (0.91ms)</li>
 <li><strong>Script Include:</strong> 0ms - 6ms (0.01ms)</li>
 <li><strong>Extension Point:</strong> 0ms - 31ms (0.04ms)</li>
 <li><strong>System Property:</strong> 0ms - 181ms (0.86ms)</li>
 </ul>
-
 <p>I ran the tests in multiple ways, rearranged scripts, and tested against subtle variations but the results remained fairly consistent. Script Include was always the fastest, about 4 times faster than Extension Points, and about 80 times faster than the System Property approach.</p>
-
 <p>Overall, I don&rsquo;t think any of these approaches will be breaking our instances any time soon though we may want to avoid the System Property approach in high volume transaction pipelines.</p>
-
 <p>My greatest concern for Extension Points is that both Script Includes and System Properties are well established. The tables are chock full of records and so the performance is something we can reasonably trust. I don&rsquo;t know exactly how Extension Points are implemented under the hood and with only a few example records I will be very interested to see how it performs at a larger scale.</p>
-
 <h3 id="conclusion">Conclusion</h3>
-
 <p>At this point, I am fairly confident in saying that Extension Points are the future of my application development. I will likely replace the Script Include and System Property approaches in my toolkit with Extension Points. They are just too powerful to ignore. I can still see some edge cases where I <strong>might</strong> want to hold onto the Named Script Include approach.</p>
-
 <p>But overall, I can&rsquo;t wait to deploy some apps with these Extension Point hooks. Coming soon to the ServiceNow Store near you&hellip;</p>
-
 <h2 id="the-other-scripts">The Other Scripts</h2>
-
 <p>Here&rsquo;s the other scripts from the performance testing as promised:</p>
-
 <h3 id="extension-point-implementation">Extension Point Implementation</h3>
-
 <p>This is the Extension Point Implementation record which the customer would create. Real simple in this case&hellip; not trying to have the performance test take all day.</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">CustomerHook</span> <span class="o">=</span> <span class="nx">Class</span><span class="p">.</span><span class="nx">create</span><span class="p">();</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">CustomerHook</span> <span class="o">=</span> <span class="nx">Class</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
 <span class="nx">CustomerHook</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{},</span>
+    <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span><span class="p">}</span><span class="p">,</span>
 
     <span class="nx">process</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="cm">/*String*/</span> <span class="nx">input</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">return</span> <span class="nx">input</span><span class="p">;</span>
-    <span class="p">},</span>
+    <span class="p">}</span><span class="p">,</span>
 
     <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;CustomerHook&#39;</span>
-<span class="p">};</span>
-</code></pre></div>
-<h3 id="perftester-script-include">PerfTester Script Include</h3>
-
+<span class="p">}</span><span class="p">;</span>
+</code></pre></div><h3 id="perftester-script-include">PerfTester Script Include</h3>
 <p>This Script Include uses GlideStopWatch to handle the time calculations and track the performance of each iteration.</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">PerfTester</span> <span class="o">=</span> <span class="nx">Class</span><span class="p">.</span><span class="nx">create</span><span class="p">();</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">PerfTester</span> <span class="o">=</span> <span class="nx">Class</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
 <span class="nx">PerfTester</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{},</span>
+  <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span><span class="p">}</span><span class="p">,</span>
 
-    <span class="nx">run</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">fn</span><span class="p">,</span> <span class="nx">iterations</span><span class="p">,</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kd">var</span> <span class="nx">i</span><span class="p">;</span>
-        <span class="kd">var</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-        <span class="kd">var</span> <span class="nx">totalTime</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-        <span class="kd">var</span> <span class="nx">slowestTime</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-        <span class="kd">var</span> <span class="nx">fastestTime</span> <span class="o">=</span> <span class="kc">Infinity</span><span class="p">;</span>
-        <span class="kd">var</span> <span class="nx">sw</span><span class="p">;</span>
-        <span class="kd">var</span> <span class="nx">currentTime</span><span class="p">;</span>
+	<span class="nx">run</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">fn</span><span class="p">,</span> <span class="nx">iterations</span><span class="p">,</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+		<span class="kd">var</span> <span class="nx">i</span><span class="p">;</span>
+		<span class="kd">var</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+		<span class="kd">var</span> <span class="nx">totalTime</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+		<span class="kd">var</span> <span class="nx">slowestTime</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+		<span class="kd">var</span> <span class="nx">fastestTime</span> <span class="o">=</span> <span class="kc">Infinity</span><span class="p">;</span>
+		<span class="kd">var</span> <span class="nx">sw</span><span class="p">;</span>
+		<span class="kd">var</span> <span class="nx">currentTime</span><span class="p">;</span>
 
-        <span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">iterations</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nx">sw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideStopWatch</span><span class="p">();</span>
-            <span class="nx">fn</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">args</span><span class="p">);</span>
-            <span class="nx">currentTime</span> <span class="o">=</span> <span class="nx">sw</span><span class="p">.</span><span class="nx">time</span> <span class="o">*</span> <span class="mi">1</span><span class="p">;</span>
-            <span class="nx">slowestTime</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(</span><span class="nx">slowestTime</span><span class="p">,</span> <span class="nx">currentTime</span><span class="p">);</span>
-            <span class="nx">fastestTime</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">min</span><span class="p">(</span><span class="nx">fastestTime</span><span class="p">,</span> <span class="nx">currentTime</span><span class="p">);</span>
-            <span class="nx">totalTime</span> <span class="o">=</span> <span class="nx">totalTime</span> <span class="o">+</span> <span class="nx">currentTime</span><span class="p">;</span>
-            <span class="nx">count</span><span class="o">++</span><span class="p">;</span>
-        <span class="p">}</span>
+		<span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">iterations</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+			<span class="nx">sw</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideStopWatch</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+			<span class="nx">fn</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">args</span><span class="p">)</span><span class="p">;</span>
+			<span class="nx">currentTime</span> <span class="o">=</span> <span class="nx">sw</span><span class="p">.</span><span class="nx">time</span> <span class="o">*</span> <span class="mi">1</span><span class="p">;</span>
+			<span class="nx">slowestTime</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(</span><span class="nx">slowestTime</span><span class="p">,</span> <span class="nx">currentTime</span><span class="p">)</span><span class="p">;</span>
+			<span class="nx">fastestTime</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">min</span><span class="p">(</span><span class="nx">fastestTime</span><span class="p">,</span> <span class="nx">currentTime</span><span class="p">)</span><span class="p">;</span>
+			<span class="nx">totalTime</span> <span class="o">=</span> <span class="nx">totalTime</span> <span class="o">+</span> <span class="nx">currentTime</span><span class="p">;</span>
+			<span class="nx">count</span><span class="o">++</span><span class="p">;</span>
+		<span class="p">}</span>
 
-        <span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="s1">&#39;totalTime&#39;</span><span class="o">:</span> <span class="nx">totalTime</span><span class="p">,</span>
-            <span class="s1">&#39;avgTime&#39;</span><span class="o">:</span> <span class="nx">totalTime</span> <span class="err">/ count,</span>
-            <span class="s1">&#39;slowest&#39;</span><span class="o">:</span> <span class="nx">slowestTime</span><span class="p">,</span>
-            <span class="s1">&#39;fastest&#39;</span><span class="o">:</span> <span class="nx">fastestTime</span>
-        <span class="p">};</span>
+		<span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="p">{</span>
+			<span class="s1">&#39;totalTime&#39;</span><span class="o">:</span> <span class="nx">totalTime</span><span class="p">,</span>
+			<span class="s1">&#39;avgTime&#39;</span><span class="o">:</span> <span class="nx">totalTime</span> <span class="o">/</span> <span class="nx">count</span><span class="p">,</span>
+			<span class="s1">&#39;slowest&#39;</span><span class="o">:</span> <span class="nx">slowestTime</span><span class="p">,</span>
+			<span class="s1">&#39;fastest&#39;</span><span class="o">:</span> <span class="nx">fastestTime</span>
+		<span class="p">}</span><span class="p">;</span>
 
-        <span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">result</span><span class="p">));</span>
-        <span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
-    <span class="p">},</span>
+		<span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span><span class="p">)</span><span class="p">;</span>
+		<span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
+	<span class="p">}</span><span class="p">,</span>
 
   <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;PerfTester&#39;</span>
-<span class="p">};</span>
-</code></pre></div>
-<h3 id="background-script">Background Script</h3>
-
+<span class="p">}</span><span class="p">;</span>
+</code></pre></div><h3 id="background-script">Background Script</h3>
 <p>And lastly the script to run in order to execute the test.</p>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">iterations</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span> <span class="c1">// Start off small and work your way up
 </span><span class="c1"></span>
-<span class="kd">function</span> <span class="nx">runExtension</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">er</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">x_0505_scope_name</span><span class="p">.</span><span class="nx">ExtensionRunner</span><span class="p">();</span>
-  <span class="nx">er</span><span class="p">.</span><span class="nx">process</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">);</span>
+<span class="kd">function</span> <span class="nx">runExtension</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">er</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">x_0505_scope_name</span><span class="p">.</span><span class="nx">ExtensionRunner</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+  <span class="nx">er</span><span class="p">.</span><span class="nx">process</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">)</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kd">function</span> <span class="nx">runScript</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">er</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">x_0505_scope_name</span><span class="p">.</span><span class="nx">ScriptRunner</span><span class="p">();</span>
-  <span class="nx">er</span><span class="p">.</span><span class="nx">process</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">);</span>
+<span class="kd">function</span> <span class="nx">runScript</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">er</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">x_0505_scope_name</span><span class="p">.</span><span class="nx">ScriptRunner</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+  <span class="nx">er</span><span class="p">.</span><span class="nx">process</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">)</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kd">function</span> <span class="nx">runProperty</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">er</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">x_0505_scope_name</span><span class="p">.</span><span class="nx">PropertyRunner</span><span class="p">();</span>
-  <span class="nx">er</span><span class="p">.</span><span class="nx">process</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">);</span>
+<span class="kd">function</span> <span class="nx">runProperty</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">er</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">x_0505_scope_name</span><span class="p">.</span><span class="nx">PropertyRunner</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+  <span class="nx">er</span><span class="p">.</span><span class="nx">process</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">)</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kd">var</span> <span class="nx">perf</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PerfTester</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">perf</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PerfTester</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
 
-<span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s1">&#39;Extension:&#39;</span><span class="p">);</span>
-<span class="nx">perf</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="nx">runExtension</span><span class="p">,</span> <span class="nx">iterations</span><span class="p">);</span>
+<span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s1">&#39;Extension:&#39;</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">perf</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="nx">runExtension</span><span class="p">,</span> <span class="nx">iterations</span><span class="p">)</span><span class="p">;</span>
 
-<span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s1">&#39;Script Include:&#39;</span><span class="p">);</span>
-<span class="nx">perf</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="nx">runScript</span><span class="p">,</span> <span class="nx">iterations</span><span class="p">);</span>
+<span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s1">&#39;Script Include:&#39;</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">perf</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="nx">runScript</span><span class="p">,</span> <span class="nx">iterations</span><span class="p">)</span><span class="p">;</span>
 
-<span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s1">&#39;Property:&#39;</span><span class="p">);</span>
-<span class="nx">perf</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="nx">runProperty</span><span class="p">,</span> <span class="nx">iterations</span><span class="p">);</span>
+<span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s1">&#39;Property:&#39;</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">perf</span><span class="p">.</span><span class="nx">run</span><span class="p">(</span><span class="nx">runProperty</span><span class="p">,</span> <span class="nx">iterations</span><span class="p">)</span><span class="p">;</span>
 </code></pre></div>
       </div>
 

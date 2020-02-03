@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Developing Creative Business Solutions On ServiceNow on CodeCreative | A ServiceNow Blog</title>
@@ -6,7 +6,7 @@
     <description>Recent content in Developing Creative Business Solutions On ServiceNow on CodeCreative | A ServiceNow Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 21 Apr 2019 17:55:11 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 03 Feb 2020 12:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://codecreative.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -72,8 +72,7 @@ In this exercise, we will clone the La Jolla Theme record, modify it&amp;rsquo;s
       <description>Objective: Obtain and login to ServiceNow Personal Developer Instance
 Obtaining ServiceNow Personal Developer Instance (PDI) is your first step to exploring the full potential of the platform and furthering your skills with it. Let&amp;rsquo;s get started!
 Exercise Follow the below instructions to complete the exercise:
- In a web browser, navigate to https://developer.servicenow.com/
- Note: Create an account if you do not already have one  Log in to your account</description>
+ In a web browser, navigate to https://developer.servicenow.com/   Note: Create an account if you do not already have one   Log in to your account</description>
     </item>
     
     <item>
@@ -94,11 +93,11 @@ In this exercise, we will create a CSS Include, add it to our CodeCreative Theme
       
       <guid>https://codecreative.io/guides/getting-started-on-servicenow/navigating-the-ui/</guid>
       <description>Objective: Practice basic ServiceNow usage including:
- Navigating ServiceNow
- Viewing records in lists and forms
+  Navigating ServiceNow
+  Viewing records in lists and forms
   Now that we have a Personal Developer Instance, let&amp;rsquo;s learn how to get around and handle the basics of using ServiceNow. These techniques will set the foundation for everything else you can do with ServiceNow.
 Exercise Follow the below instructions to complete the exercise:
- Log in to your Personal Developer Instance</description>
+  Log in to your Personal Developer Instance</description>
     </item>
     
     <item>
@@ -121,8 +120,8 @@ Exercise Follow the below instructions to complete the exercise:</description>
       <guid>https://codecreative.io/guides/getting-started-on-servicenow/filtering-records-in-the-list-view/</guid>
       <description>Objective: Practice filtering records in the list view:
 Mastering the list view is one of the more critical skills for new ServiceNow users. In this first List View exercise, we&amp;rsquo;ll focus on different ways of filtering records.
-Exercise  In your Personal Developer Instance, navigate to Incident &amp;gt; All
-  Using the list header search, find all Incidents containing the Short Description SAP (Learn more about the list header search)</description>
+Exercise   In your Personal Developer Instance, navigate to Incident &amp;gt; All
+   Using the list header search, find all Incidents containing the Short Description SAP (Learn more about the list header search)</description>
     </item>
     
     <item>
@@ -132,7 +131,8 @@ Exercise  In your Personal Developer Instance, navigate to Incident &amp;gt; All
       
       <guid>https://codecreative.io/guides/getting-started-with-service-portal/configuring-widgets/</guid>
       <description>Objective: To configure and create simple Widgets in Service Portal
-  Exercise Goal   One more step to finish up our portal: Widgets. Widgets are the heart and soul of the Service Portal world. All of the content from the header to the footer, the menus, the lists, the forms, all of it is driven by Widgets. Widgets can be as simple or complex as you need.</description>
+  Exercise Goal   One more step to finish up our portal: Widgets. Widgets are the heart and soul of the Service Portal world. All of the content from the header to the footer, the menus, the lists, the forms, all of it is driven by Widgets. Widgets can be as simple or complex as you need.
+In this exercise, we will explore the basic foundations of Widgets, Widget Instances, and Instance options which are necessary to begin Widget development.</description>
     </item>
     
     <item>
@@ -143,7 +143,7 @@ Exercise  In your Personal Developer Instance, navigate to Incident &amp;gt; All
       <guid>https://codecreative.io/guides/getting-started-on-servicenow/creating-and-editing-records/</guid>
       <description>Objective: Practice creating and editing records in the list and form view:
 ServiceNow wouldn&amp;rsquo;t be very useful if you couldn&amp;rsquo;t change the records. Thankfully, there are many different ways to change the data as long as the user has permission. If you are operating in your personal developer instance, you should have admin privileges which will let you edit just about anything.
-Exercise  In your Personal Developer Instance, navigate to Incident &amp;gt; Open</description>
+Exercise   In your Personal Developer Instance, navigate to Incident &amp;gt; Open</description>
     </item>
     
     <item>
@@ -163,10 +163,10 @@ Unfortunately, much of the documentation around this can lead to even more confu
       
       <guid>https://codecreative.io/guides/getting-started-on-servicenow/next-steps/</guid>
       <description>Over the course of this guide, we have covered some basic knowledge and foundational skills for getting started on ServiceNow. At this point you should be able to:
- Obtain a Personal Developer Instance
- Navigate the baseline UI
- Navigate records using the form and list views
- Create and edit records using the form and list views
+  Obtain a Personal Developer Instance
+  Navigate the baseline UI
+  Navigate records using the form and list views
+  Create and edit records using the form and list views
   With practice and persistence, you can grow these skills to learn the many capabilities that ServiceNow has to offer.</description>
     </item>
     
@@ -177,11 +177,20 @@ Unfortunately, much of the documentation around this can lead to even more confu
       
       <guid>https://codecreative.io/guides/getting-started-with-service-portal/next-steps/</guid>
       <description>Over the course of this guide, we have covered some basic knowledge and foundational skills for getting started with ServiceNow&amp;rsquo;s Service Portal. At this point you should be able to:
- Create a new Portal
- Style a Portal with a Theme and CSS Includes
- Create and Configure Portal Pages
- Create and Configure Widgets and Widget Instances
+  Create a new Portal
+  Style a Portal with a Theme and CSS Includes
+  Create and Configure Portal Pages
+  Create and Configure Widgets and Widget Instances
   To grow your skills on Service Portal, there are multiple paths that you can pursue:</description>
+    </item>
+    
+    <item>
+      <title>The Future of ServiceNow UI: Seismic and the Now Design System</title>
+      <link>https://codecreative.io/blog/the-future-of-servicenow-ui-seismic-and-the-now-design-system/</link>
+      <pubDate>Mon, 03 Feb 2020 12:00:00 +0000</pubDate>
+      
+      <guid>https://codecreative.io/blog/the-future-of-servicenow-ui-seismic-and-the-now-design-system/</guid>
+      <description>The alternate working title of this article was Jace Was Right. In case you missed it over the weekend, I posted the video above to youtube covering the new UX system that powers ServiceNow Workspaces. And according to reliable information, this system will be eventually taking over most, if not all, of the web UI&amp;rsquo;s at ServiceNow including Service Portal. While there is a good chance that Service Portal will still be the primary choice for new end user interfaces for at least the next year, it&amp;rsquo;s worth exploring what this new UX system promises for the future.</description>
     </item>
     
     <item>
@@ -373,7 +382,8 @@ During my time on the ServiceNow platform, I have had many opportunities to buil
       <guid>https://codecreative.io/blog/making-service-portal-widgets-work-together/</guid>
       <description>The following is a summary of the Making Service Portal Widgets Work Together session that I presented at Knowledge 18.
  Problem (Slide 2) Widgets don&amp;rsquo;t play well with others
-If you work with Service Portal widgets long enough, you will come across situations where you want to share data between multiple widgets. And inevitably, you will discover that sharing is not something that widgets are very good at.</description>
+If you work with Service Portal widgets long enough, you will come across situations where you want to share data between multiple widgets. And inevitably, you will discover that sharing is not something that widgets are very good at.
+(Slide 3) Widgets are isolated by design</description>
     </item>
     
     <item>
@@ -433,7 +443,7 @@ I love the lodash library. It&amp;rsquo;s great for working with arrays in a sim
       <description>WARNING: The use of HighCharts in this way may require the purchase of an additional license from Highsoft. Use in production at your own risk.
 Read the Whole Series:
  Intro to HighCharts in Service Portal Configuring HighCharts in Service Portal Generate HighChart Data in a Widget Server Script Making the HighChart Widget Reusable (This Post)  Download the Widget
-Up until now, the HighChart Widget that we&amp;rsquo;ve been working on has remained&amp;hellip; well&amp;hellip; mostly unusable.</description>
+ Up until now, the HighChart Widget that we&amp;rsquo;ve been working on has remained&amp;hellip; well&amp;hellip; mostly unusable.</description>
     </item>
     
     <item>
@@ -445,7 +455,7 @@ Up until now, the HighChart Widget that we&amp;rsquo;ve been working on has rema
       <description>WARNING: The use of HighCharts in this way may require the purchase of an additional license from Highsoft. Use in production at your own risk.
 Read the Whole Series:
  Intro to HighCharts in Service Portal Configuring HighCharts in Service Portal Generate HighChart Data in a Widget Server Script (This Post) Making the HighChart Widget Reusable  Download the Widget
-Up until now, we&amp;rsquo;ve only dealt with custom charts using HighCharts with hardcoded data.</description>
+ Up until now, we&amp;rsquo;ve only dealt with custom charts using HighCharts with hardcoded data.</description>
     </item>
     
     <item>
@@ -457,7 +467,7 @@ Up until now, we&amp;rsquo;ve only dealt with custom charts using HighCharts wit
       <description>WARNING: The use of HighCharts in this way may require the purchase of an additional license from Highsoft. Use in production at your own risk.
 Read the Whole Series:
  Intro to HighCharts in Service Portal Configuring HighCharts in Service Portal (This Post) Generate HighChart Data in a Widget Server Script Making the HighChart Widget Reusable  Download the Widget
-One of the greatest points of confusion from some of my previous articles on HighCharts stems from a lack of understanding of the HighCharts API and in particular the HighCharts configuration options object.</description>
+ One of the greatest points of confusion from some of my previous articles on HighCharts stems from a lack of understanding of the HighCharts API and in particular the HighCharts configuration options object.</description>
     </item>
     
     <item>
@@ -469,7 +479,7 @@ One of the greatest points of confusion from some of my previous articles on Hig
       <description>WARNING: The use of HighCharts in this way may require the purchase of an additional license from Highsoft. Use in production at your own risk.
 Read the Whole Series:
  Intro to HighCharts in Service Portal (This Post) Configuring HighCharts in Service Portal Generate HighChart Data in a Widget Server Script Making the HighChart Widget Reusable  Download the Widget
-About 2 years ago, I demonstrated how to build custom charts using HighCharts with a UI Page and kicked off what would eventually become Code Creative.</description>
+ About 2 years ago, I demonstrated how to build custom charts using HighCharts with a UI Page and kicked off what would eventually become Code Creative.</description>
     </item>
     
     <item>
@@ -479,7 +489,7 @@ About 2 years ago, I demonstrated how to build custom charts using HighCharts wi
       
       <guid>https://codecreative.io/blog/eliminate-unnecessary-queries-with-this-simple-check/</guid>
       <description>When I first write a script include to manipulate a GlideRecord, I usually script it to accept a sys_id or other query criteria as a parameter. Its the obvious first step, the GlideRecord has to be retrieved to manipulate it after all. Take this guy for example:
-var Test = Class.create(); Test.prototype = { initialize: function() { }, doSomethingAwesome: function(id) { var gr = new GlideRecord(&amp;#39;incident&amp;#39;); if (gr.get()) { // Something awesome gets done here  } }, type: &amp;#39;Test&amp;#39; };  The more I use the script, though, the more likely I am to run into a scenario where I already have the GlideRecord queried from another script.</description>
+var Test = Class.create(); Test.prototype = { initialize: function() { }, doSomethingAwesome: function(id) { var gr = new GlideRecord(&amp;#39;incident&amp;#39;); if (gr.get()) { // Something awesome gets done here  } }, type: &amp;#39;Test&amp;#39; }; The more I use the script, though, the more likely I am to run into a scenario where I already have the GlideRecord queried from another script.</description>
     </item>
     
     <item>
@@ -509,7 +519,7 @@ And a parable!</description>
       
       <guid>https://codecreative.io/blog/avoid-the-style-tag-in-service-portal-widgets/</guid>
       <description>Warning: This article is an example of what not to do. Avoid using these practices in your ServiceNow instance.
-Previously, we built a widget with configurable CSS styles and I briefly mentioned that using the &amp;lt;style&amp;gt; tag wasn&amp;rsquo;t a great idea. I want to revisit that thought and explore some of the problems that you might encounter when using the &amp;lt;style&amp;gt; tag in a Service Portal Widget. I will use the colored square widget again to demonstrate.</description>
+ Previously, we built a widget with configurable CSS styles and I briefly mentioned that using the &amp;lt;style&amp;gt; tag wasn&amp;rsquo;t a great idea. I want to revisit that thought and explore some of the problems that you might encounter when using the &amp;lt;style&amp;gt; tag in a Service Portal Widget. I will use the colored square widget again to demonstrate.</description>
     </item>
     
     <item>
@@ -549,7 +559,7 @@ IR_AND_QUERY   IR_AND_QUERY Results   Behind the scenes, the method previously d
       
       <guid>https://codecreative.io/blog/how-to-do-full-text-search-with-gliderecord/</guid>
       <description>UPDATE: After posting this article, Jeff Pierce reminded me of a better way than the original 123TEXTQUERY321 approach. I have since updated the scripts and article here and provided a deeper explanation in another article.
-When looking at the form filters in ServiceNow, I think all admins and developers reach a point where we start to wonder &amp;ldquo;How do I search Keywords in my scripts?&amp;rdquo; After all, that full text search using &amp;ldquo;for text&amp;rdquo; or the &amp;ldquo;Keywords&amp;rdquo; filter is so tantalizing for any custom CMS / Service Portal search feature.</description>
+ When looking at the form filters in ServiceNow, I think all admins and developers reach a point where we start to wonder &amp;ldquo;How do I search Keywords in my scripts?&amp;rdquo; After all, that full text search using &amp;ldquo;for text&amp;rdquo; or the &amp;ldquo;Keywords&amp;rdquo; filter is so tantalizing for any custom CMS / Service Portal search feature.</description>
     </item>
     
     <item>
@@ -587,7 +597,7 @@ When looking at the form filters in ServiceNow, I think all admins and developer
       
       <guid>https://codecreative.io/blog/istanbul-cms-iframes-are-missing-theme-css/</guid>
       <description>UPDATE (04/09/2017): This issue appears to be fixed in Istanbul Patch 3
-If your organization is using CMS and you are considering upgrading to Istanbul, be on the lookout for a potential issue. Theme CSS styles may not be applied to iFrame content in the CMS for some instances after upgrading to Istanbul. ServiceNow is already looking into the issue so hopefully we will have a resolution soon but I know of a few instances out there that might find this to be a deal breaker for an upgrade so I thought it best to advise the Community.</description>
+ If your organization is using CMS and you are considering upgrading to Istanbul, be on the lookout for a potential issue. Theme CSS styles may not be applied to iFrame content in the CMS for some instances after upgrading to Istanbul. ServiceNow is already looking into the issue so hopefully we will have a resolution soon but I know of a few instances out there that might find this to be a deal breaker for an upgrade so I thought it best to advise the Community.</description>
     </item>
     
     <item>
@@ -616,7 +626,7 @@ Most of the &amp;ldquo;problem&amp;rdquo; rests in Flexbox&amp;rsquo;s simplicit
       <pubDate>Wed, 25 Jan 2017 17:00:00 +0000</pubDate>
       
       <guid>https://codecreative.io/blog/4-things-to-do-before-building-a-service-portal/</guid>
-      <description>But at the end of the day, if you have a form with 100 fields that are all mandatory to be filled out before a Catalog Item can be submitted, that’s not a [Service Portal] issue.  Matt Metten   This. Read that. All of that. YES! (&amp;ldquo;I love quick time harch.&amp;rdquo;) I read that, I clicked endorse, then I wrote this. So go read that.
+      <description>But at the end of the day, if you have a form with 100 fields that are all mandatory to be filled out before a Catalog Item can be submitted, that’s not a [Service Portal] issue.  Matt Metten   This. Read that. All of that. YES! (&amp;ldquo;I love quick time harch.&amp;quot;) I read that, I clicked endorse, then I wrote this. So go read that.
 I have spent quite a bit of my time evangelizing Service Portal as well.</description>
     </item>
     
@@ -673,7 +683,7 @@ Don’t let the Service Portal Configuration link in the application fool you.</
       <pubDate>Fri, 06 May 2016 16:00:00 +0000</pubDate>
       
       <guid>https://codecreative.io/blog/servicenow-engagement-the-path-forward/</guid>
-      <description>&amp;ldquo;No application is safe. I’m telling you, name any application we use and I could rebuild it better on this platform. This could replace SAP.&amp;rdquo;
+      <description>&amp;ldquo;No application is safe. I’m telling you, name any application we use and I could rebuild it better on this platform. This could replace SAP.&amp;quot;
 John didn’t have to respond. His “you’re crazier than a shithouse rat” look was well practiced by this point in our friendship. In hindsight, tilting at SAP may have been carrying it a little far but hey, where would we be if we never looked at things and thought of what they might be.</description>
     </item>
     
@@ -722,7 +732,7 @@ This year will be my 4th Knowledge Conference, missing only K13 on account of th
       <pubDate>Mon, 15 Jun 2015 16:00:00 +0000</pubDate>
       
       <guid>https://codecreative.io/blog/adding-doctype-to-a-ui-page/</guid>
-      <description>Today, I am going to share a trick I learned to add a doctype to a UI Page based off of will.leingang&amp;rsquo;s article Making a UI Page without using the framework page template. A page&amp;rsquo;s doctype usually doesn&amp;rsquo;t seem to make a huge difference in output but occasionally, certain scripts and html/css tricks require a specific doctype. In my case, I needed the standard HTML5 doctype.
+      <description>Today, I am going to share a trick I learned to add a doctype to a UI Page based off of will.leingang&amp;lsquo;s article Making a UI Page without using the framework page template. A page&amp;rsquo;s doctype usually doesn&amp;rsquo;t seem to make a huge difference in output but occasionally, certain scripts and html/css tricks require a specific doctype. In my case, I needed the standard HTML5 doctype.
 What Not To Do As my first attempt, I foolishly tried this for the UI Page:</description>
     </item>
     

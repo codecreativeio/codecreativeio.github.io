@@ -58,18 +58,18 @@
     "@type" : "BlogPosting",
     "mainEntityOfPage": {
          "@type": "WebPage",
-         "@id": "https://codecreative.io/"
+         "@id": "https:\/\/codecreative.io\/"
     },
     "name" : "Exercise: Creating a Theme",
     "headline" : "Exercise: Creating a Theme",
-    "description" : "Creating a theme takes our styles one step further and brings our portal closer to compliance with a corporate style guide. With just a little SASS and CSS we can take our portal a long way.","image": "https://codecreative.io/guides/getting-started-with-service-portal/social.png","inLanguage" : "en-US",
+    "description" : "Creating a theme takes our styles one step further and brings our portal closer to compliance with a corporate style guide. With just a little SASS and CSS we can take our portal a long way.","image": "https:\/\/codecreative.io\/guides\/getting-started-with-service-portal\/social.png","inLanguage" : "en-US",
       "author" : "Travis Toulson",
       "creator" : "Travis Toulson","publisher": "Travis Toulson",
     "copyrightHolder" : "Travis Toulson",
     "copyrightYear" : "2019",
-    "datePublished": "2019-04-21 17:55:11 &#43;0000 UTC",
-    "dateModified" : "2019-04-21 17:55:11 &#43;0000 UTC",
-    "url" : "https://codecreative.io/guides/getting-started-with-service-portal/creating-a-theme/",
+    "datePublished": "2019-04-21 17:55:11 \x2b0000 UTC",
+    "dateModified" : "2019-04-21 17:55:11 \x2b0000 UTC",
+    "url" : "https:\/\/codecreative.io\/guides\/getting-started-with-service-portal\/creating-a-theme\/",
     "wordCount" : "556",
     "keywords" : [ "Blog" ]
 }
@@ -220,102 +220,101 @@
         </header>
 
         <div class="post-content e-content" itemprop="articleBody">
-          
-
-<p><strong>Objective:</strong> To create a custom theme and apply it to a Service Portal to further modify the portal style.</p>
-
+          <p><strong>Objective:</strong> To create a custom theme and apply it to a Service Portal to further modify the portal style.</p>
 <figure>
   <img src="images/exercise-goal.png" />
   <figcaption>
     Exercise Goal
   </figcaption>
 </figure>
-
 <p>Creating a theme takes our styles one step further and brings our portal closer to compliance with a corporate style guide. With just a little SASS and CSS we can take our portal a long way.</p>
-
 <p>In this exercise, we will clone the La Jolla Theme record, modify it&rsquo;s styles, and apply it to the CodeCreative portal we created in the last exercise.</p>
-
 <h2 id="exercise">Exercise</h2>
-
 <p>Follow the below instructions to complete the exercise:</p>
-
 <ol>
-<li><p>Log in to your Personal Developer Instance</p></li>
-
-<li><p><span id="backto-theme-record"></span> Using the <strong>Filter navigator</strong>, navigate to <strong>Service Portal &gt; Themes</strong> <a href="#theme-record">(Learn more about the Theme Record)</a></p></li>
-
-<li><p>Open the <strong>Theme</strong> record with the Name <strong>La Jolla</strong></p></li>
-
-<li><p><span id="backto-sass-variables"></span> Review the SASS variables used in the <strong>CSS variables</strong> field <a href="#sass-variables">(Learn more about the SASS Variables)</a></p></li>
-
-<li><p>Observe the CSS Includes Related List has two records listed</p></li>
-
-<li><p>Insert as a new record with the following changes:</p>
-
+<li>
+<p>Log in to your Personal Developer Instance</p>
+</li>
+<li>
+<p><span id="backto-theme-record"></span> Using the <strong>Filter navigator</strong>, navigate to <strong>Service Portal &gt; Themes</strong> <a href="#theme-record">(Learn more about the Theme Record)</a></p>
+</li>
+<li>
+<p>Open the <strong>Theme</strong> record with the Name <strong>La Jolla</strong></p>
+</li>
+<li>
+<p><span id="backto-sass-variables"></span> Review the SASS variables used in the <strong>CSS variables</strong> field <a href="#sass-variables">(Learn more about the SASS Variables)</a></p>
+</li>
+<li>
+<p>Observe the CSS Includes Related List has two records listed</p>
+</li>
+<li>
+<p>Insert as a new record with the following changes:</p>
+</li>
+</ol>
 <ul>
 <li><strong>Name:</strong> CodeCreative</li>
 <li><strong>CSS variables:</strong> <Blank></li>
-</ul></li>
-
-<li><p>Open the <strong>CodeCreative</strong> Portal record</p></li>
-
-<li><p>Update the record with the following changes:</p>
-
+</ul>
+<ol start="7">
+<li>
+<p>Open the <strong>CodeCreative</strong> Portal record</p>
+</li>
+<li>
+<p>Update the record with the following changes:</p>
+</li>
+</ol>
 <ul>
 <li>Theme: <strong>CodeCreative</strong></li>
-</ul></li>
-
-<li><p>Open the CodeCreative Service Portal</p></li>
-
-<li><p>Observe the current style of the portal</p></li>
-
-<li><p>Open the <strong>CodeCreative</strong> Theme record</p></li>
-
-<li><p>Update the record with the following <strong>CSS variables</strong>:</p>
+</ul>
+<ol start="9">
+<li>
+<p>Open the CodeCreative Service Portal</p>
+</li>
+<li>
+<p>Observe the current style of the portal</p>
+</li>
+<li>
+<p>Open the <strong>CodeCreative</strong> Theme record</p>
+</li>
+<li>
+<p>Update the record with the following <strong>CSS variables</strong>:</p>
 <div class="highlight"><pre class="chroma"><code class="language-scss" data-lang="scss"><span class="nv">$btn-default-color</span><span class="o">:</span> <span class="mh">#ffffff</span> <span class="nv">!default</span><span class="p">;</span>
 <span class="nv">$input-border-focus</span><span class="o">:</span> <span class="nv">$brand-primary</span> <span class="nv">!default</span><span class="p">;</span>
 
 <span class="cm">/* Panels */</span>
 <span class="nv">$panel-default-border</span><span class="o">:</span> <span class="no">transparent</span> <span class="nv">!default</span><span class="p">;</span>
-<span class="nv">$panel-default-heading-bg</span><span class="o">:</span> <span class="no">transparent</span> <span class="nv">!default</span><span class="p">;</span></code></pre></div></li>
-
-<li><p>Refresh the CodeCreative portal</p></li>
-
-<li><p>Observe that the button text is now white and the panel headings have changed</p></li>
+<span class="nv">$panel-default-heading-bg</span><span class="o">:</span> <span class="no">transparent</span> <span class="nv">!default</span><span class="p">;</span>
+</code></pre></div></li>
+<li>
+<p>Refresh the CodeCreative portal</p>
+</li>
+<li>
+<p>Observe that the button text is now white and the panel headings have changed</p>
+</li>
 </ol>
-
 <h2 id="review">Review</h2>
-
 <h3 id="theme-record">Theme Record</h3>
-
 <p>The Theme record (sp_theme) contains reusable elements that are shared across all pages of a portal to which it is applied. This includes Header, Footer, basic styles, as well as injected CSS Stylesheets and JavaScript files.</p>
-
 <p>Because of this, Themes should ideally be built in a way that they can be used by any Portal. Highly specific code should be avoided as it can often be located more closely to the point of use.</p>
-
 <p>One of the best uses of Themes is defining reasonable defaults for Bootstrap SCSS Variables and ServiceNow SCSS Variables.</p>
-
 <p><a href="#backto-theme-record">(Return to Exercise)</a></p>
-
 <h3 id="sass-variables">SASS Variables</h3>
-
 <p>The CSS variables field, similar to the CSS variables field on the Portal record, allows injecting SASS variables into the framework&rsquo;s stylesheets. Service Portal uses a combination of <a href="https://github.com/twbs/bootstrap-sass/blob/master/assets/stylesheets/bootstrap/_variables.scss">Bootstrap 3&rsquo;s SASS Variables</a> in addition to ServiceNow specified SASS variables such as <strong>$sp-tagline-color</strong>.</p>
-
 <p>By setting these variables in the CSS variables fields, Service Portal Admins and Developers can change quite a bit about their portal without having to touch any CSS classes or ids themselves.</p>
-
 <p>The changes made in this exercise could have been made by manipulating CSS styles directly using element, class, and id selectors. Compared to CSS classes and ids, however, SASS Variable usage is much more stable and less subject to change. Elements, classes, and id selectors have been known to change, sometimes almost arbitrarily, between ServiceNow versions. SASS Variables have proven much more stable and in most cases are the best way to make portal wide changes.</p>
-
 <p><a href="#backto-sass-variables">(Return to Exercise)</a></p>
-
 <h2 id="explore">Explore</h2>
-
 <p>Try these next challenges on your own for further learning:</p>
-
 <ol>
-<li><p>Do you think you can change the container sizes via the theme?  How about giving them fluid widths? Try it and find out.</p></li>
-
-<li><p>Can you change the homepage icon bar&rsquo;s background color using SASS Variables? Which variable does the trick?</p></li>
-
-<li><p>Can you find Widget records whose CSS field use variables? Which variables do they use?</p></li>
+<li>
+<p>Do you think you can change the container sizes via the theme?  How about giving them fluid widths? Try it and find out.</p>
+</li>
+<li>
+<p>Can you change the homepage icon bar&rsquo;s background color using SASS Variables? Which variable does the trick?</p>
+</li>
+<li>
+<p>Can you find Widget records whose CSS field use variables? Which variables do they use?</p>
+</li>
 </ol>
 
         </div>

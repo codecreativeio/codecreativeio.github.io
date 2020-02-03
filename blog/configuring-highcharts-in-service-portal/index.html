@@ -58,18 +58,18 @@
     "@type" : "BlogPosting",
     "mainEntityOfPage": {
          "@type": "WebPage",
-         "@id": "https://codecreative.io/"
+         "@id": "https:\/\/codecreative.io\/"
     },
     "name" : "Configuring HighCharts in Service Portal",
     "headline" : "Configuring HighCharts in Service Portal",
-    "description" : "One of the greatest points of confusion from some of my previous articles on HighCharts stems from a lack of understanding of the HighCharts API. So, before I dive any further into the deep end, it&#39;s worth taking a moment to explore some things we can do with HighCharts.","image": "https://codecreative.io/blog/configuring-highcharts-in-service-portal/images/social.png","inLanguage" : "en-US",
+    "description" : "One of the greatest points of confusion from some of my previous articles on HighCharts stems from a lack of understanding of the HighCharts API. So, before I dive any further into the deep end, it\x27s worth taking a moment to explore some things we can do with HighCharts.","image": "https:\/\/codecreative.io\/blog\/configuring-highcharts-in-service-portal\/images\/social.png","inLanguage" : "en-US",
       "author" : "Travis Toulson",
       "creator" : "Travis Toulson","publisher": "Travis Toulson",
     "copyrightHolder" : "Travis Toulson",
     "copyrightYear" : "2017",
-    "datePublished": "2017-05-10 21:37:00 &#43;0000 UTC",
-    "dateModified" : "2017-05-10 21:37:00 &#43;0000 UTC",
-    "url" : "https://codecreative.io/blog/configuring-highcharts-in-service-portal/",
+    "datePublished": "2017-05-10 21:37:00 \x2b0000 UTC",
+    "dateModified" : "2017-05-10 21:37:00 \x2b0000 UTC",
+    "url" : "https:\/\/codecreative.io\/blog\/configuring-highcharts-in-service-portal\/",
     "wordCount" : "1058",
     "keywords" : [ "Blog" ]
 }
@@ -143,138 +143,102 @@
       </header>
 
       <div class="post-content e-content" itemprop="articleBody">
-        
-
-<p><strong>WARNING:</strong> The use of HighCharts in this way may require the purchase of an additional license from Highsoft. Use in production at your own risk.</p>
-
+        <p><strong>WARNING:</strong> The use of HighCharts in this way may require the purchase of an additional license from Highsoft. Use in production at your own risk.</p>
 <p><strong>Read the Whole Series:</strong></p>
-
 <ol>
 <li><a href="/blog/intro-to-highcharts-in-service-portal">Intro to HighCharts in Service Portal</a></li>
 <li>Configuring HighCharts in Service Portal (This Post)</li>
 <li><a href="/blog/generate-highchart-data-in-a-widget-server-script">Generate HighChart Data in a Widget Server Script</a></li>
 <li><a href="/blog/making-the-highchart-widget-reusable">Making the HighChart Widget Reusable</a></li>
 </ol>
-
 <p><a href="/downloads/HighCharts+Widget.zip">Download the Widget</a></p>
-
-<hr />
-
+<hr>
 <p>One of the greatest points of confusion from some of my previous articles on HighCharts stems from a lack of understanding of the HighCharts API and in particular the HighCharts configuration options object. So before I dive any further into the deep end on HighCharts and Service Portal, it&rsquo;s worth taking a moment to explore some things we can do with the HighCharts configuration options object.</p>
-
 <p>You can find a deeper dive on the HighCharts API in the <a href="http://www.highcharts.com/docs">HighCharts Docs</a> but we will take a look at some of the basics in this article through the lens of Service Portal. If you haven&rsquo;t already read it, I recommend starting with <a href="/blog/intro-to-highcharts-in-service-portal">Intro to HighCharts in Service Portal</a> since I will be picking up with the Widget created in that article.</p>
-
-<hr />
-
+<hr>
 <h2 id="the-widget-client-script">The Widget Client Script</h2>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
   <span class="cm">/* widget controller */</span>
   <span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
 
-  <span class="kd">var</span> <span class="nx">chart1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Highcharts</span><span class="p">.</span><span class="nx">Chart</span><span class="p">({</span>  
+  <span class="kd">var</span> <span class="nx">chart1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Highcharts</span><span class="p">.</span><span class="nx">Chart</span><span class="p">(</span><span class="p">{</span>  
     <span class="nx">chart</span><span class="o">:</span> <span class="p">{</span>  
         <span class="nx">renderTo</span><span class="o">:</span> <span class="s1">&#39;custom_report&#39;</span><span class="p">,</span>  
         <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;column&#39;</span>  
-    <span class="p">},</span>  
+    <span class="p">}</span><span class="p">,</span>  
     <span class="nx">title</span><span class="o">:</span> <span class="p">{</span>  
         <span class="nx">text</span><span class="o">:</span> <span class="kc">null</span>  
-    <span class="p">},</span>  
+    <span class="p">}</span><span class="p">,</span>  
     <span class="nx">xAxis</span><span class="o">:</span> <span class="p">{</span>  
-        <span class="nx">categories</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;(Empty)&#39;</span><span class="p">,</span> <span class="s1">&#39;Solana Beach CA&#39;</span><span class="p">,</span> <span class="s1">&#39;New York NY&#39;</span><span class="p">,</span> <span class="s1">&#39;Atlanta GA&#39;</span><span class="p">,</span> <span class="s1">&#39;San Diego CA&#39;</span><span class="p">,</span> <span class="s1">&#39;Hamburg&#39;</span><span class="p">,</span> <span class="s1">&#39;Johannesburg&#39;</span><span class="p">,</span> <span class="s1">&#39;Raleigh NC&#39;</span><span class="p">,</span> <span class="s1">&#39;Salem OR&#39;</span><span class="p">,</span> <span class="s1">&#39;Salt Lake City&#39;</span><span class="p">,</span> <span class="s1">&#39;San Diego&#39;</span><span class="p">],</span>  
+        <span class="nx">categories</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;(Empty)&#39;</span><span class="p">,</span> <span class="s1">&#39;Solana Beach CA&#39;</span><span class="p">,</span> <span class="s1">&#39;New York NY&#39;</span><span class="p">,</span> <span class="s1">&#39;Atlanta GA&#39;</span><span class="p">,</span> <span class="s1">&#39;San Diego CA&#39;</span><span class="p">,</span> <span class="s1">&#39;Hamburg&#39;</span><span class="p">,</span> <span class="s1">&#39;Johannesburg&#39;</span><span class="p">,</span> <span class="s1">&#39;Raleigh NC&#39;</span><span class="p">,</span> <span class="s1">&#39;Salem OR&#39;</span><span class="p">,</span> <span class="s1">&#39;Salt Lake City&#39;</span><span class="p">,</span> <span class="s1">&#39;San Diego&#39;</span><span class="p">]</span><span class="p">,</span>  
         <span class="nx">title</span><span class="o">:</span> <span class="p">{</span>  
             <span class="nx">text</span><span class="o">:</span> <span class="kc">null</span>  
-        <span class="p">},</span>  
+        <span class="p">}</span><span class="p">,</span>  
         <span class="nx">labels</span><span class="o">:</span> <span class="p">{</span>  
             <span class="nx">rotation</span><span class="o">:</span> <span class="o">-</span><span class="mi">45</span>  
         <span class="p">}</span>  
-    <span class="p">},</span>  
+    <span class="p">}</span><span class="p">,</span>  
     <span class="nx">yAxis</span><span class="o">:</span> <span class="p">{</span>  
         <span class="nx">min</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>  
         <span class="nx">title</span><span class="o">:</span> <span class="p">{</span>  
             <span class="nx">text</span><span class="o">:</span> <span class="kc">null</span>  
         <span class="p">}</span>  
-    <span class="p">},</span>  
-    <span class="nx">series</span><span class="o">:</span> <span class="p">[{</span>
+    <span class="p">}</span><span class="p">,</span>  
+    <span class="nx">series</span><span class="o">:</span> <span class="p">[</span><span class="p">{</span>
         <span class="s1">&#39;name&#39;</span><span class="o">:</span> <span class="s1">&#39;Open&#39;</span><span class="p">,</span>
         <span class="s1">&#39;legendIndex&#39;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
         <span class="s1">&#39;data&#39;</span><span class="o">:</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
-    <span class="p">},</span>
+    <span class="p">}</span><span class="p">,</span>
     <span class="p">{</span>
         <span class="s1">&#39;name&#39;</span><span class="o">:</span> <span class="s1">&#39;Resolved&#39;</span><span class="p">,</span>
         <span class="s1">&#39;legendIndex&#39;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
         <span class="s1">&#39;data&#39;</span><span class="o">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>            
-    <span class="p">}]</span>  
-  <span class="p">});</span>  
+    <span class="p">}</span><span class="p">]</span>  
+  <span class="p">}</span><span class="p">)</span><span class="p">;</span>  
 <span class="p">}</span>
-</code></pre></div>
-<p>I&rsquo;ve copied the Widget&rsquo;s client script here for convenience. On close inspection, you will notice that nearly the entire script can be boiled down to:</p>
+</code></pre></div><p>I&rsquo;ve copied the Widget&rsquo;s client script here for convenience. On close inspection, you will notice that nearly the entire script can be boiled down to:</p>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">chart1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Highcharts</span><span class="p">.</span><span class="nx">Chart</span><span class="p">(</span><span class="nx">configurationOptions</span><span class="p">)</span>
-</code></pre></div>
-<p>And when you put it that way, it is impressive just how much we can accomplish with so little effort thanks to HighCharts. As long as you know how to initialize the configuration options object, you can make almost any chart that you can imagine. Conveniently, nearly every chart can be broken down into just a few required properties and if you are familiar with Excel charting, many of these terms will be familiar:</p>
-
-<hr />
-
+</code></pre></div><p>And when you put it that way, it is impressive just how much we can accomplish with so little effort thanks to HighCharts. As long as you know how to initialize the configuration options object, you can make almost any chart that you can imagine. Conveniently, nearly every chart can be broken down into just a few required properties and if you are familiar with Excel charting, many of these terms will be familiar:</p>
+<hr>
 <h2 id="chart-object">Chart Object</h2>
-
 <p>The chart in the script above contains the properties renderTo and type. This object specifies general chart options and options regarding the plot area itself. The bare minimum we need to specify are:</p>
-
 <ul>
 <li><strong>renderTo:</strong> The element ID or element to which we will render the chart</li>
 <li><strong>type:</strong> The type of chart (line, area, bar, column, pie, etc) to render in the plot area</li>
 </ul>
-
 <figure>
   <img src="images/Changing+HighChart+Chart+Type.gif" />
   <figcaption>
     Changing the Chart Type in the Service Portal Widget
   </figcaption>
 </figure>
-
 <p>Clearly the fun option here is the chart type. You can see me changing nothing but the chart type in the above animation and getting immediate results. It&rsquo;s important to note that some chart types require very specific configurations for the data series (think pie charts, scatter plots, box plots, etc) but many of the most common charts are completely interchangeable.</p>
-
-<hr />
-
+<hr>
 <h2 id="xaxis-object">xAxis Object</h2>
-
 <p>The xAxis object describes attributes about the horizontal axis on most chart types. In my object, I have removed the title and rotated the labels a little bit to make things easier to read at smaller sizes but the most important attribute on this object is the categories array. As you can see, the categories array is just an array of strings that represent the categories that line the bottom of the chart (or the vertical axis in the case of the bar chart). This makes the object very easy to build from a GlideRecord or other server script.</p>
-
 <p>Go ahead and change the string values in the array and save your Widget. The real time updates in the Widget Preview really help you explore the capabilities of this object.</p>
-
 <p>On thing to note, is that the categories array and the data array in each series object should be the same size for all of the charts that we have shown. That is, each category should have a data point for each series&hellip; otherwise the chart may not display as expected.</p>
-
-<hr />
-
+<hr>
 <h2 id="yaxis-object">yAxis Object</h2>
-
 <p>In the charts we are looking at, the yAxis is decidedly boring. The only thing we are doing is removing the title (they just seem distracting for our current purposes) and setting the minimum value to 0 in order to establish the scale. Without that minimum value, the chart may choose a negative number, a decimal, or some other odd amount that makes no sense for the given chart.</p>
-
 <p>There are plenty of other configuration options to toy with and you can even set categories on the yAxis but we&rsquo;re here to cover the basics.</p>
-
-<hr />
-
+<hr>
 <h2 id="series-object">Series Object</h2>
-
 <figure>
   <img src="images/Changing+HighChart+Series+Data.gif" />
   <figcaption>
     Changing HighChart Series Data
   </figcaption>
 </figure>
-
 <p>Now for the bread and butter of the charts: the series object. A series is represented on the chart as a line, collection of bars, collection of columns&hellip; ie. the visualization. You can plot multiple series on a chart to get grouped and stacked bars and lines as well. In the code, the series object is actually an array of series objects (to support multiple series of course). Each series object specifies:</p>
-
 <ul>
 <li><strong>name:</strong> The name of the series displayed in the legend (Open and Resolved in the above)</li>
 <li><strong>legendIndex:</strong> The number of the order the series appears in</li>
 <li><strong>data:</strong> An array of data values, one for each category</li>
 </ul>
-
 <p>In the above screencast, you can see me changing the values of both series. After adjusting the first series data by multiplying each value by 10, the chart doesn&rsquo;t change much except for the yAxis automatically adjusting the scale. The changes to the second series (originally all 0&rsquo;s) is much more interesting since you can see the Resolved series jump from the baseline to the new values.</p>
-
-<hr />
-
+<hr>
 <h2 id="final-thoughts">Final Thoughts</h2>
-
 <p>The few objects and properties we discussed in this article are just a small taste of the capabilities of HighCharts. You can check out the full <a href="http://api.highcharts.com/highcharts/">API reference</a> for more info. But with just the few options we discussed here, you should be able to construct a wide array of charts that you can use in the Service Portal. With these basics out of the way, now we can start having fun.</p>
 
       </div>

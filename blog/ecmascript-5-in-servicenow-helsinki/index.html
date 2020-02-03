@@ -40,18 +40,18 @@
     "@type" : "BlogPosting",
     "mainEntityOfPage": {
          "@type": "WebPage",
-         "@id": "https://codecreative.io/"
+         "@id": "https:\/\/codecreative.io\/"
     },
     "name" : "ECMAScript 5 in ServiceNow Helsinki!",
     "headline" : "ECMAScript 5 in ServiceNow Helsinki!",
-    "description" : "Ok, so it may not be official yet and I know this is a weird thing to get worked up about. Besides, ECMAScript 5 is so 2011, you say. Weren’t we still talking about DVD’s in 2011? Shouldn’t we be talking about ES 6 / ECMAScript 2015?","inLanguage" : "en-US",
+    "description" : "Ok, so it may not be official yet and I know this is a weird thing to get worked up about. Besides, ECMAScript 5 is so 2011, you say. Weren’t we still talking about DVD’s in 2011? Shouldn’t we be talking about ES 6 \/ ECMAScript 2015?","inLanguage" : "en-US",
       "author" : "Travis Toulson",
       "creator" : "Travis Toulson","publisher": "Travis Toulson",
     "copyrightHolder" : "Travis Toulson",
     "copyrightYear" : "2016",
-    "datePublished": "2016-05-05 16:00:00 &#43;0000 UTC",
-    "dateModified" : "2016-05-05 16:00:00 &#43;0000 UTC",
-    "url" : "https://codecreative.io/blog/ecmascript-5-in-servicenow-helsinki/",
+    "datePublished": "2016-05-05 16:00:00 \x2b0000 UTC",
+    "dateModified" : "2016-05-05 16:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/codecreative.io\/blog\/ecmascript-5-in-servicenow-helsinki\/",
     "wordCount" : "677",
     "keywords" : [ "Blog" ]
 }
@@ -125,30 +125,21 @@
       </header>
 
       <div class="post-content e-content" itemprop="articleBody">
-        
-
-<figure>
+        <figure>
   <img src="images/ecma-script-5-servicenow.png" />
   <figcaption>
     Knowledge 16 ECMAScript Session
   </figcaption>
 </figure>
-
 <p>Ok, so it may not be <a href="https://community.servicenow.com/message/894008#894008">official</a> yet and I know this is a weird thing to get worked up about. Besides, ECMAScript 5 is so 2011, you say. Weren’t we still talking about <a href="http://www.wired.com/2011/07/netflix-fees-increase-dvd/">DVD’s</a> in 2011? Shouldn’t we be talking about ES 6 / ECMAScript 2015? Aren’t we already using <a href="https://community.servicenow.com/groups/servicenow-user-group-us-tx-north-texas/blog/2015/10/13/mini-lab-extending-servicenow-javascript-using-ecmascript-6-polyfills">polyfills</a> for that?</p>
-
 <p>I hear you. I’m with you. But let’s not forget that a lot of code runs on top of ServiceNow’s modified <a href="https://en.wikipedia.org/wiki/Rhino_%28JavaScript_engine%29">Rhino</a> engine, including yours and mine. So it is nice to know they are not so cavalier as to go all <a href="http://www.youtube.com/watch?v=F4lUcjUv37A&amp;t=0m51s">History of the World Part 1 critic</a> with all our hard work.</p>
-
-<p>So while we may lament the lack of true <a href="http://es6-features.org/#BlockScopedVariables">block scopes</a>, <a href="http://es6-features.org/#StringInterpolation">string interpolation</a>, and <a href="http://es6-features.org/#RestParameter">rest parameters</a> (I know you’re all just heartbroken), let’s take a look at what javascript upgrades we <strong><em>might</em></strong> have to look forward to with the release of Helsinki:</p>
-
+<p>So while we may lament the lack of true <a href="http://es6-features.org/#BlockScopedVariables">block scopes</a>, <a href="http://es6-features.org/#StringInterpolation">string interpolation</a>, and <a href="http://es6-features.org/#RestParameter">rest parameters</a> (I know you’re all just heartbroken), let’s take a look at what javascript upgrades we <em><strong>might</strong></em> have to look forward to with the release of Helsinki:</p>
 <h2 id="new-array-manipulation-functions">New Array Manipulation Functions</h2>
-
 <p>If you are like me, you use the tools that are right in front of you. And if thats the case, your code probably looks like this anytime you are working with an array:</p>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
   <span class="c1">// Do something with the array value arr[i]
 </span><span class="c1"></span><span class="p">}</span>
-</code></pre></div>
-<p>But this doesn’t tell you a whole lot about the intent of the manipulation. Are you looking for a value, doing something to each value, reducing the array to a value? Who cares, just iterate it! Well here are some functions you may be familiar with in the browser that could show up server side:</p>
-
+</code></pre></div><p>But this doesn’t tell you a whole lot about the intent of the manipulation. Are you looking for a value, doing something to each value, reducing the array to a value? Who cares, just iterate it! Well here are some functions you may be familiar with in the browser that could show up server side:</p>
 <ul>
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray">Array.isArray()</a></li>
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every">Array.prototype.every()</a></li>
@@ -160,49 +151,39 @@
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce">Array.prototype.reduce()</a></li>
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some">Array.prototype.some()</a></li>
 </ul>
-
 <p>But let’s face it, the best part is indexOf for all those GlideLists:</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">list</span> <span class="o">=</span> <span class="nx">current</span><span class="p">.</span><span class="nx">watch_list</span><span class="p">.</span><span class="nx">toString</span><span class="p">().</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">);</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">list</span> <span class="o">=</span> <span class="nx">current</span><span class="p">.</span><span class="nx">watch_list</span><span class="p">.</span><span class="nx">toString</span><span class="p">(</span><span class="p">)</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span><span class="p">;</span>
 <span class="k">if</span> <span class="p">(</span><span class="nx">list</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">&#39;Mr. Important&#39;</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">current</span><span class="p">.</span><span class="nx">comments</span> <span class="o">=</span> <span class="s1">&#39;Something intelligent so it looks like we\&#39;re working on this right away.&#39;</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div>
-<h2 id="native-json">Native JSON</h2>
-
+</code></pre></div><h2 id="native-json">Native JSON</h2>
 <p>So, I am just going to say it. This was an annoying way to convert javascript objects to JSON strings and back:</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">json</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">JSON</span><span class="p">().</span><span class="nx">encode</span><span class="p">(</span><span class="nx">someObject</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">JSON</span><span class="p">().</span><span class="nx">decode</span><span class="p">(</span><span class="nx">json</span><span class="p">);</span>
-</code></pre></div>
-<p>You are probably familiar with this if you do a lot of processor or GlideAjax work. In a recent release, JSON.parse and JSON.stringify were added as class functions. But if you have started using <a href="http://wiki.servicenow.com/index.php?title=Scoped_System_API#gsc.tab=0">scoped apps</a>, then you know that this hateful incantation is still just as frustrating:</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">json</span> <span class="o">=</span> <span class="nx">global</span><span class="p">.</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">someObject</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="nx">global</span><span class="p">.</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">json</span><span class="p">);</span>
-</code></pre></div>
-<p>Now is this a particularly big deal. Perhaps not. But if you spend any significant amount of time in the browser, old habits die hard. But won’t it be nice if and when we can just use the native variation:</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">json</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">someObject</span><span class="p">);</span>
-<span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">json</span><span class="p">);</span>
-</code></pre></div>
-<h2 id="javascript-properties">Javascript Properties</h2>
-
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">json</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">JSON</span><span class="p">(</span><span class="p">)</span><span class="p">.</span><span class="nx">encode</span><span class="p">(</span><span class="nx">someObject</span><span class="p">)</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">JSON</span><span class="p">(</span><span class="p">)</span><span class="p">.</span><span class="nx">decode</span><span class="p">(</span><span class="nx">json</span><span class="p">)</span><span class="p">;</span>
+</code></pre></div><p>You are probably familiar with this if you do a lot of processor or GlideAjax work. In a recent release, JSON.parse and JSON.stringify were added as class functions. But if you have started using <a href="http://wiki.servicenow.com/index.php?title=Scoped_System_API#gsc.tab=0">scoped apps</a>, then you know that this hateful incantation is still just as frustrating:</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">json</span> <span class="o">=</span> <span class="nx">global</span><span class="p">.</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">someObject</span><span class="p">)</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="nx">global</span><span class="p">.</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">json</span><span class="p">)</span><span class="p">;</span>
+</code></pre></div><p>Now is this a particularly big deal. Perhaps not. But if you spend any significant amount of time in the browser, old habits die hard. But won’t it be nice if and when we can just use the native variation:</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">json</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">someObject</span><span class="p">)</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">json</span><span class="p">)</span><span class="p">;</span>
+</code></pre></div><h2 id="javascript-properties">Javascript Properties</h2>
 <p>This might be the most exciting part of all of this. With any luck, we will see javascript property getters and setters brought to ServiceNow. If you aren’t familiar, getters and setters allow you to add logic when working with object properties directly. So instead of this:</p>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
   <span class="nx">_a</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-  <span class="nx">setA</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">val</span><span class="p">)</span> <span class="p">{</span> <span class="k">this</span><span class="p">.</span><span class="nx">_a</span> <span class="o">=</span> <span class="nx">val</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">},</span>
-  <span class="nx">getA</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="s1">&#39;Value is: &#39;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">_a</span> <span class="p">}</span>
-<span class="p">};</span>
-<span class="nx">obj</span><span class="p">.</span><span class="nx">getA</span><span class="p">();</span> <span class="c1">// get, a = &#39;Value is: 1&#39;
-</span><span class="c1"></span><span class="nx">obj</span><span class="p">.</span><span class="nx">setA</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="c1">// set obj._a = 2
-</span><span class="c1"></span></code></pre></div>
-<p>You can end up with this:</p>
+  <span class="nx">setA</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">val</span><span class="p">)</span> <span class="p">{</span> <span class="k">this</span><span class="p">.</span><span class="nx">_a</span> <span class="o">=</span> <span class="nx">val</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">}</span><span class="p">,</span>
+  <span class="nx">getA</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="s1">&#39;Value is: &#39;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">_a</span> <span class="p">}</span>
+<span class="p">}</span><span class="p">;</span>
+<span class="nx">obj</span><span class="p">.</span><span class="nx">getA</span><span class="p">(</span><span class="p">)</span><span class="p">;</span> <span class="c1">// get, a = &#39;Value is: 1&#39;
+</span><span class="c1"></span><span class="nx">obj</span><span class="p">.</span><span class="nx">setA</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="p">;</span> <span class="c1">// set obj._a = 2
+</span></code></pre></div><p>You can end up with this:</p>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span>
   <span class="nx">_a</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-  <span class="nx">set</span> <span class="nx">a</span><span class="p">(</span><span class="nx">val</span><span class="p">)</span> <span class="p">{</span> <span class="k">this</span><span class="p">.</span><span class="nx">_a</span> <span class="o">=</span> <span class="nx">val</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">},</span>
-  <span class="nx">get</span> <span class="nx">a</span><span class="p">()</span> <span class="p">{</span> <span class="k">return</span> <span class="s1">&#39;Value is: &#39;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">_a</span> <span class="p">}</span>
-<span class="p">};</span>
+  <span class="nx">set</span> <span class="nx">a</span><span class="p">(</span><span class="nx">val</span><span class="p">)</span> <span class="p">{</span> <span class="k">this</span><span class="p">.</span><span class="nx">_a</span> <span class="o">=</span> <span class="nx">val</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">}</span><span class="p">,</span>
+  <span class="nx">get</span> <span class="nx">a</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="s1">&#39;Value is: &#39;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">_a</span> <span class="p">}</span>
+<span class="p">}</span><span class="p">;</span>
 <span class="nx">obj</span><span class="p">.</span><span class="nx">a</span><span class="p">;</span> <span class="c1">// get, a = &#39;Value is: 1&#39;
 </span><span class="c1"></span><span class="nx">obj</span><span class="p">.</span><span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// set obj._a = 2
-</span><span class="c1"></span></code></pre></div>
-<p>This will likely be most useful in Scoped Apps and Script Includes for adding and changing logic with get and set without changing the contract of the Script Include. If you are already using functions like in the first example, you might not be so impressed. But hey, its another tool in the kit.</p>
-
+</span></code></pre></div><p>This will likely be most useful in Scoped Apps and Script Includes for adding and changing logic with get and set without changing the contract of the Script Include. If you are already using functions like in the first example, you might not be so impressed. But hey, its another tool in the kit.</p>
 <p>Hopefully we will see most of these additions in Helsinki. If nothing else, it will be nice to have some compatibility between my client side scripts and server side scripts. At least until ES6 is mainstream, anyway.</p>
 
       </div>

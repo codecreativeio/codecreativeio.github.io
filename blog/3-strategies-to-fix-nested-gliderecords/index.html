@@ -58,18 +58,18 @@
     "@type" : "BlogPosting",
     "mainEntityOfPage": {
          "@type": "WebPage",
-         "@id": "https://codecreative.io/"
+         "@id": "https:\/\/codecreative.io\/"
     },
     "name" : "3 Strategies To Fix Nested GlideRecords",
     "headline" : "3 Strategies To Fix Nested GlideRecords",
-    "description" : "Previously, I talked about Nested GlideRecords in scripts and the performance impact they can have on your applications. Being able to identify these miscreants is great but we really need to get them out of any mission critical scripts.","image": "https://codecreative.io/blog/3-strategies-to-fix-nested-gliderecords/images/social.png","inLanguage" : "en-US",
+    "description" : "Previously, I talked about Nested GlideRecords in scripts and the performance impact they can have on your applications. Being able to identify these miscreants is great but we really need to get them out of any mission critical scripts.","image": "https:\/\/codecreative.io\/blog\/3-strategies-to-fix-nested-gliderecords\/images\/social.png","inLanguage" : "en-US",
       "author" : "Travis Toulson",
       "creator" : "Travis Toulson","publisher": "Travis Toulson",
     "copyrightHolder" : "Travis Toulson",
     "copyrightYear" : "2017",
-    "datePublished": "2017-02-01 17:00:00 &#43;0000 UTC",
-    "dateModified" : "2017-02-01 17:00:00 &#43;0000 UTC",
-    "url" : "https://codecreative.io/blog/3-strategies-to-fix-nested-gliderecords/",
+    "datePublished": "2017-02-01 17:00:00 \x2b0000 UTC",
+    "dateModified" : "2017-02-01 17:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/codecreative.io\/blog\/3-strategies-to-fix-nested-gliderecords\/",
     "wordCount" : "1001",
     "keywords" : [ "Blog" ]
 }
@@ -143,92 +143,69 @@
       </header>
 
       <div class="post-content e-content" itemprop="articleBody">
-        
-
-<p>Previously, I talked about <a href="/blog/nested-gliderecords-are-killing-your-app-performance">Nested GlideRecords</a> in scripts and the performance impact they can have on your applications. Being able to identify these miscreants is great but we really need to get them out of any mission critical scripts where they are slowing down response times. Here are a couple strategies to kick those GlideRecords out of the nest and to teach them to fly.</p>
-
+        <p>Previously, I talked about <a href="/blog/nested-gliderecords-are-killing-your-app-performance">Nested GlideRecords</a> in scripts and the performance impact they can have on your applications. Being able to identify these miscreants is great but we really need to get them out of any mission critical scripts where they are slowing down response times. Here are a couple strategies to kick those GlideRecords out of the nest and to teach them to fly.</p>
 <h2 id="1-array-flattened-gliderecord">1. Array Flattened GlideRecord</h2>
-
 <p>Normally, in a Nested GlideRecord, you run a GlideRecord query for each record in the result of the first GlideRecord. Often times, the simplest way out is to simply collect a list of the queryable criteria (sys_id or other key like field) and use it as part of an <strong>IN</strong> criteria within a second GlideRecord query <strong>outside</strong> of the first. I used this technique in the last article as seen in the below example:</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">users</span> <span class="o">=</span> <span class="p">[];</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">users</span> <span class="o">=</span> <span class="p">[</span><span class="p">]</span><span class="p">;</span>
 
-<span class="kd">var</span> <span class="nx">count</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideAggregate</span><span class="p">(</span><span class="s1">&#39;sys_user&#39;</span><span class="p">);</span>
-<span class="nx">count</span><span class="p">.</span><span class="nx">addQuery</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">,</span> <span class="s1">&#39;!=&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">);</span>
-<span class="nx">count</span><span class="p">.</span><span class="nx">groupBy</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">);</span>
-<span class="nx">count</span><span class="p">.</span><span class="nx">addAggregate</span><span class="p">(</span><span class="s1">&#39;COUNT&#39;</span><span class="p">);</span>
-<span class="nx">count</span><span class="p">.</span><span class="nx">query</span><span class="p">();</span>
-<span class="k">while</span> <span class="p">(</span><span class="nx">count</span><span class="p">.</span><span class="nx">next</span><span class="p">())</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="p">((</span><span class="nx">count</span><span class="p">.</span><span class="nx">getAggregate</span><span class="p">(</span><span class="s1">&#39;COUNT&#39;</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nx">users</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">count</span><span class="p">.</span><span class="nx">email</span> <span class="o">+</span> <span class="s1">&#39;&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">count</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideAggregate</span><span class="p">(</span><span class="s1">&#39;sys_user&#39;</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">count</span><span class="p">.</span><span class="nx">addQuery</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">,</span> <span class="s1">&#39;!=&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">count</span><span class="p">.</span><span class="nx">groupBy</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">count</span><span class="p">.</span><span class="nx">addAggregate</span><span class="p">(</span><span class="s1">&#39;COUNT&#39;</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">count</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+<span class="k">while</span> <span class="p">(</span><span class="nx">count</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="p">)</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="p">(</span><span class="nx">count</span><span class="p">.</span><span class="nx">getAggregate</span><span class="p">(</span><span class="s1">&#39;COUNT&#39;</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">users</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">count</span><span class="p">.</span><span class="nx">email</span> <span class="o">+</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="p">;</span>
   <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kd">var</span> <span class="nx">user</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;sys_user&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">user</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;sys_user&#39;</span><span class="p">)</span><span class="p">;</span>
 <span class="kd">var</span> <span class="nx">prevUser</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
-<span class="nx">user</span><span class="p">.</span><span class="nx">addQuery</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">,</span> <span class="s1">&#39;IN&#39;</span><span class="p">,</span> <span class="nx">users</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">));</span>
-<span class="nx">user</span><span class="p">.</span><span class="nx">orderBy</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">);</span>
-<span class="nx">user</span><span class="p">.</span><span class="nx">query</span><span class="p">();</span>
-<span class="k">while</span> <span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">next</span><span class="p">())</span> <span class="p">{</span>
+<span class="nx">user</span><span class="p">.</span><span class="nx">addQuery</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">,</span> <span class="s1">&#39;IN&#39;</span><span class="p">,</span> <span class="nx">users</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">user</span><span class="p">.</span><span class="nx">orderBy</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">user</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+<span class="k">while</span> <span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="p">)</span><span class="p">)</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">prevUser</span> <span class="o">==</span> <span class="nx">user</span><span class="p">.</span><span class="nx">email</span> <span class="o">+</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">email</span><span class="p">);</span>
+    <span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">email</span><span class="p">)</span><span class="p">;</span>
   <span class="p">}</span>
   <span class="c1">// Else, skip the original user
 </span><span class="c1"></span>  <span class="nx">prevUser</span> <span class="o">=</span> <span class="nx">user</span><span class="p">.</span><span class="nx">email</span> <span class="o">+</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div>
-<p>Notice the use of the <strong>users</strong> array to collect a list of email addresses. That list is then applied to the second <strong>user</strong>  query with an <strong>IN</strong> criteria. In this way, we compress many smaller queries into a single query containing all the criteria.</p>
-
+</code></pre></div><p>Notice the use of the <strong>users</strong> array to collect a list of email addresses. That list is then applied to the second <strong>user</strong>  query with an <strong>IN</strong> criteria. In this way, we compress many smaller queries into a single query containing all the criteria.</p>
 <p><strong>When to Use:</strong> Use this approach when two GlideRecord queries are being explicitly called in the nested pattern and changing the data model is too risky.</p>
-
 <p><strong>When to Avoid:</strong> Whenever you can use any other method. Seriously, this method creates longer code that is harder to understand. You&rsquo;re basically creating a database JOIN in application logic.</p>
-
 <h2 id="2-copy-data-to-the-queried-record">2. Copy Data To The Queried Record</h2>
-
 <p>With this strategy, you create Business Rules to copy a frequently queried field from its original table (source) to the frequently queried table (destination). The destination table in this case acts as a cache for the source data. One example of this is the Catalogs field on the Catalog Item table. Did you ever notice that the Related List called Catalogs is kept in sync with the GlideList field called Catalogs:</p>
-
 <figure>
   <img src="images/ServiceNow+Catalogs+Kept+In+Sync.png" />
   <figcaption>
     ServiceNow Catalogs Kept In Sync
   </figcaption>
 </figure>
-
 <p>With only the Related List, it would take at least two queries to get all the Catalog Items in a given Category. In a worst case, it would take one query on the Catalog related list and then one additional one to dot-walk the Catalog Item data. With the GlideList, we can perform a single query directly on the Catalog Item table.</p>
-
 <p>The tradeoff here is that we are trading &ldquo;write operation&rdquo; performance for &ldquo;read operation&rdquo; performance. That is, we add business rules on Insert and Update to sync the field to the Related List and vice versa. Insert and Update will take a little longer but reading the data requires fewer queries.</p>
-
 <p><strong>When to Use:</strong> Definitely consider this instead of GlideRecord queries in ACLs! Also quite useful for aggregating data such as the Update Count field on tasks. Sometimes useful instead of dot-walking when dealing with related lists whose data is frequently queried with the parent record.</p>
-
 <p><strong>When to Avoid:</strong> Avoid this strategy in most circumstances when dot-walking a record, especially if many fields are required from the dot-walked reference. There is still a better tool for this.</p>
-
 <h2 id="3-create-database-views">3. Create Database Views</h2>
-
 <p>An often asked question in the ServiceNow Community is &ldquo;how do I perform a Database Join with GlideRecord?&rdquo; Well, you don&rsquo;t. You create <a href="http://wiki.servicenow.com/index.php?title=Database_Views#gsc.tab=0">Database Views</a>. Database Views in ServiceNow allow you to effectively merge related records from multiple tables into a single queryable source. Here&rsquo;s an example:</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;incident&#39;</span><span class="p">);</span>
-<span class="nx">gr</span><span class="p">.</span><span class="nx">setLimit</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
-<span class="nx">gr</span><span class="p">.</span><span class="nx">query</span><span class="p">();</span>
-<span class="k">while</span> <span class="p">(</span><span class="nx">gr</span><span class="p">.</span><span class="nx">next</span><span class="p">())</span> <span class="p">{</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;incident&#39;</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">gr</span><span class="p">.</span><span class="nx">setLimit</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">gr</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+<span class="k">while</span> <span class="p">(</span><span class="nx">gr</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="p">)</span><span class="p">)</span> <span class="p">{</span>
   <span class="kd">var</span> <span class="nx">callerNum</span> <span class="o">=</span> <span class="nx">gr</span><span class="p">.</span><span class="nx">caller</span><span class="p">.</span><span class="nx">phone_number</span> <span class="o">+</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div>
-<p>In the above script, that dot-walk to the caller&rsquo;s phone number field is going to cost us. In this case, it will cost us an extra 10 queries, one for each record found in the orginal query (notice the setLimit). With a Database View, we can merge Incident record fields to their related User&rsquo;s by the Caller field:</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;incident_caller&#39;</span><span class="p">);</span>
-<span class="nx">gr</span><span class="p">.</span><span class="nx">setLimit</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
-<span class="nx">gr</span><span class="p">.</span><span class="nx">query</span><span class="p">();</span>
-<span class="k">while</span> <span class="p">(</span><span class="nx">gr</span><span class="p">.</span><span class="nx">next</span><span class="p">())</span> <span class="p">{</span>
+</code></pre></div><p>In the above script, that dot-walk to the caller&rsquo;s phone number field is going to cost us. In this case, it will cost us an extra 10 queries, one for each record found in the orginal query (notice the setLimit). With a Database View, we can merge Incident record fields to their related User&rsquo;s by the Caller field:</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;incident_caller&#39;</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">gr</span><span class="p">.</span><span class="nx">setLimit</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">gr</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+<span class="k">while</span> <span class="p">(</span><span class="nx">gr</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="p">)</span><span class="p">)</span> <span class="p">{</span>
   <span class="kd">var</span> <span class="nx">callerNum</span> <span class="o">=</span> <span class="nx">gr</span><span class="p">.</span><span class="nx">cl_phone_number</span> <span class="o">+</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div>
-<p>Now, notice in the above script that we query <strong>incident_caller</strong> instead of <strong>incident</strong>. Creating a Database View creates a sort of virtual table in ServiceNow which you can query with GlideRecord and it can contain fields from any of the joined tables. In this case, we are assuming the view was created as a join between Incident and Caller with the relevant Caller Phone Number field on the view. Now that we have a true database JOIN, this script will only take 1 query compared to the previous script&rsquo;s 10.</p>
-
+</code></pre></div><p>Now, notice in the above script that we query <strong>incident_caller</strong> instead of <strong>incident</strong>. Creating a Database View creates a sort of virtual table in ServiceNow which you can query with GlideRecord and it can contain fields from any of the joined tables. In this case, we are assuming the view was created as a join between Incident and Caller with the relevant Caller Phone Number field on the view. Now that we have a true database JOIN, this script will only take 1 query compared to the previous script&rsquo;s 10.</p>
 <p>Keep in mind that even with Database views you can run into performance problems on larger tables (I&rsquo;m looking at you Task). Be sure to add appropriate indexes to speed up your view.</p>
-
 <p><strong>When to Use:</strong> Whenever dot-walking from one table to another within a GlideRecord loop is causing performance issues, particularly in CMS or ServicePortal. The farther you dot-walk from the root record, the more likely you are to encounter this issue. Also consider this approach in any of the previous scenarios where you will frequently use the fields in the presented view.</p>
-
 <p><strong>When to Avoid:</strong> When the Database View would not contribute significantly to critical performance issues and when the Database View is not part of regular query patterns. In other words, avoid this approach for one off scripts.</p>
-
 <h2 id="bonus-avoid-only-indexing">Bonus: Avoid Only Indexing</h2>
-
 <p>When met with database performance issues we have a habit of just throwing an index at it. And yes, indexes are a great tool but designing efficient data access patterns (avoiding Nested GlideRecords in this case) should be the first step in solving (and ideally preventing) database related performance issues.</p>
 
       </div>

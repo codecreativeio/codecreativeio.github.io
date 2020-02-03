@@ -58,18 +58,18 @@
     "@type" : "BlogPosting",
     "mainEntityOfPage": {
          "@type": "WebPage",
-         "@id": "https://codecreative.io/"
+         "@id": "https:\/\/codecreative.io\/"
     },
     "name" : "Generate HighChart Data in a Widget Server Script",
     "headline" : "Generate HighChart Data in a Widget Server Script",
-    "description" : "Up until now, we&#39;ve only dealt with custom charts using HighCharts with hardcoded data. The next step in creating a custom chart is to report on actual ServiceNow data by wiring up GlideRecord queries in the server script to the HighCharts configuration object in the client script.","image": "https://codecreative.io/blog/generate-highchart-data-in-a-widget-server-script/images/social.png","inLanguage" : "en-US",
+    "description" : "Up until now, we\x27ve only dealt with custom charts using HighCharts with hardcoded data. The next step in creating a custom chart is to report on actual ServiceNow data by wiring up GlideRecord queries in the server script to the HighCharts configuration object in the client script.","image": "https:\/\/codecreative.io\/blog\/generate-highchart-data-in-a-widget-server-script\/images\/social.png","inLanguage" : "en-US",
       "author" : "Travis Toulson",
       "creator" : "Travis Toulson","publisher": "Travis Toulson",
     "copyrightHolder" : "Travis Toulson",
     "copyrightYear" : "2017",
-    "datePublished": "2017-05-17 14:30:00 &#43;0000 UTC",
-    "dateModified" : "2017-05-17 14:30:00 &#43;0000 UTC",
-    "url" : "https://codecreative.io/blog/generate-highchart-data-in-a-widget-server-script/",
+    "datePublished": "2017-05-17 14:30:00 \x2b0000 UTC",
+    "dateModified" : "2017-05-17 14:30:00 \x2b0000 UTC",
+    "url" : "https:\/\/codecreative.io\/blog\/generate-highchart-data-in-a-widget-server-script\/",
     "wordCount" : "1031",
     "keywords" : [ "Blog" ]
 }
@@ -143,218 +143,189 @@
       </header>
 
       <div class="post-content e-content" itemprop="articleBody">
-        
-
-<p><strong>WARNING:</strong> The use of HighCharts in this way may require the purchase of an additional license from Highsoft. Use in production at your own risk.</p>
-
+        <p><strong>WARNING:</strong> The use of HighCharts in this way may require the purchase of an additional license from Highsoft. Use in production at your own risk.</p>
 <p><strong>Read the Whole Series:</strong></p>
-
 <ol>
 <li><a href="/blog/intro-to-highcharts-in-service-portal">Intro to HighCharts in Service Portal</a></li>
 <li><a href="/blog/configuring-highcharts-in-service-portal">Configuring HighCharts in Service Portal</a></li>
 <li>Generate HighChart Data in a Widget Server Script (This Post)</li>
 <li><a href="/blog/making-the-highchart-widget-reusable">Making the HighChart Widget Reusable</a></li>
 </ol>
-
 <p><a href="/downloads/HighCharts+Widget.zip">Download the Widget</a></p>
-
-<hr />
-
+<hr>
 <p>Up until now, we&rsquo;ve only dealt with custom charts using HighCharts with hardcoded data. The next step in creating a custom chart is to report on actual ServiceNow data by wiring up GlideRecord queries in the server script to the HighCharts configuration object in the client script. At this risk of repeating myself too often, Service Portal makes this much easier compared to the UI Page approach. I will be using the widget created in <a href="/blog/intro-to-highcharts-in-service-portal">Intro to HighCharts in Service Portal</a> as a base again. Let&rsquo;s take a look:</p>
-
-<hr />
-
+<hr>
 <h2 id="step-1-replace-hardcoded-data-with-server-data-object">Step 1: Replace hardcoded data with Server data object</h2>
-
 <p>In the UI Page approach, we had to perform some JSON encoding and decoding to properly transfer data from the server side &lt;g:evaluate&gt; to the client side &lt;script&gt;. Service Portal, though, provides the <strong>data</strong> object which handles the JSON transmission from server to client for us. Our first step is to move the HighCharts <strong>categories</strong> array and the <strong>series</strong> array from the hardcoded client side values to the server data.</p>
-
 <figure>
   <img src="images/Hardcoded+Values+Move+to+the+Server+Script.png" />
   <figcaption>
     Hardcoded Values should move to the Server Script
   </figcaption>
 </figure>
-
 <p>In the above image, notice that i have replaced the categories and series objects with c.data properties and added the original hardcoded values to the server script as properties of the data object. The result is the same whether the values are hardcoded client side or server side, which means now we can build the categories and series objects using GlideRecord.</p>
-
-<hr />
-
+<hr>
 <h2 id="step-2-dynamically-generate-server-data">Step 2: Dynamically generate server data</h2>
-
 <p>Previously, I used an approach that micromanaged a category array and an array for each series of data. Essentially, I merged the data collection and data transform steps into a single procedural mess. This time, I am going to separate collection and transform processes to make the scripts a little more manageable.</p>
-
 <p>For the new process, I am going to use one collection object for each data series which will act as a simple map from x values to y values for the data series (think something like <strong>(empty) = 5, Solana Beach CA = 1, New York NY = 1, etc</strong>). This data will be collected using a GlideAggregate but could also be accomplished with a GlideRecord. Then, I will convert the collection object into the required categories and series arrays in a transform step. So this is the basic outline of the process:</p>
-
 <ol>
 <li>Collect values from GlideAggregate</li>
 <li>Prepare data output objects</li>
 <li>Transform collection objects into data output category and series arrays</li>
 </ol>
-
 <p>Since I want to keep both Open and Resolved data series, I will need two GlideAggregates by grouped by location (the x axis), one for each series. Here are the relevant pieces of code:</p>
-
 <p><strong>Collect Values from GlideAggregate</strong></p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">open</span> <span class="o">=</span> <span class="p">{},</span>
-        <span class="nx">resolved</span> <span class="o">=</span> <span class="p">{},</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">open</span> <span class="o">=</span> <span class="p">{</span><span class="p">}</span><span class="p">,</span>
+        <span class="nx">resolved</span> <span class="o">=</span> <span class="p">{</span><span class="p">}</span><span class="p">,</span>
         <span class="nx">loc</span><span class="p">,</span>
         <span class="nx">ga</span><span class="p">;</span>
 
 <span class="c1">// Collect Open data
-</span><span class="c1"></span><span class="nx">ga</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideAggregate</span><span class="p">(</span><span class="s1">&#39;incident&#39;</span><span class="p">);</span>
-<span class="nx">ga</span><span class="p">.</span><span class="nx">addEncodedQuery</span><span class="p">(</span><span class="s1">&#39;stateIN1,2,3,4,5&#39;</span><span class="p">);</span>
-<span class="nx">ga</span><span class="p">.</span><span class="nx">addAggregate</span><span class="p">(</span><span class="s1">&#39;COUNT&#39;</span><span class="p">);</span>  
-<span class="nx">ga</span><span class="p">.</span><span class="nx">groupBy</span><span class="p">(</span><span class="s1">&#39;location&#39;</span><span class="p">);</span>  
-<span class="nx">ga</span><span class="p">.</span><span class="nx">orderBy</span><span class="p">(</span><span class="s1">&#39;location&#39;</span><span class="p">);</span>  
-<span class="nx">ga</span><span class="p">.</span><span class="nx">query</span><span class="p">();</span>
-<span class="k">while</span> <span class="p">(</span><span class="nx">ga</span><span class="p">.</span><span class="nx">next</span><span class="p">())</span> <span class="p">{</span>
-    <span class="nx">loc</span> <span class="o">=</span> <span class="nx">ga</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">getDisplayValue</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;&#39;</span> <span class="o">||</span> <span class="s1">&#39;(empty)&#39;</span><span class="p">;</span>
+</span><span class="c1"></span><span class="nx">ga</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideAggregate</span><span class="p">(</span><span class="s1">&#39;incident&#39;</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">ga</span><span class="p">.</span><span class="nx">addEncodedQuery</span><span class="p">(</span><span class="s1">&#39;stateIN1,2,3,4,5&#39;</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">ga</span><span class="p">.</span><span class="nx">addAggregate</span><span class="p">(</span><span class="s1">&#39;COUNT&#39;</span><span class="p">)</span><span class="p">;</span>  
+<span class="nx">ga</span><span class="p">.</span><span class="nx">groupBy</span><span class="p">(</span><span class="s1">&#39;location&#39;</span><span class="p">)</span><span class="p">;</span>  
+<span class="nx">ga</span><span class="p">.</span><span class="nx">orderBy</span><span class="p">(</span><span class="s1">&#39;location&#39;</span><span class="p">)</span><span class="p">;</span>  
+<span class="nx">ga</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+<span class="k">while</span> <span class="p">(</span><span class="nx">ga</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="p">)</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">loc</span> <span class="o">=</span> <span class="nx">ga</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">getDisplayValue</span><span class="p">(</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;&#39;</span> <span class="o">||</span> <span class="s1">&#39;(empty)&#39;</span><span class="p">;</span>
     <span class="nx">count</span> <span class="o">=</span> <span class="nx">ga</span><span class="p">.</span><span class="nx">getAggregate</span><span class="p">(</span><span class="s1">&#39;COUNT&#39;</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1</span><span class="p">;</span>
     <span class="nx">open</span><span class="p">[</span><span class="nx">loc</span><span class="p">]</span> <span class="o">=</span> <span class="nx">count</span><span class="p">;</span>
     <span class="nx">resolved</span><span class="p">[</span><span class="nx">loc</span><span class="p">]</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span> <span class="c1">// to ensure both objects have the same x axis values
 </span><span class="c1"></span><span class="p">}</span>
 
 <span class="c1">// Collect Resolved data
-</span><span class="c1"></span><span class="nx">ga</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideAggregate</span><span class="p">(</span><span class="s1">&#39;incident&#39;</span><span class="p">);</span>
-<span class="nx">ga</span><span class="p">.</span><span class="nx">addEncodedQuery</span><span class="p">(</span><span class="s1">&#39;state=6^resolved_atONToday@javascript:gs.daysAgoStart(0)@javascript:gs.daysAgoEnd(0)&#39;</span><span class="p">);</span>
-<span class="nx">ga</span><span class="p">.</span><span class="nx">addAggregate</span><span class="p">(</span><span class="s1">&#39;COUNT&#39;</span><span class="p">);</span>  
-<span class="nx">ga</span><span class="p">.</span><span class="nx">groupBy</span><span class="p">(</span><span class="s1">&#39;location&#39;</span><span class="p">);</span>  
-<span class="nx">ga</span><span class="p">.</span><span class="nx">orderBy</span><span class="p">(</span><span class="s1">&#39;location&#39;</span><span class="p">);</span>  
-<span class="nx">ga</span><span class="p">.</span><span class="nx">query</span><span class="p">();</span>
-<span class="k">while</span> <span class="p">(</span><span class="nx">ga</span><span class="p">.</span><span class="nx">next</span><span class="p">())</span> <span class="p">{</span>
-    <span class="nx">loc</span> <span class="o">=</span> <span class="nx">ga</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">getDisplayValue</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;&#39;</span> <span class="o">||</span> <span class="s1">&#39;(empty)&#39;</span><span class="p">;</span>
+</span><span class="c1"></span><span class="nx">ga</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideAggregate</span><span class="p">(</span><span class="s1">&#39;incident&#39;</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">ga</span><span class="p">.</span><span class="nx">addEncodedQuery</span><span class="p">(</span><span class="s1">&#39;state=6^resolved_atONToday@javascript:gs.daysAgoStart(0)@javascript:gs.daysAgoEnd(0)&#39;</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">ga</span><span class="p">.</span><span class="nx">addAggregate</span><span class="p">(</span><span class="s1">&#39;COUNT&#39;</span><span class="p">)</span><span class="p">;</span>  
+<span class="nx">ga</span><span class="p">.</span><span class="nx">groupBy</span><span class="p">(</span><span class="s1">&#39;location&#39;</span><span class="p">)</span><span class="p">;</span>  
+<span class="nx">ga</span><span class="p">.</span><span class="nx">orderBy</span><span class="p">(</span><span class="s1">&#39;location&#39;</span><span class="p">)</span><span class="p">;</span>  
+<span class="nx">ga</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+<span class="k">while</span> <span class="p">(</span><span class="nx">ga</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="p">)</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">loc</span> <span class="o">=</span> <span class="nx">ga</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">getDisplayValue</span><span class="p">(</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;&#39;</span> <span class="o">||</span> <span class="s1">&#39;(empty)&#39;</span><span class="p">;</span>
     <span class="nx">count</span> <span class="o">=</span> <span class="nx">ga</span><span class="p">.</span><span class="nx">getAggregate</span><span class="p">(</span><span class="s1">&#39;COUNT&#39;</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1</span><span class="p">;</span>
     <span class="nx">resolved</span><span class="p">[</span><span class="nx">loc</span><span class="p">]</span> <span class="o">=</span> <span class="nx">count</span><span class="p">;</span>
     <span class="nx">open</span><span class="p">[</span><span class="nx">loc</span><span class="p">]</span> <span class="o">=</span> <span class="nx">open</span><span class="p">[</span><span class="nx">loc</span><span class="p">]</span> <span class="o">||</span> <span class="kc">null</span><span class="p">;</span> <span class="c1">// to ensure both objects have the same x axis values
 </span><span class="c1"></span><span class="p">}</span>
-</code></pre></div>
-<p><strong>Prepare Data Output Objects</strong></p>
+</code></pre></div><p><strong>Prepare Data Output Objects</strong></p>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// Prepare output objects
-</span><span class="c1"></span><span class="nx">data</span><span class="p">.</span><span class="nx">categories</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">open</span><span class="p">);</span>
-<span class="nx">data</span><span class="p">.</span><span class="nx">series</span> <span class="o">=</span> <span class="p">[{</span>
+</span><span class="c1"></span><span class="nx">data</span><span class="p">.</span><span class="nx">categories</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">open</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">data</span><span class="p">.</span><span class="nx">series</span> <span class="o">=</span> <span class="p">[</span><span class="p">{</span>
     <span class="s1">&#39;name&#39;</span><span class="o">:</span> <span class="s1">&#39;Open&#39;</span><span class="p">,</span>
     <span class="s1">&#39;legendIndex&#39;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-    <span class="s1">&#39;data&#39;</span><span class="o">:</span> <span class="p">[]</span>
-<span class="p">},</span>
+    <span class="s1">&#39;data&#39;</span><span class="o">:</span> <span class="p">[</span><span class="p">]</span>
+<span class="p">}</span><span class="p">,</span>
 <span class="p">{</span>
     <span class="s1">&#39;name&#39;</span><span class="o">:</span> <span class="s1">&#39;Resolved&#39;</span><span class="p">,</span>
     <span class="s1">&#39;legendIndex&#39;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s1">&#39;data&#39;</span><span class="o">:</span> <span class="p">[]</span>
-<span class="p">}]</span>
-</code></pre></div>
-<p><strong>Transform collection objects into data output category and series arrays</strong></p>
+    <span class="s1">&#39;data&#39;</span><span class="o">:</span> <span class="p">[</span><span class="p">]</span>
+<span class="p">}</span><span class="p">]</span>
+</code></pre></div><p><strong>Transform collection objects into data output category and series arrays</strong></p>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// Transform collected objects into data arrays
 </span><span class="c1"></span><span class="nx">data</span><span class="p">.</span><span class="nx">categories</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">it</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">data</span><span class="p">.</span><span class="nx">series</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">data</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">open</span><span class="p">[</span><span class="nx">it</span><span class="p">]);</span>
-    <span class="nx">data</span><span class="p">.</span><span class="nx">series</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nx">data</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">resolved</span><span class="p">[</span><span class="nx">it</span><span class="p">]);</span>
-<span class="p">});</span>
-</code></pre></div>
-<hr />
-
+    <span class="nx">data</span><span class="p">.</span><span class="nx">series</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">open</span><span class="p">[</span><span class="nx">it</span><span class="p">]</span><span class="p">)</span><span class="p">;</span>
+    <span class="nx">data</span><span class="p">.</span><span class="nx">series</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">resolved</span><span class="p">[</span><span class="nx">it</span><span class="p">]</span><span class="p">)</span><span class="p">;</span>
+<span class="p">}</span><span class="p">)</span><span class="p">;</span>
+</code></pre></div><hr>
 <h2 id="conclusion">Conclusion</h2>
-
 <figure>
   <img src="images/Final+HighChart+Widget+with+Server+Data.png" />
   <figcaption>
     Final HighChart Widget with Server Data
   </figcaption>
 </figure>
-
 <p>With our new server script in place, we can now see a chart in the preview that is actually leveraging real data in our instance! It can definitely stand some cleaning up particularly on the y-axis increments (unless we can count half an incident) but those are smaller details we can easily achieve in the client script HighChart options.</p>
-
 <p>The cool part here is that we are definitely not limited to just using GlideRecord or GlideAggregate to make calculations like we are with native reports. We can use web services or other data collection methods, run advanced calculations, and derive complex metrics for plotting on this chart. It&rsquo;s all just a matter of tweaking the server script to suit your purposes.</p>
-
 <p>So here are the final widget scripts so you can play with this in your own instance (don&rsquo;t forget the HighChart dependencies from <a href="/blog/intro-to-highcharts-in-service-portal">Intro to HighCharts in Service Portal</a>:</p>
-
 <p><strong>HTML</strong></p>
-<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;custom_report&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span></code></pre></div>
-<p><strong>Client Script</strong></p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;custom_report&#34;</span><span class="p"></span><span class="p">&gt;</span><span class="p">&lt;</span><span class="p">/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></div><p><strong>Client Script</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
   <span class="cm">/* widget controller */</span>
   <span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
 
-    <span class="kd">var</span> <span class="nx">chart1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Highcharts</span><span class="p">.</span><span class="nx">Chart</span><span class="p">({</span>  
+    <span class="kd">var</span> <span class="nx">chart1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Highcharts</span><span class="p">.</span><span class="nx">Chart</span><span class="p">(</span><span class="p">{</span>  
   <span class="nx">chart</span><span class="o">:</span> <span class="p">{</span>  
       <span class="nx">renderTo</span><span class="o">:</span> <span class="s1">&#39;custom_report&#39;</span><span class="p">,</span>  
       <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;column&#39;</span>  
-  <span class="p">},</span>  
+  <span class="p">}</span><span class="p">,</span>  
   <span class="nx">title</span><span class="o">:</span> <span class="p">{</span>  
       <span class="nx">text</span><span class="o">:</span> <span class="kc">null</span>  
-  <span class="p">},</span>  
+  <span class="p">}</span><span class="p">,</span>  
   <span class="nx">xAxis</span><span class="o">:</span> <span class="p">{</span>  
       <span class="nx">categories</span><span class="o">:</span> <span class="nx">c</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">categories</span><span class="p">,</span>  
       <span class="nx">title</span><span class="o">:</span> <span class="p">{</span>  
           <span class="nx">text</span><span class="o">:</span> <span class="kc">null</span>  
-      <span class="p">},</span>  
+      <span class="p">}</span><span class="p">,</span>  
       <span class="nx">labels</span><span class="o">:</span> <span class="p">{</span>  
           <span class="nx">rotation</span><span class="o">:</span> <span class="o">-</span><span class="mi">45</span>  
       <span class="p">}</span>  
-  <span class="p">},</span>  
+  <span class="p">}</span><span class="p">,</span>  
   <span class="nx">yAxis</span><span class="o">:</span> <span class="p">{</span>  
       <span class="nx">min</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>  
       <span class="nx">title</span><span class="o">:</span> <span class="p">{</span>  
           <span class="nx">text</span><span class="o">:</span> <span class="kc">null</span>  
       <span class="p">}</span>  
-  <span class="p">},</span>  
+  <span class="p">}</span><span class="p">,</span>  
   <span class="nx">series</span><span class="o">:</span> <span class="nx">c</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">series</span>  
- <span class="p">});</span>  
+ <span class="p">}</span><span class="p">)</span><span class="p">;</span>  
 <span class="p">}</span>
-</code></pre></div>
-<p><strong>Server Script</strong></p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+</code></pre></div><p><strong>Server Script</strong></p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
   <span class="cm">/* populate the &#39;data&#39; object */</span>
   <span class="cm">/* e.g., data.table = $sp.getValue(&#39;table&#39;); */</span>
-  <span class="kd">var</span> <span class="nx">open</span> <span class="o">=</span> <span class="p">{},</span>
-          <span class="nx">resolved</span> <span class="o">=</span> <span class="p">{},</span>
+  <span class="kd">var</span> <span class="nx">open</span> <span class="o">=</span> <span class="p">{</span><span class="p">}</span><span class="p">,</span>
+          <span class="nx">resolved</span> <span class="o">=</span> <span class="p">{</span><span class="p">}</span><span class="p">,</span>
           <span class="nx">loc</span><span class="p">,</span>
           <span class="nx">ga</span><span class="p">;</span>
 
   <span class="c1">// Collect Open data
-</span><span class="c1"></span>  <span class="nx">ga</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideAggregate</span><span class="p">(</span><span class="s1">&#39;incident&#39;</span><span class="p">);</span>
-  <span class="nx">ga</span><span class="p">.</span><span class="nx">addEncodedQuery</span><span class="p">(</span><span class="s1">&#39;stateIN1,2,3,4,5&#39;</span><span class="p">);</span>
-  <span class="nx">ga</span><span class="p">.</span><span class="nx">addAggregate</span><span class="p">(</span><span class="s1">&#39;COUNT&#39;</span><span class="p">);</span>  
-  <span class="nx">ga</span><span class="p">.</span><span class="nx">groupBy</span><span class="p">(</span><span class="s1">&#39;location&#39;</span><span class="p">);</span>  
-  <span class="nx">ga</span><span class="p">.</span><span class="nx">orderBy</span><span class="p">(</span><span class="s1">&#39;location&#39;</span><span class="p">);</span>  
-  <span class="nx">ga</span><span class="p">.</span><span class="nx">query</span><span class="p">();</span>
-  <span class="k">while</span> <span class="p">(</span><span class="nx">ga</span><span class="p">.</span><span class="nx">next</span><span class="p">())</span> <span class="p">{</span>
-      <span class="nx">loc</span> <span class="o">=</span> <span class="nx">ga</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">getDisplayValue</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;&#39;</span> <span class="o">||</span> <span class="s1">&#39;(empty)&#39;</span><span class="p">;</span>
+</span><span class="c1"></span>  <span class="nx">ga</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideAggregate</span><span class="p">(</span><span class="s1">&#39;incident&#39;</span><span class="p">)</span><span class="p">;</span>
+  <span class="nx">ga</span><span class="p">.</span><span class="nx">addEncodedQuery</span><span class="p">(</span><span class="s1">&#39;stateIN1,2,3,4,5&#39;</span><span class="p">)</span><span class="p">;</span>
+  <span class="nx">ga</span><span class="p">.</span><span class="nx">addAggregate</span><span class="p">(</span><span class="s1">&#39;COUNT&#39;</span><span class="p">)</span><span class="p">;</span>  
+  <span class="nx">ga</span><span class="p">.</span><span class="nx">groupBy</span><span class="p">(</span><span class="s1">&#39;location&#39;</span><span class="p">)</span><span class="p">;</span>  
+  <span class="nx">ga</span><span class="p">.</span><span class="nx">orderBy</span><span class="p">(</span><span class="s1">&#39;location&#39;</span><span class="p">)</span><span class="p">;</span>  
+  <span class="nx">ga</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+  <span class="k">while</span> <span class="p">(</span><span class="nx">ga</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="p">)</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">loc</span> <span class="o">=</span> <span class="nx">ga</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">getDisplayValue</span><span class="p">(</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;&#39;</span> <span class="o">||</span> <span class="s1">&#39;(empty)&#39;</span><span class="p">;</span>
       <span class="nx">count</span> <span class="o">=</span> <span class="nx">ga</span><span class="p">.</span><span class="nx">getAggregate</span><span class="p">(</span><span class="s1">&#39;COUNT&#39;</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1</span><span class="p">;</span>
       <span class="nx">open</span><span class="p">[</span><span class="nx">loc</span><span class="p">]</span> <span class="o">=</span> <span class="nx">count</span><span class="p">;</span>
       <span class="nx">resolved</span><span class="p">[</span><span class="nx">loc</span><span class="p">]</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span> <span class="c1">// to ensure both objects have the same x axis values
 </span><span class="c1"></span>  <span class="p">}</span>
 
   <span class="c1">// Collect Resolved data
-</span><span class="c1"></span>  <span class="nx">ga</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideAggregate</span><span class="p">(</span><span class="s1">&#39;incident&#39;</span><span class="p">);</span>
-  <span class="nx">ga</span><span class="p">.</span><span class="nx">addEncodedQuery</span><span class="p">(</span><span class="s1">&#39;state=6^resolved_atONToday@javascript:gs.daysAgoStart(0)@javascript:gs.daysAgoEnd(0)&#39;</span><span class="p">);</span>
-  <span class="nx">ga</span><span class="p">.</span><span class="nx">addAggregate</span><span class="p">(</span><span class="s1">&#39;COUNT&#39;</span><span class="p">);</span>  
-  <span class="nx">ga</span><span class="p">.</span><span class="nx">groupBy</span><span class="p">(</span><span class="s1">&#39;location&#39;</span><span class="p">);</span>  
-  <span class="nx">ga</span><span class="p">.</span><span class="nx">orderBy</span><span class="p">(</span><span class="s1">&#39;location&#39;</span><span class="p">);</span>  
-  <span class="nx">ga</span><span class="p">.</span><span class="nx">query</span><span class="p">();</span>
-  <span class="k">while</span> <span class="p">(</span><span class="nx">ga</span><span class="p">.</span><span class="nx">next</span><span class="p">())</span> <span class="p">{</span>
-      <span class="nx">loc</span> <span class="o">=</span> <span class="nx">ga</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">getDisplayValue</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;&#39;</span> <span class="o">||</span> <span class="s1">&#39;(empty)&#39;</span><span class="p">;</span>
+</span><span class="c1"></span>  <span class="nx">ga</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideAggregate</span><span class="p">(</span><span class="s1">&#39;incident&#39;</span><span class="p">)</span><span class="p">;</span>
+  <span class="nx">ga</span><span class="p">.</span><span class="nx">addEncodedQuery</span><span class="p">(</span><span class="s1">&#39;state=6^resolved_atONToday@javascript:gs.daysAgoStart(0)@javascript:gs.daysAgoEnd(0)&#39;</span><span class="p">)</span><span class="p">;</span>
+  <span class="nx">ga</span><span class="p">.</span><span class="nx">addAggregate</span><span class="p">(</span><span class="s1">&#39;COUNT&#39;</span><span class="p">)</span><span class="p">;</span>  
+  <span class="nx">ga</span><span class="p">.</span><span class="nx">groupBy</span><span class="p">(</span><span class="s1">&#39;location&#39;</span><span class="p">)</span><span class="p">;</span>  
+  <span class="nx">ga</span><span class="p">.</span><span class="nx">orderBy</span><span class="p">(</span><span class="s1">&#39;location&#39;</span><span class="p">)</span><span class="p">;</span>  
+  <span class="nx">ga</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+  <span class="k">while</span> <span class="p">(</span><span class="nx">ga</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="p">)</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">loc</span> <span class="o">=</span> <span class="nx">ga</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">getDisplayValue</span><span class="p">(</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;&#39;</span> <span class="o">||</span> <span class="s1">&#39;(empty)&#39;</span><span class="p">;</span>
       <span class="nx">count</span> <span class="o">=</span> <span class="nx">ga</span><span class="p">.</span><span class="nx">getAggregate</span><span class="p">(</span><span class="s1">&#39;COUNT&#39;</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1</span><span class="p">;</span>
       <span class="nx">resolved</span><span class="p">[</span><span class="nx">loc</span><span class="p">]</span> <span class="o">=</span> <span class="nx">count</span><span class="p">;</span>
       <span class="nx">open</span><span class="p">[</span><span class="nx">loc</span><span class="p">]</span> <span class="o">=</span> <span class="nx">open</span><span class="p">[</span><span class="nx">loc</span><span class="p">]</span> <span class="o">||</span> <span class="kc">null</span><span class="p">;</span> <span class="c1">// to ensure both objects have the same x axis values
 </span><span class="c1"></span>  <span class="p">}</span>
 
   <span class="c1">// Prepare output objects
-</span><span class="c1"></span>  <span class="nx">data</span><span class="p">.</span><span class="nx">categories</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">open</span><span class="p">);</span>
-  <span class="nx">data</span><span class="p">.</span><span class="nx">series</span> <span class="o">=</span> <span class="p">[{</span>
+</span><span class="c1"></span>  <span class="nx">data</span><span class="p">.</span><span class="nx">categories</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">open</span><span class="p">)</span><span class="p">;</span>
+  <span class="nx">data</span><span class="p">.</span><span class="nx">series</span> <span class="o">=</span> <span class="p">[</span><span class="p">{</span>
       <span class="s1">&#39;name&#39;</span><span class="o">:</span> <span class="s1">&#39;Open&#39;</span><span class="p">,</span>
       <span class="s1">&#39;legendIndex&#39;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-      <span class="s1">&#39;data&#39;</span><span class="o">:</span> <span class="p">[]</span>
-  <span class="p">},</span>
+      <span class="s1">&#39;data&#39;</span><span class="o">:</span> <span class="p">[</span><span class="p">]</span>
+  <span class="p">}</span><span class="p">,</span>
   <span class="p">{</span>
       <span class="s1">&#39;name&#39;</span><span class="o">:</span> <span class="s1">&#39;Resolved&#39;</span><span class="p">,</span>
       <span class="s1">&#39;legendIndex&#39;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-      <span class="s1">&#39;data&#39;</span><span class="o">:</span> <span class="p">[]</span>
-  <span class="p">}]</span>
+      <span class="s1">&#39;data&#39;</span><span class="o">:</span> <span class="p">[</span><span class="p">]</span>
+  <span class="p">}</span><span class="p">]</span>
 
   <span class="c1">// Transform collected objects into data arrays
 </span><span class="c1"></span>  <span class="nx">data</span><span class="p">.</span><span class="nx">categories</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">it</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nx">data</span><span class="p">.</span><span class="nx">series</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">data</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">open</span><span class="p">[</span><span class="nx">it</span><span class="p">]);</span>
-      <span class="nx">data</span><span class="p">.</span><span class="nx">series</span><span class="p">[</span><span class="mi">1</span><span class="p">].</span><span class="nx">data</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">resolved</span><span class="p">[</span><span class="nx">it</span><span class="p">]);</span>
-  <span class="p">});</span>
-<span class="p">})();</span>
+      <span class="nx">data</span><span class="p">.</span><span class="nx">series</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">open</span><span class="p">[</span><span class="nx">it</span><span class="p">]</span><span class="p">)</span><span class="p">;</span>
+      <span class="nx">data</span><span class="p">.</span><span class="nx">series</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">resolved</span><span class="p">[</span><span class="nx">it</span><span class="p">]</span><span class="p">)</span><span class="p">;</span>
+  <span class="p">}</span><span class="p">)</span><span class="p">;</span>
+<span class="p">}</span><span class="p">)</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
 </code></pre></div>
       </div>
 

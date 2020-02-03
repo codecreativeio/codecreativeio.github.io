@@ -58,18 +58,18 @@
     "@type" : "BlogPosting",
     "mainEntityOfPage": {
          "@type": "WebPage",
-         "@id": "https://codecreative.io/"
+         "@id": "https:\/\/codecreative.io\/"
     },
     "name" : "How To Do Full Text Search With GlideRecord",
     "headline" : "How To Do Full Text Search With GlideRecord",
-    "description" : "When looking at the form filters in ServiceNow, I think all admins and developers reach a point where we start to wonder &#34;How do I search Keywords in my scripts?&#34; After all, that full text search using &#34;for text&#34; or the &#34;Keywords&#34; filter is so tantalizing for any custom CMS / Service Portal search feature.","image": "https://codecreative.io/blog/how-to-do-full-text-search-with-gliderecord/images/social.png","inLanguage" : "en-US",
+    "description" : "When looking at the form filters in ServiceNow, I think all admins and developers reach a point where we start to wonder \x22How do I search Keywords in my scripts?\x22 After all, that full text search using \x22for text\x22 or the \x22Keywords\x22 filter is so tantalizing for any custom CMS \/ Service Portal search feature.","image": "https:\/\/codecreative.io\/blog\/how-to-do-full-text-search-with-gliderecord\/images\/social.png","inLanguage" : "en-US",
       "author" : "Travis Toulson",
       "creator" : "Travis Toulson","publisher": "Travis Toulson",
     "copyrightHolder" : "Travis Toulson",
     "copyrightYear" : "2017",
-    "datePublished": "2017-03-08 20:53:00 &#43;0000 UTC",
-    "dateModified" : "2017-03-08 20:53:00 &#43;0000 UTC",
-    "url" : "https://codecreative.io/blog/how-to-do-full-text-search-with-gliderecord/",
+    "datePublished": "2017-03-08 20:53:00 \x2b0000 UTC",
+    "dateModified" : "2017-03-08 20:53:00 \x2b0000 UTC",
+    "url" : "https:\/\/codecreative.io\/blog\/how-to-do-full-text-search-with-gliderecord\/",
     "wordCount" : "491",
     "keywords" : [ "Blog" ]
 }
@@ -143,56 +143,40 @@
       </header>
 
       <div class="post-content e-content" itemprop="articleBody">
-        
-
-<p><strong>UPDATE:</strong> After posting this article, Jeff Pierce reminded me of a better way than the original 123TEXTQUERY321 approach. I have since updated the scripts and article here and provided a deeper explanation in <a href="/blog/gliderecord-full-text-search-explained">another article</a>.</p>
-
-<hr />
-
+        <p><strong>UPDATE:</strong> After posting this article, Jeff Pierce reminded me of a better way than the original 123TEXTQUERY321 approach. I have since updated the scripts and article here and provided a deeper explanation in <a href="/blog/gliderecord-full-text-search-explained">another article</a>.</p>
+<hr>
 <p>When looking at the form filters in ServiceNow, I think all admins and developers reach a point where we start to wonder &ldquo;How do I search Keywords in my scripts?&rdquo; After all, that full text search using &ldquo;for text&rdquo; or the &ldquo;Keywords&rdquo; filter is so tantalizing for any custom CMS / Service Portal search feature.</p>
-
 <figure>
   <img src="images/Zing+Text+on+ServiceNow+Form.png" />
   <figcaption>
     Zing Text Search on ServiceNow Form
   </figcaption>
 </figure>
-
 <p>For those unaware, this global / full text search capability is powered by <a href="http://wiki.servicenow.com/index.php?title=Administering_Global_Text_Search#gsc.tab=0">Zing</a> in ServiceNow and it can easily fly under your radar as I realized recently when perusing some comments in the Now community. After all, the encoded query is actually a little misleading: <strong>GOTO123TEXTQUERY321=*@example.com</strong>. After some experimenting, research, or reverse engineering, you will likely discover that the GOTO part is completely unnecessary but otherwise this full text search is completely accessible through GlideRecord directly (scripts updated to use the IR_AND_OR_QUERY instead of the 123TEXTQUERY321):</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;sc_cat_item&#39;</span><span class="p">);</span>
-<span class="nx">gr</span><span class="p">.</span><span class="nx">addQuery</span><span class="p">(</span><span class="s1">&#39;IR_AND_OR_QUERY&#39;</span><span class="p">,</span> <span class="s1">&#39;Application&#39;</span><span class="p">);</span>
-<span class="nx">gr</span><span class="p">.</span><span class="nx">query</span><span class="p">();</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;sc_cat_item&#39;</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">gr</span><span class="p">.</span><span class="nx">addQuery</span><span class="p">(</span><span class="s1">&#39;IR_AND_OR_QUERY&#39;</span><span class="p">,</span> <span class="s1">&#39;Application&#39;</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">gr</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
 
-<span class="k">while</span> <span class="p">(</span><span class="nx">gr</span><span class="p">.</span><span class="nx">next</span><span class="p">())</span> <span class="p">{</span>
-  <span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">gr</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span> <span class="s1">&#39;: &#39;</span> <span class="o">+</span> <span class="nx">gr</span><span class="p">.</span><span class="nx">ir_query_score</span><span class="p">);</span>
+<span class="k">while</span> <span class="p">(</span><span class="nx">gr</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="p">)</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">gr</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span> <span class="s1">&#39;: &#39;</span> <span class="o">+</span> <span class="nx">gr</span><span class="p">.</span><span class="nx">ir_query_score</span><span class="p">)</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div>
-<p>In the above script, you will notice 2 things:</p>
-
+</code></pre></div><p>In the above script, you will notice 2 things:</p>
 <ol>
 <li>I am searching the field &ldquo;IR_AND_OR_QUERY&rdquo;</li>
 <li>An additional field is added to the resulting GlideRecord called ir_query_score</li>
 </ol>
-
-<h2 id="search-ir-and-or-query">Search IR_AND_OR_QUERY</h2>
-
+<h2 id="search-ir_and_or_query">Search IR_AND_OR_QUERY</h2>
 <p>Searching on the IR_AND_OR_QUERY is the magic that tells GlideRecord &ldquo;query this value in the Zing global text search.&rdquo; The cool part is that it seems to be compatible with other searches as well. So you can add additional search criteria such as active=true or some more advanced GlideRecord query and it will filter down your Zing results. I&rsquo;m honestly not sure how that works under the hood but the results are pretty awesome!</p>
-
 <h2 id="relevancy-scores">Relevancy Scores</h2>
-
 <figure>
   <img src="images/Zing+GlideRecord+BG+Script+Results.png" />
   <figcaption>
     Background Script Text Search Results
   </figcaption>
 </figure>
-
 <p>Even better is that the calculated <a href="http://wiki.servicenow.com/index.php?title=Document_scoring#gsc.tab=0">document scores</a>, the assumed relevance of the document to the search term, is actually added to the record field called <strong>ir_query_score</strong>. One thing to keep in mind is that the weighted scores are adjusted by adding the ts_weight attribute to a field&rsquo;s dictionary attribute. For example, take a look at the previous background script results as run in my dev instance in the image.</p>
-
 <p>See how &ldquo;Custom Applications&rdquo; has a score of 103. That&rsquo;s because I added an attribute <strong>ts_weight=100</strong> to the sc_cat_item.name field. So the names are weighted 100x heavier than any other content on the record.</p>
-
 <p>You&rsquo;ll also note that in my script, I don&rsquo;t have any sort order defined. The text search not only seems automatically order by the score in descending order; it also appears to resist any other ordering. Any time I add an order by field, it breaks the result scoring and possibly the result set entirely.</p>
-
 <p>It seems a small price to pay, I can always manually order the records with an array sort if its that important.</p>
 
       </div>

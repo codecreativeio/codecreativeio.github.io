@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Getting Started with Service Portal on CodeCreative | A ServiceNow Blog</title>
@@ -74,7 +74,8 @@ Exercise Follow the below instructions to complete the exercise:</description>
       
       <guid>https://codecreative.io/guides/getting-started-with-service-portal/configuring-widgets/</guid>
       <description>Objective: To configure and create simple Widgets in Service Portal
-  Exercise Goal   One more step to finish up our portal: Widgets. Widgets are the heart and soul of the Service Portal world. All of the content from the header to the footer, the menus, the lists, the forms, all of it is driven by Widgets. Widgets can be as simple or complex as you need.</description>
+  Exercise Goal   One more step to finish up our portal: Widgets. Widgets are the heart and soul of the Service Portal world. All of the content from the header to the footer, the menus, the lists, the forms, all of it is driven by Widgets. Widgets can be as simple or complex as you need.
+In this exercise, we will explore the basic foundations of Widgets, Widget Instances, and Instance options which are necessary to begin Widget development.</description>
     </item>
     
     <item>
@@ -94,10 +95,10 @@ Unfortunately, much of the documentation around this can lead to even more confu
       
       <guid>https://codecreative.io/guides/getting-started-with-service-portal/next-steps/</guid>
       <description>Over the course of this guide, we have covered some basic knowledge and foundational skills for getting started with ServiceNow&amp;rsquo;s Service Portal. At this point you should be able to:
- Create a new Portal
- Style a Portal with a Theme and CSS Includes
- Create and Configure Portal Pages
- Create and Configure Widgets and Widget Instances
+  Create a new Portal
+  Style a Portal with a Theme and CSS Includes
+  Create and Configure Portal Pages
+  Create and Configure Widgets and Widget Instances
   To grow your skills on Service Portal, there are multiple paths that you can pursue:</description>
     </item>
     

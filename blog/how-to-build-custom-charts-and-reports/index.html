@@ -58,18 +58,18 @@
     "@type" : "BlogPosting",
     "mainEntityOfPage": {
          "@type": "WebPage",
-         "@id": "https://codecreative.io/"
+         "@id": "https:\/\/codecreative.io\/"
     },
     "name" : "How to Build Custom ServiceNow Charts and Reports (Video)",
     "headline" : "How to Build Custom ServiceNow Charts and Reports (Video)",
-    "description" : "This video demystifies a fairly advanced scripting technique that I have used to achieve some pretty amazing charts in the past in ServiceNow. Using a UI Page combined with ServiceNow&#39;s built in version of HighCharts produces some great results.","image": "https://codecreative.io/blog/how-to-build-custom-charts-and-reports/images/social.png","inLanguage" : "en-US",
+    "description" : "This video demystifies a fairly advanced scripting technique that I have used to achieve some pretty amazing charts in the past in ServiceNow. Using a UI Page combined with ServiceNow\x27s built in version of HighCharts produces some great results.","image": "https:\/\/codecreative.io\/blog\/how-to-build-custom-charts-and-reports\/images\/social.png","inLanguage" : "en-US",
       "author" : "Travis Toulson",
       "creator" : "Travis Toulson","publisher": "Travis Toulson",
     "copyrightHolder" : "Travis Toulson",
     "copyrightYear" : "2015",
-    "datePublished": "2015-05-04 16:00:00 &#43;0000 UTC",
-    "dateModified" : "2015-05-04 16:00:00 &#43;0000 UTC",
-    "url" : "https://codecreative.io/blog/how-to-build-custom-charts-and-reports/",
+    "datePublished": "2015-05-04 16:00:00 \x2b0000 UTC",
+    "dateModified" : "2015-05-04 16:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/codecreative.io\/blog\/how-to-build-custom-charts-and-reports\/",
     "wordCount" : "591",
     "keywords" : [ "Blog" ]
 }
@@ -147,35 +147,26 @@
   <iframe src="//www.youtube.com/embed/fOQwpFkcTZs?wmode=opaque&amp;enablejsapi=1" height="480" width="640" scrolling="no" frameborder="0" allowfullscreen="">
   </iframe>
 </div>
-
 <p>The ServiceNow Community can be a tough place to communicate without winding up with a wall of intimidating technical text. Add to that the gaps in technical knowledge and understanding as well as differences in jargon and we often end up with walls of text and frequent churn in the comments in order to arrive at a solution. Thankfully, the Community offers some great rich media features like videos! With that in mind, I am very excited to kick off the a new webcast series called Code Creative! With Code Creative, I will have the opportunity to answer questions by demonstrating techniques rather than just explaining them.</p>
-
 <p>I have been kicking around the idea of starting a webcast series dedicated to answering Community questions for a while and found the perfect opportunity with a question from <a href="https://community.servicenow.com/people/VAIGAI.KOTHANDARAMAN">vaigai.kothandaraman.</a> In Episode 1, Vaigai wants to know how to create custom reports when the native reporting engine is unable to provide the right look and feel and I demonstrate a technique using HighCharts and a UI Page to wield absolute control over the data and the final report. This video demystifies a fairly advanced scripting technique that I have used to achieve some pretty amazing charts in the past and by the end I am sure the community will come up with some even more amazing ones!</p>
-
 <p>I hope you enjoy the video and I look forward to answering your questions in future episodes!</p>
-
 <p>Original Question: <a href="https://community.servicenow.com/thread/181930">Custom Chart Scripts</a></p>
-
 <p>Additional Charting Resources:</p>
-
 <ul>
 <li><a href="https://community.servicenow.com/external-link.jspa?url=http%3A%2F%2Fwiki.servicenow.com%2Findex.php%3Ftitle%3DUsing_UI_Pages_as_Gauges%23gsc.tab%3D0">Using UI Pages as Gauges - ServiceNow Wiki</a></li>
 <li><a href="https://community.servicenow.com/external-link.jspa?url=http%3A%2F%2Fwww.highcharts.com%2F">http://www.highcharts.com/</a></li>
 </ul>
-
 <p>Another Option for Custom Charts using the Legacy JFreeChart</p>
-
 <ul>
 <li><a href="https://community.servicenow.com/external-link.jspa?url=http%3A%2F%2Fwiki.servicenow.com%2Findex.php%3Ftitle%3DCustom_Charts_Plugin%23gsc.tab%3D0">Custom Chart Actions - ServiceNow Wiki</a></li>
 <li><a href="https://community.servicenow.com/external-link.jspa?url=http%3A%2F%2Fwiki.servicenow.com%2Findex.php%3Ftitle%3DCustom_Chart_Definitions%23gsc.tab%3D0">Custom Chart Definitions - ServiceNow Wiki</a></li>
 <li><a href="https://community.servicenow.com/external-link.jspa?url=http%3A%2F%2Fwiki.servicenow.com%2Findex.php%3Ftitle%3DCustom_Chart_Rendering%23gsc.tab%3D0">Custom Chart Rendering - ServiceNow Wiki</a></li>
 </ul>
-
 <p>Here is the UI Page used in the video:</p>
 <div class="highlight"><pre class="chroma"><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34; ?&gt;</span>  
 <span class="nt">&lt;j:jelly</span> <span class="na">trim=</span><span class="s">&#34;false&#34;</span> <span class="na">xmlns:j=</span><span class="s">&#34;jelly:core&#34;</span> <span class="na">xmlns:g=</span><span class="s">&#34;glide&#34;</span> <span class="na">xmlns:j2=</span><span class="s">&#34;null&#34;</span> <span class="na">xmlns:g2=</span><span class="s">&#34;null&#34;</span><span class="nt">&gt;</span>  
-    <span class="nt">&lt;script</span> <span class="na">type=</span><span class="s">&#34;text/javascript&#34;</span> <span class="na">src=</span><span class="s">&#34;/scripts/GlideV2ChartingIncludes.jsx?v=10-19-2014_0741&#34;</span><span class="nt">&gt;&lt;/script&gt;</span>  
-    <span class="nt">&lt;g2:evaluate&gt;</span>  
+    <span class="nt">&lt;script</span> <span class="na">type=</span><span class="s">&#34;text/javascript&#34;</span> <span class="na">src=</span><span class="s">&#34;/scripts/GlideV2ChartingIncludes.jsx?v=10-19-2014_0741&#34;</span><span class="nt">&gt;</span><span class="nt">&lt;/script&gt;</span>  
+    <span class="nt">&lt;g2:evaluate</span><span class="nt">&gt;</span>  
         var openQuery = &#39;stateIN1,2,3,4,5&#39;,  
             resolvedQuery = &#39;state=6^resolved_atONToday@javascript:gs.daysAgoStart(0)@javascript:gs.daysAgoEnd(0)&#39;,  
             closedQuery = &#39;state=7^closed_atONToday@javascript:gs.daysAgoStart(0)@javascript:gs.daysAgoEnd(0)&#39;,  
@@ -244,9 +235,9 @@
         series = new JSON().encode(series);  
         categories = new JSON().encode(categories);  
     <span class="nt">&lt;/g2:evaluate&gt;</span>  
-    <span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">&#34;wide&#34;</span><span class="nt">&gt;&lt;tr&gt;&lt;td</span> <span class="na">align=</span><span class="s">&#34;center&#34;</span><span class="nt">&gt;</span>  
-        <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&#34;custom_report&#34;</span> <span class="na">class=</span><span class="s">&#34;highcharts-container&#34;</span> <span class="na">style=</span><span class="s">&#34;position: static; overflow: hidden; width: 650px; height: 450px; text-align: left; line-height: normal; z-index: 0; font-family: &#39;Lucida Grande&#39;, &#39;Lucida Sans Unicode&#39;, Verdana, Arial, Helvetica, sans-serif; font-size: 12px;&#34;</span><span class="nt">&gt;&lt;/div&gt;</span>  
-    <span class="nt">&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</span>  
+    <span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">&#34;wide&#34;</span><span class="nt">&gt;</span><span class="nt">&lt;tr</span><span class="nt">&gt;</span><span class="nt">&lt;td</span> <span class="na">align=</span><span class="s">&#34;center&#34;</span><span class="nt">&gt;</span>  
+        <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&#34;custom_report&#34;</span> <span class="na">class=</span><span class="s">&#34;highcharts-container&#34;</span> <span class="na">style=</span><span class="s">&#34;position: static; overflow: hidden; width: 650px; height: 450px; text-align: left; line-height: normal; z-index: 0; font-family: &#39;Lucida Grande&#39;, &#39;Lucida Sans Unicode&#39;, Verdana, Arial, Helvetica, sans-serif; font-size: 12px;&#34;</span><span class="nt">&gt;</span><span class="nt">&lt;/div&gt;</span>  
+    <span class="nt">&lt;/td&gt;</span><span class="nt">&lt;/tr&gt;</span><span class="nt">&lt;/table&gt;</span>  
     <span class="nt">&lt;script</span> <span class="na">type=</span><span class="s">&#34;text/javascript&#34;</span><span class="nt">&gt;</span>  
             var chart1 = new Highcharts.Chart({  
                 chart: {  
@@ -274,7 +265,8 @@
                 series: $[series]  
             });  
     <span class="nt">&lt;/script&gt;</span>  
-<span class="nt">&lt;/j:jelly&gt;</span></code></pre></div>
+<span class="nt">&lt;/j:jelly&gt;</span>
+</code></pre></div>
       </div>
 
       <a class="u-url" href="/blog/how-to-build-custom-charts-and-reports" hidden></a>

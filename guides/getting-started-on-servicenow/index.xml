@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Getting Started on ServiceNow on CodeCreative | A ServiceNow Blog</title>
@@ -39,8 +39,7 @@ Each instance can run multiple applications side by side, so a single instance c
       <description>Objective: Obtain and login to ServiceNow Personal Developer Instance
 Obtaining ServiceNow Personal Developer Instance (PDI) is your first step to exploring the full potential of the platform and furthering your skills with it. Let&amp;rsquo;s get started!
 Exercise Follow the below instructions to complete the exercise:
- In a web browser, navigate to https://developer.servicenow.com/
- Note: Create an account if you do not already have one  Log in to your account</description>
+ In a web browser, navigate to https://developer.servicenow.com/   Note: Create an account if you do not already have one   Log in to your account</description>
     </item>
     
     <item>
@@ -50,11 +49,11 @@ Exercise Follow the below instructions to complete the exercise:
       
       <guid>https://codecreative.io/guides/getting-started-on-servicenow/navigating-the-ui/</guid>
       <description>Objective: Practice basic ServiceNow usage including:
- Navigating ServiceNow
- Viewing records in lists and forms
+  Navigating ServiceNow
+  Viewing records in lists and forms
   Now that we have a Personal Developer Instance, let&amp;rsquo;s learn how to get around and handle the basics of using ServiceNow. These techniques will set the foundation for everything else you can do with ServiceNow.
 Exercise Follow the below instructions to complete the exercise:
- Log in to your Personal Developer Instance</description>
+  Log in to your Personal Developer Instance</description>
     </item>
     
     <item>
@@ -65,8 +64,8 @@ Exercise Follow the below instructions to complete the exercise:
       <guid>https://codecreative.io/guides/getting-started-on-servicenow/filtering-records-in-the-list-view/</guid>
       <description>Objective: Practice filtering records in the list view:
 Mastering the list view is one of the more critical skills for new ServiceNow users. In this first List View exercise, we&amp;rsquo;ll focus on different ways of filtering records.
-Exercise  In your Personal Developer Instance, navigate to Incident &amp;gt; All
-  Using the list header search, find all Incidents containing the Short Description SAP (Learn more about the list header search)</description>
+Exercise   In your Personal Developer Instance, navigate to Incident &amp;gt; All
+   Using the list header search, find all Incidents containing the Short Description SAP (Learn more about the list header search)</description>
     </item>
     
     <item>
@@ -77,7 +76,7 @@ Exercise  In your Personal Developer Instance, navigate to Incident &amp;gt; All
       <guid>https://codecreative.io/guides/getting-started-on-servicenow/creating-and-editing-records/</guid>
       <description>Objective: Practice creating and editing records in the list and form view:
 ServiceNow wouldn&amp;rsquo;t be very useful if you couldn&amp;rsquo;t change the records. Thankfully, there are many different ways to change the data as long as the user has permission. If you are operating in your personal developer instance, you should have admin privileges which will let you edit just about anything.
-Exercise  In your Personal Developer Instance, navigate to Incident &amp;gt; Open</description>
+Exercise   In your Personal Developer Instance, navigate to Incident &amp;gt; Open</description>
     </item>
     
     <item>
@@ -87,10 +86,10 @@ Exercise  In your Personal Developer Instance, navigate to Incident &amp;gt; Ope
       
       <guid>https://codecreative.io/guides/getting-started-on-servicenow/next-steps/</guid>
       <description>Over the course of this guide, we have covered some basic knowledge and foundational skills for getting started on ServiceNow. At this point you should be able to:
- Obtain a Personal Developer Instance
- Navigate the baseline UI
- Navigate records using the form and list views
- Create and edit records using the form and list views
+  Obtain a Personal Developer Instance
+  Navigate the baseline UI
+  Navigate records using the form and list views
+  Create and edit records using the form and list views
   With practice and persistence, you can grow these skills to learn the many capabilities that ServiceNow has to offer.</description>
     </item>
     

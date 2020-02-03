@@ -58,18 +58,18 @@
     "@type" : "BlogPosting",
     "mainEntityOfPage": {
          "@type": "WebPage",
-         "@id": "https://codecreative.io/"
+         "@id": "https:\/\/codecreative.io\/"
     },
     "name" : "Istanbul CMS iFrames Are Missing Theme CSS",
     "headline" : "Istanbul CMS iFrames Are Missing Theme CSS",
-    "description" : "Upgrade warning here for CMS users upgrading to Istanbul. It should be minor for most but keep an eye out for it especially if you have customized Form and List styles within your iFrames heavily.","image": "https://codecreative.io/blog/istanbul-cms-iframes-are-missing-theme-css/images/social.png","inLanguage" : "en-US",
+    "description" : "Upgrade warning here for CMS users upgrading to Istanbul. It should be minor for most but keep an eye out for it especially if you have customized Form and List styles within your iFrames heavily.","image": "https:\/\/codecreative.io\/blog\/istanbul-cms-iframes-are-missing-theme-css\/images\/social.png","inLanguage" : "en-US",
       "author" : "Travis Toulson",
       "creator" : "Travis Toulson","publisher": "Travis Toulson",
     "copyrightHolder" : "Travis Toulson",
     "copyrightYear" : "2017",
-    "datePublished": "2017-02-09 01:08:00 &#43;0000 UTC",
-    "dateModified" : "2017-02-09 01:08:00 &#43;0000 UTC",
-    "url" : "https://codecreative.io/blog/istanbul-cms-iframes-are-missing-theme-css/",
+    "datePublished": "2017-02-09 01:08:00 \x2b0000 UTC",
+    "dateModified" : "2017-02-09 01:08:00 \x2b0000 UTC",
+    "url" : "https:\/\/codecreative.io\/blog\/istanbul-cms-iframes-are-missing-theme-css\/",
     "wordCount" : "779",
     "keywords" : [ "Blog" ]
 }
@@ -143,47 +143,28 @@
       </header>
 
       <div class="post-content e-content" itemprop="articleBody">
-        
-
-<p><strong>UPDATE (04/09/2017):</strong> This issue appears to be fixed in Istanbul Patch 3</p>
-
-<hr />
-
+        <p><strong>UPDATE (04/09/2017):</strong> This issue appears to be fixed in Istanbul Patch 3</p>
+<hr>
 <p>If your organization is using CMS and you are considering upgrading to Istanbul, be on the lookout for a potential issue. Theme CSS styles may not be applied to iFrame content in the CMS for some instances after upgrading to Istanbul. ServiceNow is already looking into the issue so hopefully we will have a resolution soon but I know of a few instances out there that might find this to be a deal breaker for an upgrade so I thought it best to advise the Community.</p>
-
 <p>See the <a href="https://community.servicenow.com/thread/252706">Community post</a> that led to this discovery for more information.</p>
-
 <h2 id="am-i-affected">Am I Affected?</h2>
-
 <p>Instances which match all of the following criteria may be affected:</p>
-
 <ul>
 <li>Upgrading to Istanbul from a previous release</li>
 <li>Using CMS</li>
 <li>Using iFrame content within the CMS</li>
 <li>CMS Theme contains styles which target the iFrame content</li>
 </ul>
-
 <p>I will point out though that not all instances have been able to replicate this issue and I am not sure why yet. As of this writing, I have replicated this in three out of three instances that I have tested in (all Developer instances), a Community member has replicated it, and ServiceNow was not able to replicate it at first but has since replicated it at least once. So there is a chance that some instances are unaffected.</p>
-
 <h2 id="what-are-the-risks">What are the risks?</h2>
-
 <p>In Helsinki instances and prior, it was common to write CSS styles in the theme that were designed to change the look and feel of <strong>iFrame content</strong>: a phrase which here means any ServiceNow form views, list views, and UI Pages which, barring a more elegant option, were embedded in the CMS causing immediate and unspeakable pain to the developer (Sorry, I&rsquo;ve been watching too much &ldquo;A Series of Unfortunate Events&rdquo; lately). Generally, the CSS styles might be used to hide the form header, change the fonts to fit with the CMS theme, change colors, or hide certain features from the end user view.</p>
-
 <p>After upgrading to Istanbul, the iFrame content will appear unchanged by the CSS styles. In other words, the forms will have their header and all native styles in tact. For many, this will be a minor cosmetic change but as I indicated above, some folks have invested quite a bit into modifying iFrame content and the impact to user experience could be jarring.</p>
-
 <h2 id="what-should-i-do">What Should I Do?</h2>
-
 <p>If you are considering upgrading to Istanbul, I wouldn&rsquo;t let this deter you just yet. My recommendation is to upgrade a dev instance with your CMS and see if your instance is affected. If not, happy day! If you do find issues then you can determine if they are merely cosmetic or will truly impact user experience.</p>
-
 <p>You can use this as an opportunity to consider investing in an upgrade to Service Portal</p>
-
 <p>If you find that your user experience is negatively impacted then you can make the decision to hold off on upgrading to Istanbul. Be sure to submit an Incident to ServiceNow so that you will receive updates when a fix or workaround is provided. Also, you can use this as an opportunity to consider investing in an upgrade to Service Portal. What? I&rsquo;m a big fan of it.</p>
-
 <h2 id="steps-to-reproduce">Steps to Reproduce</h2>
-
 <p>For those wanting to experience this issue first hand and possibly help troubleshoot, here are the steps to reproduce:</p>
-
 <ol>
 <li>Grab a Helsinki or earlier instance</li>
 <li>Add CSS Stylesheet to theme to hide the Form Navbar in iFramed content</li>
@@ -195,50 +176,40 @@
 <li>Verify that the iFramed content is still using the ess prefix using the Web Inspector</li>
 <li>Verify that the CSS stylesheet is NOT applied to the iFramed content using the Web Inspector Resource tab</li>
 </ol>
-
 <h2 id="example">Example</h2>
-
 <p>Below are some screenshots from one of my attempts. In my attempt, I used CSS to hide the native form header as indicated in the Community post using a Helsinki Instance. I then upgraded the instance, checked the CMS and found the form header was visible. I also tried this on a Geneva &gt; Helsinki &gt; Istanbul upgrade with the same results.</p>
-
 <h3 id="helsinki-instance">Helsinki Instance</h3>
-
 <figure>
   <img src="images/CMS+Stylesheet.png" />
   <figcaption>
     Stylesheet Created for CMS
   </figcaption>
 </figure>
-
 <figure>
   <img src="images/CMS+Header+Successfully+Removed.png" />
   <figcaption>
     CMS Header Successfully Removed
   </figcaption>
 </figure>
-
 <figure>
   <img src="images/CSS+Is+Included+In+The+CMS+Page.png" />
   <figcaption>
     CSS Is Included In The CMS Page
   </figcaption>
 </figure>
-
 <h3 id="istanbul-instance-after-upgrade">Istanbul Instance After Upgrade</h3>
-
 <figure>
   <img src="images/Istanbul+CMS+Header+Still+Visible.png" />
   <figcaption>
     Istanbul CMS Header Is Still Visible
   </figcaption>
 </figure>
-
 <figure>
   <img src="images/CSS+No+Longer+In+CMS.png" />
   <figcaption>
     CSS Stylesheets Are No Longer In The CMS
   </figcaption>
 </figure>
-
 <p>Were you able to replicate this issue? Got any tips or workarounds? Let us know!</p>
 
       </div>

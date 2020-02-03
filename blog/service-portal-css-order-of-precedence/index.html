@@ -58,18 +58,18 @@
     "@type" : "BlogPosting",
     "mainEntityOfPage": {
          "@type": "WebPage",
-         "@id": "https://codecreative.io/"
+         "@id": "https:\/\/codecreative.io\/"
     },
     "name" : "Service Portal CSS Order of Precedence",
     "headline" : "Service Portal CSS Order of Precedence",
-    "description" : "Since CSS evaluation is highly dependent on it&#39;s order, it helps to understand how the different Service Portal CSS fields get ordered and processed. Unfortunately, the story is more complicated than most documentation reveals.","image": "https://codecreative.io/blog/service-portal-css-order-of-precedence/images/social.png","inLanguage" : "en-US",
+    "description" : "Since CSS evaluation is highly dependent on it\x27s order, it helps to understand how the different Service Portal CSS fields get ordered and processed. Unfortunately, the story is more complicated than most documentation reveals.","image": "https:\/\/codecreative.io\/blog\/service-portal-css-order-of-precedence\/images\/social.png","inLanguage" : "en-US",
       "author" : "Travis Toulson",
       "creator" : "Travis Toulson","publisher": "Travis Toulson",
     "copyrightHolder" : "Travis Toulson",
     "copyrightYear" : "2019",
-    "datePublished": "2019-04-21 17:55:11 &#43;0000 UTC",
-    "dateModified" : "2019-04-21 17:55:11 &#43;0000 UTC",
-    "url" : "https://codecreative.io/blog/service-portal-css-order-of-precedence/",
+    "datePublished": "2019-04-21 17:55:11 \x2b0000 UTC",
+    "dateModified" : "2019-04-21 17:55:11 \x2b0000 UTC",
+    "url" : "https:\/\/codecreative.io\/blog\/service-portal-css-order-of-precedence\/",
     "wordCount" : "1231",
     "keywords" : [ "Blog" ]
 }
@@ -143,27 +143,18 @@
       </header>
 
       <div class="post-content e-content" itemprop="articleBody">
-        
-
-<p>In my work on the <em>Getting Started with Service Portal</em> Guide, I decided to include some information on the order the CSS is processed but truth be told I wasn&rsquo;t 100% certain on it myself. Naturally I hit up the ServiceNow Docs and came across the following image:</p>
-
+        <p>In my work on the <em>Getting Started with Service Portal</em> Guide, I decided to include some information on the order the CSS is processed but truth be told I wasn&rsquo;t 100% certain on it myself. Naturally I hit up the ServiceNow Docs and came across the following image:</p>
 <figure>
   <img src="images/CSSHierarchy-Diagram.png" />
   <figcaption>
     Not Entirely Accurate Hierarchy of style application in the Service Portal
   </figcaption>
 </figure>
-
 <p>Using that as a basis, I began writing an article on the process. But the more I wrote, the more I realized my experiences didn&rsquo;t line up with the documentation. There seemed to be so many caveats that I started to doubt the docs on this matter. So I scoured all the usual Service Portal haunts to try and find something that could account for my experiences. But most of what I found were slightly different versions of the same story.</p>
-
 <p>So I put on my thinking cap and started to question the CSS Hierarchy chart and I realized that it ignores a fairly critical piece of information: Service Portal uses a SASS preprocessor, not just CSS. This would be irrelevant if Service Portal compiled a single minified CSS file as in many traditional front-end development build processes. But as I began to reverse engineer Service Portal&rsquo;s CSS process I realized that it generates multiple smaller CSS blobs, many of which are embedded in &lt;style&gt; tags in the header.</p>
-
 <p>It turns out that our simple CSS hierarchy is actually a two stage process which if not understood and carefully honored can yield some downright weird results. Let&rsquo;s tackle this the same way I did, by working backwards:</p>
-
 <h2 id="stage-2-output-css-to-the-html-header">Stage 2: Output CSS to the HTML Header</h2>
-
 <p>At the end of the process, the &lt;style&gt; tags are rendered out to the final HTML page. To understand this better, we can easily use our Web Inspector to identify the CSS that is rendered. I added a single class based declaration to each of the major locations for CSS in Service Portal where each class was named for the record on which it appeared:</p>
-
 <ul>
 <li>.portal-css: Portal CSS variable field</li>
 <li>.theme-css: Theme CSS variable field</li>
@@ -172,9 +163,7 @@
 <li>.widget-css: The Widget CSS - SCSS field</li>
 <li>.instance-css: The Widget Instance CSS field</li>
 </ul>
-
 <p>By reviewing the output in the Web Inspector, I identified that the Portal and Theme styles were all over the place (more on this in a moment) but the others were ordered consistently. Here is the overall order that the CSS blobs appear in the final HTML from top to bottom (highest precedence therefore is bottom to top due to the cascading nature of CSS):</p>
-
 <ol>
 <li>ServiceNow Specific StyleSheet (oddly called CSS Includes)</li>
 <li>Generated Bootstrap CSS</li>
@@ -182,18 +171,14 @@
 <li>CSS Include&rsquo;s Style Sheet record&rsquo;s CSS</li>
 <li>Font-Awesome</li>
 <li>Page record&rsquo;s CSS</li>
-<li>Alternating Sequence of:
-
+<li>Alternating Sequence of:</li>
+</ol>
 <ul>
 <li>Widget record&rsquo;s CSS</li>
 <li>Widget&rsquo;s Instance records&rsquo; Stylesheets</li>
-</ul></li>
-</ol>
-
+</ul>
 <p>But wait, what happened to the Portal and Theme CSS output? Well, those are officially CSS <strong>Variable</strong> fields&hellip; or more accurately <strong>SASS Variable</strong> fields. Which leads us to the first step in the process:</p>
-
 <h2 id="stage-1-scss-build-pipeline">Stage 1: SCSS Build Pipeline</h2>
-
 <p>Roughly half of the CSS blobs above are built from SCSS with Portal, Theme, and Bootstrap / ServiceNow SCSS Variables injected in. Each of those blobs is processed individually which looks something like this:</p>
 <div class="highlight"><pre class="chroma"><code class="language-SCSS" data-lang="SCSS"><span class="cm">/* Portal CSS Variables */</span>
 <span class="nv">$portal-scss</span><span class="o">:</span> <span class="mh">#fff</span><span class="p">;</span>
@@ -205,122 +190,97 @@
 <span class="nv">$bootstrap-scss</span><span class="o">:</span> <span class="mh">#000</span> <span class="nv">!default</span><span class="p">;</span>
 
 <span class="cm">/* CSS Field / Stylesheet to be processed */</span>
-<span class="nc">.page-css</span> <span class="p">{</span>
-  <span class="nt">color</span><span class="nd">:</span> <span class="nn">#fff</span><span class="o">;</span>
-<span class="p">}</span></code></pre></div>
-<p>The build pipeline basically creates a concatenated file composed of:</p>
-
+<span class="nc">.</span><span class="nc">page-css</span> <span class="p">{</span>
+  <span class="nt">color</span><span class="nd">:</span> <span class="nn">#</span><span class="nn">fff</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><p>The build pipeline basically creates a concatenated file composed of:</p>
 <ul>
 <li>Portal CSS Variables field</li>
 <li>Theme CSS Variables field</li>
 <li>Bootstrap / ServiceNow CSS Variable sheet</li>
 <li>Whatever final page is being built</li>
 </ul>
-
 <p>This concatenated file build process is used for each of the following files and fields:</p>
-
 <p><strong>Only one file</strong></p>
-
 <ul>
 <li>Bootstrap</li>
 </ul>
-
 <p><strong>One File Per Record</strong></p>
-
 <ul>
 <li>CSS Include</li>
 <li>Page</li>
 <li>Widget</li>
 <li>Widget Instance</li>
 </ul>
-
 <p>Now, this has <strong>massive</strong> implications for Portal and Theme CSS Variable Fields. Any style declarations (CSS selectors, not variables) in Portal or Theme CSS Variable fields will be duplicated for each style tag rendered in this build process.</p>
-
 <p>And that royally jacks up the nice pretty CSS Hierarchy diagram above.</p>
-
 <h2 id="more-complexities">More Complexities</h2>
-
 <p>Now, if all that wasn&rsquo;t enough to make your head spin, let&rsquo;s pile on a little. All of this CSS Hierarchy business is further mucked up by the fact that source order isn&rsquo;t even the most important factor in the <strong>cascading</strong> nature of style sheets. We can&rsquo;t simply say that because one style tag comes last, it takes precedence and overwrites other styles. That&rsquo;s not how this works. That&rsquo;s not how <strong>any</strong> of this works.</p>
-
 <p>CSS cascades according to multiple criteria in the following precedence order:</p>
-
 <ol>
 <li>Importance</li>
 <li>Specificity</li>
 <li>Source Order</li>
 </ol>
-
 <p>That said, understanding the sequence of the style sheets in Service Portal <strong>is</strong> still an important piece of the equation. All else being equal, source order is the final decision maker.</p>
-
 <h2 id="conclusion">Conclusion</h2>
-
 <p>Woop de doo, what does it all mean Basil? Here&rsquo;s what you really want. There are two things we need to understand: the final sequence of the CSS sheets and the sequence of the SCSS sheets in the build process.</p>
-
 <h3 id="final-css-sequence">Final CSS Sequence</h3>
-
 <ol>
 <li>ServiceNow Specific StyleSheet (oddly called CSS Includes)</li>
-<li>Generated Bootstrap CSS
-
+<li>Generated Bootstrap CSS</li>
+</ol>
 <ul>
 <li>Including Portal and Theme records&rsquo; CSS at the top of this blob</li>
-</ul></li>
+</ul>
+<ol start="3">
 <li>Patch</li>
-<li>Each CSS Include&rsquo;s Style Sheet record&rsquo;s CSS
-
+<li>Each CSS Include&rsquo;s Style Sheet record&rsquo;s CSS</li>
+</ol>
 <ul>
 <li>Including Portal and Theme records&rsquo; CSS at the top of each blob</li>
-</ul></li>
+</ul>
+<ol start="5">
 <li>Font-Awesome</li>
-<li>Page record&rsquo;s CSS
-
+<li>Page record&rsquo;s CSS</li>
+</ol>
 <ul>
 <li>Including Portal and Theme records&rsquo; CSS at the top of this blob</li>
-</ul></li>
-<li>Alternating Sequence of:
-
+</ul>
+<ol start="13">
+<li>Alternating Sequence of:</li>
+</ol>
 <ul>
 <li>Each Widget record&rsquo;s CSS
-
 <ul>
 <li>Including Portal and Theme record CSS at the top of each blob</li>
-</ul></li>
+</ul>
+</li>
 <li>Each Widget&rsquo;s Instance records&rsquo; Stylesheets
-
 <ul>
 <li>Including Portal and Theme record CSS at the top of each blob</li>
-</ul></li>
-</ul></li>
-</ol>
-
+</ul>
+</li>
+</ul>
 <p>You&rsquo;ll notice the repetition of the Portal and Theme CSS throughout the final sequence. This is dependent on whether or not any CSS styles are declared in those variable fields. This is why you should likely steer clear of CSS styles in the Theme and Portal records, it eliminates their duplication, simplifies the final output, and makes the cascading more predictable.</p>
-
 <h3 id="scss-build-order">SCSS Build Order</h3>
-
 <ol>
 <li>Portal CSS Variable field</li>
 <li>Theme CSS Variable field</li>
 <li>Bootstrap / ServiceNow CSS Variables</li>
 <li>Bootstrap / CSS Include / Page / Widget / Widget Instance</li>
 </ol>
-
 <p>This is important to note since SCSS variables <strong>will</strong> override unless the <strong>!default</strong> flag is appended to the end of the variable. Due to this, you will likely want all of your Theme variables to be !default since you will likely want to vary your theme on a portal by portal basis.</p>
-
 <p>Also of note, variables in CSS Includes, Pages, Widgets, and Widget Instances are not processed with one another. Stated another way, Widget Instances can not use Widget SCSS Variables. Anything on the 4th bullet of the build order has no knowledge each other.</p>
-
 <h3 id="final-word">Final Word</h3>
-
 <p>So as a quick summary, the following image is an approximation of what actually happens in the CSS build and output process:</p>
-
 <figure>
   <img src="images/service-portal-sass-css-build-process.png" />
   <figcaption>
     Service Portal SASS - CSS Build Process
   </figcaption>
 </figure>
-
 <p>Which leaves us with a few takeaways:</p>
-
 <ol>
 <li>Avoid using CSS styles in Portal and Theme records (use variables only)</li>
 <li>Use <strong>!default</strong> on variables in the Theme record in Kingston and later</li>

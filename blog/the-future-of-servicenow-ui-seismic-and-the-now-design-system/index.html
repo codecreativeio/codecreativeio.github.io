@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+  <head><meta charset="utf-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Julius+Sans+One|Slabo+13px|Open+Sans:300" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+<link rel="stylesheet" href="https://codecreative.io/assets/main.min.f3d1ef93d0edf3bd8b05a1c5c552fed91f01e0e9624c4f1e35f60b3339173f9d.css">
+<title>The Future of ServiceNow UI: Seismic and the Now Design System | CodeCreative | A ServiceNow Blog</title>
+<meta name="description" content="In case you missed it over the weekend, I posted the video above to youtube covering the new UX system that powers ServiceNow Workspaces. And according to reliable information, this system will be eventually taking over most, if not all, of the web UI&#39;s at ServiceNow including Service Portal.">
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?d=20181101201248">
+<link rel="canonical" href="https://codecreative.io/blog/the-future-of-servicenow-ui-seismic-and-the-now-design-system/"><meta property="og:site_name" content="CodeCreative | A ServiceNow Blog">
+<meta property="og:title" content="The Future of ServiceNow UI: Seismic and the Now Design System">
+<meta property="og:url" content="https://codecreative.io/blog/the-future-of-servicenow-ui-seismic-and-the-now-design-system/">
+
+<meta property="og:type" content="article">
+
+<meta property="og:description" content="In case you missed it over the weekend, I posted the video above to youtube covering the new UX system that powers ServiceNow Workspaces. And according to reliable information, this system will be eventually taking over most, if not all, of the web UI&#39;s at ServiceNow including Service Portal.">
+
+  
+    <meta property="og:image" content="https://codecreative.io/blog/the-future-of-servicenow-ui-seismic-and-the-now-design-system/images/social.png">
+  
+
+<meta itemprop="name" content="The Future of ServiceNow UI: Seismic and the Now Design System">
+<meta itemprop="url" content="https://codecreative.io/blog/the-future-of-servicenow-ui-seismic-and-the-now-design-system/">
+<meta itemprop="description" content="In case you missed it over the weekend, I posted the video above to youtube covering the new UX system that powers ServiceNow Workspaces. And according to reliable information, this system will be eventually taking over most, if not all, of the web UI&#39;s at ServiceNow including Service Portal.">
+
+  
+  <meta itemprop="thumbnailUrl" content="https://codecreative.io/blog/the-future-of-servicenow-ui-seismic-and-the-now-design-system/images/social.png">
+  <link rel="image_src" href="https://codecreative.io/blog/the-future-of-servicenow-ui-seismic-and-the-now-design-system/images/social.png">
+  <meta itemprop="image" content="https://codecreative.io/blog/the-future-of-servicenow-ui-seismic-and-the-now-design-system/images/social.png">
+  
+
+
+<meta name="twitter:title" content="The Future of ServiceNow UI: Seismic and the Now Design System">
+
+<meta name="twitter:image" content="https://codecreative.io/blog/the-future-of-servicenow-ui-seismic-and-the-now-design-system/images/social.png">
+
+<meta name="twitter:url" content="https://codecreative.io/blog/the-future-of-servicenow-ui-seismic-and-the-now-design-system/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:description" content="In case you missed it over the weekend, I posted the video above to youtube covering the new UX system that powers ServiceNow Workspaces. And according to reliable information, this system will be eventually taking over most, if not all, of the web UI&#39;s at ServiceNow including Service Portal.">
+
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-90280965-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-90280965-1');
+</script>
+
+<script type="application/ld+json">
+{
+    "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/codecreative.io\/"
+    },
+    "name" : "The Future of ServiceNow UI: Seismic and the Now Design System",
+    "headline" : "The Future of ServiceNow UI: Seismic and the Now Design System",
+    "description" : "In case you missed it over the weekend, I posted the video above to youtube covering the new UX system that powers ServiceNow Workspaces. And according to reliable information, this system will be eventually taking over most, if not all, of the web UI\x27s at ServiceNow including Service Portal.","image": "https:\/\/codecreative.io\/blog\/the-future-of-servicenow-ui-seismic-and-the-now-design-system\/images\/social.png","inLanguage" : "en-US",
+      "author" : "Travis Toulson",
+      "creator" : "Travis Toulson","publisher": "Travis Toulson",
+    "copyrightHolder" : "Travis Toulson",
+    "copyrightYear" : "2020",
+    "datePublished": "2020-02-03 12:00:00 \x2b0000 UTC",
+    "dateModified" : "2020-02-03 12:00:00 \x2b0000 UTC",
+    "url" : "https:\/\/codecreative.io\/blog\/the-future-of-servicenow-ui-seismic-and-the-now-design-system\/",
+    "wordCount" : "849",
+    "keywords" : [ "Blog" ]
+}
+</script>
+
+
+  </head>
+  <body><header role="banner">
+  <h1 class="logo">
+      <a href="/">
+         <img src="/assets/codecreativelogo.png" alt="The Future of ServiceNow UI: Seismic and the Now Design System" />
+         <span class="sr-only">CodeCreative Logo, click to navigate home</span>
+      </a>
+    </h1>
+
+  <div class="menuToggle">
+    <button class="hamburger" type="button" onclick="toggleMenu()">
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+      <span class="sr-only">Toggle Menu</span>
+    </button>
+  </div>
+
+  <nav class="fullNav">
+    <ul>
+      
+      
+        <li title="Home">
+          <a class="" href="/">Home</a>
+        </li>
+      
+        <li title="Blog">
+          <a class="" href="/blog/">Blog</a>
+        </li>
+      
+        <li title="Guides">
+          <a class="" href="/guides/">Guides</a>
+        </li>
+      
+        <li title="About">
+          <a class="" href="/about/">About</a>
+        </li>
+      
+        <li title="Contact">
+          <a class="" href="/contact/">Contact</a>
+        </li>
+      
+    </ul>
+  </nav>
+</header>
+<main>
+  <header class="banner">
+    <h1>The Future of ServiceNow UI: Seismic and the Now Design System</h1>
+  </header>
+
+  <div class="content text-content">
+    <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+      <header class="post-header">
+        <h1 class="post-title p-name sr-only" itemprop="name headline">The Future of ServiceNow UI: Seismic and the Now Design System</h1>
+        <p class="post-meta">
+            <time class="dt-published" datetime="2020-02-03T12:00:00Z" itemprop="datePublished">
+            February 03, 2020
+            </time>
+          
+            
+            • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">Travis Toulson</span></span>
+          
+        </p>
+      </header>
+
+      <div class="post-content e-content" itemprop="articleBody">
+        <div class="videoWrapper">
+  <iframe src="//www.youtube.com/embed/EJcGhTMQShk?wmode=opaque&amp;enablejsapi=1" height="480" width="854" scrolling="no" frameborder="0" allowfullscreen="">
+  </iframe>
+</div>
+<p>The alternate working title of this article was <em>Jace Was Right</em>. In case you missed it over the weekend, I posted the video above to youtube covering the new UX system that powers ServiceNow Workspaces. And according to reliable information, this system will be eventually taking over most, if not all, of the web UI&rsquo;s at ServiceNow including Service Portal. While there is a good chance that Service Portal will still be the primary choice for new end user interfaces for at least the next year, it&rsquo;s worth exploring what this new UX system promises for the future.</p>
+<p>With that in mind, I&rsquo;d like to answer some of the common questions that I&rsquo;ve been asked about this framework. Keep in mind, there isn&rsquo;t any documentation yet and so everything in this article is speculative based on my own research into the framework&rsquo;s code, construction, and a number of conversations.</p>
+<h2 id="can-i-use-react-vue-angular-etc">Can I use React (Vue, Angular, etc)?</h2>
+<p>Technically, yes <strong>but</strong> this is not likely the intended use. In my video, I hack a React component into the system and that is exactly how it should be considered&hellip; a hack. In reality, it appears that Seismic will expose a proprietary ServiceNow component system that operates using <a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components">Web Components</a> as opposed to any specific JS framework.</p>
+<figure>
+  <img src="images/anticipated-ux-architecture.png" />
+  <figcaption>
+    Anticipated UX Architecture
+  </figcaption>
+</figure>
+<p>The above image shows what I anticipate the UX architecture to be from a code standpoint. The proprietary component system appears to use JSX as the templating language and definitely seems inspired by React and Redux in many ways. But we will likely be encouraged to embed ServiceNow native components via custom elements such as sn-button, sn-table, and sn-form as opposed to hand crafting everything ourselves. Likewise, these components appear to be able to leverage ServiceNow exposed behaviors. In this way, ServiceNow could rewrite sn-button from a React component to a Vue component and our code would still work without an issue.</p>
+<p>In that way, ServiceNow will leverage various technologies under the hood of Seismic. We as customers I anticipate will leverage Seismic, not any other UI framework. So brush up on your JSX but anticipate leaving React at home!</p>
+<h2 id="how-will-we-build-these-components">How will we build these components?</h2>
+<p>It looks like we are going to get access to some sort of VS Code plugin with an embedded build tool. This will let us write components with an ES6 syntax using JSX providing a familiar modern UI development experience.</p>
+<figure>
+  <img src="images/anticipated-ux-component-build-process.png" />
+  <figcaption>
+    Anticipated UX Component Build Process
+  </figcaption>
+</figure>
+<p>This is quite a shift from the current Service Portal in browser experience but for experienced UI developers will likely be a seamless transition. On the other hand, many buisness crossover folks who are used to the everything in ServiceNow approach might have a bit of a learning curve.</p>
+<p>Ultimately, <a href="https://github.com/facebook/create-react-app">Create React App</a> should give you a decent idea of what the experience could feel like if you need to calm your nerves. If you are comfortable waiting patiently, I expect we&rsquo;ll have a much better idea by the time Knowledge 20 rolls around.</p>
+<h2 id="is-it-ready">Is it ready?</h2>
+<p>It doesn&rsquo;t appear so. It looks like Service Portal should still be the primary go to for end use interfaces at least for the next year, maybe two by my estimate. I would expect a similar roll out as Service Portal as well. We&rsquo;ll get a Helsinki &ldquo;there but not there release&rdquo;. We&rsquo;ll get a Geneva &ldquo;WHy did I get myself into this release&rdquo;. And then we&rsquo;ll get the &ldquo;I can&rsquo;t believe I ever lived without this&rdquo; release. To be honest, if ServiceNow waits until it&rsquo;s perfect to release it and skips the first two pain releases&hellip; I will be sad and disappointed. They have been doing quite a bit different recently, so we will see.</p>
+<p>Overall though, the initial rollout appears to be through Workspaces which are deisgned for fulfiller and internal users. Then the system will likely expand from there.</p>
+<h2 id="where-is-the-source-code-of-your-component">Where is the source code of your component?</h2>
+<p>Right, I did say I would give access to that didn&rsquo;t I. Again, keep in mind we won&rsquo;t likely be using React directly so this is just a hacked example. But if you want to take a look at my component&rsquo;s source code, you can download them here:</p>
+<div><a href="downloads/Source Script.jsx" download>Source Code</a></div>
+<div><a href="downloads/Compiled Script.js" download>Babel Compiled Code</a></div>
+<p>The source code is the script the ES6 module that I created, adapted from the Create React App. Once it was ready, I used BabelJS as a manual build process to create the compiled code. The compiled code, plus the function wrapper is what I injected into the ServiceNow UX Source Code table.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Overall, I think this system is very promising for the future of UI on ServiceNow. I love that fulfiller and requester UI&rsquo;s could potentially have a common component base. I also love the future proofing that Seismic appears to offer by acting as an abstraction layer over other technologies like React. The only thing I don&rsquo;t like is that it isn&rsquo;t 100% ready yet. It&rsquo;s hard to want to invest in Service Portal at this point knowing that something with a brighter future is right around the corner.</p>
+
+      </div>
+
+      <a class="u-url" href="/blog/the-future-of-servicenow-ui-seismic-and-the-now-design-system" hidden></a>
+    </article><div class="subscribe-form">
+  
+  <div id="mc_embed_signup">
+    <form action="https://codecreative.us14.list-manage.com/subscribe/post?u=98c1070493fa133df8ea08394&amp;id=f759c17295" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+      <div id="mc_embed_signup_scroll">
+        <h2>Subscribe</h2>
+        <div class="subtext">Sign up with your email address to receive news and updates.</div>
+        <div>
+          <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Email Address" required>
+
+          
+          <div class="sr-only" aria-hidden="true">
+            <input type="text" name="b_98c1070493fa133df8ea08394_f759c17295" tabindex="-1" value="">
+          </div>
+
+          <input type="submit" value="Sign Up" name="subscribe" id="mc-embedded-subscribe" class="button">
+        </div>
+      </div>
+    </form>
+  </div>
+  
+</div>
+</div>
+
+      </main><footer>
+  <div class="footer-content-wrap">
+    <p class="text-align-center">
+      <a href="/blog">Blog</a>
+      &nbsp;|&nbsp;
+      <a href="/guides">Guides</a>
+      &nbsp;|&nbsp;
+      <a href="/about">About</a>
+      &nbsp;|&nbsp;
+      <a href="/contact">Contact</a>
+    </p>
+    <div class="text-align-center">
+      
+    </div>
+  </div>
+</footer>
+<script type="text/javascript" src="/assets/main.js"></script>
+</body>
+</html>

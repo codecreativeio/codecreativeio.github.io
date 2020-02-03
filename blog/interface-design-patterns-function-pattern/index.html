@@ -58,18 +58,18 @@
     "@type" : "BlogPosting",
     "mainEntityOfPage": {
          "@type": "WebPage",
-         "@id": "https://codecreative.io/"
+         "@id": "https:\/\/codecreative.io\/"
     },
     "name" : "Interface Design Patterns: Function Pattern",
     "headline" : "Interface Design Patterns: Function Pattern",
-    "description" : "The function pattern is the simplest but also the most flexible interface design pattern for Script Includes. It is the foundation for the Revealing Module Pattern and can be used as a constructor or factory function for any of the other interface types.","image": "https://codecreative.io/blog/interface-design-patterns-function-pattern/images/social.png","inLanguage" : "en-US",
+    "description" : "The function pattern is the simplest but also the most flexible interface design pattern for Script Includes. It is the foundation for the Revealing Module Pattern and can be used as a constructor or factory function for any of the other interface types.","image": "https:\/\/codecreative.io\/blog\/interface-design-patterns-function-pattern\/images\/social.png","inLanguage" : "en-US",
       "author" : "Travis Toulson",
       "creator" : "Travis Toulson","publisher": "Travis Toulson",
     "copyrightHolder" : "Travis Toulson",
     "copyrightYear" : "2017",
-    "datePublished": "2017-09-15 15:30:00 &#43;0000 UTC",
-    "dateModified" : "2017-09-15 15:30:00 &#43;0000 UTC",
-    "url" : "https://codecreative.io/blog/interface-design-patterns-function-pattern/",
+    "datePublished": "2017-09-15 15:30:00 \x2b0000 UTC",
+    "dateModified" : "2017-09-15 15:30:00 \x2b0000 UTC",
+    "url" : "https:\/\/codecreative.io\/blog\/interface-design-patterns-function-pattern\/",
     "wordCount" : "547",
     "keywords" : [ "Blog" ]
 }
@@ -143,69 +143,50 @@
       </header>
 
       <div class="post-content e-content" itemprop="articleBody">
-        
-
-<p><a href="/blog/interface-design-patterns-for-script-includes">Back to Interface Design Patterns for Script Includes</a></p>
-
+        <p><a href="/blog/interface-design-patterns-for-script-includes">Back to Interface Design Patterns for Script Includes</a></p>
 <h2 id="introduction">Introduction</h2>
-
 <p>The function pattern is the simplest but also the most flexible interface design pattern for Script Includes. It is the foundation for the Revealing Module Pattern and can be used as a constructor or factory function for any of the other interface types. As a factory function, this pattern can provide a Scoped App with a flexible internal API that can easily evolve as complexity increases. Today, the function may handle the behavior, tomorrow it can evolve into a factory that returns the object which in turn handles the behavior. That said, this pattern is best used for simple one off functions such as Scripted Filters or Dynamic Filter Options.</p>
-
 <h2 id="problem-definition">Problem Definition</h2>
-
 <p>Department Managers want to be able to keep track of their team&rsquo;s IT requests and incidents but currently that means creating filters such as &lsquo;caller=jane,steve,bob,sue,etc&rsquo; every time they want to see a report or list filtered to their team members. We have been asked to provide an easy filter criteria that they can use to save time when creating these report slices. To accomplish this, we are going to use a dynamic filter option.</p>
-
 <h2 id="example-solution">Example Solution</h2>
-
 <p>For our dynamic filter option, &ldquo;On my team&rdquo;, we are going to create a Script Include which returns the currently logged in user&rsquo;s team members based on group assignment. Let&rsquo;s take a look at the Script include (<strong>don&rsquo;t forget to mark it as Client Callable or it won&rsquo;t work</strong>):</p>
-
 <h3 id="script-include-getmyteammembers">Script Include: getMyTeamMembers</h3>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">getMyTeamMembers</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">myGroups</span> <span class="o">=</span> <span class="nx">gs</span><span class="p">.</span><span class="nx">getUser</span><span class="p">().</span><span class="nx">getMyGroups</span><span class="p">().</span><span class="nx">toArray</span><span class="p">().</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">),</span>
-        <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideAggregate</span><span class="p">(</span><span class="s1">&#39;sys_user_grmember&#39;</span><span class="p">),</span>
-        <span class="nx">myTeam</span> <span class="o">=</span> <span class="p">[];</span>
-    <span class="nx">gr</span><span class="p">.</span><span class="nx">addEncodedQuery</span><span class="p">(</span><span class="s1">&#39;groupIN&#39;</span> <span class="o">+</span> <span class="nx">myGroups</span><span class="p">);</span>
-    <span class="nx">gr</span><span class="p">.</span><span class="nx">groupBy</span><span class="p">(</span><span class="s1">&#39;user&#39;</span><span class="p">);</span>
-    <span class="nx">gr</span><span class="p">.</span><span class="nx">query</span><span class="p">();</span>
-    <span class="k">while</span> <span class="p">(</span><span class="nx">gr</span><span class="p">.</span><span class="nx">next</span><span class="p">())</span> <span class="p">{</span>
-        <span class="nx">myTeam</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">gr</span><span class="p">.</span><span class="nx">user</span> <span class="o">+</span> <span class="s1">&#39;&#39;</span><span class="p">);</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">getMyTeamMembers</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">myGroups</span> <span class="o">=</span> <span class="nx">gs</span><span class="p">.</span><span class="nx">getUser</span><span class="p">(</span><span class="p">)</span><span class="p">.</span><span class="nx">getMyGroups</span><span class="p">(</span><span class="p">)</span><span class="p">.</span><span class="nx">toArray</span><span class="p">(</span><span class="p">)</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span><span class="p">,</span>
+        <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideAggregate</span><span class="p">(</span><span class="s1">&#39;sys_user_grmember&#39;</span><span class="p">)</span><span class="p">,</span>
+        <span class="nx">myTeam</span> <span class="o">=</span> <span class="p">[</span><span class="p">]</span><span class="p">;</span>
+    <span class="nx">gr</span><span class="p">.</span><span class="nx">addEncodedQuery</span><span class="p">(</span><span class="s1">&#39;groupIN&#39;</span> <span class="o">+</span> <span class="nx">myGroups</span><span class="p">)</span><span class="p">;</span>
+    <span class="nx">gr</span><span class="p">.</span><span class="nx">groupBy</span><span class="p">(</span><span class="s1">&#39;user&#39;</span><span class="p">)</span><span class="p">;</span>
+    <span class="nx">gr</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="nx">gr</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="p">)</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">myTeam</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">gr</span><span class="p">.</span><span class="nx">user</span> <span class="o">+</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="p">;</span>
     <span class="p">}</span>
 
     <span class="k">return</span> <span class="nx">myTeam</span><span class="p">;</span>
-<span class="p">};</span>
-</code></pre></div>
-<p>The script uses GlideSystem (gs) to obtain the currently logged in user&rsquo;s assigned groups. Then, using a GlideAggregate (to filter duplicates), it queries the user&rsquo;s associated with those groups from the sys_user_grmember table and returns that list of users. Simple and straightforward.</p>
-
+<span class="p">}</span><span class="p">;</span>
+</code></pre></div><p>The script uses GlideSystem (gs) to obtain the currently logged in user&rsquo;s assigned groups. Then, using a GlideAggregate (to filter duplicates), it queries the user&rsquo;s associated with those groups from the sys_user_grmember table and returns that list of users. Simple and straightforward.</p>
 <p>Next we create the Dynamic Filter Option:</p>
-
 <h3 id="dynamic-filter-option">Dynamic Filter Option</h3>
-
 <figure>
   <img src="images/On+my+team+dynamic+filter+option.png" />
   <figcaption>
     Figure 1: Dynamic Filter Option
   </figcaption>
 </figure>
-
 <figure>
   <img src="images/On+my+team+dynamic+filter+option+query.png" />
   <figcaption>
     Figure 2: Using the Dynamic Filter Option
   </figcaption>
 </figure>
-
 <p>As you can see in Figure 1, we give the filter option an easy to understand name, assign it to User Reference Fields, and provide our Script Include for the functionality. And in Figure 2, you can see the dynamic filter option in use. In this case, I find the Function Pattern is simpler than all the boilerplate required by the Class Pattern and the script field on the filter option is easier to read without the <strong>new</strong> keyword plus script include plus function name.</p>
-
 <h2 id="advantages">Advantages</h2>
-
 <ol>
 <li>Reduces the amount of boilerplate from the <a href="/blog/interface-design-patterns-class-pattern">Class Pattern</a> in both the Script Include definition and implementation.</li>
 <li>Makes the Script Include itself easier to read</li>
 <li>Since a function can return any type in Javascript, this is one of the most flexible of all the interface patterns when used as a factory function.</li>
 </ol>
-
 <h2 id="disadvantages">Disadvantages</h2>
-
 <ol>
 <li>The simplicity can end up masking the Script Include when used in other scripts. The <strong>new</strong> keyword can be viewed as a signal that says &ldquo;Hey I&rsquo;m a Script Include&rdquo;. This pattern has no such signal.</li>
 <li>Care must be taken on the return value to maintain a consistent interface. Revealing Module Pattern is an iteration of the Function Pattern that attempts to solve this.</li>

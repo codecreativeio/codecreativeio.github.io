@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>2017 on CodeCreative | A ServiceNow Blog</title>
@@ -59,7 +59,7 @@ I love the lodash library. It&amp;rsquo;s great for working with arrays in a sim
       <description>WARNING: The use of HighCharts in this way may require the purchase of an additional license from Highsoft. Use in production at your own risk.
 Read the Whole Series:
  Intro to HighCharts in Service Portal Configuring HighCharts in Service Portal Generate HighChart Data in a Widget Server Script Making the HighChart Widget Reusable (This Post)  Download the Widget
-Up until now, the HighChart Widget that we&amp;rsquo;ve been working on has remained&amp;hellip; well&amp;hellip; mostly unusable.</description>
+ Up until now, the HighChart Widget that we&amp;rsquo;ve been working on has remained&amp;hellip; well&amp;hellip; mostly unusable.</description>
     </item>
     
     <item>
@@ -71,7 +71,7 @@ Up until now, the HighChart Widget that we&amp;rsquo;ve been working on has rema
       <description>WARNING: The use of HighCharts in this way may require the purchase of an additional license from Highsoft. Use in production at your own risk.
 Read the Whole Series:
  Intro to HighCharts in Service Portal Configuring HighCharts in Service Portal Generate HighChart Data in a Widget Server Script (This Post) Making the HighChart Widget Reusable  Download the Widget
-Up until now, we&amp;rsquo;ve only dealt with custom charts using HighCharts with hardcoded data.</description>
+ Up until now, we&amp;rsquo;ve only dealt with custom charts using HighCharts with hardcoded data.</description>
     </item>
     
     <item>
@@ -83,7 +83,7 @@ Up until now, we&amp;rsquo;ve only dealt with custom charts using HighCharts wit
       <description>WARNING: The use of HighCharts in this way may require the purchase of an additional license from Highsoft. Use in production at your own risk.
 Read the Whole Series:
  Intro to HighCharts in Service Portal Configuring HighCharts in Service Portal (This Post) Generate HighChart Data in a Widget Server Script Making the HighChart Widget Reusable  Download the Widget
-One of the greatest points of confusion from some of my previous articles on HighCharts stems from a lack of understanding of the HighCharts API and in particular the HighCharts configuration options object.</description>
+ One of the greatest points of confusion from some of my previous articles on HighCharts stems from a lack of understanding of the HighCharts API and in particular the HighCharts configuration options object.</description>
     </item>
     
     <item>
@@ -95,7 +95,7 @@ One of the greatest points of confusion from some of my previous articles on Hig
       <description>WARNING: The use of HighCharts in this way may require the purchase of an additional license from Highsoft. Use in production at your own risk.
 Read the Whole Series:
  Intro to HighCharts in Service Portal (This Post) Configuring HighCharts in Service Portal Generate HighChart Data in a Widget Server Script Making the HighChart Widget Reusable  Download the Widget
-About 2 years ago, I demonstrated how to build custom charts using HighCharts with a UI Page and kicked off what would eventually become Code Creative.</description>
+ About 2 years ago, I demonstrated how to build custom charts using HighCharts with a UI Page and kicked off what would eventually become Code Creative.</description>
     </item>
     
     <item>
@@ -105,7 +105,7 @@ About 2 years ago, I demonstrated how to build custom charts using HighCharts wi
       
       <guid>https://codecreative.io/blog/eliminate-unnecessary-queries-with-this-simple-check/</guid>
       <description>When I first write a script include to manipulate a GlideRecord, I usually script it to accept a sys_id or other query criteria as a parameter. Its the obvious first step, the GlideRecord has to be retrieved to manipulate it after all. Take this guy for example:
-var Test = Class.create(); Test.prototype = { initialize: function() { }, doSomethingAwesome: function(id) { var gr = new GlideRecord(&amp;#39;incident&amp;#39;); if (gr.get()) { // Something awesome gets done here  } }, type: &amp;#39;Test&amp;#39; };  The more I use the script, though, the more likely I am to run into a scenario where I already have the GlideRecord queried from another script.</description>
+var Test = Class.create(); Test.prototype = { initialize: function() { }, doSomethingAwesome: function(id) { var gr = new GlideRecord(&amp;#39;incident&amp;#39;); if (gr.get()) { // Something awesome gets done here  } }, type: &amp;#39;Test&amp;#39; }; The more I use the script, though, the more likely I am to run into a scenario where I already have the GlideRecord queried from another script.</description>
     </item>
     
     <item>
@@ -135,7 +135,7 @@ And a parable!</description>
       
       <guid>https://codecreative.io/blog/avoid-the-style-tag-in-service-portal-widgets/</guid>
       <description>Warning: This article is an example of what not to do. Avoid using these practices in your ServiceNow instance.
-Previously, we built a widget with configurable CSS styles and I briefly mentioned that using the &amp;lt;style&amp;gt; tag wasn&amp;rsquo;t a great idea. I want to revisit that thought and explore some of the problems that you might encounter when using the &amp;lt;style&amp;gt; tag in a Service Portal Widget. I will use the colored square widget again to demonstrate.</description>
+ Previously, we built a widget with configurable CSS styles and I briefly mentioned that using the &amp;lt;style&amp;gt; tag wasn&amp;rsquo;t a great idea. I want to revisit that thought and explore some of the problems that you might encounter when using the &amp;lt;style&amp;gt; tag in a Service Portal Widget. I will use the colored square widget again to demonstrate.</description>
     </item>
     
     <item>
@@ -175,7 +175,7 @@ IR_AND_QUERY   IR_AND_QUERY Results   Behind the scenes, the method previously d
       
       <guid>https://codecreative.io/blog/how-to-do-full-text-search-with-gliderecord/</guid>
       <description>UPDATE: After posting this article, Jeff Pierce reminded me of a better way than the original 123TEXTQUERY321 approach. I have since updated the scripts and article here and provided a deeper explanation in another article.
-When looking at the form filters in ServiceNow, I think all admins and developers reach a point where we start to wonder &amp;ldquo;How do I search Keywords in my scripts?&amp;rdquo; After all, that full text search using &amp;ldquo;for text&amp;rdquo; or the &amp;ldquo;Keywords&amp;rdquo; filter is so tantalizing for any custom CMS / Service Portal search feature.</description>
+ When looking at the form filters in ServiceNow, I think all admins and developers reach a point where we start to wonder &amp;ldquo;How do I search Keywords in my scripts?&amp;rdquo; After all, that full text search using &amp;ldquo;for text&amp;rdquo; or the &amp;ldquo;Keywords&amp;rdquo; filter is so tantalizing for any custom CMS / Service Portal search feature.</description>
     </item>
     
     <item>
@@ -213,7 +213,7 @@ When looking at the form filters in ServiceNow, I think all admins and developer
       
       <guid>https://codecreative.io/blog/istanbul-cms-iframes-are-missing-theme-css/</guid>
       <description>UPDATE (04/09/2017): This issue appears to be fixed in Istanbul Patch 3
-If your organization is using CMS and you are considering upgrading to Istanbul, be on the lookout for a potential issue. Theme CSS styles may not be applied to iFrame content in the CMS for some instances after upgrading to Istanbul. ServiceNow is already looking into the issue so hopefully we will have a resolution soon but I know of a few instances out there that might find this to be a deal breaker for an upgrade so I thought it best to advise the Community.</description>
+ If your organization is using CMS and you are considering upgrading to Istanbul, be on the lookout for a potential issue. Theme CSS styles may not be applied to iFrame content in the CMS for some instances after upgrading to Istanbul. ServiceNow is already looking into the issue so hopefully we will have a resolution soon but I know of a few instances out there that might find this to be a deal breaker for an upgrade so I thought it best to advise the Community.</description>
     </item>
     
     <item>
@@ -242,7 +242,7 @@ Most of the &amp;ldquo;problem&amp;rdquo; rests in Flexbox&amp;rsquo;s simplicit
       <pubDate>Wed, 25 Jan 2017 17:00:00 +0000</pubDate>
       
       <guid>https://codecreative.io/blog/4-things-to-do-before-building-a-service-portal/</guid>
-      <description>But at the end of the day, if you have a form with 100 fields that are all mandatory to be filled out before a Catalog Item can be submitted, that’s not a [Service Portal] issue.  Matt Metten   This. Read that. All of that. YES! (&amp;ldquo;I love quick time harch.&amp;rdquo;) I read that, I clicked endorse, then I wrote this. So go read that.
+      <description>But at the end of the day, if you have a form with 100 fields that are all mandatory to be filled out before a Catalog Item can be submitted, that’s not a [Service Portal] issue.  Matt Metten   This. Read that. All of that. YES! (&amp;ldquo;I love quick time harch.&amp;quot;) I read that, I clicked endorse, then I wrote this. So go read that.
 I have spent quite a bit of my time evangelizing Service Portal as well.</description>
     </item>
     
