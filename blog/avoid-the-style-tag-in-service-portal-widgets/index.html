@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One|Slabo+13px|Open+Sans:300" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-<link rel="stylesheet" href="https://codecreative.io/assets/main.min.f3d1ef93d0edf3bd8b05a1c5c552fed91f01e0e9624c4f1e35f60b3339173f9d.css">
+<link rel="stylesheet" href="https://codecreative.io/assets/main.min.e80c73b9b5040c8fe01e8de17c90fb71fac60a100010356bd174f7e1a330cf54.css">
 <title>Avoid the Style Tag in Service Portal Widgets | CodeCreative | A ServiceNow Blog</title>
 <meta name="description" content="Previously, we built a widget with configurable CSS styles and I briefly mentioned that using the &lt;style&gt; tag wasn&#39;t a great idea. I want to revisit that thought and explore some of the problems that you might encounter.">
 <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?d=20181101201248">
@@ -62,7 +62,7 @@
     },
     "name" : "Avoid the Style Tag in Service Portal Widgets",
     "headline" : "Avoid the Style Tag in Service Portal Widgets",
-    "description" : "Previously, we built a widget with configurable CSS styles and I briefly mentioned that using the \x3cstyle\x3e tag wasn\x27t a great idea. I want to revisit that thought and explore some of the problems that you might encounter.","image": "https:\/\/codecreative.io\/blog\/avoid-the-style-tag-in-service-portal-widgets\/images\/social.png","inLanguage" : "en-US",
+    "description" : "Previously, we built a widget with configurable CSS styles and I briefly mentioned that using the \u003cstyle\u003e tag wasn\u0027t a great idea. I want to revisit that thought and explore some of the problems that you might encounter.","image": "https:\/\/codecreative.io\/blog\/avoid-the-style-tag-in-service-portal-widgets\/images\/social.png","inLanguage" : "en-US",
       "author" : "Travis Toulson",
       "creator" : "Travis Toulson","publisher": "Travis Toulson",
     "copyrightHolder" : "Travis Toulson",
@@ -70,7 +70,7 @@
     "datePublished": "2017-04-12T14:41:36Z",
     "dateModified" : "2017-04-12T14:41:36Z",
     "url" : "https:\/\/codecreative.io\/blog\/avoid-the-style-tag-in-service-portal-widgets\/",
-    "wordCount" : "668",
+    "wordCount" : "671",
     "keywords" : [ "Blog" ]
 }
 </script>
@@ -124,8 +124,13 @@
 <main>
   <header class="banner">
     <h1>Avoid the Style Tag in Service Portal Widgets</h1>
-  </header>
-
+  </header><div class="announcement">
+    <a href="https://surveys.codecreative.io/index.php/565345?lang=en" role="button">
+        <h3>ServiceNow Salary Influence Survey 2020</h3>
+        <p>The ServiceNow Salary Influence Survey 2020 is currently live. If you would like to participate, please click this announcement to start the survey.</p>
+        <p class="button">Take The Survey ></p>
+    </a>
+</div>
   <div class="content text-content">
     <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
@@ -170,32 +175,32 @@
 <p>Until now, all my widgets either existed as a single instance on the page or required the same styled options for every instance on the page. But as I was creating one of the gifs to demonstrate configuring widget options in the previous article, I noticed that all the squares remained the same color as the last square as can be seen in the above gif.</p>
 <p>Whoops.</p>
 <p>It only took me a moment to realize what should have been evident from the start - my widget was overriding its own CSS. Think of it this way, each square on the page injects its own copy of the Widget HTML into the page. So in the above page, the HTML has been copied 3 times&hellip; and so has my style tag. The rendered HTML (minus the cruft) would resemble the following block:</p>
-<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!--</span><span class="c"> Widget Instance 1 </span><span class="c">--&gt;</span>
-<span class="p">&lt;</span><span class="nt">style</span><span class="p"></span><span class="p">&gt;</span>
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!-- Widget Instance 1 --&gt;</span>
+<span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
   <span class="p">.</span><span class="nc">colorSquare</span> <span class="p">{</span>
     <span class="k">background-color</span><span class="p">:</span> <span class="kc">red</span><span class="p">;</span>
   <span class="p">}</span>
-<span class="p">&lt;</span><span class="p">/</span><span class="nt">style</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;colorSquare&#34;</span><span class="p"></span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="p">/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;colorSquare&#34;</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 
-<span class="c">&lt;!--</span><span class="c"> Widget Instance 2 </span><span class="c">--&gt;</span>
-<span class="p">&lt;</span><span class="nt">style</span><span class="p"></span><span class="p">&gt;</span>
+<span class="c">&lt;!-- Widget Instance 2 --&gt;</span>
+<span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
   <span class="p">.</span><span class="nc">colorSquare</span> <span class="p">{</span>
     <span class="k">background-color</span><span class="p">:</span> <span class="kc">green</span><span class="p">;</span>
   <span class="p">}</span>
-<span class="p">&lt;</span><span class="p">/</span><span class="nt">style</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;colorSquare&#34;</span><span class="p"></span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="p">/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;colorSquare&#34;</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 
-<span class="c">&lt;!--</span><span class="c"> Widget Instance 3 </span><span class="c">--&gt;</span>
-<span class="p">&lt;</span><span class="nt">style</span><span class="p"></span><span class="p">&gt;</span>
+<span class="c">&lt;!-- Widget Instance 3 --&gt;</span>
+<span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
   <span class="p">.</span><span class="nc">colorSquare</span> <span class="p">{</span>
     <span class="k">background-color</span><span class="p">:</span> <span class="mh">#d5d5d5</span><span class="p">;</span>
   <span class="p">}</span>
-<span class="p">&lt;</span><span class="p">/</span><span class="nt">style</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;colorSquare&#34;</span><span class="p"></span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="p">/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;colorSquare&#34;</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </code></pre></div><p>If you didn&rsquo;t see it before, surely you see it now. The colorSquare class is replicated 3 times in 3 separate style tags. Because of how CSS works, the last background-color specified for colorSquare overrides the others. This is why all of the squares are the same color as the last.</p>
 <p>Now you could do some fancy footwork with dynamic class names or ID&rsquo;s but there is at least one other reason to avoid style tags in your Widget HTML.</p>
 <hr>

@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One|Slabo+13px|Open+Sans:300" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-<link rel="stylesheet" href="https://codecreative.io/assets/main.min.f3d1ef93d0edf3bd8b05a1c5c552fed91f01e0e9624c4f1e35f60b3339173f9d.css">
+<link rel="stylesheet" href="https://codecreative.io/assets/main.min.e80c73b9b5040c8fe01e8de17c90fb71fac60a100010356bd174f7e1a330cf54.css">
 <title>Building Apps on ServiceNow: The App Publishers Checklist | CodeCreative | A ServiceNow Blog</title>
 <meta name="description" content="The following is a summary of the Building Apps on ServiceNow: The App Publishers Checklist session that I presented at Knowledge 18.">
 <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?d=20181101201248">
@@ -124,8 +124,13 @@
 <main>
   <header class="banner">
     <h1>Building Apps on ServiceNow: The App Publishers Checklist</h1>
-  </header>
-
+  </header><div class="announcement">
+    <a href="https://surveys.codecreative.io/index.php/565345?lang=en" role="button">
+        <h3>ServiceNow Salary Influence Survey 2020</h3>
+        <p>The ServiceNow Salary Influence Survey 2020 is currently live. If you would like to participate, please click this announcement to start the survey.</p>
+        <p class="button">Take The Survey ></p>
+    </a>
+</div>
   <div class="content text-content">
     <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
@@ -186,9 +191,9 @@
 <p>Taking interfaces one step further, we can also leverage System Properties in unique ways. Of course we can remove simple hard coded values by isolating them in System Properties which can make our code more stable all on its own. But we also have the ability to execute code from System Properties!</p>
 <p>This is a technique I discovered ServiceNow using in the CMS and Service Portal login redirect scripts and was able to successfully reproduce. To execute a script stored in a system property, use the following snippet:</p>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// Execute scripts stored in system properties (Ultimate Interface!)
-</span><span class="c1"></span><span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;sys_properties&#39;</span><span class="p">)</span><span class="p">;</span>
-<span class="nx">gr</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;386cf93edb278700775dab92ca961956&#39;</span><span class="p">)</span><span class="p">;</span>
-<span class="kd">var</span> <span class="nx">answer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideScopedEvaluator</span><span class="p">(</span><span class="p">)</span><span class="p">.</span><span class="nx">evaluateScript</span><span class="p">(</span><span class="nx">gr</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">)</span><span class="p">;</span>
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;sys_properties&#39;</span><span class="p">);</span>
+<span class="nx">gr</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;386cf93edb278700775dab92ca961956&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">answer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideScopedEvaluator</span><span class="p">().</span><span class="nx">evaluateScript</span><span class="p">(</span><span class="nx">gr</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">);</span>
 </code></pre></div><p>This technique is essentially the ultimate interface because you can vary the inputs (by changing the script stored in the System Property) but still maintain the output of the interface. From the Intelligent Queue example, this means that I can create new recommenders that take in entirely new and previously unforseen inputs as criteria for the recommendation. And yet I never have to touch the code of my core engine to do it. This greatly reduces the risk of introducing new bugs or breaking existing code.</p>
 <h2 id="build-it-secure">Build It Secure</h2>
 <p>I will be the first one to admit that I am no security expert. But there are a few things that I have picked up on (particularly through app certification processes) that we need to be aware of as we develop our applications.</p>

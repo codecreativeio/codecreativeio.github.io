@@ -26,7 +26,7 @@
       <pubDate>Sat, 23 Feb 2019 20:20:49 +0000</pubDate>
       
       <guid>https://codecreative.io/guides/getting-started-on-servicenow/what-is-a-servicenow-instance/</guid>
-      <description>This is a ServiceNow Instance   As mentioned in the previous section, ServiceNow operates using a single tenant architecture meaning that each customer gets their own copy or multiple copies of ServiceNow in the cloud. These copies are known as ServiceNow instances. Users can access an instance via web browser using each instance&amp;rsquo;s unique URL such as https://companyname.service-now.com.
+      <description>This is a ServiceNow InstanceAs mentioned in the previous section, ServiceNow operates using a single tenant architecture meaning that each customer gets their own copy or multiple copies of ServiceNow in the cloud. These copies are known as ServiceNow instances. Users can access an instance via web browser using each instance&amp;rsquo;s unique URL such as https://companyname.service-now.com.
 Each instance can run multiple applications side by side, so a single instance could potentially host an ITSM, HR, CSM, and Custom Apps all at the same base URL.</description>
     </item>
     

@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One|Slabo+13px|Open+Sans:300" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-<link rel="stylesheet" href="https://codecreative.io/assets/main.min.f3d1ef93d0edf3bd8b05a1c5c552fed91f01e0e9624c4f1e35f60b3339173f9d.css">
+<link rel="stylesheet" href="https://codecreative.io/assets/main.min.e80c73b9b5040c8fe01e8de17c90fb71fac60a100010356bd174f7e1a330cf54.css">
 <title>Making Service Portal Widgets Work Together | CodeCreative | A ServiceNow Blog</title>
 <meta name="description" content="The following is a summary of the Making Service Portal Widgets Work Together session that I presented at Knowledge 18.">
 <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?d=20181101201248">
@@ -70,7 +70,7 @@
     "datePublished": "2018-05-21T17:12:38Z",
     "dateModified" : "2018-05-21T17:12:38Z",
     "url" : "https:\/\/codecreative.io\/blog\/making-service-portal-widgets-work-together\/",
-    "wordCount" : "2398",
+    "wordCount" : "2399",
     "keywords" : [ "Blog" ]
 }
 </script>
@@ -124,8 +124,13 @@
 <main>
   <header class="banner">
     <h1>Making Service Portal Widgets Work Together</h1>
-  </header>
-
+  </header><div class="announcement">
+    <a href="https://surveys.codecreative.io/index.php/565345?lang=en" role="button">
+        <h3>ServiceNow Salary Influence Survey 2020</h3>
+        <p>The ServiceNow Salary Influence Survey 2020 is currently live. If you would like to participate, please click this announcement to start the survey.</p>
+        <p class="button">Take The Survey ></p>
+    </a>
+</div>
   <div class="content text-content">
     <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
@@ -164,15 +169,15 @@
    <span class="nx">table</span><span class="o">:</span> <span class="nx">data</span><span class="p">.</span><span class="nx">table</span><span class="p">,</span>
    <span class="nx">query</span><span class="o">:</span> <span class="nx">data</span><span class="p">.</span><span class="nx">filter</span><span class="p">,</span>
    <span class="nx">enable_filter</span><span class="o">:</span> <span class="nx">data</span><span class="p">.</span><span class="nx">enable_filter</span>
-<span class="p">}</span><span class="p">;</span>
+<span class="p">};</span>
 <span class="nx">data</span><span class="p">.</span><span class="nx">filterBreadcrumbs</span> <span class="o">=</span> <span class="nx">$sp</span><span class="p">.</span><span class="nx">getWidget</span><span class="p">(</span>
    <span class="s1">&#39;widget-filter-breadcrumbs&#39;</span><span class="p">,</span>
-   <span class="nx">breadcrumbWidgetParams</span><span class="p">)</span><span class="p">;</span>
+   <span class="nx">breadcrumbWidgetParams</span><span class="p">);</span>
 </code></pre></div><h3 id="html-template">HTML Template</h3>
-<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">div</span><span class="p"></span><span class="p">&gt;</span>
-   <span class="p">&lt;</span><span class="nt">sp-widget</span> <span class="na">widget</span><span class="o">=</span><span class="s">&#34;data.filterBreadcrumbs&#34;</span><span class="p"></span><span class="p">&gt;</span>
-   <span class="p">&lt;</span><span class="p">/</span><span class="nt">sp-widget</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="p">/</span><span class="nt">div</span><span class="p">&gt;</span>
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">sp-widget</span> <span class="na">widget</span><span class="o">=</span><span class="s">&#34;data.filterBreadcrumbs&#34;</span><span class="p">&gt;</span>
+   <span class="p">&lt;/</span><span class="nt">sp-widget</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </code></pre></div><p>Let&rsquo;s take a moment to point out a few things:</p>
 <p><strong>(Slide 10) data.filterBreadcrumbs</strong></p>
 <p>On the Server Script, we have access to the <strong>data</strong> object to which we add the filterBreadcrumbs object. Service Portal passes the entire <strong>data</strong> object client side and make it accessible to the Client Script and HTML Template. Keep in mind, it can only serialize JSON native data types (no GlideRecords). You can see my script accessing the Server&rsquo;s data.filterBreadcrumb in the HTML template.</p>
@@ -200,20 +205,20 @@
 <p>Let&rsquo;s take a look at a sample AngularJS Service (and my favorite way of structuring it):</p>
 <h3 id="angular-provider-service-script-incidentservice">Angular Provider Service Script (incidentService)</h3>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span><span class="p">(</span><span class="nx">$http</span><span class="p">)</span> <span class="p">{</span>
-   <span class="kd">var</span> <span class="nx">incidents</span> <span class="o">=</span> <span class="p">[</span><span class="p">]</span><span class="p">;</span>
-   <span class="kd">function</span> <span class="nx">reload</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+   <span class="kd">var</span> <span class="nx">incidents</span> <span class="o">=</span> <span class="p">[];</span>
+   <span class="kd">function</span> <span class="nx">reload</span><span class="p">()</span> <span class="p">{</span>
        <span class="nx">$http</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;/api/now/table/incident&#39;</span><span class="p">)</span>
-           <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span> <span class="p">{</span> <span class="nx">incidents</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">result</span><span class="p">;</span> <span class="p">}</span><span class="p">)</span><span class="p">;</span>
+           <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span> <span class="p">{</span> <span class="nx">incidents</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">result</span><span class="p">;</span> <span class="p">});</span>
    <span class="p">}</span>
 
-   <span class="kd">function</span> <span class="nx">get</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+   <span class="kd">function</span> <span class="nx">get</span><span class="p">()</span> <span class="p">{</span>
        <span class="k">return</span> <span class="nx">incidents</span><span class="p">;</span>
    <span class="p">}</span>
 
    <span class="k">return</span> <span class="p">{</span>
        <span class="s1">&#39;reload&#39;</span><span class="o">:</span> <span class="nx">reload</span><span class="p">,</span>
        <span class="s1">&#39;get&#39;</span><span class="o">:</span> <span class="nx">get</span>
-   <span class="p">}</span><span class="p">;</span>
+   <span class="p">};</span>
 <span class="p">}</span>
 </code></pre></div><p><strong>(Slide 23) $http - dependency injection</strong></p>
 <p>Dependency injection is a major part of AngularJS Services. AngularJS automatically searches by name for Services that match the parameter names we pass into Client Scripts and Service functions. In this Service for example, we pass in the $http parameter which is an AngularJS Service that lets us execute HTTP calls in our script. AngularJS will automatically find the $http Service function and inject it into our Service function for us.</p>
@@ -229,14 +234,14 @@
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="p">(</span><span class="nx">incidentService</span><span class="p">)</span> <span class="p">{</span>
    <span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
 
-   <span class="nx">incidentService</span><span class="p">.</span><span class="nx">reload</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+   <span class="nx">incidentService</span><span class="p">.</span><span class="nx">reload</span><span class="p">();</span>
 
-   <span class="nx">c</span><span class="p">.</span><span class="nx">reload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
-       <span class="nx">incidentService</span><span class="p">.</span><span class="nx">reload</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+   <span class="nx">c</span><span class="p">.</span><span class="nx">reload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+       <span class="nx">incidentService</span><span class="p">.</span><span class="nx">reload</span><span class="p">();</span>
    <span class="p">}</span>
 
-   <span class="nx">c</span><span class="p">.</span><span class="nx">getIncidents</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
-       <span class="k">return</span> <span class="nx">incidentService</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+   <span class="nx">c</span><span class="p">.</span><span class="nx">getIncidents</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+       <span class="k">return</span> <span class="nx">incidentService</span><span class="p">.</span><span class="nx">get</span><span class="p">();</span>
    <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div><p><strong>(Slide 29) Dependency Inject the Service Function</strong></p>
@@ -247,9 +252,9 @@
 <p>This step is purely optional. You could also expose the Service directly to the HTML Template. Personally, I like wrapping the Service functions in controller functions. It&rsquo;s a few extra steps but if you ever have to add additional behaviors into specific controller functions you will end up needing these steps anyway. In my opinion, this is the best way to ensure the Client Script remains the Controller and the glue between the Service Layer and the View Layer.</p>
 <p>Take special note that I have wrapped incidentService.get in the c.getIncidents function.</p>
 <h3 id="html-template-1">HTML Template</h3>
-<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">ng-repeat</span><span class="o">=</span><span class="s">“inc</span> <span class="na">in</span> <span class="na">c</span><span class="err">.</span><span class="na">getIncidents</span><span class="err">(</span><span class="err">)</span><span class="err">”</span><span class="p"></span><span class="p">&gt;</span>
-   <span class="c">&lt;!--</span><span class="c"> Incident Template Here </span><span class="c">--&gt;</span>
-<span class="p">&lt;</span><span class="p">/</span><span class="nt">div</span><span class="p">&gt;</span>
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">ng-repeat</span><span class="o">=</span><span class="s">“inc</span> <span class="na">in</span> <span class="na">c</span><span class="err">.</span><span class="na">getIncidents</span><span class="err">()”</span><span class="p">&gt;</span>
+   <span class="c">&lt;!-- Incident Template Here --&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </code></pre></div><p><strong>(Slide 33) HTML Template and the Digest Loop</strong></p>
 <p>Lastly, you can see the use of the c.getIncidents in the HTML Template. This is my favorite part about this design. Typically, when working with the $http service, you end up propagating the &ldquo;then&rdquo; chain throughout your Client Script in order to manage flow control during the async server calls. This forces you to return a thenable from your Service function and your code ends up looking like <strong>incidentService.reload().then(function() {}).then(function() {}).</strong> Ugh.</p>
 <p>I hate it when async patterns leak into my synchronous code. This pattern lets me trap the async code in the reload function. The AngularJS digest loop is automatically triggered when $http gets its data. This means that all of our HTML Templates that call <strong>incidentService.get()</strong> will be immediately refreshed whenever <strong>incidentService.reload()</strong> is called! No &ldquo;And Then&rdquo; indeed!</p>
@@ -267,14 +272,14 @@
 <p>That said, let&rsquo;s take a look at how we can go about using events (In most cases though, I wouldn&rsquo;t - Slide 37):</p>
 <h3 id="widget-1-client-script">Widget 1 Client Script</h3>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="p">(</span><span class="nx">$rootScope</span><span class="p">)</span> <span class="p">{</span>
-   <span class="nx">$rootScope</span><span class="p">.</span><span class="nx">$broadcast</span><span class="p">(</span><span class="err">‘</span><span class="nx">incident</span><span class="p">.</span><span class="nx">changed</span><span class="err">’</span><span class="p">,</span> <span class="p">{</span><span class="p">}</span><span class="p">)</span><span class="p">;</span>
+   <span class="nx">$rootScope</span><span class="p">.</span><span class="nx">$broadcast</span><span class="p">(</span><span class="err">‘</span><span class="nx">incident</span><span class="p">.</span><span class="nx">changed</span><span class="err">’</span><span class="p">,</span> <span class="p">{});</span>
 <span class="p">}</span>
 </code></pre></div><h3 id="widget-2-client-script">Widget 2 Client Script</h3>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="p">(</span><span class="nx">$scope</span><span class="p">)</span> <span class="p">{</span>
    <span class="nx">$scope</span><span class="p">.</span><span class="nx">$on</span><span class="p">(</span><span class="err">‘</span><span class="nx">incident</span><span class="p">.</span><span class="nx">changed</span><span class="err">’</span><span class="p">,</span>
        <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
            <span class="c1">// Do something!
-</span><span class="c1"></span>       <span class="p">}</span><span class="p">)</span><span class="p">;</span>
+</span><span class="c1"></span>       <span class="p">});</span>
 <span class="p">}</span>
 </code></pre></div><p><strong>(Slide 39) $rootScope Dependency Injection</strong></p>
 <p>First step is to inject $rootScope into the Widget 1 Client Script function. This will allow us to broadcast events from this widget.</p>

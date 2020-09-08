@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One|Slabo+13px|Open+Sans:300" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-<link rel="stylesheet" href="https://codecreative.io/assets/main.min.f3d1ef93d0edf3bd8b05a1c5c552fed91f01e0e9624c4f1e35f60b3339173f9d.css">
+<link rel="stylesheet" href="https://codecreative.io/assets/main.min.e80c73b9b5040c8fe01e8de17c90fb71fac60a100010356bd174f7e1a330cf54.css">
 <title>Nested GlideRecords Are Killing Your App Performance | CodeCreative | A ServiceNow Blog</title>
 <meta name="description" content="Nested GlideRecord is a silent performance killer among scripting patterns. Learn how these scripts can easily slow your page load times and find out how to identify them.">
 <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?d=20181101201248">
@@ -106,8 +106,13 @@
 <main>
   <header class="banner">
     <h1>Nested GlideRecords Are Killing Your App Performance</h1>
-  </header>
-
+  </header><div class="announcement">
+    <a href="https://surveys.codecreative.io/index.php/565345?lang=en" role="button">
+        <h3>ServiceNow Salary Influence Survey 2020</h3>
+        <p>The ServiceNow Salary Influence Survey 2020 is currently live. If you would like to participate, please click this announcement to start the survey.</p>
+        <p class="button">Take The Survey ></p>
+    </a>
+</div>
   <div class="content text-content">
     <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
@@ -135,12 +140,12 @@
 <hr>
 <h2 id="the-basic-pattern">The Basic Pattern</h2>
 <p>A Nested GlideRecord is when you run a GlideRecord query within the while loop of another GlideRecord query, like this:</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">gr1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;any_table&#39;</span><span class="p">)</span><span class="p">;</span>
-<span class="nx">gr1</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
-<span class="k">while</span> <span class="p">(</span><span class="nx">gr1</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="p">)</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">gr2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;any_table&#39;</span><span class="p">)</span><span class="p">;</span>
-  <span class="nx">gr2</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
-  <span class="k">while</span> <span class="p">(</span><span class="nx">gr2</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="p">)</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">gr1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;any_table&#39;</span><span class="p">);</span>
+<span class="nx">gr1</span><span class="p">.</span><span class="nx">query</span><span class="p">();</span>
+<span class="k">while</span> <span class="p">(</span><span class="nx">gr1</span><span class="p">.</span><span class="nx">next</span><span class="p">())</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">gr2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;any_table&#39;</span><span class="p">);</span>
+  <span class="nx">gr2</span><span class="p">.</span><span class="nx">query</span><span class="p">();</span>
+  <span class="k">while</span> <span class="p">(</span><span class="nx">gr2</span><span class="p">.</span><span class="nx">next</span><span class="p">())</span> <span class="p">{</span>
       <span class="c1">// Do something here
 </span><span class="c1"></span>  <span class="p">}</span>
 <span class="p">}</span>
@@ -158,44 +163,44 @@
 </ol>
 <p>For this test, I will compare 2 approaches: Nested GlideRecord and an Array Flattened GlideRecord.</p>
 <p>Here is a crude Nested GlideRecord approach:</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">count</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideAggregate</span><span class="p">(</span><span class="s1">&#39;sys_user&#39;</span><span class="p">)</span><span class="p">;</span>
-<span class="nx">count</span><span class="p">.</span><span class="nx">addQuery</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">,</span> <span class="s1">&#39;!=&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="p">;</span>
-<span class="nx">count</span><span class="p">.</span><span class="nx">groupBy</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">)</span><span class="p">;</span>
-<span class="nx">count</span><span class="p">.</span><span class="nx">addAggregate</span><span class="p">(</span><span class="s1">&#39;COUNT&#39;</span><span class="p">)</span><span class="p">;</span>
-<span class="nx">count</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
-<span class="k">while</span> <span class="p">(</span><span class="nx">count</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="p">)</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="p">(</span><span class="nx">count</span><span class="p">.</span><span class="nx">getAggregate</span><span class="p">(</span><span class="s1">&#39;COUNT&#39;</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">user</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;sys_user&#39;</span><span class="p">)</span><span class="p">;</span>
-    <span class="nx">user</span><span class="p">.</span><span class="nx">addQuery</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">,</span> <span class="nx">count</span><span class="p">.</span><span class="nx">email</span> <span class="o">+</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="p">;</span>
-    <span class="nx">user</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
-    <span class="nx">user</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="p">)</span><span class="p">;</span> <span class="c1">// skip the first
-</span><span class="c1"></span>    <span class="k">while</span> <span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="p">)</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">sys_id</span><span class="p">)</span><span class="p">;</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">count</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideAggregate</span><span class="p">(</span><span class="s1">&#39;sys_user&#39;</span><span class="p">);</span>
+<span class="nx">count</span><span class="p">.</span><span class="nx">addQuery</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">,</span> <span class="s1">&#39;!=&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">);</span>
+<span class="nx">count</span><span class="p">.</span><span class="nx">groupBy</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">);</span>
+<span class="nx">count</span><span class="p">.</span><span class="nx">addAggregate</span><span class="p">(</span><span class="s1">&#39;COUNT&#39;</span><span class="p">);</span>
+<span class="nx">count</span><span class="p">.</span><span class="nx">query</span><span class="p">();</span>
+<span class="k">while</span> <span class="p">(</span><span class="nx">count</span><span class="p">.</span><span class="nx">next</span><span class="p">())</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">((</span><span class="nx">count</span><span class="p">.</span><span class="nx">getAggregate</span><span class="p">(</span><span class="s1">&#39;COUNT&#39;</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">user</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;sys_user&#39;</span><span class="p">);</span>
+    <span class="nx">user</span><span class="p">.</span><span class="nx">addQuery</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">,</span> <span class="nx">count</span><span class="p">.</span><span class="nx">email</span> <span class="o">+</span> <span class="s1">&#39;&#39;</span><span class="p">);</span>
+    <span class="nx">user</span><span class="p">.</span><span class="nx">query</span><span class="p">();</span>
+    <span class="nx">user</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span> <span class="c1">// skip the first
+</span><span class="c1"></span>    <span class="k">while</span> <span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">next</span><span class="p">())</span> <span class="p">{</span>
+      <span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">sys_id</span><span class="p">);</span>
     <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div><p>And the Array Flattened GlideRecord:</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">users</span> <span class="o">=</span> <span class="p">[</span><span class="p">]</span><span class="p">;</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">users</span> <span class="o">=</span> <span class="p">[];</span>
 
-<span class="kd">var</span> <span class="nx">count</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideAggregate</span><span class="p">(</span><span class="s1">&#39;sys_user&#39;</span><span class="p">)</span><span class="p">;</span>
-<span class="nx">count</span><span class="p">.</span><span class="nx">addQuery</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">,</span> <span class="s1">&#39;!=&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="p">;</span>
-<span class="nx">count</span><span class="p">.</span><span class="nx">groupBy</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">)</span><span class="p">;</span>
-<span class="nx">count</span><span class="p">.</span><span class="nx">addAggregate</span><span class="p">(</span><span class="s1">&#39;COUNT&#39;</span><span class="p">)</span><span class="p">;</span>
-<span class="nx">count</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
-<span class="k">while</span> <span class="p">(</span><span class="nx">count</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="p">)</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="p">(</span><span class="nx">count</span><span class="p">.</span><span class="nx">getAggregate</span><span class="p">(</span><span class="s1">&#39;COUNT&#39;</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nx">users</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">count</span><span class="p">.</span><span class="nx">email</span> <span class="o">+</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">count</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideAggregate</span><span class="p">(</span><span class="s1">&#39;sys_user&#39;</span><span class="p">);</span>
+<span class="nx">count</span><span class="p">.</span><span class="nx">addQuery</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">,</span> <span class="s1">&#39;!=&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">);</span>
+<span class="nx">count</span><span class="p">.</span><span class="nx">groupBy</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">);</span>
+<span class="nx">count</span><span class="p">.</span><span class="nx">addAggregate</span><span class="p">(</span><span class="s1">&#39;COUNT&#39;</span><span class="p">);</span>
+<span class="nx">count</span><span class="p">.</span><span class="nx">query</span><span class="p">();</span>
+<span class="k">while</span> <span class="p">(</span><span class="nx">count</span><span class="p">.</span><span class="nx">next</span><span class="p">())</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">((</span><span class="nx">count</span><span class="p">.</span><span class="nx">getAggregate</span><span class="p">(</span><span class="s1">&#39;COUNT&#39;</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">users</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">count</span><span class="p">.</span><span class="nx">email</span> <span class="o">+</span> <span class="s1">&#39;&#39;</span><span class="p">);</span>
   <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kd">var</span> <span class="nx">user</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;sys_user&#39;</span><span class="p">)</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">user</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;sys_user&#39;</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">prevUser</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
-<span class="nx">user</span><span class="p">.</span><span class="nx">addQuery</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">,</span> <span class="s1">&#39;IN&#39;</span><span class="p">,</span> <span class="nx">users</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span><span class="p">)</span><span class="p">;</span>
-<span class="nx">user</span><span class="p">.</span><span class="nx">orderBy</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">)</span><span class="p">;</span>
-<span class="nx">user</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
-<span class="k">while</span> <span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="p">)</span><span class="p">)</span> <span class="p">{</span>
+<span class="nx">user</span><span class="p">.</span><span class="nx">addQuery</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">,</span> <span class="s1">&#39;IN&#39;</span><span class="p">,</span> <span class="nx">users</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">));</span>
+<span class="nx">user</span><span class="p">.</span><span class="nx">orderBy</span><span class="p">(</span><span class="s1">&#39;email&#39;</span><span class="p">);</span>
+<span class="nx">user</span><span class="p">.</span><span class="nx">query</span><span class="p">();</span>
+<span class="k">while</span> <span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">next</span><span class="p">())</span> <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="nx">prevUser</span> <span class="o">==</span> <span class="nx">user</span><span class="p">.</span><span class="nx">email</span> <span class="o">+</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">email</span><span class="p">)</span><span class="p">;</span>
+    <span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">user</span><span class="p">.</span><span class="nx">email</span><span class="p">);</span>
   <span class="p">}</span>
   <span class="c1">// Else, skip the original user
 </span><span class="c1"></span>  <span class="nx">prevUser</span> <span class="o">=</span> <span class="nx">user</span><span class="p">.</span><span class="nx">email</span> <span class="o">+</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
@@ -209,9 +214,9 @@
 <h2 id="dot-walking-has-the-same-results">Dot Walking Has The Same Results</h2>
 <p>The scary part about this pattern is that it easily hides itself. Dot walking, for example, works like magic to retrieve related data. Under the hood, it runs a query at least once to retrieve the reference (I assume the reference is cached for subsequent calls in a given script if not the entire transaction but I&rsquo;m not sure).</p>
 <p>So the following script could inadvertently cause the same issue as the previous example (and in the originally mentioned REST script, I believe this was a contributing factor):</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;sys_user&#39;</span><span class="p">)</span><span class="p">;</span>
-<span class="nx">gr</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
-<span class="k">while</span> <span class="p">(</span><span class="nx">gr</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="p">)</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;sys_user&#39;</span><span class="p">);</span>
+<span class="nx">gr</span><span class="p">.</span><span class="nx">query</span><span class="p">();</span>
+<span class="k">while</span> <span class="p">(</span><span class="nx">gr</span><span class="p">.</span><span class="nx">next</span><span class="p">())</span> <span class="p">{</span>
   <span class="kd">var</span> <span class="nx">department</span> <span class="o">=</span> <span class="nx">gr</span><span class="p">.</span><span class="nx">department</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span> <span class="c1">// Reference Field!
 </span><span class="c1"></span><span class="p">}</span>
 </code></pre></div><p>That Department is a reference field, so ServiceNow has to run a separate GlideRecord query behind the scenes to retrieve the data for that department. All magic comes at a price, deary!</p>

@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One|Slabo+13px|Open+Sans:300" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-<link rel="stylesheet" href="https://codecreative.io/assets/main.min.f3d1ef93d0edf3bd8b05a1c5c552fed91f01e0e9624c4f1e35f60b3339173f9d.css">
+<link rel="stylesheet" href="https://codecreative.io/assets/main.min.e80c73b9b5040c8fe01e8de17c90fb71fac60a100010356bd174f7e1a330cf54.css">
 <title>Interface Design Patterns: Namespace Pattern | CodeCreative | A ServiceNow Blog</title>
 <meta name="description" content="The namespace pattern provides a simple mechanism for organizing reusable functions and objects. Personally, this is my preferred pattern for swiss army knife type Util libraries.">
 <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?d=20181101201248">
@@ -124,8 +124,13 @@
 <main>
   <header class="banner">
     <h1>Interface Design Patterns: Namespace Pattern</h1>
-  </header>
-
+  </header><div class="announcement">
+    <a href="https://surveys.codecreative.io/index.php/565345?lang=en" role="button">
+        <h3>ServiceNow Salary Influence Survey 2020</h3>
+        <p>The ServiceNow Salary Influence Survey 2020 is currently live. If you would like to participate, please click this announcement to start the survey.</p>
+        <p class="button">Take The Survey ></p>
+    </a>
+</div>
   <div class="content text-content">
     <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
@@ -153,27 +158,27 @@
 <p>For this solution, we will create a simple utility Script Include that allows us to obtain data related to the Currently Logged In User:</p>
 <h3 id="script-include-getmyteammembers">Script Include: getMyTeamMembers</h3>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">CurrentUser</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="nx">getSubscribedProducts</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">getSubscribedProducts</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
     <span class="c1">// call GlideRecord to get products the user is subscribed to
-</span><span class="c1"></span>  <span class="p">}</span><span class="p">,</span>
+</span><span class="c1"></span>  <span class="p">},</span>
 
-  <span class="nx">getTeamMembers</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">getTeamMembers</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
     <span class="c1">// call GlideRecord to get a list of sys_user records in the same groups
-</span><span class="c1"></span>  <span class="p">}</span><span class="p">,</span>
+</span><span class="c1"></span>  <span class="p">},</span>
 
-  <span class="nx">getManagedTeamMembers</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">getManagedTeamMembers</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
     <span class="c1">// call GlideRecord to get a list of sys_user records the current user manages
-</span><span class="c1"></span>  <span class="p">}</span><span class="p">,</span>
+</span><span class="c1"></span>  <span class="p">},</span>
 
-  <span class="nx">getRecord</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">getRecord</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
     <span class="c1">// return sys_user record for currently logged in user
 </span><span class="c1"></span>  <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div><p>Now we can easily call any of these functions with a clear namespace as follows:</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">CurrentUser</span><span class="p">.</span><span class="nx">getSubscribedProducts</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
-<span class="nx">CurrentUser</span><span class="p">.</span><span class="nx">getTeamMembers</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
-<span class="nx">CurrentUser</span><span class="p">.</span><span class="nx">getManagedTeamMembers</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
-<span class="nx">CurrentUser</span><span class="p">.</span><span class="nx">getRecord</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">CurrentUser</span><span class="p">.</span><span class="nx">getSubscribedProducts</span><span class="p">();</span>
+<span class="nx">CurrentUser</span><span class="p">.</span><span class="nx">getTeamMembers</span><span class="p">();</span>
+<span class="nx">CurrentUser</span><span class="p">.</span><span class="nx">getManagedTeamMembers</span><span class="p">();</span>
+<span class="nx">CurrentUser</span><span class="p">.</span><span class="nx">getRecord</span><span class="p">();</span>
 </code></pre></div><h2 id="advantages">Advantages</h2>
 <ol>
 <li>The pattern removes a potentially confusing no-op / empty initialize pattern that frequently shows up in the <a href="/blog/interface-design-patterns-class-pattern">Class Pattern</a></li>

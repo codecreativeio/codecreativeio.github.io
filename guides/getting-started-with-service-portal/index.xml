@@ -29,7 +29,7 @@ For front-end web developers, a few libraries are in use which are likely famili
       
       <guid>https://codecreative.io/guides/getting-started-with-service-portal/branding-the-portal/</guid>
       <description>Objective: To use the Service Portal Branding Editor to modify the branding of a portal.
-  Exercise Goal   Modifying the basic branding is a great way to get introduced to Service Portal. It is an easy skill to pick up which requires no code and can be performed by administrators.
+Exercise GoalModifying the basic branding is a great way to get introduced to Service Portal. It is an easy skill to pick up which requires no code and can be performed by administrators.
 In this exercise, we will clone the baseline ITSM portal to create our own portal to modify through the rest of this guide.</description>
     </item>
     
@@ -40,7 +40,7 @@ In this exercise, we will clone the baseline ITSM portal to create our own porta
       
       <guid>https://codecreative.io/guides/getting-started-with-service-portal/creating-a-theme/</guid>
       <description>Objective: To create a custom theme and apply it to a Service Portal to further modify the portal style.
-  Exercise Goal   Creating a theme takes our styles one step further and brings our portal closer to compliance with a corporate style guide. With just a little SASS and CSS we can take our portal a long way.
+Exercise GoalCreating a theme takes our styles one step further and brings our portal closer to compliance with a corporate style guide. With just a little SASS and CSS we can take our portal a long way.
 In this exercise, we will clone the La Jolla Theme record, modify it&amp;rsquo;s styles, and apply it to the CodeCreative portal we created in the last exercise.</description>
     </item>
     
@@ -51,7 +51,7 @@ In this exercise, we will clone the La Jolla Theme record, modify it&amp;rsquo;s
       
       <guid>https://codecreative.io/guides/getting-started-with-service-portal/overriding-styles-with-css-includes/</guid>
       <description>Objective: To further modify the theme and styles, including fonts, using CSS Includes on the Theme record.
-  Exercise Goal   Now that we have a basic theme, let&amp;rsquo;s introduce some new fonts and styles using Theme CSS Includes. CSS Includes are the best place to put CSS styles that should be applied across every page of the portal.
+Exercise GoalNow that we have a basic theme, let&amp;rsquo;s introduce some new fonts and styles using Theme CSS Includes. CSS Includes are the best place to put CSS styles that should be applied across every page of the portal.
 In this exercise, we will create a CSS Include, add it to our CodeCreative Theme record, and update our portals styles to reflect the Exercise Goal pictured above.</description>
     </item>
     
@@ -62,7 +62,7 @@ In this exercise, we will create a CSS Include, add it to our CodeCreative Theme
       
       <guid>https://codecreative.io/guides/getting-started-with-service-portal/building-a-homepage/</guid>
       <description>Objective: To create a customized homepage for the portal.
-  Exercise Goal   With the portal level components coming together strong, let&amp;rsquo;s turn our attention to the page level components. Service Portal comes with a built in layout engine that makes assembling pages a breeze.
+Exercise GoalWith the portal level components coming together strong, let&amp;rsquo;s turn our attention to the page level components. Service Portal comes with a built in layout engine that makes assembling pages a breeze.
 In this exercise, we will explore cloning and customizing pages in Service Portal by creating a custom homepage.
 Exercise Follow the below instructions to complete the exercise:</description>
     </item>
@@ -74,7 +74,7 @@ Exercise Follow the below instructions to complete the exercise:</description>
       
       <guid>https://codecreative.io/guides/getting-started-with-service-portal/configuring-widgets/</guid>
       <description>Objective: To configure and create simple Widgets in Service Portal
-  Exercise Goal   One more step to finish up our portal: Widgets. Widgets are the heart and soul of the Service Portal world. All of the content from the header to the footer, the menus, the lists, the forms, all of it is driven by Widgets. Widgets can be as simple or complex as you need.
+Exercise GoalOne more step to finish up our portal: Widgets. Widgets are the heart and soul of the Service Portal world. All of the content from the header to the footer, the menus, the lists, the forms, all of it is driven by Widgets. Widgets can be as simple or complex as you need.
 In this exercise, we will explore the basic foundations of Widgets, Widget Instances, and Instance options which are necessary to begin Widget development.</description>
     </item>
     

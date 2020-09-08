@@ -17,7 +17,7 @@
       <pubDate>Mon, 15 Jun 2015 16:00:00 +0000</pubDate>
       
       <guid>https://codecreative.io/blog/adding-doctype-to-a-ui-page/</guid>
-      <description>Today, I am going to share a trick I learned to add a doctype to a UI Page based off of will.leingang&amp;lsquo;s article Making a UI Page without using the framework page template. A page&amp;rsquo;s doctype usually doesn&amp;rsquo;t seem to make a huge difference in output but occasionally, certain scripts and html/css tricks require a specific doctype. In my case, I needed the standard HTML5 doctype.
+      <description>Today, I am going to share a trick I learned to add a doctype to a UI Page based off of will.leingang&amp;rsquo;s article Making a UI Page without using the framework page template. A page&amp;rsquo;s doctype usually doesn&amp;rsquo;t seem to make a huge difference in output but occasionally, certain scripts and html/css tricks require a specific doctype. In my case, I needed the standard HTML5 doctype.
 What Not To Do As my first attempt, I foolishly tried this for the UI Page:</description>
     </item>
     

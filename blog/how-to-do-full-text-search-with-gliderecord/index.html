@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One|Slabo+13px|Open+Sans:300" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-<link rel="stylesheet" href="https://codecreative.io/assets/main.min.f3d1ef93d0edf3bd8b05a1c5c552fed91f01e0e9624c4f1e35f60b3339173f9d.css">
+<link rel="stylesheet" href="https://codecreative.io/assets/main.min.e80c73b9b5040c8fe01e8de17c90fb71fac60a100010356bd174f7e1a330cf54.css">
 <title>How To Do Full Text Search With GlideRecord | CodeCreative | A ServiceNow Blog</title>
 <meta name="description" content="When looking at the form filters in ServiceNow, I think all admins and developers reach a point where we start to wonder &#34;How do I search Keywords in my scripts?&#34; After all, that full text search using &#34;for text&#34; or the &#34;Keywords&#34; filter is so tantalizing for any custom CMS / Service Portal search feature.">
 <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?d=20181101201248">
@@ -62,7 +62,7 @@
     },
     "name" : "How To Do Full Text Search With GlideRecord",
     "headline" : "How To Do Full Text Search With GlideRecord",
-    "description" : "When looking at the form filters in ServiceNow, I think all admins and developers reach a point where we start to wonder \x22How do I search Keywords in my scripts?\x22 After all, that full text search using \x22for text\x22 or the \x22Keywords\x22 filter is so tantalizing for any custom CMS \/ Service Portal search feature.","image": "https:\/\/codecreative.io\/blog\/how-to-do-full-text-search-with-gliderecord\/images\/social.png","inLanguage" : "en-US",
+    "description" : "When looking at the form filters in ServiceNow, I think all admins and developers reach a point where we start to wonder \u0022How do I search Keywords in my scripts?\u0022 After all, that full text search using \u0022for text\u0022 or the \u0022Keywords\u0022 filter is so tantalizing for any custom CMS \/ Service Portal search feature.","image": "https:\/\/codecreative.io\/blog\/how-to-do-full-text-search-with-gliderecord\/images\/social.png","inLanguage" : "en-US",
       "author" : "Travis Toulson",
       "creator" : "Travis Toulson","publisher": "Travis Toulson",
     "copyrightHolder" : "Travis Toulson",
@@ -124,8 +124,13 @@
 <main>
   <header class="banner">
     <h1>How To Do Full Text Search With GlideRecord</h1>
-  </header>
-
+  </header><div class="announcement">
+    <a href="https://surveys.codecreative.io/index.php/565345?lang=en" role="button">
+        <h3>ServiceNow Salary Influence Survey 2020</h3>
+        <p>The ServiceNow Salary Influence Survey 2020 is currently live. If you would like to participate, please click this announcement to start the survey.</p>
+        <p class="button">Take The Survey ></p>
+    </a>
+</div>
   <div class="content text-content">
     <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
@@ -153,12 +158,12 @@
   </figcaption>
 </figure>
 <p>For those unaware, this global / full text search capability is powered by <a href="http://wiki.servicenow.com/index.php?title=Administering_Global_Text_Search#gsc.tab=0">Zing</a> in ServiceNow and it can easily fly under your radar as I realized recently when perusing some comments in the Now community. After all, the encoded query is actually a little misleading: <strong>GOTO123TEXTQUERY321=*@example.com</strong>. After some experimenting, research, or reverse engineering, you will likely discover that the GOTO part is completely unnecessary but otherwise this full text search is completely accessible through GlideRecord directly (scripts updated to use the IR_AND_OR_QUERY instead of the 123TEXTQUERY321):</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;sc_cat_item&#39;</span><span class="p">)</span><span class="p">;</span>
-<span class="nx">gr</span><span class="p">.</span><span class="nx">addQuery</span><span class="p">(</span><span class="s1">&#39;IR_AND_OR_QUERY&#39;</span><span class="p">,</span> <span class="s1">&#39;Application&#39;</span><span class="p">)</span><span class="p">;</span>
-<span class="nx">gr</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;sc_cat_item&#39;</span><span class="p">);</span>
+<span class="nx">gr</span><span class="p">.</span><span class="nx">addQuery</span><span class="p">(</span><span class="s1">&#39;IR_AND_OR_QUERY&#39;</span><span class="p">,</span> <span class="s1">&#39;Application&#39;</span><span class="p">);</span>
+<span class="nx">gr</span><span class="p">.</span><span class="nx">query</span><span class="p">();</span>
 
-<span class="k">while</span> <span class="p">(</span><span class="nx">gr</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="p">)</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">gr</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span> <span class="s1">&#39;: &#39;</span> <span class="o">+</span> <span class="nx">gr</span><span class="p">.</span><span class="nx">ir_query_score</span><span class="p">)</span><span class="p">;</span>
+<span class="k">while</span> <span class="p">(</span><span class="nx">gr</span><span class="p">.</span><span class="nx">next</span><span class="p">())</span> <span class="p">{</span>
+  <span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">gr</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span> <span class="s1">&#39;: &#39;</span> <span class="o">+</span> <span class="nx">gr</span><span class="p">.</span><span class="nx">ir_query_score</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div><p>In the above script, you will notice 2 things:</p>
 <ol>

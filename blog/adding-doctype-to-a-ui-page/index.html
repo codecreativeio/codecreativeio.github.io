@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One|Slabo+13px|Open+Sans:300" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-<link rel="stylesheet" href="https://codecreative.io/assets/main.min.f3d1ef93d0edf3bd8b05a1c5c552fed91f01e0e9624c4f1e35f60b3339173f9d.css">
+<link rel="stylesheet" href="https://codecreative.io/assets/main.min.e80c73b9b5040c8fe01e8de17c90fb71fac60a100010356bd174f7e1a330cf54.css">
 <title>Adding Doctype to a UI Page | CodeCreative | A ServiceNow Blog</title>
 <meta name="description" content="A page&#39;s doctype usually doesn&#39;t seem to make a huge difference in output but occasionally, certain scripts and html/css tricks require a specific doctype. In my case, I needed the standard HTML5 doctype. Here is how I added a custom doctype to a UI Page.">
 <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?d=20181101201248">
@@ -44,7 +44,7 @@
     },
     "name" : "Adding Doctype to a UI Page",
     "headline" : "Adding Doctype to a UI Page",
-    "description" : "A page\x27s doctype usually doesn\x27t seem to make a huge difference in output but occasionally, certain scripts and html\/css tricks require a specific doctype. In my case, I needed the standard HTML5 doctype. Here is how I added a custom doctype to a UI Page.","inLanguage" : "en-US",
+    "description" : "A page\u0027s doctype usually doesn\u0027t seem to make a huge difference in output but occasionally, certain scripts and html\/css tricks require a specific doctype. In my case, I needed the standard HTML5 doctype. Here is how I added a custom doctype to a UI Page.","inLanguage" : "en-US",
       "author" : "Travis Toulson",
       "creator" : "Travis Toulson","publisher": "Travis Toulson",
     "copyrightHolder" : "Travis Toulson",
@@ -106,8 +106,13 @@
 <main>
   <header class="banner">
     <h1>Adding Doctype to a UI Page</h1>
-  </header>
-
+  </header><div class="announcement">
+    <a href="https://surveys.codecreative.io/index.php/565345?lang=en" role="button">
+        <h3>ServiceNow Salary Influence Survey 2020</h3>
+        <p>The ServiceNow Salary Influence Survey 2020 is currently live. If you would like to participate, please click this announcement to start the survey.</p>
+        <p class="button">Take The Survey ></p>
+    </a>
+</div>
   <div class="content text-content">
     <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
@@ -125,7 +130,7 @@
       </header>
 
       <div class="post-content e-content" itemprop="articleBody">
-        <p>Today, I am going to share a trick I learned to add a doctype to a UI Page based off of <a href="https://community.servicenow.com/people/will.leingang">will.leingang</a>&lsquo;s article <a href="https://community.servicenow.com/community/develop/blog/2015/02/03/a-ui-page-without-the-framework-page-template">Making a UI Page without using the framework page template</a>. A page&rsquo;s doctype usually doesn&rsquo;t seem to make a huge difference in output but occasionally, certain scripts and html/css tricks require a specific doctype. In my case, I needed the standard HTML5 doctype.</p>
+        <p>Today, I am going to share a trick I learned to add a doctype to a UI Page based off of <a href="https://community.servicenow.com/people/will.leingang">will.leingang</a>&rsquo;s article <a href="https://community.servicenow.com/community/develop/blog/2015/02/03/a-ui-page-without-the-framework-page-template">Making a UI Page without using the framework page template</a>. A page&rsquo;s doctype usually doesn&rsquo;t seem to make a huge difference in output but occasionally, certain scripts and html/css tricks require a specific doctype. In my case, I needed the standard HTML5 doctype.</p>
 <h2 id="what-not-to-do">What Not To Do</h2>
 <p>As my first attempt, I foolishly tried this for the UI Page:</p>
 <div class="highlight"><pre class="chroma"><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34; ?&gt;</span>  
@@ -156,22 +161,22 @@
   </figcaption>
 </figure>
 <p>Yes. That is the page I saw in the browser. For those who are still confused, this is the HTML in the browser:</p>
-<div class="highlight"><pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;html</span><span class="nt">&gt;</span>  
-  <span class="nt">&lt;head</span><span class="nt">&gt;</span><span class="nt">&lt;/head&gt;</span>  
-  <span class="nt">&lt;body</span><span class="nt">&gt;</span>  
+<div class="highlight"><pre class="chroma"><code class="language-xml" data-lang="xml"><span class="nt">&lt;html&gt;</span>  
+  <span class="nt">&lt;head&gt;&lt;/head&gt;</span>  
+  <span class="nt">&lt;body&gt;</span>  
     <span class="ni">&amp;lt;</span>!DOCTYPE HTML<span class="ni">&amp;gt;</span>  
     Hello World  
-    <span class="nt">&lt;script</span><span class="nt">&gt;</span><span class="nt">&lt;/script&gt;</span>  
+    <span class="nt">&lt;script&gt;&lt;/script&gt;</span>  
   <span class="nt">&lt;/body&gt;</span>  
 <span class="nt">&lt;/html&gt;</span>
 </code></pre></div><h2 id="problem-solved-problem-staying-solved">Problem Solved, Problem Staying Solved</h2>
 <p>So with that failure, I turned to option #3, leveraging the &lt;g:no_escape&gt; tag to embed raw html. Since Jelly runs in two phases and the second phase parse would likely complain about a misplaced &lt;!DOCTYPE&gt; as much as phase 1, I had to run no_escape in phase 2 to eliminate any XML parsing conflicts. This is a common trick I use when XML is getting in my way. Of course, to do this, I needed a string variable containing the raw html to embed, so I also added &lt;g:evaluate&gt;. Here is the UI Page XML:</p>
 <div class="highlight"><pre class="chroma"><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34; ?&gt;</span>  
 <span class="nt">&lt;j:jelly</span> <span class="na">trim=</span><span class="s">&#34;false&#34;</span> <span class="na">xmlns:j=</span><span class="s">&#34;jelly:core&#34;</span> <span class="na">xmlns:g=</span><span class="s">&#34;glide&#34;</span> <span class="na">xmlns:j2=</span><span class="s">&#34;null&#34;</span> <span class="na">xmlns:g2=</span><span class="s">&#34;null&#34;</span><span class="nt">&gt;</span>  
-  <span class="nt">&lt;g:evaluate</span><span class="nt">&gt;</span>  
+  <span class="nt">&lt;g:evaluate&gt;</span>  
     var docType = &#39;<span class="ni">&amp;lt;</span>!DOCTYPE HTML<span class="ni">&amp;gt;</span>&#39;;  
   <span class="nt">&lt;/g:evaluate&gt;</span>  
-  <span class="nt">&lt;g2:no_escape</span><span class="nt">&gt;</span>  
+  <span class="nt">&lt;g2:no_escape&gt;</span>  
     $[docType]  
   <span class="nt">&lt;/g2:no_escape&gt;</span>  
   Hello World  

@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One|Slabo+13px|Open+Sans:300" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-<link rel="stylesheet" href="https://codecreative.io/assets/main.min.f3d1ef93d0edf3bd8b05a1c5c552fed91f01e0e9624c4f1e35f60b3339173f9d.css">
+<link rel="stylesheet" href="https://codecreative.io/assets/main.min.e80c73b9b5040c8fe01e8de17c90fb71fac60a100010356bd174f7e1a330cf54.css">
 <title>Is GlideRecord getValue the King of the String | CodeCreative | A ServiceNow Blog</title>
 <meta name="description" content="Everyone knows when using GlideRecord, getValue is the best practice for returning a string value.  Or is it? In this post, I conduct an analysis to see if getValue is truly the King of the String.">
 <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?d=20181101201248">
@@ -124,8 +124,13 @@
 <main>
   <header class="banner">
     <h1>Is GlideRecord getValue the King of the String</h1>
-  </header>
-
+  </header><div class="announcement">
+    <a href="https://surveys.codecreative.io/index.php/565345?lang=en" role="button">
+        <h3>ServiceNow Salary Influence Survey 2020</h3>
+        <p>The ServiceNow Salary Influence Survey 2020 is currently live. If you would like to participate, please click this announcement to start the survey.</p>
+        <p class="button">Take The Survey ></p>
+    </a>
+</div>
   <div class="content text-content">
     <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
@@ -186,33 +191,33 @@
 <p>Try running this in a background script:</p>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="p">{</span>
   <span class="nx">_number</span><span class="o">:</span> <span class="s1">&#39;INC000070&#39;</span><span class="p">,</span>
-  <span class="nx">get</span> <span class="nx">number</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s1">&#39;Sweet Christmas, an accessor method&#39;</span><span class="p">)</span><span class="p">;</span>
+  <span class="nx">get</span> <span class="nx">number</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s1">&#39;Sweet Christmas, an accessor method&#39;</span><span class="p">);</span>
     <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">a</span><span class="p">;</span>
-  <span class="p">}</span><span class="p">,</span>
+  <span class="p">},</span>
   <span class="nx">set</span> <span class="nx">number</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s1">&#39;Sweet Christmas, a mutator method&#39;</span><span class="p">)</span><span class="p">;</span>
+    <span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s1">&#39;Sweet Christmas, a mutator method&#39;</span><span class="p">);</span>
     <span class="k">this</span><span class="p">.</span><span class="nx">a</span> <span class="o">=</span> <span class="nx">x</span><span class="p">;</span>
   <span class="p">}</span>
-<span class="p">}</span><span class="p">;</span>
+<span class="p">};</span>
 
 <span class="nx">gr</span><span class="p">.</span><span class="nx">number</span> <span class="o">=</span> <span class="s1">&#39;INC000080&#39;</span><span class="p">;</span>
 <span class="nx">gr</span><span class="p">.</span><span class="nx">number</span><span class="p">;</span>
 </code></pre></div><p>Sweet Christmas, indeed. By the way, this same concept applies to using an assignment operator on a GlideElement property. Once upon a time the assignment below may have overwritten the GlideElement but it&rsquo;s not the case anymore. Try running this as a background script:</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;incident&#39;</span><span class="p">)</span><span class="p">;</span>
-<span class="nx">gr</span><span class="p">.</span><span class="nx">setLimit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="p">;</span>
-<span class="nx">gr</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
-<span class="nx">gr</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;incident&#39;</span><span class="p">);</span>
+<span class="nx">gr</span><span class="p">.</span><span class="nx">setLimit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="nx">gr</span><span class="p">.</span><span class="nx">query</span><span class="p">();</span>
+<span class="nx">gr</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span>
 
 <span class="c1">// Assigning to a string will change the GlideElement reference they say
 </span><span class="c1"></span><span class="nx">gr</span><span class="p">.</span><span class="nx">sys_created_on</span> <span class="o">=</span> <span class="s1">&#39;2019-04-01 00:00:00&#39;</span><span class="p">;</span>
 
 <span class="k">if</span> <span class="p">(</span><span class="nx">gr</span><span class="p">.</span><span class="nx">sys_created_on</span><span class="p">.</span><span class="nx">getValue</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s2">&#34;I guess I&#39;m still a GlideElement&#34;</span><span class="p">)</span><span class="p">;</span>
-  <span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s2">&#34;My type is: &#34;</span> <span class="o">+</span> <span class="k">typeof</span> <span class="nx">gr</span><span class="p">.</span><span class="nx">sys_created_on</span><span class="p">)</span><span class="p">;</span>
+  <span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s2">&#34;I guess I&#39;m still a GlideElement&#34;</span><span class="p">);</span>
+  <span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s2">&#34;My type is: &#34;</span> <span class="o">+</span> <span class="k">typeof</span> <span class="nx">gr</span><span class="p">.</span><span class="nx">sys_created_on</span><span class="p">);</span>
 <span class="p">}</span>
 <span class="k">else</span> <span class="p">{</span>
-  <span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s2">&#34;Well darn, I guess I changed&#34;</span><span class="p">)</span><span class="p">;</span>
+  <span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s2">&#34;Well darn, I guess I changed&#34;</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div><p>There are still some pretty convincing arguments in favor of setters for certain field types but I won&rsquo;t be going into those here.</p>
 <p>So overall, the getter / setter &ldquo;best practice&rdquo; argument leaves me unconvinced.</p>
@@ -258,14 +263,14 @@
 <h2 id="analysis-of-alternatives">Analysis of Alternatives</h2>
 <h3 id="gliderecord-getvalue">GlideRecord getValue</h3>
 <p>Example:</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;incident&#39;</span><span class="p">)</span><span class="p">;</span>
-<span class="nx">gr</span><span class="p">.</span><span class="nx">setLimit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="p">;</span>
-<span class="nx">gr</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
-<span class="nx">gr</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;incident&#39;</span><span class="p">);</span>
+<span class="nx">gr</span><span class="p">.</span><span class="nx">setLimit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="nx">gr</span><span class="p">.</span><span class="nx">query</span><span class="p">();</span>
+<span class="nx">gr</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span>
 
 <span class="c1">// getValue
-</span><span class="c1"></span><span class="kd">var</span> <span class="nx">val</span> <span class="o">=</span> <span class="nx">gr</span><span class="p">.</span><span class="nx">getValue</span><span class="p">(</span><span class="s1">&#39;number&#39;</span><span class="p">)</span><span class="p">;</span>
-<span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">val</span><span class="p">)</span><span class="p">;</span>
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">val</span> <span class="o">=</span> <span class="nx">gr</span><span class="p">.</span><span class="nx">getValue</span><span class="p">(</span><span class="s1">&#39;number&#39;</span><span class="p">);</span>
+<span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">val</span><span class="p">);</span>
 </code></pre></div><p><strong>Criteria Results</strong></p>
 <ul>
 <li>Expected Type Returned: <strong>Fail</strong></li>
@@ -297,32 +302,32 @@
 </span><span class="c1"></span><span class="p">}</span>
 </code></pre></div><p>Now admittedly, there may be a getBooleanValue with which I am unfamiliar. But if I want a string representation of the boolean value, doesn&rsquo;t &lsquo;true&rsquo; and &lsquo;false&rsquo; make a whole lot more sense?</p>
 <p>Lastly, the GlideRecord&rsquo;s getValue function doesn&rsquo;t support any sort of dot-walking and has a different signature than the GlideElement getValue which results in a lot of confusion for inexperienced developers. For example, if we want to get the Assignment Group&rsquo;s Manager:</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;incident&#39;</span><span class="p">)</span><span class="p">;</span>
-<span class="nx">gr</span><span class="p">.</span><span class="nx">setLimit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="p">;</span>
-<span class="nx">gr</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
-<span class="nx">gr</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;incident&#39;</span><span class="p">);</span>
+<span class="nx">gr</span><span class="p">.</span><span class="nx">setLimit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="nx">gr</span><span class="p">.</span><span class="nx">query</span><span class="p">();</span>
+<span class="nx">gr</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span>
 
-<span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">gr</span><span class="p">.</span><span class="nx">getValue</span><span class="p">(</span><span class="s1">&#39;assignment_group&#39;</span><span class="p">)</span><span class="p">)</span><span class="p">;</span> <span class="c1">// how the direct field script looks
+<span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">gr</span><span class="p">.</span><span class="nx">getValue</span><span class="p">(</span><span class="s1">&#39;assignment_group&#39;</span><span class="p">));</span> <span class="c1">// how the direct field script looks
 </span><span class="c1"></span>
-<span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">gr</span><span class="p">.</span><span class="nx">getValue</span><span class="p">(</span><span class="s1">&#39;assignment_group.manager&#39;</span><span class="p">)</span><span class="p">)</span><span class="p">;</span> <span class="c1">// Doesnt work
-</span><span class="c1"></span><span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">gr</span><span class="p">.</span><span class="nx">assignment_group</span><span class="p">.</span><span class="nx">getValue</span><span class="p">(</span><span class="s1">&#39;manager&#39;</span><span class="p">)</span><span class="p">)</span><span class="p">;</span> <span class="c1">// Doesn&#39;t work
+<span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">gr</span><span class="p">.</span><span class="nx">getValue</span><span class="p">(</span><span class="s1">&#39;assignment_group.manager&#39;</span><span class="p">));</span> <span class="c1">// Doesnt work
+</span><span class="c1"></span><span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">gr</span><span class="p">.</span><span class="nx">assignment_group</span><span class="p">.</span><span class="nx">getValue</span><span class="p">(</span><span class="s1">&#39;manager&#39;</span><span class="p">));</span> <span class="c1">// Doesn&#39;t work
 </span><span class="c1"></span>
-<span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">gr</span><span class="p">.</span><span class="nx">assignment_group</span><span class="p">.</span><span class="nx">manager</span><span class="p">.</span><span class="nx">getValue</span><span class="p">(</span><span class="p">)</span><span class="p">)</span> <span class="c1">// We have to resort to the GlideElement version for dot walking
-</span><span class="c1"></span><span class="nx">gr</span><span class="p">.</span><span class="nx">getElement</span><span class="p">(</span><span class="s1">&#39;assignment_group.manager&#39;</span><span class="p">)</span><span class="p">.</span><span class="nx">getValue</span><span class="p">(</span><span class="p">)</span><span class="p">;</span> <span class="c1">// Closest alternative? But still using GlideElement
+<span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">gr</span><span class="p">.</span><span class="nx">assignment_group</span><span class="p">.</span><span class="nx">manager</span><span class="p">.</span><span class="nx">getValue</span><span class="p">())</span> <span class="c1">// We have to resort to the GlideElement version for dot walking
+</span><span class="c1"></span><span class="nx">gr</span><span class="p">.</span><span class="nx">getElement</span><span class="p">(</span><span class="s1">&#39;assignment_group.manager&#39;</span><span class="p">).</span><span class="nx">getValue</span><span class="p">();</span> <span class="c1">// Closest alternative? But still using GlideElement
 </span></code></pre></div><p>In the above script, we can see that the GlideRecord getValue accepts a string parameter but it can not be a dot walked field. For dot walking, we are forced to resort to the GlideElement version of getValue which does not accept a string value.</p>
 <p>To inexperienced developers this creates significant confusion and I have fielded many questions on this aspect alone. The functions look the same, but their signature&hellip; how they are used is very different. Combined with getElement accepting a dot walked parameter and good night&hellip; I&rsquo;m done.</p>
 <p>As for the statistics, both getValue functions returned the same values in all cases except Boolean and those dastardly null values. Sadly, this amounted to being consistent in only 57.28% of the samples and 42.31% of the field types.</p>
 <p>But as I said earlier, experience shows that most developers have been able to navigate these issues easily enough or have simply not encountered them to begin with. That said, it&rsquo;s hard to accept this function a best practice when other options behave more consistently.</p>
 <h3 id="glideelement-getvalue">GlideElement getValue</h3>
 <p>Example:</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;incident&#39;</span><span class="p">)</span><span class="p">;</span>
-<span class="nx">gr</span><span class="p">.</span><span class="nx">setLimit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="p">;</span>
-<span class="nx">gr</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
-<span class="nx">gr</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;incident&#39;</span><span class="p">);</span>
+<span class="nx">gr</span><span class="p">.</span><span class="nx">setLimit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="nx">gr</span><span class="p">.</span><span class="nx">query</span><span class="p">();</span>
+<span class="nx">gr</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span>
 
 <span class="c1">// getValue
-</span><span class="c1"></span><span class="kd">var</span> <span class="nx">val</span> <span class="o">=</span> <span class="nx">gr</span><span class="p">.</span><span class="nx">number</span><span class="p">.</span><span class="nx">getValue</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
-<span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">val</span><span class="p">)</span><span class="p">;</span>
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">val</span> <span class="o">=</span> <span class="nx">gr</span><span class="p">.</span><span class="nx">number</span><span class="p">.</span><span class="nx">getValue</span><span class="p">();</span>
+<span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">val</span><span class="p">);</span>
 </code></pre></div><p><strong>Criteria Results</strong></p>
 <ul>
 <li>Expected Type Returned: <strong>Fail</strong></li>
@@ -346,14 +351,14 @@
 <h3 id="plus-quote-quote">Plus-Quote-Quote</h3>
 <p><strong>Updated (04/07/2019):</strong> This section has been updated to reflect the findings presented by Kevin Gravois</p>
 <p>Example:</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;incident&#39;</span><span class="p">)</span><span class="p">;</span>
-<span class="nx">gr</span><span class="p">.</span><span class="nx">setLimit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="p">;</span>
-<span class="nx">gr</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
-<span class="nx">gr</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;incident&#39;</span><span class="p">);</span>
+<span class="nx">gr</span><span class="p">.</span><span class="nx">setLimit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="nx">gr</span><span class="p">.</span><span class="nx">query</span><span class="p">();</span>
+<span class="nx">gr</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span>
 
 <span class="c1">// Plus-Quote-Quote
 </span><span class="c1"></span><span class="kd">var</span> <span class="nx">val</span> <span class="o">=</span> <span class="nx">gr</span><span class="p">.</span><span class="nx">number</span> <span class="o">+</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
-<span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">val</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">val</span><span class="p">);</span>
 </code></pre></div><p><strong>Criteria Results</strong></p>
 <ul>
 <li>Expected Type Returned: <strong>Fail</strong></li>
@@ -382,14 +387,14 @@
 <h3 id="string-constructor">String constructor</h3>
 <p><strong>Updated (04/07/2019):</strong> This section has been updated to reflect the findings presented by Kevin Gravois</p>
 <p>Example:</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;incident&#39;</span><span class="p">)</span><span class="p">;</span>
-<span class="nx">gr</span><span class="p">.</span><span class="nx">setLimit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="p">;</span>
-<span class="nx">gr</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
-<span class="nx">gr</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;incident&#39;</span><span class="p">);</span>
+<span class="nx">gr</span><span class="p">.</span><span class="nx">setLimit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="nx">gr</span><span class="p">.</span><span class="nx">query</span><span class="p">();</span>
+<span class="nx">gr</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span>
 
 <span class="c1">// String Constructor
-</span><span class="c1"></span><span class="kd">var</span> <span class="nx">val</span> <span class="o">=</span> <span class="nb">String</span><span class="p">(</span><span class="nx">gr</span><span class="p">.</span><span class="nx">number</span><span class="p">)</span><span class="p">;</span>
-<span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">val</span><span class="p">)</span><span class="p">;</span>
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">val</span> <span class="o">=</span> <span class="nb">String</span><span class="p">(</span><span class="nx">gr</span><span class="p">.</span><span class="nx">number</span><span class="p">);</span>
+<span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">val</span><span class="p">);</span>
 </code></pre></div><p><strong>Criteria Results</strong></p>
 <ul>
 <li>Expected Type Returned: <strong>Fail</strong></li>
@@ -414,14 +419,14 @@
 <h3 id="tostring-function">toString Function</h3>
 <p><strong>Updated (04/07/2019):</strong> This section has been updated to reflect the findings presented by Kevin Gravois</p>
 <p>Example:</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;incident&#39;</span><span class="p">)</span><span class="p">;</span>
-<span class="nx">gr</span><span class="p">.</span><span class="nx">setLimit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="p">;</span>
-<span class="nx">gr</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
-<span class="nx">gr</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;incident&#39;</span><span class="p">);</span>
+<span class="nx">gr</span><span class="p">.</span><span class="nx">setLimit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="nx">gr</span><span class="p">.</span><span class="nx">query</span><span class="p">();</span>
+<span class="nx">gr</span><span class="p">.</span><span class="nx">next</span><span class="p">();</span>
 
 <span class="c1">// String Constructor
-</span><span class="c1"></span><span class="kd">var</span> <span class="nx">val</span> <span class="o">=</span> <span class="nx">gr</span><span class="p">.</span><span class="nx">number</span><span class="p">.</span><span class="nx">toString</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
-<span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">val</span><span class="p">)</span><span class="p">;</span>
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">val</span> <span class="o">=</span> <span class="nx">gr</span><span class="p">.</span><span class="nx">number</span><span class="p">.</span><span class="nx">toString</span><span class="p">();</span>
+<span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">val</span><span class="p">);</span>
 </code></pre></div><p><strong>Criteria Results</strong></p>
 <ul>
 <li>Expected Type Returned: <strong>Pass</strong></li>

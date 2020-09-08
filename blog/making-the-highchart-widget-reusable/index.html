@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One|Slabo+13px|Open+Sans:300" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-<link rel="stylesheet" href="https://codecreative.io/assets/main.min.f3d1ef93d0edf3bd8b05a1c5c552fed91f01e0e9624c4f1e35f60b3339173f9d.css">
+<link rel="stylesheet" href="https://codecreative.io/assets/main.min.e80c73b9b5040c8fe01e8de17c90fb71fac60a100010356bd174f7e1a330cf54.css">
 <title>Making the HighChart Widget Reusable | CodeCreative | A ServiceNow Blog</title>
 <meta name="description" content="Up until now, the HighChart Widget that we&#39;ve been working on has remained... well... mostly unusable. In this article, we are going to make some final changes that actually make this Widget useful in an actual Service Portal.">
 <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?d=20181101201248">
@@ -62,7 +62,7 @@
     },
     "name" : "Making the HighChart Widget Reusable",
     "headline" : "Making the HighChart Widget Reusable",
-    "description" : "Up until now, the HighChart Widget that we\x27ve been working on has remained... well... mostly unusable. In this article, we are going to make some final changes that actually make this Widget useful in an actual Service Portal.","image": "https:\/\/codecreative.io\/blog\/making-the-highchart-widget-reusable\/images\/social.png","inLanguage" : "en-US",
+    "description" : "Up until now, the HighChart Widget that we\u0027ve been working on has remained... well... mostly unusable. In this article, we are going to make some final changes that actually make this Widget useful in an actual Service Portal.","image": "https:\/\/codecreative.io\/blog\/making-the-highchart-widget-reusable\/images\/social.png","inLanguage" : "en-US",
       "author" : "Travis Toulson",
       "creator" : "Travis Toulson","publisher": "Travis Toulson",
     "copyrightHolder" : "Travis Toulson",
@@ -124,8 +124,13 @@
 <main>
   <header class="banner">
     <h1>Making the HighChart Widget Reusable</h1>
-  </header>
-
+  </header><div class="announcement">
+    <a href="https://surveys.codecreative.io/index.php/565345?lang=en" role="button">
+        <h3>ServiceNow Salary Influence Survey 2020</h3>
+        <p>The ServiceNow Salary Influence Survey 2020 is currently live. If you would like to participate, please click this announcement to start the survey.</p>
+        <p class="button">Take The Survey ></p>
+    </a>
+</div>
   <div class="content text-content">
     <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
@@ -169,31 +174,31 @@
 </ol>
 <p>The first part is easy because we can actually remove the entire HTML Template all together. HighCharts will embed the chart directly into the Service Portal generated widget wrapper with one simple change to the Link function script (Don&rsquo;t forget to click the Link Function check box in the Widget Editor, it is off by default). Speaking of which, here is the new Link function:</p>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span><span class="p">(</span><span class="nx">scope</span><span class="p">,</span> <span class="nx">el</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">chart1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Highcharts</span><span class="p">.</span><span class="nx">Chart</span><span class="p">(</span><span class="p">{</span>  
+  <span class="kd">var</span> <span class="nx">chart1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Highcharts</span><span class="p">.</span><span class="nx">Chart</span><span class="p">({</span>  
     <span class="nx">chart</span><span class="o">:</span> <span class="p">{</span>  
-        <span class="nx">renderTo</span><span class="o">:</span> <span class="nx">el</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="p">,</span>  
+        <span class="nx">renderTo</span><span class="o">:</span> <span class="nx">el</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>  
         <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;column&#39;</span>  
-    <span class="p">}</span><span class="p">,</span>  
+    <span class="p">},</span>  
     <span class="nx">title</span><span class="o">:</span> <span class="p">{</span>  
         <span class="nx">text</span><span class="o">:</span> <span class="kc">null</span>  
-    <span class="p">}</span><span class="p">,</span>  
+    <span class="p">},</span>  
     <span class="nx">xAxis</span><span class="o">:</span> <span class="p">{</span>  
         <span class="nx">categories</span><span class="o">:</span> <span class="nx">scope</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">categories</span><span class="p">,</span>  
         <span class="nx">title</span><span class="o">:</span> <span class="p">{</span>  
             <span class="nx">text</span><span class="o">:</span> <span class="kc">null</span>  
-        <span class="p">}</span><span class="p">,</span>  
+        <span class="p">},</span>  
         <span class="nx">labels</span><span class="o">:</span> <span class="p">{</span>  
             <span class="nx">rotation</span><span class="o">:</span> <span class="o">-</span><span class="mi">45</span>  
         <span class="p">}</span>  
-    <span class="p">}</span><span class="p">,</span>  
+    <span class="p">},</span>  
     <span class="nx">yAxis</span><span class="o">:</span> <span class="p">{</span>  
         <span class="nx">min</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>  
         <span class="nx">title</span><span class="o">:</span> <span class="p">{</span>  
             <span class="nx">text</span><span class="o">:</span> <span class="kc">null</span>  
         <span class="p">}</span>  
-    <span class="p">}</span><span class="p">,</span>  
+    <span class="p">},</span>  
     <span class="nx">series</span><span class="o">:</span> <span class="nx">scope</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">series</span>  
-  <span class="p">}</span><span class="p">)</span><span class="p">;</span>
+  <span class="p">});</span>
 <span class="p">}</span>
 </code></pre></div><p>For the most part, it is very similar to our old Client Script function. Here are the few changes that have been made:</p>
 <ol>
@@ -202,7 +207,7 @@
 <li>Changed <strong>c.data</strong> to <strong>scope.data</strong> for both Series and Categories. The Link function passes in the scope to the first parameter of the function which we have called <strong>scope</strong>. This is part of Angular&rsquo;s internal processing.</li>
 </ol>
 <p>And with this move, we also need to clear out the Client Script which will now look like this:</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
   <span class="cm">/* widget controller */</span>
   <span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
 <span class="p">}</span>
@@ -242,43 +247,43 @@
 <p><strong>HTML</strong></p>
 <p>Ha, just kidding, there is no HTML</p>
 <p><strong>Client Script</strong></p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
   <span class="cm">/* widget controller */</span>
   <span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div><p><strong>Link Function</strong></p>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span><span class="p">(</span><span class="nx">scope</span><span class="p">,</span> <span class="nx">el</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">chart1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Highcharts</span><span class="p">.</span><span class="nx">Chart</span><span class="p">(</span><span class="p">{</span>  
+  <span class="kd">var</span> <span class="nx">chart1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Highcharts</span><span class="p">.</span><span class="nx">Chart</span><span class="p">({</span>  
     <span class="nx">chart</span><span class="o">:</span> <span class="p">{</span>  
-        <span class="nx">renderTo</span><span class="o">:</span> <span class="nx">el</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="p">,</span>  
+        <span class="nx">renderTo</span><span class="o">:</span> <span class="nx">el</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>  
         <span class="nx">type</span><span class="o">:</span> <span class="nx">scope</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">chart_type</span>  
-    <span class="p">}</span><span class="p">,</span>  
+    <span class="p">},</span>  
     <span class="nx">title</span><span class="o">:</span> <span class="p">{</span>  
         <span class="nx">text</span><span class="o">:</span> <span class="nx">scope</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">chart_title</span>  
-    <span class="p">}</span><span class="p">,</span>  
+    <span class="p">},</span>  
     <span class="nx">xAxis</span><span class="o">:</span> <span class="p">{</span>  
         <span class="nx">categories</span><span class="o">:</span> <span class="nx">scope</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">categories</span><span class="p">,</span>  
         <span class="nx">title</span><span class="o">:</span> <span class="p">{</span>  
             <span class="nx">text</span><span class="o">:</span> <span class="kc">null</span>  
-        <span class="p">}</span><span class="p">,</span>  
+        <span class="p">},</span>  
         <span class="nx">labels</span><span class="o">:</span> <span class="p">{</span>  
             <span class="nx">rotation</span><span class="o">:</span> <span class="o">-</span><span class="mi">45</span>  
         <span class="p">}</span>  
-    <span class="p">}</span><span class="p">,</span>  
+    <span class="p">},</span>  
     <span class="nx">yAxis</span><span class="o">:</span> <span class="p">{</span>  
         <span class="nx">min</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>  
         <span class="nx">title</span><span class="o">:</span> <span class="p">{</span>  
             <span class="nx">text</span><span class="o">:</span> <span class="kc">null</span>  
         <span class="p">}</span>  
-    <span class="p">}</span><span class="p">,</span>  
+    <span class="p">},</span>  
     <span class="nx">series</span><span class="o">:</span> <span class="nx">scope</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">series</span>  
-   <span class="p">}</span><span class="p">)</span><span class="p">;</span>
+   <span class="p">});</span>
 <span class="p">}</span>
 </code></pre></div><p><strong>Server Script</strong></p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
   <span class="cm">/* populate the &#39;data&#39; object */</span>
   <span class="cm">/* e.g., data.table = $sp.getValue(&#39;table&#39;); */</span>
-  <span class="kd">var</span> <span class="nx">series</span> <span class="o">=</span> <span class="p">{</span><span class="p">}</span><span class="p">,</span>
+  <span class="kd">var</span> <span class="nx">series</span> <span class="o">=</span> <span class="p">{},</span>
           <span class="nx">category</span><span class="p">,</span>
           <span class="nx">count</span><span class="p">,</span>
           <span class="nx">ga</span><span class="p">;</span>
@@ -316,21 +321,21 @@
   <span class="p">}</span>
 
   <span class="c1">// Collect Open data
-</span><span class="c1"></span>  <span class="nx">ga</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideAggregate</span><span class="p">(</span><span class="nx">options</span><span class="p">.</span><span class="nx">table</span><span class="p">)</span><span class="p">;</span>
-  <span class="nx">ga</span><span class="p">.</span><span class="nx">addEncodedQuery</span><span class="p">(</span><span class="nx">options</span><span class="p">.</span><span class="nx">query</span><span class="p">)</span><span class="p">;</span>
+</span><span class="c1"></span>  <span class="nx">ga</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideAggregate</span><span class="p">(</span><span class="nx">options</span><span class="p">.</span><span class="nx">table</span><span class="p">);</span>
+  <span class="nx">ga</span><span class="p">.</span><span class="nx">addEncodedQuery</span><span class="p">(</span><span class="nx">options</span><span class="p">.</span><span class="nx">query</span><span class="p">);</span>
 
   <span class="k">if</span> <span class="p">(</span><span class="nx">options</span><span class="p">.</span><span class="nx">aggregate</span> <span class="o">==</span> <span class="s1">&#39;COUNT&#39;</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nx">ga</span><span class="p">.</span><span class="nx">addAggregate</span><span class="p">(</span><span class="nx">options</span><span class="p">.</span><span class="nx">aggregate</span><span class="p">)</span><span class="p">;</span>
+      <span class="nx">ga</span><span class="p">.</span><span class="nx">addAggregate</span><span class="p">(</span><span class="nx">options</span><span class="p">.</span><span class="nx">aggregate</span><span class="p">);</span>
   <span class="p">}</span>
   <span class="k">else</span> <span class="p">{</span>
-      <span class="nx">ga</span><span class="p">.</span><span class="nx">addAggregate</span><span class="p">(</span><span class="nx">options</span><span class="p">.</span><span class="nx">aggregate</span><span class="p">,</span> <span class="nx">options</span><span class="p">.</span><span class="nx">aggregate_field</span><span class="p">)</span><span class="p">;</span>
+      <span class="nx">ga</span><span class="p">.</span><span class="nx">addAggregate</span><span class="p">(</span><span class="nx">options</span><span class="p">.</span><span class="nx">aggregate</span><span class="p">,</span> <span class="nx">options</span><span class="p">.</span><span class="nx">aggregate_field</span><span class="p">);</span>
   <span class="p">}</span>
 
-  <span class="nx">ga</span><span class="p">.</span><span class="nx">groupBy</span><span class="p">(</span><span class="nx">options</span><span class="p">.</span><span class="nx">group_by</span><span class="p">)</span><span class="p">;</span>  
-  <span class="nx">ga</span><span class="p">.</span><span class="nx">orderBy</span><span class="p">(</span><span class="nx">options</span><span class="p">.</span><span class="nx">group_by</span><span class="p">)</span><span class="p">;</span>  
-  <span class="nx">ga</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
-  <span class="k">while</span> <span class="p">(</span><span class="nx">ga</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="p">)</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nx">category</span> <span class="o">=</span> <span class="nx">ga</span><span class="p">.</span><span class="nx">getElement</span><span class="p">(</span><span class="nx">options</span><span class="p">.</span><span class="nx">group_by</span><span class="p">)</span><span class="p">.</span><span class="nx">getDisplayValue</span><span class="p">(</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;&#39;</span> <span class="o">||</span> <span class="s1">&#39;(empty)&#39;</span><span class="p">;</span>
+  <span class="nx">ga</span><span class="p">.</span><span class="nx">groupBy</span><span class="p">(</span><span class="nx">options</span><span class="p">.</span><span class="nx">group_by</span><span class="p">);</span>  
+  <span class="nx">ga</span><span class="p">.</span><span class="nx">orderBy</span><span class="p">(</span><span class="nx">options</span><span class="p">.</span><span class="nx">group_by</span><span class="p">);</span>  
+  <span class="nx">ga</span><span class="p">.</span><span class="nx">query</span><span class="p">();</span>
+  <span class="k">while</span> <span class="p">(</span><span class="nx">ga</span><span class="p">.</span><span class="nx">next</span><span class="p">())</span> <span class="p">{</span>
+      <span class="nx">category</span> <span class="o">=</span> <span class="nx">ga</span><span class="p">.</span><span class="nx">getElement</span><span class="p">(</span><span class="nx">options</span><span class="p">.</span><span class="nx">group_by</span><span class="p">).</span><span class="nx">getDisplayValue</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;&#39;</span> <span class="o">||</span> <span class="s1">&#39;(empty)&#39;</span><span class="p">;</span>
 
       <span class="k">if</span> <span class="p">(</span><span class="nx">options</span><span class="p">.</span><span class="nx">aggregate</span> <span class="o">==</span> <span class="s1">&#39;COUNT&#39;</span><span class="p">)</span> <span class="p">{</span>
           <span class="nx">count</span> <span class="o">=</span> <span class="nx">ga</span><span class="p">.</span><span class="nx">getAggregate</span><span class="p">(</span><span class="s1">&#39;COUNT&#39;</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1</span><span class="p">;</span>
@@ -343,18 +348,18 @@
   <span class="p">}</span>
 
   <span class="c1">// Prepare output objects
-</span><span class="c1"></span>  <span class="nx">data</span><span class="p">.</span><span class="nx">categories</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">series</span><span class="p">)</span><span class="p">;</span>
-  <span class="nx">data</span><span class="p">.</span><span class="nx">series</span> <span class="o">=</span> <span class="p">[</span><span class="p">{</span>
+</span><span class="c1"></span>  <span class="nx">data</span><span class="p">.</span><span class="nx">categories</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">series</span><span class="p">);</span>
+  <span class="nx">data</span><span class="p">.</span><span class="nx">series</span> <span class="o">=</span> <span class="p">[{</span>
       <span class="s1">&#39;name&#39;</span><span class="o">:</span> <span class="nx">options</span><span class="p">.</span><span class="nx">series_name</span><span class="p">,</span>
       <span class="s1">&#39;legendIndex&#39;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-      <span class="s1">&#39;data&#39;</span><span class="o">:</span> <span class="p">[</span><span class="p">]</span>
-  <span class="p">}</span><span class="p">]</span>
+      <span class="s1">&#39;data&#39;</span><span class="o">:</span> <span class="p">[]</span>
+  <span class="p">}]</span>
 
   <span class="c1">// Transform collected objects into data arrays
 </span><span class="c1"></span>  <span class="nx">data</span><span class="p">.</span><span class="nx">categories</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">it</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nx">data</span><span class="p">.</span><span class="nx">series</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">series</span><span class="p">[</span><span class="nx">it</span><span class="p">]</span><span class="p">)</span><span class="p">;</span>
-  <span class="p">}</span><span class="p">)</span><span class="p">;</span>
-<span class="p">}</span><span class="p">)</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+      <span class="nx">data</span><span class="p">.</span><span class="nx">series</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">data</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">series</span><span class="p">[</span><span class="nx">it</span><span class="p">]);</span>
+  <span class="p">});</span>
+<span class="p">})();</span>
 </code></pre></div><hr>
 <h2 id="step-4-add-widget-options">Step 4: Add Widget Options</h2>
 <figure>

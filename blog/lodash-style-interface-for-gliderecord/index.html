@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One|Slabo+13px|Open+Sans:300" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-<link rel="stylesheet" href="https://codecreative.io/assets/main.min.f3d1ef93d0edf3bd8b05a1c5c552fed91f01e0e9624c4f1e35f60b3339173f9d.css">
+<link rel="stylesheet" href="https://codecreative.io/assets/main.min.e80c73b9b5040c8fe01e8de17c90fb71fac60a100010356bd174f7e1a330cf54.css">
 <title>Lodash style interface for GlideRecord | CodeCreative | A ServiceNow Blog</title>
 <meta name="description" content="Introducing Glider.js, a lodash style interface for GlideRecord (and yes it works with Arrays as well). Currently in early development. Checkout the Git Repo.">
 <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?d=20181101201248">
@@ -124,8 +124,13 @@
 <main>
   <header class="banner">
     <h1>Lodash style interface for GlideRecord</h1>
-  </header>
-
+  </header><div class="announcement">
+    <a href="https://surveys.codecreative.io/index.php/565345?lang=en" role="button">
+        <h3>ServiceNow Salary Influence Survey 2020</h3>
+        <p>The ServiceNow Salary Influence Survey 2020 is currently live. If you would like to participate, please click this announcement to start the survey.</p>
+        <p class="button">Take The Survey ></p>
+    </a>
+</div>
   <div class="content text-content">
     <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
@@ -151,27 +156,27 @@
 <p>The simplest use case is iterating values as in a vanilla GlideRecord while loop.</p>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">Glider</span><span class="p">(</span><span class="s1">&#39;incident&#39;</span><span class="p">,</span> <span class="s1">&#39;active=true&#39;</span><span class="p">)</span>
     <span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">gr</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">gr</span><span class="p">.</span><span class="nx">short_description</span><span class="p">)</span><span class="p">;</span>
-    <span class="p">}</span><span class="p">)</span><span class="p">;</span>
+        <span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">gr</span><span class="p">.</span><span class="nx">short_description</span><span class="p">);</span>
+    <span class="p">});</span>
 </code></pre></div><h3 id="map-over-values">Map Over Values</h3>
 <p>Map allows you to transform the GlideRecord into a sequence of objects or other data types.</p>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">Glider</span><span class="p">(</span><span class="s1">&#39;incident&#39;</span><span class="p">,</span> <span class="s1">&#39;active=true&#39;</span><span class="p">)</span>
   <span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">gr</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="p">{</span>
       <span class="s1">&#39;short_description&#39;</span><span class="o">:</span> <span class="nx">gr</span><span class="p">.</span><span class="nx">short_description</span> <span class="o">+</span> <span class="s1">&#39;&#39;</span>
-    <span class="p">}</span><span class="p">;</span>
-  <span class="p">}</span><span class="p">)</span>
-  <span class="p">.</span><span class="nx">value</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+    <span class="p">};</span>
+  <span class="p">})</span>
+  <span class="p">.</span><span class="nx">value</span><span class="p">();</span>
 </code></pre></div><h3 id="filter-values">Filter Values</h3>
 <p>Filter allows you to easily filter out records, such as with canRead. This is a real life saver when performing advanced processing on GlideRecords. Usually I would solve this problem with a <strong>continue</strong> statement, <strong>if</strong> block, or using a <strong>try / catch / throw</strong>. From experience I can tell you, this is a way better approach.</p>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">Glider</span><span class="p">(</span><span class="s1">&#39;incident&#39;</span><span class="p">,</span> <span class="s1">&#39;active=true&#39;</span><span class="p">)</span>
-  <span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">gr</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">gr</span><span class="p">.</span><span class="nx">canRead</span><span class="p">(</span><span class="p">)</span><span class="p">;</span> <span class="p">}</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">gr</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">gr</span><span class="p">.</span><span class="nx">canRead</span><span class="p">();</span> <span class="p">})</span>
   <span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">gr</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="p">{</span>
       <span class="s1">&#39;short_description&#39;</span><span class="o">:</span> <span class="nx">gr</span><span class="p">.</span><span class="nx">short_description</span> <span class="o">+</span> <span class="s1">&#39;&#39;</span>
-    <span class="p">}</span><span class="p">;</span>
-  <span class="p">}</span><span class="p">)</span>
-  <span class="p">.</span><span class="nx">value</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+    <span class="p">};</span>
+  <span class="p">})</span>
+  <span class="p">.</span><span class="nx">value</span><span class="p">();</span>
 </code></pre></div><h3 id="chunk-a-gliderecord-for-batch-operations">Chunk a GlideRecord for Batch Operations</h3>
 <p>This allows you to operate on large data sets, one chunk at a time while still only using one database query. Very useful if performing batch operations on a web service where message size is sensitive.</p>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">Glider</span><span class="p">(</span><span class="s1">&#39;incident&#39;</span><span class="p">,</span> <span class="s1">&#39;active=true&#39;</span><span class="p">)</span>
@@ -180,21 +185,21 @@
         <span class="c1">// before process chunk
 </span><span class="c1"></span>        <span class="nx">chunkItems</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">item</span><span class="p">)</span> <span class="p">{</span>
             <span class="c1">// Process chunk items
-</span><span class="c1"></span>        <span class="p">}</span><span class="p">)</span><span class="p">;</span>
+</span><span class="c1"></span>        <span class="p">});</span>
         <span class="c1">// after process chunk
-</span><span class="c1"></span>    <span class="p">}</span><span class="p">)</span><span class="p">;</span>
+</span><span class="c1"></span>    <span class="p">});</span>
 </code></pre></div><h3 id="reduce-gliderecords-to-a-single-value">Reduce GlideRecords to a Single Value</h3>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// Totals the cost of all CI&#39;s
 </span><span class="c1"></span><span class="nx">Glider</span><span class="p">(</span><span class="s1">&#39;cmdb_ci&#39;</span><span class="p">,</span> <span class="s1">&#39;active=true&#39;</span><span class="p">)</span>
     <span class="p">.</span><span class="nx">reduce</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">accum</span><span class="p">,</span> <span class="nx">gr</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="nx">accum</span> <span class="o">+</span> <span class="p">(</span><span class="nx">gr</span><span class="p">.</span><span class="nx">cost</span> <span class="o">*</span> <span class="mi">1</span><span class="p">)</span><span class="p">;</span>
-    <span class="p">}</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="p">.</span><span class="nx">toFixed</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="p">;</span>
+        <span class="k">return</span> <span class="nx">accum</span> <span class="o">+</span> <span class="p">(</span><span class="nx">gr</span><span class="p">.</span><span class="nx">cost</span> <span class="o">*</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="p">},</span> <span class="mi">0</span><span class="p">).</span><span class="nx">toFixed</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
 </code></pre></div><h3 id="and-yes-it-works-with-arrays-too">And yes&hellip; it works with arrays too</h3>
 <p>Within scoped applications, many of the newer ECMAScript goodies like Array.prototype.forEach choke because the function is in a different scope than the callback. Glider uses its own internal iterator pattern, so everything exists within your scoped application.</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">Glider</span><span class="p">(</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span><span class="p">)</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="nx">Glider</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
     <span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">el</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">el</span><span class="p">)</span><span class="p">;</span>
-    <span class="p">}</span><span class="p">)</span><span class="p">;</span>
+        <span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">el</span><span class="p">);</span>
+    <span class="p">});</span>
 </code></pre></div><h2 id="conclusion">Conclusion</h2>
 <p>So that is the quick and dirty on this library. The best part is that it is built on ServiceNow, for ServiceNow. No crazy porting hacks to get it to work. So let me know what you think!</p>
 

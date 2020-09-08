@@ -6,10 +6,20 @@
     <description>Recent content in 2020 on CodeCreative | A ServiceNow Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 03 Feb 2020 12:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 08 Sep 2020 06:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://codecreative.io/years/2020/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>ServiceNow Salary Influence Survey 2020</title>
+      <link>https://codecreative.io/blog/service-now-salary-influence-survey-2020/</link>
+      <pubDate>Tue, 08 Sep 2020 06:00:00 +0000</pubDate>
+      
+      <guid>https://codecreative.io/blog/service-now-salary-influence-survey-2020/</guid>
+      <description>What drives your salary in the ServiceNow industry? Is it the product of some cosmic coincidence? Or is there really a ServiceNow god watching over everything. You know, with a plan for it and stuff. I don&amp;rsquo;t know, man, but it keeps me up at night.
+Seriously though. Red vs Blue reference aside, what characteristics influence your worth in the industry? Would you be worth more if you dove into ITBM instead of ITSM?</description>
+    </item>
     
     <item>
       <title>The Future of ServiceNow UI: Seismic and the Now Design System</title>

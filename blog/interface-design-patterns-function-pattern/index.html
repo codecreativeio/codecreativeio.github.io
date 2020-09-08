@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One|Slabo+13px|Open+Sans:300" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-<link rel="stylesheet" href="https://codecreative.io/assets/main.min.f3d1ef93d0edf3bd8b05a1c5c552fed91f01e0e9624c4f1e35f60b3339173f9d.css">
+<link rel="stylesheet" href="https://codecreative.io/assets/main.min.e80c73b9b5040c8fe01e8de17c90fb71fac60a100010356bd174f7e1a330cf54.css">
 <title>Interface Design Patterns: Function Pattern | CodeCreative | A ServiceNow Blog</title>
 <meta name="description" content="The function pattern is the simplest but also the most flexible interface design pattern for Script Includes. It is the foundation for the Revealing Module Pattern and can be used as a constructor or factory function for any of the other interface types.">
 <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?d=20181101201248">
@@ -124,8 +124,13 @@
 <main>
   <header class="banner">
     <h1>Interface Design Patterns: Function Pattern</h1>
-  </header>
-
+  </header><div class="announcement">
+    <a href="https://surveys.codecreative.io/index.php/565345?lang=en" role="button">
+        <h3>ServiceNow Salary Influence Survey 2020</h3>
+        <p>The ServiceNow Salary Influence Survey 2020 is currently live. If you would like to participate, please click this announcement to start the survey.</p>
+        <p class="button">Take The Survey ></p>
+    </a>
+</div>
   <div class="content text-content">
     <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
@@ -151,19 +156,19 @@
 <h2 id="example-solution">Example Solution</h2>
 <p>For our dynamic filter option, &ldquo;On my team&rdquo;, we are going to create a Script Include which returns the currently logged in user&rsquo;s team members based on group assignment. Let&rsquo;s take a look at the Script include (<strong>don&rsquo;t forget to mark it as Client Callable or it won&rsquo;t work</strong>):</p>
 <h3 id="script-include-getmyteammembers">Script Include: getMyTeamMembers</h3>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">getMyTeamMembers</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
-    <span class="kd">var</span> <span class="nx">myGroups</span> <span class="o">=</span> <span class="nx">gs</span><span class="p">.</span><span class="nx">getUser</span><span class="p">(</span><span class="p">)</span><span class="p">.</span><span class="nx">getMyGroups</span><span class="p">(</span><span class="p">)</span><span class="p">.</span><span class="nx">toArray</span><span class="p">(</span><span class="p">)</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span><span class="p">,</span>
-        <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideAggregate</span><span class="p">(</span><span class="s1">&#39;sys_user_grmember&#39;</span><span class="p">)</span><span class="p">,</span>
-        <span class="nx">myTeam</span> <span class="o">=</span> <span class="p">[</span><span class="p">]</span><span class="p">;</span>
-    <span class="nx">gr</span><span class="p">.</span><span class="nx">addEncodedQuery</span><span class="p">(</span><span class="s1">&#39;groupIN&#39;</span> <span class="o">+</span> <span class="nx">myGroups</span><span class="p">)</span><span class="p">;</span>
-    <span class="nx">gr</span><span class="p">.</span><span class="nx">groupBy</span><span class="p">(</span><span class="s1">&#39;user&#39;</span><span class="p">)</span><span class="p">;</span>
-    <span class="nx">gr</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
-    <span class="k">while</span> <span class="p">(</span><span class="nx">gr</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="p">)</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">myTeam</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">gr</span><span class="p">.</span><span class="nx">user</span> <span class="o">+</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="p">;</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">getMyTeamMembers</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">myGroups</span> <span class="o">=</span> <span class="nx">gs</span><span class="p">.</span><span class="nx">getUser</span><span class="p">().</span><span class="nx">getMyGroups</span><span class="p">().</span><span class="nx">toArray</span><span class="p">().</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">),</span>
+        <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideAggregate</span><span class="p">(</span><span class="s1">&#39;sys_user_grmember&#39;</span><span class="p">),</span>
+        <span class="nx">myTeam</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="nx">gr</span><span class="p">.</span><span class="nx">addEncodedQuery</span><span class="p">(</span><span class="s1">&#39;groupIN&#39;</span> <span class="o">+</span> <span class="nx">myGroups</span><span class="p">);</span>
+    <span class="nx">gr</span><span class="p">.</span><span class="nx">groupBy</span><span class="p">(</span><span class="s1">&#39;user&#39;</span><span class="p">);</span>
+    <span class="nx">gr</span><span class="p">.</span><span class="nx">query</span><span class="p">();</span>
+    <span class="k">while</span> <span class="p">(</span><span class="nx">gr</span><span class="p">.</span><span class="nx">next</span><span class="p">())</span> <span class="p">{</span>
+        <span class="nx">myTeam</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">gr</span><span class="p">.</span><span class="nx">user</span> <span class="o">+</span> <span class="s1">&#39;&#39;</span><span class="p">);</span>
     <span class="p">}</span>
 
     <span class="k">return</span> <span class="nx">myTeam</span><span class="p">;</span>
-<span class="p">}</span><span class="p">;</span>
+<span class="p">};</span>
 </code></pre></div><p>The script uses GlideSystem (gs) to obtain the currently logged in user&rsquo;s assigned groups. Then, using a GlideAggregate (to filter duplicates), it queries the user&rsquo;s associated with those groups from the sys_user_grmember table and returns that list of users. Simple and straightforward.</p>
 <p>Next we create the Dynamic Filter Option:</p>
 <h3 id="dynamic-filter-option">Dynamic Filter Option</h3>

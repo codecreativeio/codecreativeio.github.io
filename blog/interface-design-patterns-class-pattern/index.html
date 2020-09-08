@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One|Slabo+13px|Open+Sans:300" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-<link rel="stylesheet" href="https://codecreative.io/assets/main.min.f3d1ef93d0edf3bd8b05a1c5c552fed91f01e0e9624c4f1e35f60b3339173f9d.css">
+<link rel="stylesheet" href="https://codecreative.io/assets/main.min.e80c73b9b5040c8fe01e8de17c90fb71fac60a100010356bd174f7e1a330cf54.css">
 <title>Interface Design Patterns: Class Pattern | CodeCreative | A ServiceNow Blog</title>
 <meta name="description" content="The primary use case for the Class interface design pattern is to leverage inheritance... or more properly prototypal inheritance. Prototypal inheritance will allow a Script Include to inherit behaviors from another.">
 <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?d=20181101201248">
@@ -124,8 +124,13 @@
 <main>
   <header class="banner">
     <h1>Interface Design Patterns: Class Pattern</h1>
-  </header>
-
+  </header><div class="announcement">
+    <a href="https://surveys.codecreative.io/index.php/565345?lang=en" role="button">
+        <h3>ServiceNow Salary Influence Survey 2020</h3>
+        <p>The ServiceNow Salary Influence Survey 2020 is currently live. If you would like to participate, please click this announcement to start the survey.</p>
+        <p class="button">Take The Survey ></p>
+    </a>
+</div>
   <div class="content text-content">
     <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
@@ -158,87 +163,87 @@
 <p>In Figure 1, you can see the UML Class Diagram showing the inheritance hierarchy for our Script Includes. The Article class will house our base logic, specifically the publish and canRead implementations, while the HTMLArticle, VideoArticle, and ImageArticle classes will inherit the base functions and override getContent and getExcerpt for their own specific implementations.</p>
 <p>Let&rsquo;s take a look at how this works in the Script Includes:</p>
 <h3 id="article-script-include">Article Script Include</h3>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">Article</span> <span class="o">=</span> <span class="nx">Class</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">Article</span> <span class="o">=</span> <span class="nx">Class</span><span class="p">.</span><span class="nx">create</span><span class="p">();</span>
 <span class="nx">Article</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="p">{</span>
     <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">gr</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s1">&#39;Initialize Article&#39;</span><span class="p">)</span><span class="p">;</span>
-    <span class="p">}</span><span class="p">,</span>
+        <span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s1">&#39;Initialize Article&#39;</span><span class="p">);</span>
+    <span class="p">},</span>
 
-    <span class="nx">publish</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s1">&#39;Great!  Now its published!&#39;</span><span class="p">)</span><span class="p">;</span>
-    <span class="p">}</span><span class="p">,</span>
+    <span class="nx">publish</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s1">&#39;Great!  Now its published!&#39;</span><span class="p">);</span>
+    <span class="p">},</span>
 
-    <span class="nx">canRead</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s1">&#39;Yes, you can read this if you are logged in&#39;</span><span class="p">)</span><span class="p">;</span>
-    <span class="p">}</span><span class="p">,</span>
+    <span class="nx">canRead</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s1">&#39;Yes, you can read this if you are logged in&#39;</span><span class="p">);</span>
+    <span class="p">},</span>
 
-    <span class="nx">getContent</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">getContent</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
         <span class="k">throw</span> <span class="s1">&#39;You must implement this in an inheriting class&#39;</span><span class="p">;</span>
-    <span class="p">}</span><span class="p">,</span>
+    <span class="p">},</span>
 
-    <span class="nx">getExcerpt</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">getExcerpt</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
         <span class="k">throw</span> <span class="s1">&#39;You must implement this in an inheriting class&#39;</span><span class="p">;</span>
-    <span class="p">}</span><span class="p">,</span>
+    <span class="p">},</span>
 
     <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;Article&#39;</span>
-<span class="p">}</span><span class="p">;</span>
+<span class="p">};</span>
 </code></pre></div><h3 id="inheriting-script-includes">Inheriting Script Includes</h3>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// HTML Article Script Include
-</span><span class="c1"></span><span class="kd">var</span> <span class="nx">HtmlArticle</span> <span class="o">=</span> <span class="nx">Class</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">HtmlArticle</span> <span class="o">=</span> <span class="nx">Class</span><span class="p">.</span><span class="nx">create</span><span class="p">();</span>
 <span class="nx">HtmlArticle</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">extendsObject</span><span class="p">(</span><span class="nx">Article</span><span class="p">,</span> <span class="p">{</span>
     <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">gr</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">Article</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">initialize</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">gr</span><span class="p">)</span><span class="p">;</span>
-        <span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s1">&#39;Initialize HtmlArticle&#39;</span><span class="p">)</span><span class="p">;</span>
-    <span class="p">}</span><span class="p">,</span>
+        <span class="nx">Article</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">initialize</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">gr</span><span class="p">);</span>
+        <span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s1">&#39;Initialize HtmlArticle&#39;</span><span class="p">);</span>
+    <span class="p">},</span>
 
-    <span class="nx">getContent</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s1">&#39;&lt;h1&gt;This is the HTML Article Content&lt;/h1&gt;&#39;</span><span class="p">)</span><span class="p">;</span>
-    <span class="p">}</span><span class="p">,</span>
+    <span class="nx">getContent</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s1">&#39;&lt;h1&gt;This is the HTML Article Content&lt;/h1&gt;&#39;</span><span class="p">);</span>
+    <span class="p">},</span>
 
-    <span class="nx">getExcerpt</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s1">&#39;&lt;p&gt;HTML Excerpt&lt;/p&gt;&#39;</span><span class="p">)</span><span class="p">;</span>
-    <span class="p">}</span><span class="p">,</span>
+    <span class="nx">getExcerpt</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s1">&#39;&lt;p&gt;HTML Excerpt&lt;/p&gt;&#39;</span><span class="p">);</span>
+    <span class="p">},</span>
 
     <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;HtmlArticle&#39;</span>
-<span class="p">}</span><span class="p">)</span><span class="p">;</span>
+<span class="p">});</span>
 
 <span class="c1">// Video Article Script Include
-</span><span class="c1"></span><span class="kd">var</span> <span class="nx">VideoArticle</span> <span class="o">=</span> <span class="nx">Class</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">VideoArticle</span> <span class="o">=</span> <span class="nx">Class</span><span class="p">.</span><span class="nx">create</span><span class="p">();</span>
 <span class="nx">VideoArticle</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">extendsObject</span><span class="p">(</span><span class="nx">Article</span><span class="p">,</span> <span class="p">{</span>
     <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">gr</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">Article</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">initialize</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">gr</span><span class="p">)</span><span class="p">;</span>
-        <span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s1">&#39;Initialize VideoArticle&#39;</span><span class="p">)</span><span class="p">;</span>
-    <span class="p">}</span><span class="p">,</span>
+        <span class="nx">Article</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">initialize</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">gr</span><span class="p">);</span>
+        <span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s1">&#39;Initialize VideoArticle&#39;</span><span class="p">);</span>
+    <span class="p">},</span>
 
-    <span class="nx">getContent</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s1">&#39;Video: Just Push Play&#39;</span><span class="p">)</span><span class="p">;</span>
-    <span class="p">}</span><span class="p">,</span>
+    <span class="nx">getContent</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s1">&#39;Video: Just Push Play&#39;</span><span class="p">);</span>
+    <span class="p">},</span>
 
-    <span class="nx">getExcerpt</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s1">&#39;Little Video Thumbnail: Just Push Play&#39;</span><span class="p">)</span><span class="p">;</span>
-    <span class="p">}</span><span class="p">,</span>
+    <span class="nx">getExcerpt</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s1">&#39;Little Video Thumbnail: Just Push Play&#39;</span><span class="p">);</span>
+    <span class="p">},</span>
 
     <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;VideoArticle&#39;</span>
-<span class="p">}</span><span class="p">)</span><span class="p">;</span>
+<span class="p">});</span>
 
 <span class="c1">// Image Article Script Include
-</span><span class="c1"></span><span class="kd">var</span> <span class="nx">ImageArticle</span> <span class="o">=</span> <span class="nx">Class</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">ImageArticle</span> <span class="o">=</span> <span class="nx">Class</span><span class="p">.</span><span class="nx">create</span><span class="p">();</span>
 <span class="nx">ImageArticle</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">extendsObject</span><span class="p">(</span><span class="nx">Article</span><span class="p">,</span> <span class="p">{</span>
     <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">gr</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">Article</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">initialize</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">gr</span><span class="p">)</span><span class="p">;</span>
-        <span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s1">&#39;Initialize ImageArticle&#39;</span><span class="p">)</span><span class="p">;</span>
-    <span class="p">}</span><span class="p">,</span>
+        <span class="nx">Article</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">initialize</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">gr</span><span class="p">);</span>
+        <span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s1">&#39;Initialize ImageArticle&#39;</span><span class="p">);</span>
+    <span class="p">},</span>
 
-    <span class="nx">getContent</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s1">&#39;Pretty Pictures!&#39;</span><span class="p">)</span><span class="p">;</span>
-    <span class="p">}</span><span class="p">,</span>
+    <span class="nx">getContent</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s1">&#39;Pretty Pictures!&#39;</span><span class="p">);</span>
+    <span class="p">},</span>
 
-    <span class="nx">getExcerpt</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s1">&#39;Pretty Thumbnails!&#39;</span><span class="p">)</span><span class="p">;</span>
-    <span class="p">}</span><span class="p">,</span>
+    <span class="nx">getExcerpt</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s1">&#39;Pretty Thumbnails!&#39;</span><span class="p">);</span>
+    <span class="p">},</span>
 
     <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;ImageArticle&#39;</span>
-<span class="p">}</span><span class="p">)</span><span class="p">;</span>
+<span class="p">});</span>
 </code></pre></div><p>So lets take note of a few things:</p>
 <ol>
 <li>The Article Base Class implements initialize, canRead, and publish functions but throws an error to force inheriting classes to override getContent and getExcerpt.</li>
@@ -247,11 +252,11 @@
 </ol>
 <p>So now, when we try these out in a background script, we get the following output:</p>
 <h3 id="background-script">Background Script</h3>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="k">new</span> <span class="nx">HtmlArticle</span><span class="p">(</span><span class="p">)</span><span class="p">.</span><span class="nx">getContent</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
-<span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s1">&#39;-------------------Next-------------------&#39;</span><span class="p">)</span><span class="p">;</span>
-<span class="k">new</span> <span class="nx">VideoArticle</span><span class="p">(</span><span class="p">)</span><span class="p">.</span><span class="nx">getContent</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
-<span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s1">&#39;-------------------Next-------------------&#39;</span><span class="p">)</span><span class="p">;</span>
-<span class="k">new</span> <span class="nx">ImageArticle</span><span class="p">(</span><span class="p">)</span><span class="p">.</span><span class="nx">getContent</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="k">new</span> <span class="nx">HtmlArticle</span><span class="p">().</span><span class="nx">getContent</span><span class="p">();</span>
+<span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s1">&#39;-------------------Next-------------------&#39;</span><span class="p">);</span>
+<span class="k">new</span> <span class="nx">VideoArticle</span><span class="p">().</span><span class="nx">getContent</span><span class="p">();</span>
+<span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s1">&#39;-------------------Next-------------------&#39;</span><span class="p">);</span>
+<span class="k">new</span> <span class="nx">ImageArticle</span><span class="p">().</span><span class="nx">getContent</span><span class="p">();</span>
 </code></pre></div><h3 id="output">Output</h3>
 <div class="highlight"><pre class="chroma"><code class="language-txt" data-lang="txt">*** Script: Initialize Article
 *** Script: Initialize HtmlArticle

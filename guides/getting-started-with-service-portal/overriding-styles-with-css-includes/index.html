@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One|Slabo+13px|Open+Sans:300" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-<link rel="stylesheet" href="https://codecreative.io/assets/main.min.f3d1ef93d0edf3bd8b05a1c5c552fed91f01e0e9624c4f1e35f60b3339173f9d.css">
+<link rel="stylesheet" href="https://codecreative.io/assets/main.min.e80c73b9b5040c8fe01e8de17c90fb71fac60a100010356bd174f7e1a330cf54.css">
 <title>Exercise: Overriding Styles with CSS Includes | CodeCreative | A ServiceNow Blog</title>
 <meta name="description" content="Now that we have a basic theme, let&#39;s introduce some new fonts and styles using Theme CSS Includes.">
 <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?d=20181101201248">
@@ -62,7 +62,7 @@
     },
     "name" : "Exercise: Overriding Styles with CSS Includes",
     "headline" : "Exercise: Overriding Styles with CSS Includes",
-    "description" : "Now that we have a basic theme, let\x27s introduce some new fonts and styles using Theme CSS Includes.","image": "https:\/\/codecreative.io\/guides\/getting-started-with-service-portal\/social.png","inLanguage" : "en-US",
+    "description" : "Now that we have a basic theme, let\u0027s introduce some new fonts and styles using Theme CSS Includes.","image": "https:\/\/codecreative.io\/guides\/getting-started-with-service-portal\/social.png","inLanguage" : "en-US",
       "author" : "Travis Toulson",
       "creator" : "Travis Toulson","publisher": "Travis Toulson",
     "copyrightHolder" : "Travis Toulson",
@@ -124,8 +124,13 @@
 <main>
   <header class="banner">
     <h1>Getting Started with Service Portal</h1>
-  </header>
-
+  </header><div class="announcement">
+    <a href="https://surveys.codecreative.io/index.php/565345?lang=en" role="button">
+        <h3>ServiceNow Salary Influence Survey 2020</h3>
+        <p>The ServiceNow Salary Influence Survey 2020 is currently live. If you would like to participate, please click this announcement to start the survey.</p>
+        <p class="button">Take The Survey ></p>
+    </a>
+</div>
   <div class="content text-content guide-content">
     <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
       <section class="guide-nav">
@@ -281,8 +286,8 @@
 
 <span class="cm">/* Overriding Styles Exercise */</span>
 
-<span class="nv">$font-family-sans-serif</span><span class="o">:</span> <span class="s2">&#34;</span><span class="s2">open sans</span><span class="s2">&#34;</span><span class="o">,</span> <span class="no">Sans-Serif</span> <span class="nv">!default</span><span class="p">;</span>
-<span class="nv">$font-family-serif</span><span class="o">:</span> <span class="s2">&#34;</span><span class="s2">slabo 13px</span><span class="s2">&#34;</span><span class="o">,</span> <span class="no">Serif</span> <span class="nv">!default</span><span class="p">;</span>
+<span class="nv">$font-family-sans-serif</span><span class="o">:</span> <span class="s2">&#34;open sans&#34;</span><span class="o">,</span> <span class="no">Sans-Serif</span> <span class="nv">!default</span><span class="p">;</span>
+<span class="nv">$font-family-serif</span><span class="o">:</span> <span class="s2">&#34;slabo 13px&#34;</span><span class="o">,</span> <span class="no">Serif</span> <span class="nv">!default</span><span class="p">;</span>
 <span class="nv">$font-size-base</span><span class="o">:</span> <span class="mi">16</span><span class="kt">px</span> <span class="nv">!default</span><span class="p">;</span>
 <span class="nv">$headings-font-family</span><span class="o">:</span> <span class="nv">$font-family-serif</span> <span class="nv">!default</span><span class="p">;</span>
 </code></pre></div></li>
@@ -300,27 +305,27 @@
 
 <span class="cm">/* Overriding Styles Exercise */</span>
 
-<span class="nv">$font-family-sans-serif</span><span class="o">:</span> <span class="s2">&#34;</span><span class="s2">open sans</span><span class="s2">&#34;</span><span class="o">,</span> <span class="no">Sans-Serif</span> <span class="nv">!default</span><span class="p">;</span>
-<span class="nv">$font-family-serif</span><span class="o">:</span> <span class="s2">&#34;</span><span class="s2">slabo 13px</span><span class="s2">&#34;</span><span class="o">,</span> <span class="no">Serif</span> <span class="nv">!default</span><span class="p">;</span>
+<span class="nv">$font-family-sans-serif</span><span class="o">:</span> <span class="s2">&#34;open sans&#34;</span><span class="o">,</span> <span class="no">Sans-Serif</span> <span class="nv">!default</span><span class="p">;</span>
+<span class="nv">$font-family-serif</span><span class="o">:</span> <span class="s2">&#34;slabo 13px&#34;</span><span class="o">,</span> <span class="no">Serif</span> <span class="nv">!default</span><span class="p">;</span>
 <span class="nv">$font-size-base</span><span class="o">:</span> <span class="mi">16</span><span class="kt">px</span> <span class="nv">!default</span><span class="p">;</span>
 <span class="nv">$headings-font-family</span><span class="o">:</span> <span class="nv">$font-family-serif</span> <span class="nv">!default</span><span class="p">;</span>
 
-<span class="nv">$font-family-alternate</span><span class="o">:</span> <span class="s2">&#34;</span><span class="s2">julius sans one</span><span class="s2">&#34;</span><span class="o">,</span> <span class="no">Sans-Serif</span> <span class="nv">!default</span><span class="p">;</span> <span class="cm">/* Custom Variable */</span>
+<span class="nv">$font-family-alternate</span><span class="o">:</span> <span class="s2">&#34;julius sans one&#34;</span><span class="o">,</span> <span class="no">Sans-Serif</span> <span class="nv">!default</span><span class="p">;</span> <span class="cm">/* Custom Variable */</span>
 </code></pre></div><p><span id="backto-creating-new-sass-variables"></span> <a href="#creating-new-sass-variables">(Learn more about the Creating New SASS Variables)</a></p>
 </li>
 <li>
 <p>From the <strong>CodeCreative Styles</strong> Style Sheet record, update the CSS field to:</p>
-<div class="highlight"><pre class="chroma"><code class="language-SCSS" data-lang="SCSS"><span class="k">@import</span> <span class="sx">url(</span><span class="sx">&#39;https://fonts.googleapis.com/css?family=Julius+Sans+One|Open+Sans:300|Slabo+13px&#39;</span><span class="sx">)</span><span class="p">;</span>
+<div class="highlight"><pre class="chroma"><code class="language-SCSS" data-lang="SCSS"><span class="k">@import</span> <span class="sx">url(&#39;https://fonts.googleapis.com/css?family=Julius+Sans+One|Open+Sans:300|Slabo+13px&#39;)</span><span class="p">;</span>
 
-<span class="nn">#</span><span class="nn">homepage-search</span> <span class="nt">h1</span><span class="o">,</span>
-<span class="nn">#</span><span class="nn">homepage-search</span> <span class="nt">h2</span><span class="o">,</span>
-<span class="nn">#</span><span class="nn">homepage-search</span> <span class="nt">h3</span><span class="o">,</span>
-<span class="nn">#</span><span class="nn">homepage-search</span> <span class="nt">h4</span><span class="o">,</span>
-<span class="nn">#</span><span class="nn">homepage-search</span> <span class="nt">h5</span><span class="o">,</span>
-<span class="nn">#</span><span class="nn">homepage-search</span> <span class="nt">h6</span> <span class="p">{</span>
+<span class="nn">#homepage-search</span> <span class="nt">h1</span><span class="o">,</span>
+<span class="nn">#homepage-search</span> <span class="nt">h2</span><span class="o">,</span>
+<span class="nn">#homepage-search</span> <span class="nt">h3</span><span class="o">,</span>
+<span class="nn">#homepage-search</span> <span class="nt">h4</span><span class="o">,</span>
+<span class="nn">#homepage-search</span> <span class="nt">h5</span><span class="o">,</span>
+<span class="nn">#homepage-search</span> <span class="nt">h6</span> <span class="p">{</span>
   <span class="nt">font-family</span><span class="nd">:</span> <span class="err">$</span><span class="nt">font-family-alternate</span><span class="p">;</span>
   <span class="nt">font-weight</span><span class="nd">:</span> <span class="nt">500</span><span class="p">;</span>
-  <span class="nt">text-shadow</span><span class="nd">:</span> <span class="nt">0</span> <span class="nt">2px</span> <span class="nt">10px</span> <span class="nt">rgba</span><span class="o">(</span><span class="nt">0</span><span class="o">,</span><span class="nt">0</span><span class="o">,</span><span class="nt">0</span><span class="o">,</span><span class="nc">.</span><span class="nc">15</span><span class="o">)</span><span class="p">;</span>
+  <span class="nt">text-shadow</span><span class="nd">:</span> <span class="nt">0</span> <span class="nt">2px</span> <span class="nt">10px</span> <span class="nt">rgba</span><span class="o">(</span><span class="nt">0</span><span class="o">,</span><span class="nt">0</span><span class="o">,</span><span class="nt">0</span><span class="o">,</span><span class="nc">.15</span><span class="o">)</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></li>
 <li>

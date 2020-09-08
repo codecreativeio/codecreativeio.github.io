@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One|Slabo+13px|Open+Sans:300" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-<link rel="stylesheet" href="https://codecreative.io/assets/main.min.f3d1ef93d0edf3bd8b05a1c5c552fed91f01e0e9624c4f1e35f60b3339173f9d.css">
+<link rel="stylesheet" href="https://codecreative.io/assets/main.min.e80c73b9b5040c8fe01e8de17c90fb71fac60a100010356bd174f7e1a330cf54.css">
 <title>Service Portal CSS Order of Precedence | CodeCreative | A ServiceNow Blog</title>
 <meta name="description" content="Since CSS evaluation is highly dependent on it&#39;s order, it helps to understand how the different Service Portal CSS fields get ordered and processed. Unfortunately, the story is more complicated than most documentation reveals.">
 <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?d=20181101201248">
@@ -62,7 +62,7 @@
     },
     "name" : "Service Portal CSS Order of Precedence",
     "headline" : "Service Portal CSS Order of Precedence",
-    "description" : "Since CSS evaluation is highly dependent on it\x27s order, it helps to understand how the different Service Portal CSS fields get ordered and processed. Unfortunately, the story is more complicated than most documentation reveals.","image": "https:\/\/codecreative.io\/blog\/service-portal-css-order-of-precedence\/images\/social.png","inLanguage" : "en-US",
+    "description" : "Since CSS evaluation is highly dependent on it\u0027s order, it helps to understand how the different Service Portal CSS fields get ordered and processed. Unfortunately, the story is more complicated than most documentation reveals.","image": "https:\/\/codecreative.io\/blog\/service-portal-css-order-of-precedence\/images\/social.png","inLanguage" : "en-US",
       "author" : "Travis Toulson",
       "creator" : "Travis Toulson","publisher": "Travis Toulson",
     "copyrightHolder" : "Travis Toulson",
@@ -124,8 +124,13 @@
 <main>
   <header class="banner">
     <h1>Service Portal CSS Order of Precedence</h1>
-  </header>
-
+  </header><div class="announcement">
+    <a href="https://surveys.codecreative.io/index.php/565345?lang=en" role="button">
+        <h3>ServiceNow Salary Influence Survey 2020</h3>
+        <p>The ServiceNow Salary Influence Survey 2020 is currently live. If you would like to participate, please click this announcement to start the survey.</p>
+        <p class="button">Take The Survey ></p>
+    </a>
+</div>
   <div class="content text-content">
     <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
@@ -190,8 +195,8 @@
 <span class="nv">$bootstrap-scss</span><span class="o">:</span> <span class="mh">#000</span> <span class="nv">!default</span><span class="p">;</span>
 
 <span class="cm">/* CSS Field / Stylesheet to be processed */</span>
-<span class="nc">.</span><span class="nc">page-css</span> <span class="p">{</span>
-  <span class="nt">color</span><span class="nd">:</span> <span class="nn">#</span><span class="nn">fff</span><span class="p">;</span>
+<span class="nc">.page-css</span> <span class="p">{</span>
+  <span class="nt">color</span><span class="nd">:</span> <span class="nn">#fff</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div><p>The build pipeline basically creates a concatenated file composed of:</p>
 <ul>

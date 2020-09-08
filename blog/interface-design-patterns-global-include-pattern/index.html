@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One|Slabo+13px|Open+Sans:300" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-<link rel="stylesheet" href="https://codecreative.io/assets/main.min.f3d1ef93d0edf3bd8b05a1c5c552fed91f01e0e9624c4f1e35f60b3339173f9d.css">
+<link rel="stylesheet" href="https://codecreative.io/assets/main.min.e80c73b9b5040c8fe01e8de17c90fb71fac60a100010356bd174f7e1a330cf54.css">
 <title>Interface Design Patterns: Global Include Pattern | CodeCreative | A ServiceNow Blog</title>
 <meta name="description" content="The Global Include pattern is simply a way of running a script file held in a Script Include. It is an odd, powerful, and potentially dangerous tool that allows for many different purposes such as monkey patching.">
 <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?d=20181101201248">
@@ -124,8 +124,13 @@
 <main>
   <header class="banner">
     <h1>Interface Design Patterns: Global Include Pattern</h1>
-  </header>
-
+  </header><div class="announcement">
+    <a href="https://surveys.codecreative.io/index.php/565345?lang=en" role="button">
+        <h3>ServiceNow Salary Influence Survey 2020</h3>
+        <p>The ServiceNow Salary Influence Survey 2020 is currently live. If you would like to participate, please click this announcement to start the survey.</p>
+        <p class="button">Take The Survey ></p>
+    </a>
+</div>
   <div class="content text-content">
     <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
@@ -161,43 +166,43 @@
 </ol>
 <h3 id="script-include-global-include-pattern">Script Include: Global Include Pattern</h3>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">wrapWithLogging</span><span class="p">(</span><span class="nx">fn</span><span class="p">,</span> <span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nx">gs</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Call &#39;</span> <span class="o">+</span> <span class="nx">name</span><span class="p">)</span><span class="p">;</span>
-      <span class="nx">fn</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">arguments</span><span class="p">)</span><span class="p">;</span>
-      <span class="nx">gs</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;End &#39;</span> <span class="o">+</span> <span class="nx">name</span><span class="p">)</span><span class="p">;</span>
-  <span class="p">}</span><span class="p">;</span>
+  <span class="k">return</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nx">gs</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Call &#39;</span> <span class="o">+</span> <span class="nx">name</span><span class="p">);</span>
+      <span class="nx">fn</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">arguments</span><span class="p">);</span>
+      <span class="nx">gs</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;End &#39;</span> <span class="o">+</span> <span class="nx">name</span><span class="p">);</span>
+  <span class="p">};</span>
 <span class="p">}</span>
 
-<span class="nx">KBArticles</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">publish</span> <span class="o">=</span> <span class="nx">wrapWithLogging</span><span class="p">(</span><span class="nx">KBArticles</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">publish</span><span class="p">,</span> <span class="s1">&#39;publish&#39;</span><span class="p">)</span><span class="p">;</span>
-<span class="nx">KBArticles</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">retire</span> <span class="o">=</span> <span class="nx">wrapWithLogging</span><span class="p">(</span><span class="nx">KBArticles</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">retire</span><span class="p">,</span> <span class="s1">&#39;retire&#39;</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">KBArticles</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">publish</span> <span class="o">=</span> <span class="nx">wrapWithLogging</span><span class="p">(</span><span class="nx">KBArticles</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">publish</span><span class="p">,</span> <span class="s1">&#39;publish&#39;</span><span class="p">);</span>
+<span class="nx">KBArticles</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">retire</span> <span class="o">=</span> <span class="nx">wrapWithLogging</span><span class="p">(</span><span class="nx">KBArticles</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">retire</span><span class="p">,</span> <span class="s1">&#39;retire&#39;</span><span class="p">);</span>
 </code></pre></div><p>Wait, where&rsquo;s the class?  Where are the functions?  The Global Include Pattern doesn&rsquo;t have to contain anything we are accustomed to seeing. It can be a plain ol script executed from start to finish. In this case, we are using a Javascript closure (wrapWithLogging and its inner function) to wrap the behavior of the KBArticles.publish and KBArticles.retire functions.</p>
 <p>But how does this behavior get injected?  Let&rsquo;s take a look at KBArticles:</p>
 <h3 id="script-include-kbarticles">Script Include: KBArticles</h3>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">KBArticles</span> <span class="o">=</span> <span class="nx">Class</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">KBArticles</span> <span class="o">=</span> <span class="nx">Class</span><span class="p">.</span><span class="nx">create</span><span class="p">();</span>
 <span class="nx">KBArticles</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="p">{</span>
     <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">logOutput</span><span class="p">)</span> <span class="p">{</span>
 		<span class="k">if</span> <span class="p">(</span><span class="nx">logOutput</span><span class="p">)</span> <span class="p">{</span>
-			<span class="nx">gs</span><span class="p">.</span><span class="nx">include</span><span class="p">(</span><span class="s1">&#39;KBArticlesLog&#39;</span><span class="p">)</span><span class="p">;</span>
+			<span class="nx">gs</span><span class="p">.</span><span class="nx">include</span><span class="p">(</span><span class="s1">&#39;KBArticlesLog&#39;</span><span class="p">);</span>
 		<span class="p">}</span>
-    <span class="p">}</span><span class="p">,</span>
+    <span class="p">},</span>
 
 	<span class="nx">publish</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">kb</span><span class="p">)</span> <span class="p">{</span>
-		<span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s1">&#39;Publish the Article!&#39;</span><span class="p">)</span><span class="p">;</span>
-	<span class="p">}</span><span class="p">,</span>
+		<span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s1">&#39;Publish the Article!&#39;</span><span class="p">);</span>
+	<span class="p">},</span>
 
 	<span class="nx">retire</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">kb</span><span class="p">)</span> <span class="p">{</span>
-		<span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s1">&#39;Retire the Article :(&#39;</span><span class="p">)</span><span class="p">;</span>
-	<span class="p">}</span><span class="p">,</span>
+		<span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="s1">&#39;Retire the Article :(&#39;</span><span class="p">);</span>
+	<span class="p">},</span>
 
     <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;KBArticles&#39;</span>
-<span class="p">}</span><span class="p">;</span>
+<span class="p">};</span>
 </code></pre></div><p>The KBArticles Script Include is a fairly straight forward <a href="/blog/interface-design-patterns-class-pattern">Class Pattern</a> with a publish and retire function. If you pay close attention to the initialize function, it will execute our Global Include via gs.include if logOutput is passed as true to the constructor.</p>
 <p>This means we can easily add quite a bit of logging, including logging function arguments, to KBArticles with only a couple lines of code in the initialize function. Perfectly readable and completely instrumented!</p>
 <p>Let&rsquo;s run a couple background scripts to see how it works:</p>
 <h3 id="background-script-1-logging-off">Background Script 1: Logging Off</h3>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">kb</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">KBArticles</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
-<span class="nx">kb</span><span class="p">.</span><span class="nx">publish</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
-<span class="nx">kb</span><span class="p">.</span><span class="nx">retire</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">kb</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">KBArticles</span><span class="p">();</span>
+<span class="nx">kb</span><span class="p">.</span><span class="nx">publish</span><span class="p">();</span>
+<span class="nx">kb</span><span class="p">.</span><span class="nx">retire</span><span class="p">();</span>
 
 <span class="cm">/*
 </span><span class="cm">Result:
@@ -206,9 +211,9 @@
 </span><span class="cm">*/</span>
 </code></pre></div><p>With logging turned off (no paramters or false parameter passed to the constructor), we only get the output of the publish and retire functions. None of the instrumented logging shows up.</p>
 <h3 id="background-script-2-logging-on">Background Script 2: Logging On</h3>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">kb</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">KBArticles</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="p">;</span>
-<span class="nx">kb</span><span class="p">.</span><span class="nx">publish</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
-<span class="nx">kb</span><span class="p">.</span><span class="nx">retire</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">kb</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">KBArticles</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+<span class="nx">kb</span><span class="p">.</span><span class="nx">publish</span><span class="p">();</span>
+<span class="nx">kb</span><span class="p">.</span><span class="nx">retire</span><span class="p">();</span>
 
 <span class="cm">/*
 </span><span class="cm">Result:

@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One|Slabo+13px|Open+Sans:300" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-<link rel="stylesheet" href="https://codecreative.io/assets/main.min.f3d1ef93d0edf3bd8b05a1c5c552fed91f01e0e9624c4f1e35f60b3339173f9d.css">
+<link rel="stylesheet" href="https://codecreative.io/assets/main.min.e80c73b9b5040c8fe01e8de17c90fb71fac60a100010356bd174f7e1a330cf54.css">
 <title>GlideAjax Troubleshooting Guide | CodeCreative | A ServiceNow Blog</title>
 <meta name="description" content="After my Demystifying GlideAjax infographic I always meant to go back and write a GlideAjax troubleshooting guide. The Community is still full of GlideAjax issues and questions, so hopefully this guide will help point folks in the right direction.">
 <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?d=20181101201248">
@@ -124,8 +124,13 @@
 <main>
   <header class="banner">
     <h1>GlideAjax Troubleshooting Guide</h1>
-  </header>
-
+  </header><div class="announcement">
+    <a href="https://surveys.codecreative.io/index.php/565345?lang=en" role="button">
+        <h3>ServiceNow Salary Influence Survey 2020</h3>
+        <p>The ServiceNow Salary Influence Survey 2020 is currently live. If you would like to participate, please click this announcement to start the survey.</p>
+        <p class="button">Take The Survey ></p>
+    </a>
+</div>
   <div class="content text-content">
     <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
@@ -147,17 +152,17 @@
 <p>So to hopefully avoid any future &ldquo;<a href="https://www.youtube.com/watch?v=H2uHBhKTSe0">the files are in the computer</a>&rdquo; moments during my troubleshooting, here are some helpful tips on troubleshooting GlideAjax.</p>
 <hr>
 <h2 id="script-include">Script Include</h2>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">HelloWorld</span> <span class="o">=</span> <span class="nx">Class</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">HelloWorld</span> <span class="o">=</span> <span class="nx">Class</span><span class="p">.</span><span class="nx">create</span><span class="p">();</span>
 <span class="nx">HelloWorld</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">extendsObject</span><span class="p">(</span><span class="nx">AbstractAjaxProcessor</span><span class="p">,</span> <span class="p">{</span>
-   <span class="nx">helloWorld</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+   <span class="nx">helloWorld</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
       <span class="k">return</span> <span class="s2">&#34;Hello &#34;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">getParameter</span><span class="p">(</span><span class="s1">&#39;sysparm_user_name&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&#34;!&#34;</span><span class="p">;</span>
-   <span class="p">}</span><span class="p">,</span>
+   <span class="p">},</span>
 
-   <span class="nx">_privateFunction</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// this function is not client callable     
+   <span class="nx">_privateFunction</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="c1">// this function is not client callable     
 </span><span class="c1"></span>
    <span class="p">}</span>
 
-<span class="p">}</span><span class="p">)</span><span class="p">;</span>
+<span class="p">});</span>
 </code></pre></div><h3 id="inherit-from-the-abstractajaxprocessor">Inherit from the AbstractAjaxProcessor</h3>
 <p>Checkout Line 2 in the above Script Include. Notice that Object.extendsObject? That is absolutely vital to the Ajax script. The AbstractAjaxProcessor Script Include provides a standard set of functions that every GlideAjax Script Include must implement. The interface basically acts as a mediator that allows extracting data from the XML request and building the XML response that GlideAjax relies upon for messaging between client and server.</p>
 <p>No AbstractAjaxProcessor, no XML messages, no GlideAjax. Make sure a line like this exists in your Script Include.</p>
@@ -183,7 +188,7 @@
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="cm">/*
 </span><span class="cm"> * MyFavoritesAjax script include Description - sample AJAX processor returning multiple value pairs
 </span><span class="cm"> */</span>
-<span class="kd">var</span> <span class="nx">MyFavoritesAjax</span> <span class="o">=</span> <span class="nx">Class</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">MyFavoritesAjax</span> <span class="o">=</span> <span class="nx">Class</span><span class="p">.</span><span class="nx">create</span><span class="p">();</span>
 <span class="nx">MyFavoritesAjax</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">extendsObject</span><span class="p">(</span><span class="nx">AbstractAjaxProcessor</span><span class="p">,</span> <span class="p">{</span>
 
     <span class="cm">/*
@@ -191,55 +196,55 @@
 </span><span class="cm">     * var gajax = new GlideAjax(&#34;MyFavoritesAjax&#34;);
 </span><span class="cm">     * gajax.addParam(&#34;sysparm_name&#34;, &#34;getFavorites&#34;);
 </span><span class="cm">     */</span>
-    <span class="nx">getFavorites</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">getFavorites</span> <span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
         <span class="c1">// build new response xml element for result
-</span><span class="c1"></span>        <span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">newItem</span><span class="p">(</span><span class="s2">&#34;result&#34;</span><span class="p">)</span><span class="p">;</span>
+</span><span class="c1"></span>        <span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">newItem</span><span class="p">(</span><span class="s2">&#34;result&#34;</span><span class="p">);</span>
 
-        <span class="nx">result</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">&#34;message&#34;</span><span class="p">,</span> <span class="s2">&#34;returning all favorites&#34;</span><span class="p">)</span><span class="p">;</span>
+        <span class="nx">result</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">&#34;message&#34;</span><span class="p">,</span> <span class="s2">&#34;returning all favorites&#34;</span><span class="p">);</span>
 
         <span class="c1">//add some favorite nodes with name and value attributes
-</span><span class="c1"></span>        <span class="k">this</span><span class="p">.</span><span class="nx">_addFavorite</span><span class="p">(</span><span class="s2">&#34;color&#34;</span><span class="p">,</span> <span class="s2">&#34;blue&#34;</span><span class="p">)</span><span class="p">;</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">_addFavorite</span><span class="p">(</span><span class="s2">&#34;beer&#34;</span><span class="p">,</span> <span class="s2">&#34;lager&#34;</span><span class="p">)</span><span class="p">;</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">_addFavorite</span><span class="p">(</span><span class="s2">&#34;pet&#34;</span><span class="p">,</span> <span class="s2">&#34;dog&#34;</span><span class="p">)</span><span class="p">;</span>
+</span><span class="c1"></span>        <span class="k">this</span><span class="p">.</span><span class="nx">_addFavorite</span><span class="p">(</span><span class="s2">&#34;color&#34;</span><span class="p">,</span> <span class="s2">&#34;blue&#34;</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">_addFavorite</span><span class="p">(</span><span class="s2">&#34;beer&#34;</span><span class="p">,</span> <span class="s2">&#34;lager&#34;</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="nx">_addFavorite</span><span class="p">(</span><span class="s2">&#34;pet&#34;</span><span class="p">,</span> <span class="s2">&#34;dog&#34;</span><span class="p">);</span>
 
         <span class="c1">// all items are returned to the client through the inherited methods of AbstractAjaxProcessor
-</span><span class="c1"></span>    <span class="p">}</span><span class="p">,</span>
+</span><span class="c1"></span>    <span class="p">},</span>
 
     <span class="nx">_addFavorite</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kd">var</span> <span class="nx">favs</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">newItem</span><span class="p">(</span><span class="s2">&#34;favorite&#34;</span><span class="p">)</span><span class="p">;</span>
-        <span class="nx">favs</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">&#34;name&#34;</span><span class="p">,</span> <span class="nx">name</span><span class="p">)</span><span class="p">;</span>
-        <span class="nx">favs</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">&#34;value&#34;</span><span class="p">,</span> <span class="nx">value</span><span class="p">)</span><span class="p">;</span>
-    <span class="p">}</span><span class="p">,</span>
+        <span class="kd">var</span> <span class="nx">favs</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">newItem</span><span class="p">(</span><span class="s2">&#34;favorite&#34;</span><span class="p">);</span>
+        <span class="nx">favs</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">&#34;name&#34;</span><span class="p">,</span> <span class="nx">name</span><span class="p">);</span>
+        <span class="nx">favs</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">&#34;value&#34;</span><span class="p">,</span> <span class="nx">value</span><span class="p">);</span>
+    <span class="p">},</span>
 
     <span class="nx">type</span> <span class="o">:</span> <span class="s2">&#34;MyFavoritesAjax&#34;</span>
 
-<span class="p">}</span><span class="p">)</span><span class="p">;</span>
+<span class="p">});</span>
 </code></pre></div><p>Either way, it is important to set a return value in your publicly accessed function. In most cases, the simple return value is all you need.</p>
 <h3 id="mark-script-include-public-if-needed">Mark Script Include Public if Needed</h3>
 <p>When accessing a GlideAjax Script Include from a public UI Page or Public CMS page, you also need to make your Script Include public. This is accomplished by setting the isPublic attribute on the Script Include object as shown below. This is another one of those security features to protect your Script Includes from malicious users. Without it, any user on the internet could use your GlideAjax script. In other words, be careful about which Script Includes you make public and test the security of those scripts and the tables that they access.</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">HelloWorld</span> <span class="o">=</span> <span class="nx">Class</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">HelloWorld</span> <span class="o">=</span> <span class="nx">Class</span><span class="p">.</span><span class="nx">create</span><span class="p">();</span>
 <span class="nx">HelloWorld</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">extendsObject</span><span class="p">(</span><span class="nx">AbstractAjaxProcessor</span><span class="p">,</span> <span class="p">{</span>
-   <span class="nx">helloWorld</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+   <span class="nx">helloWorld</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
       <span class="k">return</span> <span class="s2">&#34;Hello &#34;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">getParameter</span><span class="p">(</span><span class="s1">&#39;sysparm_user_name&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&#34;!&#34;</span><span class="p">;</span>
-   <span class="p">}</span><span class="p">,</span>
+   <span class="p">},</span>
 
-   <span class="nx">_privateFunction</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// this function is not client callable     
+   <span class="nx">_privateFunction</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="c1">// this function is not client callable     
 </span><span class="c1"></span>
-   <span class="p">}</span><span class="p">,</span>
+   <span class="p">},</span>
 
    <span class="nx">isPublic</span><span class="o">:</span> <span class="kc">true</span>
 
-<span class="p">}</span><span class="p">)</span><span class="p">;</span>
+<span class="p">});</span>
 </code></pre></div><hr>
 <h2 id="client-script">Client Script</h2>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">ga</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideAjax</span><span class="p">(</span><span class="s1">&#39;HelloWorld&#39;</span><span class="p">)</span><span class="p">;</span>
-<span class="nx">ga</span><span class="p">.</span><span class="nx">addParam</span><span class="p">(</span><span class="s1">&#39;sysparm_name&#39;</span><span class="p">,</span><span class="s1">&#39;helloWorld&#39;</span><span class="p">)</span><span class="p">;</span>
-<span class="nx">ga</span><span class="p">.</span><span class="nx">addParam</span><span class="p">(</span><span class="s1">&#39;sysparm_user_name&#39;</span><span class="p">,</span><span class="s2">&#34;Bob&#34;</span><span class="p">)</span><span class="p">;</span>
-<span class="nx">ga</span><span class="p">.</span><span class="nx">getXML</span><span class="p">(</span><span class="nx">HelloWorldParse</span><span class="p">)</span><span class="p">;</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">ga</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideAjax</span><span class="p">(</span><span class="s1">&#39;HelloWorld&#39;</span><span class="p">);</span>
+<span class="nx">ga</span><span class="p">.</span><span class="nx">addParam</span><span class="p">(</span><span class="s1">&#39;sysparm_name&#39;</span><span class="p">,</span><span class="s1">&#39;helloWorld&#39;</span><span class="p">);</span>
+<span class="nx">ga</span><span class="p">.</span><span class="nx">addParam</span><span class="p">(</span><span class="s1">&#39;sysparm_user_name&#39;</span><span class="p">,</span><span class="s2">&#34;Bob&#34;</span><span class="p">);</span>
+<span class="nx">ga</span><span class="p">.</span><span class="nx">getXML</span><span class="p">(</span><span class="nx">HelloWorldParse</span><span class="p">);</span>
 
 <span class="kd">function</span> <span class="nx">HelloWorldParse</span><span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
-   <span class="kd">var</span> <span class="nx">answer</span> <span class="o">=</span> <span class="nx">response</span><span class="p">.</span><span class="nx">responseXML</span><span class="p">.</span><span class="nx">documentElement</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="s2">&#34;answer&#34;</span><span class="p">)</span><span class="p">;</span>
-   <span class="nx">alert</span><span class="p">(</span><span class="nx">answer</span><span class="p">)</span><span class="p">;</span>
+   <span class="kd">var</span> <span class="nx">answer</span> <span class="o">=</span> <span class="nx">response</span><span class="p">.</span><span class="nx">responseXML</span><span class="p">.</span><span class="nx">documentElement</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="s2">&#34;answer&#34;</span><span class="p">);</span>
+   <span class="nx">alert</span><span class="p">(</span><span class="nx">answer</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div><h3 id="correct-script-include-name">Correct Script Include Name</h3>
 <p>It&rsquo;s sad to say but make sure you use the correct Script Include name on the first line of your GlideAjax call in your Client Script. In line 1 above, you see &lsquo;HelloWorld&rsquo; in the first and only parameter to the GlideAjax constructor function. This is used by GlideAjax to find the correct Script Include server side so if you spell it wrong, you won&rsquo;t get your desired results.</p>

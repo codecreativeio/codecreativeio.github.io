@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One|Slabo+13px|Open+Sans:300" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-<link rel="stylesheet" href="https://codecreative.io/assets/main.min.f3d1ef93d0edf3bd8b05a1c5c552fed91f01e0e9624c4f1e35f60b3339173f9d.css">
+<link rel="stylesheet" href="https://codecreative.io/assets/main.min.e80c73b9b5040c8fe01e8de17c90fb71fac60a100010356bd174f7e1a330cf54.css">
 <title>Prepare Your Import Sets for Rollback | CodeCreative | A ServiceNow Blog</title>
 <meta name="description" content="Few things are worse than performing a bulk import of data into ServiceNow only to realize you got something horribly wrong in the Transform Map. Recently I have been toying with a combination of pre-import steps that can be taken to enable rolling back these changes.">
 <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?d=20181101201248">
@@ -124,8 +124,13 @@
 <main>
   <header class="banner">
     <h1>Prepare Your Import Sets for Rollback</h1>
-  </header>
-
+  </header><div class="announcement">
+    <a href="https://surveys.codecreative.io/index.php/565345?lang=en" role="button">
+        <h3>ServiceNow Salary Influence Survey 2020</h3>
+        <p>The ServiceNow Salary Influence Survey 2020 is currently live. If you would like to participate, please click this announcement to start the survey.</p>
+        <p class="button">Take The Survey ></p>
+    </a>
+</div>
   <div class="content text-content">
     <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
@@ -176,16 +181,16 @@
   <span class="kd">var</span> <span class="nx">tagSysId</span> <span class="o">=</span> <span class="s1">&#39;2e4144a113fba300630d5d422244b0aa&#39;</span><span class="p">;</span>
 
   <span class="k">if</span> <span class="p">(</span><span class="nx">action</span> <span class="o">==</span> <span class="s1">&#39;insert&#39;</span><span class="p">)</span> <span class="p">{</span>
-  	<span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;label_entry&#39;</span><span class="p">)</span><span class="p">;</span>
-  	<span class="nx">gr</span><span class="p">.</span><span class="nx">initialize</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
-  	<span class="nx">gr</span><span class="p">.</span><span class="nx">table</span> <span class="o">=</span> <span class="nx">target</span><span class="p">.</span><span class="nx">getTableName</span><span class="p">(</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+  	<span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;label_entry&#39;</span><span class="p">);</span>
+  	<span class="nx">gr</span><span class="p">.</span><span class="nx">initialize</span><span class="p">();</span>
+  	<span class="nx">gr</span><span class="p">.</span><span class="nx">table</span> <span class="o">=</span> <span class="nx">target</span><span class="p">.</span><span class="nx">getTableName</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
   	<span class="nx">gr</span><span class="p">.</span><span class="nx">label</span> <span class="o">=</span> <span class="nx">tagSysId</span><span class="p">;</span>
   	<span class="nx">gr</span><span class="p">.</span><span class="nx">table_key</span> <span class="o">=</span> <span class="nx">target</span><span class="p">.</span><span class="nx">sys_id</span> <span class="o">+</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
-  	<span class="nx">gr</span><span class="p">.</span><span class="nx">title</span> <span class="o">=</span> <span class="nx">target</span><span class="p">.</span><span class="nx">getDisplayValue</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
-  	<span class="nx">gr</span><span class="p">.</span><span class="nx">insert</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+  	<span class="nx">gr</span><span class="p">.</span><span class="nx">title</span> <span class="o">=</span> <span class="nx">target</span><span class="p">.</span><span class="nx">getDisplayValue</span><span class="p">();</span>
+  	<span class="nx">gr</span><span class="p">.</span><span class="nx">insert</span><span class="p">();</span>
   <span class="p">}</span>
 
-<span class="p">}</span><span class="p">)</span><span class="p">(</span><span class="nx">source</span><span class="p">,</span> <span class="nx">map</span><span class="p">,</span> <span class="nx">log</span><span class="p">,</span> <span class="nx">target</span><span class="p">)</span><span class="p">;</span>
+<span class="p">})(</span><span class="nx">source</span><span class="p">,</span> <span class="nx">map</span><span class="p">,</span> <span class="nx">log</span><span class="p">,</span> <span class="nx">target</span><span class="p">);</span>
 </code></pre></div><p>Now you have an easy way to identify all the records created by the import that doesn&rsquo;t involve magical date/time stamps and hoping no one else created records at the same time.</p>
 <h3 id="choice-action-reject">Choice Action Reject</h3>
 <p>Lastly, we need to change all <strong>Choice Actions</strong> to <strong>reject</strong> or <strong>ignore</strong>. I personally prefer <strong>reject</strong> because then I get a Skipped count to indicate issues. This step prevents the Transform Map from generating incidental records which will not get tagged by the script above. You may find that you can adjust the above script to tag Choice creation as well but I haven&rsquo;t taken it that far yet.</p>
@@ -200,9 +205,9 @@
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">tagSysId</span> <span class="o">=</span> <span class="s1">&#39;2e4144a113fba300630d5d422244b0aa&#39;</span><span class="p">;</span>
 <span class="kd">var</span> <span class="nx">table</span> <span class="o">=</span> <span class="s1">&#39;pm_project&#39;</span><span class="p">;</span>
 
-<span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="nx">table</span><span class="p">)</span><span class="p">;</span>
-<span class="nx">gr</span><span class="p">.</span><span class="nx">addEncodedQuery</span><span class="p">(</span><span class="s1">&#39;sys_tags.&#39;</span> <span class="o">+</span> <span class="nx">tagSysId</span> <span class="o">+</span> <span class="s1">&#39;=&#39;</span> <span class="o">+</span> <span class="nx">tagSysId</span><span class="p">)</span><span class="p">;</span>
-<span class="nx">gr</span><span class="p">.</span><span class="nx">deleteMultiple</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="nx">table</span><span class="p">);</span>
+<span class="nx">gr</span><span class="p">.</span><span class="nx">addEncodedQuery</span><span class="p">(</span><span class="s1">&#39;sys_tags.&#39;</span> <span class="o">+</span> <span class="nx">tagSysId</span> <span class="o">+</span> <span class="s1">&#39;=&#39;</span> <span class="o">+</span> <span class="nx">tagSysId</span><span class="p">);</span>
+<span class="nx">gr</span><span class="p">.</span><span class="nx">deleteMultiple</span><span class="p">();</span>
 </code></pre></div><p>You can also convert this to an onStart Transform Script to have the records auto delete on reimport.</p>
 <h2 id="conclusion">Conclusion</h2>
 <p>Unfortunately, I&rsquo;ve yet to find any built in rollbacks in ServiceNow for Import Sets. With a little foresight and preparation, though, we can take steps to ensure that we can recover from any import mishaps. As always, trying things out in Dev and Test should always be your first line of defense. But it&rsquo;s always nice to know you can setup a fallback plan. I, for one, like to think I can get out of trouble faster than I got into it.</p>

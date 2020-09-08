@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One|Slabo+13px|Open+Sans:300" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-<link rel="stylesheet" href="https://codecreative.io/assets/main.min.f3d1ef93d0edf3bd8b05a1c5c552fed91f01e0e9624c4f1e35f60b3339173f9d.css">
+<link rel="stylesheet" href="https://codecreative.io/assets/main.min.e80c73b9b5040c8fe01e8de17c90fb71fac60a100010356bd174f7e1a330cf54.css">
 <title>Intro to HighCharts in Service Portal | CodeCreative | A ServiceNow Blog</title>
 <meta name="description" content="Learn how to build a Service Portal widget that can display custom charts using HighCharts. This is the start of a four part series that will gradually walk through improving the widget from hard coded to configurable.">
 <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?d=20181101201248">
@@ -124,8 +124,13 @@
 <main>
   <header class="banner">
     <h1>Intro to HighCharts in Service Portal</h1>
-  </header>
-
+  </header><div class="announcement">
+    <a href="https://surveys.codecreative.io/index.php/565345?lang=en" role="button">
+        <h3>ServiceNow Salary Influence Survey 2020</h3>
+        <p>The ServiceNow Salary Influence Survey 2020 is currently live. If you would like to participate, please click this announcement to start the survey.</p>
+        <p class="button">Take The Survey ></p>
+    </a>
+</div>
   <div class="content text-content">
     <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
@@ -247,46 +252,46 @@
 <p>For simplicity sake, I hardcoded the chart series and categories objects but in the future we will generate this server side. The beauty of the Service Portal approach is a clean delineation between HTML template, Client Script, and Server Script&hellip; something that the UI Page muddled horribly. Within Service Portal we can see a very simple HTML and a Client Script that in all reality is a <a href="http://www.highcharts.com/docs/getting-started/your-first-chart">pretty basic HighCharts</a> script with nothing extra.</p>
 <p>For reference, here are the scripts:</p>
 <p><strong>HTML</strong></p>
-<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;custom_report&#34;</span><span class="p"></span><span class="p">&gt;</span><span class="p">&lt;</span><span class="p">/</span><span class="nt">div</span><span class="p">&gt;</span>
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;custom_report&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </code></pre></div><p><strong>Client Script</strong></p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
   <span class="cm">/* widget controller */</span>
   <span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
 
-    <span class="kd">var</span> <span class="nx">chart1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Highcharts</span><span class="p">.</span><span class="nx">Chart</span><span class="p">(</span><span class="p">{</span>  
+    <span class="kd">var</span> <span class="nx">chart1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Highcharts</span><span class="p">.</span><span class="nx">Chart</span><span class="p">({</span>  
   <span class="nx">chart</span><span class="o">:</span> <span class="p">{</span>  
       <span class="nx">renderTo</span><span class="o">:</span> <span class="s1">&#39;custom_report&#39;</span><span class="p">,</span>  
       <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;column&#39;</span>  
-  <span class="p">}</span><span class="p">,</span>  
+  <span class="p">},</span>  
   <span class="nx">title</span><span class="o">:</span> <span class="p">{</span>  
       <span class="nx">text</span><span class="o">:</span> <span class="kc">null</span>  
-  <span class="p">}</span><span class="p">,</span>  
+  <span class="p">},</span>  
   <span class="nx">xAxis</span><span class="o">:</span> <span class="p">{</span>  
-      <span class="nx">categories</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;(Empty)&#39;</span><span class="p">,</span> <span class="s1">&#39;Solana Beach CA&#39;</span><span class="p">,</span> <span class="s1">&#39;New York NY&#39;</span><span class="p">,</span> <span class="s1">&#39;Atlanta GA&#39;</span><span class="p">,</span> <span class="s1">&#39;San Diego CA&#39;</span><span class="p">,</span> <span class="s1">&#39;Hamburg&#39;</span><span class="p">,</span> <span class="s1">&#39;Johannesburg&#39;</span><span class="p">,</span> <span class="s1">&#39;Raleigh NC&#39;</span><span class="p">,</span> <span class="s1">&#39;Salem OR&#39;</span><span class="p">,</span> <span class="s1">&#39;Salt Lake City&#39;</span><span class="p">,</span> <span class="s1">&#39;San Diego&#39;</span><span class="p">]</span><span class="p">,</span>  
+      <span class="nx">categories</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;(Empty)&#39;</span><span class="p">,</span> <span class="s1">&#39;Solana Beach CA&#39;</span><span class="p">,</span> <span class="s1">&#39;New York NY&#39;</span><span class="p">,</span> <span class="s1">&#39;Atlanta GA&#39;</span><span class="p">,</span> <span class="s1">&#39;San Diego CA&#39;</span><span class="p">,</span> <span class="s1">&#39;Hamburg&#39;</span><span class="p">,</span> <span class="s1">&#39;Johannesburg&#39;</span><span class="p">,</span> <span class="s1">&#39;Raleigh NC&#39;</span><span class="p">,</span> <span class="s1">&#39;Salem OR&#39;</span><span class="p">,</span> <span class="s1">&#39;Salt Lake City&#39;</span><span class="p">,</span> <span class="s1">&#39;San Diego&#39;</span><span class="p">],</span>  
       <span class="nx">title</span><span class="o">:</span> <span class="p">{</span>  
           <span class="nx">text</span><span class="o">:</span> <span class="kc">null</span>  
-      <span class="p">}</span><span class="p">,</span>  
+      <span class="p">},</span>  
       <span class="nx">labels</span><span class="o">:</span> <span class="p">{</span>  
           <span class="nx">rotation</span><span class="o">:</span> <span class="o">-</span><span class="mi">45</span>  
       <span class="p">}</span>  
-  <span class="p">}</span><span class="p">,</span>  
+  <span class="p">},</span>  
   <span class="nx">yAxis</span><span class="o">:</span> <span class="p">{</span>  
       <span class="nx">min</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>  
       <span class="nx">title</span><span class="o">:</span> <span class="p">{</span>  
           <span class="nx">text</span><span class="o">:</span> <span class="kc">null</span>  
       <span class="p">}</span>  
-  <span class="p">}</span><span class="p">,</span>  
-  <span class="nx">series</span><span class="o">:</span> <span class="p">[</span><span class="p">{</span>
+  <span class="p">},</span>  
+  <span class="nx">series</span><span class="o">:</span> <span class="p">[{</span>
         <span class="s1">&#39;name&#39;</span><span class="o">:</span> <span class="s1">&#39;Open&#39;</span><span class="p">,</span>
         <span class="s1">&#39;legendIndex&#39;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
         <span class="s1">&#39;data&#39;</span><span class="o">:</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
-    <span class="p">}</span><span class="p">,</span>
+    <span class="p">},</span>
     <span class="p">{</span>
         <span class="s1">&#39;name&#39;</span><span class="o">:</span> <span class="s1">&#39;Resolved&#39;</span><span class="p">,</span>
         <span class="s1">&#39;legendIndex&#39;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
         <span class="s1">&#39;data&#39;</span><span class="o">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>            
-    <span class="p">}</span><span class="p">]</span>  
- <span class="p">}</span><span class="p">)</span><span class="p">;</span>  
+    <span class="p">}]</span>  
+ <span class="p">});</span>  
 <span class="p">}</span>
 </code></pre></div><hr>
 <h2 id="conclusion">Conclusion</h2>

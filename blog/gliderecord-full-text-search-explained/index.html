@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One|Slabo+13px|Open+Sans:300" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-<link rel="stylesheet" href="https://codecreative.io/assets/main.min.f3d1ef93d0edf3bd8b05a1c5c552fed91f01e0e9624c4f1e35f60b3339173f9d.css">
+<link rel="stylesheet" href="https://codecreative.io/assets/main.min.e80c73b9b5040c8fe01e8de17c90fb71fac60a100010356bd174f7e1a330cf54.css">
 <title>GlideRecord Full Text Search Explained | CodeCreative | A ServiceNow Blog</title>
 <meta name="description" content="After posting last week&#39;s GlideRecord Full Text Search article using 123TEXTQUERY321, Jeff Pierce reached out and reminded me of a better way of doing it using IR_AND_OR_QUERY. So special thanks to him for helping to clear this up!">
 <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?d=20181101201248">
@@ -62,7 +62,7 @@
     },
     "name" : "GlideRecord Full Text Search Explained",
     "headline" : "GlideRecord Full Text Search Explained",
-    "description" : "After posting last week\x27s GlideRecord Full Text Search article using 123TEXTQUERY321, Jeff Pierce reached out and reminded me of a better way of doing it using IR_AND_OR_QUERY. So special thanks to him for helping to clear this up!","image": "https:\/\/codecreative.io\/blog\/gliderecord-full-text-search-explained\/images\/social.png","inLanguage" : "en-US",
+    "description" : "After posting last week\u0027s GlideRecord Full Text Search article using 123TEXTQUERY321, Jeff Pierce reached out and reminded me of a better way of doing it using IR_AND_OR_QUERY. So special thanks to him for helping to clear this up!","image": "https:\/\/codecreative.io\/blog\/gliderecord-full-text-search-explained\/images\/social.png","inLanguage" : "en-US",
       "author" : "Travis Toulson",
       "creator" : "Travis Toulson","publisher": "Travis Toulson",
     "copyrightHolder" : "Travis Toulson",
@@ -124,8 +124,13 @@
 <main>
   <header class="banner">
     <h1>GlideRecord Full Text Search Explained</h1>
-  </header>
-
+  </header><div class="announcement">
+    <a href="https://surveys.codecreative.io/index.php/565345?lang=en" role="button">
+        <h3>ServiceNow Salary Influence Survey 2020</h3>
+        <p>The ServiceNow Salary Influence Survey 2020 is currently live. If you would like to participate, please click this announcement to start the survey.</p>
+        <p class="button">Take The Survey ></p>
+    </a>
+</div>
   <div class="content text-content">
     <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
@@ -153,12 +158,12 @@
   </figcaption>
 </figure>
 <p>Behind the scenes, the method previously demonstrated (<em>123TEXTQUERY321</em>) behaves in the same way as using <em>IR_AND_QUERY</em>. If we use similar code to last time, replacing only the search method, we will yield the same Catalog Item results in our query. The change in the script below can be seen on line 2, for example, using <em>IR_AND_QUERY</em> instead of <em>123TEXTQUERY321.</em> There is no difference between the below script and last week&rsquo;s script (aside from the title field no longer being weighted to 100).</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;sc_cat_item&#39;</span><span class="p">)</span><span class="p">;</span>
-<span class="nx">gr</span><span class="p">.</span><span class="nx">addQuery</span><span class="p">(</span><span class="s1">&#39;IR_AND_QUERY&#39;</span><span class="p">,</span> <span class="s1">&#39;Application&#39;</span><span class="p">)</span><span class="p">;</span>
-<span class="nx">gr</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;sc_cat_item&#39;</span><span class="p">);</span>
+<span class="nx">gr</span><span class="p">.</span><span class="nx">addQuery</span><span class="p">(</span><span class="s1">&#39;IR_AND_QUERY&#39;</span><span class="p">,</span> <span class="s1">&#39;Application&#39;</span><span class="p">);</span>
+<span class="nx">gr</span><span class="p">.</span><span class="nx">query</span><span class="p">();</span>
 
-<span class="k">while</span> <span class="p">(</span><span class="nx">gr</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="p">)</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">gr</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span> <span class="s1">&#39;: &#39;</span> <span class="o">+</span> <span class="nx">gr</span><span class="p">.</span><span class="nx">ir_query_score</span><span class="p">)</span><span class="p">;</span>
+<span class="k">while</span> <span class="p">(</span><span class="nx">gr</span><span class="p">.</span><span class="nx">next</span><span class="p">())</span> <span class="p">{</span>
+  <span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">gr</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span> <span class="s1">&#39;: &#39;</span> <span class="o">+</span> <span class="nx">gr</span><span class="p">.</span><span class="nx">ir_query_score</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div><p>So what&rsquo;s the problem? Well instead of searching for the text <em>Application</em>, let&rsquo;s assume a user enters <em>Test Application</em> instead. No sense in a screenshot, there aren&rsquo;t any results in my instance. But wait! Why wouldn&rsquo;t the <em>Custom Application</em> Catalog Item show up in a search for <em>Test Application</em>? Surely there is some relevance!</p>
 <p>A record has to match all search terms to be considered relevant for both 123TEXTQUERY321 and IR_AND_QUERY.</p>
@@ -168,12 +173,12 @@
 <p>In this case though, that isn&rsquo;t how <em>IR_AND_QUERY</em> works. This query method will join the search terms with an <em>AND</em> conjunction. In other words, in this case it will search for Catalog Items with <em>Test AND Application</em> in the searchable text. A record has to match all search terms to be considered relevant for both <em>123TEXTQUERY321</em> and <em>IR_AND_QUERY</em>. And that&rsquo;s exactly why this method is often not the best, there are simply too many scenarios that won&rsquo;t match any records.</p>
 <h2 id="ir_or_query">IR_OR_QUERY</h2>
 <p>The <em>IR_OR_QUERY</em> search method on the other hand will perform an OR conjunction on the search terms. By that, I mean that a search text of <em>Test Application</em> will in actuality search for <em>Test OR Application</em>. Any record containing either word in its searchable fields will be considered a relevant hit.</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;sc_cat_item&#39;</span><span class="p">)</span><span class="p">;</span>
-<span class="nx">gr</span><span class="p">.</span><span class="nx">addQuery</span><span class="p">(</span><span class="s1">&#39;IR_OR_QUERY&#39;</span><span class="p">,</span> <span class="s1">&#39;Test Application&#39;</span><span class="p">)</span><span class="p">;</span>
-<span class="nx">gr</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;sc_cat_item&#39;</span><span class="p">);</span>
+<span class="nx">gr</span><span class="p">.</span><span class="nx">addQuery</span><span class="p">(</span><span class="s1">&#39;IR_OR_QUERY&#39;</span><span class="p">,</span> <span class="s1">&#39;Test Application&#39;</span><span class="p">);</span>
+<span class="nx">gr</span><span class="p">.</span><span class="nx">query</span><span class="p">();</span>
 
-<span class="k">while</span> <span class="p">(</span><span class="nx">gr</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="p">)</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">gr</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span> <span class="s1">&#39;: &#39;</span> <span class="o">+</span> <span class="nx">gr</span><span class="p">.</span><span class="nx">ir_query_score</span><span class="p">)</span><span class="p">;</span>
+<span class="k">while</span> <span class="p">(</span><span class="nx">gr</span><span class="p">.</span><span class="nx">next</span><span class="p">())</span> <span class="p">{</span>
+  <span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">gr</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span> <span class="s1">&#39;: &#39;</span> <span class="o">+</span> <span class="nx">gr</span><span class="p">.</span><span class="nx">ir_query_score</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div><p>When we execute the above code (changes on line 2) we can see results that are similar to our original search for the term <em>Application</em>. This is fantastic! Now multiple search terms will no longer eliminate an entire list of potential hits as is the case with the previous search methods.</p>
 <p>Any record containing either word in its searchable fields will be considered a relevant hit [for IR_OR_QUERY].</p>
@@ -202,12 +207,12 @@
   <p>IR_AND_OR_QUERY is often the best choice for full text search.</p>
 </aside>
 <p>With this process, <em>IR_AND_OR_QUERY</em> can attempt to defer to results that match all search terms but in the event that not enough are found, it can fallback to a sensible <em>IR_OR_QUERY</em>. For this reason, the <em>IR_AND_OR_QUERY</em> is often the best choice for full text search.</p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;sc_cat_item&#39;</span><span class="p">)</span><span class="p">;</span>
-<span class="nx">gr</span><span class="p">.</span><span class="nx">addQuery</span><span class="p">(</span><span class="s1">&#39;IR_AND_OR_QUERY&#39;</span><span class="p">,</span> <span class="s1">&#39;Server Application&#39;</span><span class="p">)</span><span class="p">;</span>
-<span class="nx">gr</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;sc_cat_item&#39;</span><span class="p">);</span>
+<span class="nx">gr</span><span class="p">.</span><span class="nx">addQuery</span><span class="p">(</span><span class="s1">&#39;IR_AND_OR_QUERY&#39;</span><span class="p">,</span> <span class="s1">&#39;Server Application&#39;</span><span class="p">);</span>
+<span class="nx">gr</span><span class="p">.</span><span class="nx">query</span><span class="p">();</span>
 
-<span class="k">while</span> <span class="p">(</span><span class="nx">gr</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="p">)</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">gr</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span> <span class="s1">&#39;: &#39;</span> <span class="o">+</span> <span class="nx">gr</span><span class="p">.</span><span class="nx">ir_query_score</span><span class="p">)</span><span class="p">;</span>
+<span class="k">while</span> <span class="p">(</span><span class="nx">gr</span><span class="p">.</span><span class="nx">next</span><span class="p">())</span> <span class="p">{</span>
+  <span class="nx">gs</span><span class="p">.</span><span class="nx">print</span><span class="p">(</span><span class="nx">gr</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span> <span class="s1">&#39;: &#39;</span> <span class="o">+</span> <span class="nx">gr</span><span class="p">.</span><span class="nx">ir_query_score</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div><p>But the more important lesson to learn here is don&rsquo;t trust your memory, notes from years ago, or things you read on the internet.</p>
 

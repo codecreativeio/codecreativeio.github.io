@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
 <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One|Slabo+13px|Open+Sans:300" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-<link rel="stylesheet" href="https://codecreative.io/assets/main.min.f3d1ef93d0edf3bd8b05a1c5c552fed91f01e0e9624c4f1e35f60b3339173f9d.css">
+<link rel="stylesheet" href="https://codecreative.io/assets/main.min.e80c73b9b5040c8fe01e8de17c90fb71fac60a100010356bd174f7e1a330cf54.css">
 <title>How to get more out of ServiceNow Pivot Tables (Video) | CodeCreative | A ServiceNow Blog</title>
 <meta name="description" content="Sadly, High Charts does not offer a Pivot Table in ServiceNow. But there are two strategies that I have used for making Pivot Tables that have worked very well for me.  In this video, I cover the first of these strategies which allows you to minimize customization while getting more out of ServiceNow&#39;s native Pivot Table report.">
 <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?d=20181101201248">
@@ -44,7 +44,7 @@
     },
     "name" : "How to get more out of ServiceNow Pivot Tables (Video)",
     "headline" : "How to get more out of ServiceNow Pivot Tables (Video)",
-    "description" : "Sadly, High Charts does not offer a Pivot Table in ServiceNow. But there are two strategies that I have used for making Pivot Tables that have worked very well for me.  In this video, I cover the first of these strategies which allows you to minimize customization while getting more out of ServiceNow\x27s native Pivot Table report.","inLanguage" : "en-US",
+    "description" : "Sadly, High Charts does not offer a Pivot Table in ServiceNow. But there are two strategies that I have used for making Pivot Tables that have worked very well for me.  In this video, I cover the first of these strategies which allows you to minimize customization while getting more out of ServiceNow\u0027s native Pivot Table report.","inLanguage" : "en-US",
       "author" : "Travis Toulson",
       "creator" : "Travis Toulson","publisher": "Travis Toulson",
     "copyrightHolder" : "Travis Toulson",
@@ -106,8 +106,13 @@
 <main>
   <header class="banner">
     <h1>How to get more out of ServiceNow Pivot Tables (Video)</h1>
-  </header>
-
+  </header><div class="announcement">
+    <a href="https://surveys.codecreative.io/index.php/565345?lang=en" role="button">
+        <h3>ServiceNow Salary Influence Survey 2020</h3>
+        <p>The ServiceNow Salary Influence Survey 2020 is currently live. If you would like to participate, please click this announcement to start the survey.</p>
+        <p class="button">Take The Survey ></p>
+    </a>
+</div>
   <div class="content text-content">
     <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
@@ -133,22 +138,22 @@
 <p>And stay tuned for Episode 3 in which I will dig a little deeper into my bag of tricks and demonstrate a fully custom Pivot Table using a UI Page. Don&rsquo;t miss it! Put your questions in the comments and get it answered on Code Creative!</p>
 <p>Original Question: <a href="https://community.servicenow.com/message/777391#777391">Custom Chart Scripts</a></p>
 <p><strong>Background Script:</strong></p>
-<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;incident&#39;</span><span class="p">)</span><span class="p">;</span>  
-<span class="nx">gr</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>  
-<span class="k">while</span> <span class="p">(</span><span class="nx">gr</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="p">)</span><span class="p">)</span> <span class="p">{</span>  
-  <span class="nx">gr</span><span class="p">.</span><span class="nx">autoSysFields</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span><span class="p">;</span>  
-  <span class="nx">gr</span><span class="p">.</span><span class="nx">setWorkflow</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span><span class="p">;</span>  
-  <span class="kd">var</span> <span class="nx">updatedDt</span> <span class="o">=</span> <span class="nx">gr</span><span class="p">.</span><span class="nx">sys_updated_on</span><span class="p">.</span><span class="nx">getGlideObject</span><span class="p">(</span><span class="p">)</span><span class="p">;</span> <span class="c1">// Get GlideDateTime object  
-</span><span class="c1"></span>  <span class="nx">gr</span><span class="p">.</span><span class="nx">u_updated_date</span> <span class="o">=</span> <span class="nx">updatedDt</span><span class="p">.</span><span class="nx">getDate</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>  
-  <span class="nx">gr</span><span class="p">.</span><span class="nx">u_updated_hour</span> <span class="o">=</span> <span class="p">(</span><span class="nx">updatedDt</span> <span class="o">+</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="p">.</span><span class="nx">substr</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;:00&#39;</span><span class="p">;</span>  
-  <span class="nx">gr</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>  
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">gr</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="s1">&#39;incident&#39;</span><span class="p">);</span>  
+<span class="nx">gr</span><span class="p">.</span><span class="nx">query</span><span class="p">();</span>  
+<span class="k">while</span> <span class="p">(</span><span class="nx">gr</span><span class="p">.</span><span class="nx">next</span><span class="p">())</span> <span class="p">{</span>  
+  <span class="nx">gr</span><span class="p">.</span><span class="nx">autoSysFields</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>  
+  <span class="nx">gr</span><span class="p">.</span><span class="nx">setWorkflow</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>  
+  <span class="kd">var</span> <span class="nx">updatedDt</span> <span class="o">=</span> <span class="nx">gr</span><span class="p">.</span><span class="nx">sys_updated_on</span><span class="p">.</span><span class="nx">getGlideObject</span><span class="p">();</span> <span class="c1">// Get GlideDateTime object  
+</span><span class="c1"></span>  <span class="nx">gr</span><span class="p">.</span><span class="nx">u_updated_date</span> <span class="o">=</span> <span class="nx">updatedDt</span><span class="p">.</span><span class="nx">getDate</span><span class="p">();</span>  
+  <span class="nx">gr</span><span class="p">.</span><span class="nx">u_updated_hour</span> <span class="o">=</span> <span class="p">(</span><span class="nx">updatedDt</span> <span class="o">+</span> <span class="s1">&#39;&#39;</span><span class="p">).</span><span class="nx">substr</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;:00&#39;</span><span class="p">;</span>  
+  <span class="nx">gr</span><span class="p">.</span><span class="nx">update</span><span class="p">();</span>  
 <span class="p">}</span>
 </code></pre></div><p><strong>Business Rule:</strong></p>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">onBefore</span><span class="p">(</span><span class="nx">current</span><span class="p">,</span> <span class="nx">previous</span><span class="p">)</span> <span class="p">{</span>  
   <span class="c1">//This function will be automatically called when this rule is processed.  
-</span><span class="c1"></span>  <span class="kd">var</span> <span class="nx">updatedDt</span> <span class="o">=</span> <span class="nx">current</span><span class="p">.</span><span class="nx">sys_updated_on</span><span class="p">.</span><span class="nx">getGlideObject</span><span class="p">(</span><span class="p">)</span><span class="p">;</span> <span class="c1">// Get GlideDateTime object  
-</span><span class="c1"></span>  <span class="nx">current</span><span class="p">.</span><span class="nx">u_updated_date</span> <span class="o">=</span> <span class="nx">updatedDt</span><span class="p">.</span><span class="nx">getDate</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>  
-  <span class="nx">current</span><span class="p">.</span><span class="nx">u_updated_hour</span> <span class="o">=</span> <span class="p">(</span><span class="nx">updatedDt</span> <span class="o">+</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="p">.</span><span class="nx">substr</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;:00&#39;</span><span class="p">;</span>  
+</span><span class="c1"></span>  <span class="kd">var</span> <span class="nx">updatedDt</span> <span class="o">=</span> <span class="nx">current</span><span class="p">.</span><span class="nx">sys_updated_on</span><span class="p">.</span><span class="nx">getGlideObject</span><span class="p">();</span> <span class="c1">// Get GlideDateTime object  
+</span><span class="c1"></span>  <span class="nx">current</span><span class="p">.</span><span class="nx">u_updated_date</span> <span class="o">=</span> <span class="nx">updatedDt</span><span class="p">.</span><span class="nx">getDate</span><span class="p">();</span>  
+  <span class="nx">current</span><span class="p">.</span><span class="nx">u_updated_hour</span> <span class="o">=</span> <span class="p">(</span><span class="nx">updatedDt</span> <span class="o">+</span> <span class="s1">&#39;&#39;</span><span class="p">).</span><span class="nx">substr</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;:00&#39;</span><span class="p">;</span>  
 <span class="p">}</span>
 </code></pre></div>
       </div>

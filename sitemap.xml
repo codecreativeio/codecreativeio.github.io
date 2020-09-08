@@ -89,26 +89,31 @@
   
   <url>
     <loc>https://codecreative.io/years/2020/</loc>
-    <lastmod>2020-02-03T12:00:00+00:00</lastmod>
+    <lastmod>2020-09-08T06:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://codecreative.io/blog/</loc>
-    <lastmod>2020-02-03T12:00:00+00:00</lastmod>
+    <lastmod>2020-09-08T06:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://codecreative.io/</loc>
-    <lastmod>2020-02-03T12:00:00+00:00</lastmod>
+    <lastmod>2020-09-08T06:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://codecreative.io/blog/the-future-of-servicenow-ui-seismic-and-the-now-design-system/</loc>
-    <lastmod>2020-02-03T12:00:00+00:00</lastmod>
+    <loc>https://codecreative.io/blog/service-now-salary-influence-survey-2020/</loc>
+    <lastmod>2020-09-08T06:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://codecreative.io/years/</loc>
+    <lastmod>2020-09-08T06:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://codecreative.io/blog/the-future-of-servicenow-ui-seismic-and-the-now-design-system/</loc>
     <lastmod>2020-02-03T12:00:00+00:00</lastmod>
   </url>
   
@@ -145,6 +150,11 @@
   <url>
     <loc>https://codecreative.io/blog/are-extension-points-worth-it/</loc>
     <lastmod>2019-05-04T16:57:50+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://codecreative.io/guides/</loc>
+    <lastmod>2019-04-21T17:55:11+00:00</lastmod>
   </url>
   
   <url>
@@ -433,10 +443,6 @@
   
   <url>
     <loc>https://codecreative.io/contact/</loc>
-  </url>
-  
-  <url>
-    <loc>https://codecreative.io/guides/</loc>
   </url>
   
 </urlset>
