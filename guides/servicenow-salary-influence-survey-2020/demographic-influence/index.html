@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html>
+  <head><meta charset="utf-8">
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Julius+Sans+One|Slabo+13px|Open+Sans:300" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+<link rel="stylesheet" href="https://codecreative.io/assets/main.min.294499f393eb3832b06e462e13c4c6dce45c3e19a6008d328f0b939e123bcd63.css">
+<title>Demographic Influence | CodeCreative | A ServiceNow Blog</title>
+<meta name="description" content="This section of the Salary Survey analysis discusses to what degree other demographic features may influence compensation.">
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?d=20181101201248">
+<link rel="canonical" href="https://codecreative.io/guides/servicenow-salary-influence-survey-2020/demographic-influence/"><meta property="og:site_name" content="CodeCreative | A ServiceNow Blog">
+<meta property="og:title" content="Demographic Influence">
+<meta property="og:url" content="https://codecreative.io/guides/servicenow-salary-influence-survey-2020/demographic-influence/">
+
+<meta property="og:type" content="article">
+
+<meta property="og:description" content="This section of the Salary Survey analysis discusses to what degree other demographic features may influence compensation.">
+
+  
+    <meta property="og:image" content="https://codecreative.io/guides/servicenow-salary-influence-survey-2020/social.png">
+  
+
+<meta itemprop="name" content="Demographic Influence">
+<meta itemprop="url" content="https://codecreative.io/guides/servicenow-salary-influence-survey-2020/demographic-influence/">
+<meta itemprop="description" content="This section of the Salary Survey analysis discusses to what degree other demographic features may influence compensation.">
+
+  
+  <meta itemprop="thumbnailUrl" content="https://codecreative.io/guides/servicenow-salary-influence-survey-2020/social.png">
+  <link rel="image_src" href="https://codecreative.io/guides/servicenow-salary-influence-survey-2020/social.png">
+  <meta itemprop="image" content="https://codecreative.io/guides/servicenow-salary-influence-survey-2020/social.png">
+  
+
+
+<meta name="twitter:title" content="Demographic Influence">
+
+<meta name="twitter:image" content="https://codecreative.io/guides/servicenow-salary-influence-survey-2020/social.png">
+
+<meta name="twitter:url" content="https://codecreative.io/guides/servicenow-salary-influence-survey-2020/demographic-influence/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:description" content="This section of the Salary Survey analysis discusses to what degree other demographic features may influence compensation.">
+
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-90280965-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-90280965-1');
+</script>
+
+<script type="application/ld+json">
+{
+    "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/codecreative.io\/"
+    },
+    "name" : "Demographic Influence",
+    "headline" : "Demographic Influence",
+    "description" : "This section of the Salary Survey analysis discusses to what degree other demographic features may influence compensation.","image": "https:\/\/codecreative.io\/guides\/servicenow-salary-influence-survey-2020\/social.png","inLanguage" : "en-US",
+      "author" : "Travis Toulson",
+      "creator" : "Travis Toulson","publisher": "Travis Toulson",
+    "copyrightHolder" : "Travis Toulson",
+    "copyrightYear" : "2021",
+    "datePublished": "2021-03-14T14:40:00Z",
+    "dateModified" : "2021-03-14T14:40:00Z",
+    "url" : "https:\/\/codecreative.io\/guides\/servicenow-salary-influence-survey-2020\/demographic-influence\/",
+    "wordCount" : "3410",
+    "keywords" : [ "Blog" ]
+}
+</script>
+
+
+  </head>
+  <body><header role="banner">
+  <h1 class="logo">
+      <a href="/">
+         <img src="/assets/codecreativelogo.png" alt="Demographic Influence" />
+         <span class="sr-only">CodeCreative Logo, click to navigate home</span>
+      </a>
+    </h1>
+
+  <div class="menuToggle">
+    <button class="hamburger" type="button" onclick="toggleMenu()">
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+      <span class="sr-only">Toggle Menu</span>
+    </button>
+  </div>
+
+  <nav class="fullNav">
+    <ul>
+      
+      
+        <li title="Home">
+          <a class="" href="/">Home</a>
+        </li>
+      
+        <li title="Blog">
+          <a class="" href="/blog/">Blog</a>
+        </li>
+      
+        <li title="Guides">
+          <a class="" href="/guides/">Guides</a>
+        </li>
+      
+        <li title="About">
+          <a class="" href="/about/">About</a>
+        </li>
+      
+        <li title="Contact">
+          <a class="" href="/contact/">Contact</a>
+        </li>
+      
+    </ul>
+  </nav>
+</header>
+<main>
+  <header class="banner">
+    <h1>ServiceNow Salary Influence Survey 2020</h1>
+  </header><div class="announcement">
+    <a href="/guides/servicenow-salary-influence-survey-2020/" role="button">
+        <h3>ServiceNow Salary Influence Survey 2020</h3>
+        <p>The ServiceNow Salary Influence Survey 2020 results are now published. Click this banner to see the report.</p>
+        <p class="button">Read the report ></p>
+    </a>
+</div>
+  <div class="content text-content guide-content">
+    <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+      <section class="guide-nav">
+        <nav>
+          <h1>ServiceNow Salary Influence Survey 2020</h1>
+          <ul>
+            <li>
+              <a href="https://codecreative.io/guides/servicenow-salary-influence-survey-2020/">
+                Guide Index
+              </a>
+            </li>
+            
+            
+              
+                <li>
+                  <a href="https://codecreative.io/guides/servicenow-salary-influence-survey-2020/foreword/">
+                    Foreword
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://codecreative.io/guides/servicenow-salary-influence-survey-2020/summary/">
+                    Summary
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://codecreative.io/guides/servicenow-salary-influence-survey-2020/top-influencing-features/">
+                    Top Influencing Features
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  Demographic Influence
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://codecreative.io/guides/servicenow-salary-influence-survey-2020/education-influence/">
+                    Education Influence
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://codecreative.io/guides/servicenow-salary-influence-survey-2020/current-role-influence/">
+                    Current Role Influence
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://codecreative.io/guides/servicenow-salary-influence-survey-2020/experience-scatter-plots/">
+                    Reference: Years of Experience Scatter Plots
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://codecreative.io/guides/servicenow-salary-influence-survey-2020/survey-response-reports/">
+                    Reference: Survey Response Reports
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://codecreative.io/guides/servicenow-salary-influence-survey-2020/methods/">
+                    Reference: Methods
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://codecreative.io/guides/servicenow-salary-influence-survey-2020/salary-tables/">
+                    Reference: Salary Tables
+                  </a>
+                </li>
+              
+            
+          </ul>
+        </nav>
+      </section>
+
+      <section class="guide-article">
+        <header class="post-header">
+          <h1 class="post-title p-name" itemprop="name headline">Demographic Influence</h1>
+          <p class="post-meta">
+              <time class="dt-published" datetime="2021-03-14T14:40:00Z" itemprop="datePublished">
+              March 14, 2021
+              </time>
+            
+              
+              • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">Travis Toulson</span></span>
+            
+          </p>
+        </header>
+
+        <div class="post-content e-content" itemprop="articleBody">
+          <p>Beyond the top influencing features, the members of the ServiceNow community expressed an interest in exploring what influence a variety of other features may have. In the next section, the influence of demographic features on compensation will be explored. The methods used in this section can be viewed <a href="/guides/servicenow-salary-influence-survey-2020/methods/#step-4-targeted-feature-analysis">here</a>.</p>
+<h2 id="gender">Gender</h2>
+<a href="images/total-compensation-by-gender-and-country-gni-per-capita.png">
+    <figure>
+    <img src="images/total-compensation-by-gender-and-country-gni-per-capita.png" />
+    <figcaption>
+        Total Compensation Distribution (Intl$) by Gender and Country GNI Per Capita
+    </figcaption>
+    </figure>
+</a>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Female (GNI Per Capita &lt;=   55840)</th>
+<th>Male (GNI Per Capita &lt;= 55840)</th>
+<th>Female (GNI Per Capita &gt; 55840)</th>
+<th>Male (GNI Per Capita &gt; 55840)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Min</td>
+<td>12,730</td>
+<td>11,315</td>
+<td>48,880</td>
+<td>29,200</td>
+</tr>
+<tr>
+<td>Q1</td>
+<td>30,646</td>
+<td>40,075</td>
+<td>76,500</td>
+<td>113,527</td>
+</tr>
+<tr>
+<td>Median</td>
+<td>55,634</td>
+<td>63,910</td>
+<td>118,560</td>
+<td>140,000</td>
+</tr>
+<tr>
+<td>Q3</td>
+<td>84,866</td>
+<td>93,588</td>
+<td>129,157</td>
+<td>174,500</td>
+</tr>
+<tr>
+<td>Max</td>
+<td>141,773</td>
+<td>198,020</td>
+<td>275,000</td>
+<td>390,000</td>
+</tr>
+</tbody>
+</table>
+<p>The gender pay gap is a thoroughly researched phenomenon and all indications point toward the existence of the pay gap within the ServiceNow industry as well. From the population wide perspective, female workers are compensated 85% to 87% of the purchasing power compared to male workers on average as shown in the image above. Using a more traditional wording, women in the ServiceNow industry are compensated between 85 cents and 87 cents per dollar on average when compared to men. For the remainder of this discussion, the gender specific terms &ldquo;women&rdquo; and &ldquo;men&rdquo; will be used although it should be noted that the survey answers and therefore the charts and data used sexual identity terms &ldquo;female&rdquo; and &ldquo;male&rdquo; despite the question asking for the individual&rsquo;s gender identity.</p>
+<p>Gender ranks 7th in terms of feature importance measures. This is particularly noteworthy since the selected for importance is technically biased against selecting gender as compared to the 4th, 5th, and 6th ranked features. There is a high probability that gender may in fact be significantly more important but it&rsquo;s importance is being downplayed by the relatively low representation by women and non-binary in the industry. Exploratory experimentation indicated that if women were represented in similar proportion to their global population representation without changing the compensation distribution difference, it is very likely that gender would have appeared in the top 3 features.</p>
+<p>Furthermore, women are also severely underrepresented in the ServiceNow industry. While women compose around 50% of the world population (and similar on a country by country basis), they only compose around 17% of the ServiceNow industry according to the survey. It does not appear as though underrepresentation is the cause of the gender pay gap, as not all underrepresented minorities show a similar trend. When discussing the broader impact of the gender pay gap across all industries, however, representation in high compensation fields such as those in the ServiceNow industry is often reported as a significant cause of the overall pay gap. In this way, both representation and the pay gap within the industry are separate issues which need to be addressed if the gender pay gap is to be eliminated.</p>
+<h3 id="peer-group-comparison">Peer Group Comparison</h3>
+<a href="images/peer-group-comparison-gender.png">
+    <figure>
+    <img src="images/peer-group-comparison-gender.png" />
+    <figcaption>
+        Compensation by Gender When Compared To Median Compensation of Individual's Peer Group
+    </figcaption>
+    </figure>
+</a>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Below Median</th>
+<th>At Median</th>
+<th>Above Median</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Survey Population</td>
+<td>39.13%</td>
+<td>21.30%</td>
+<td>39.57%</td>
+</tr>
+<tr>
+<td>Female</td>
+<td>55.00%</td>
+<td>20.00%</td>
+<td>25.00%</td>
+</tr>
+<tr>
+<td>Male</td>
+<td>34.97%</td>
+<td>20.77%</td>
+<td>44.26%</td>
+</tr>
+<tr>
+<td>Non-binary</td>
+<td>100.00%</td>
+<td>0.00%</td>
+<td>0.00%</td>
+</tr>
+</tbody>
+</table>
+<p>Due to the politicized nature of the gender pay gap discussion, a greater level of scrutiny is often given to research in this area. As such, extra scrutiny was applied to the Salary Influence Survey analysis in this area to explore common arguments against the gender pay gap. First, a peer group comparison grouped women and men according to the top influencing features of country, years of experience, and percent of compensation that is fixed. Within those groupings, women are significantly more likely than men within the overall population to be compensated below the median value for their peer group. Women were compensated below the median value 55% of the time but were compensated above the median value just 25% of the time. Men on the other hand were compensated below the median just 35% of the time while they were compensated above the median 44% of the time. The figure above depicts these groupings. While non-binary are included in the chart, the data is much less reliable due to a very low representation. The implication here is that the gender pay gap is still present when controlling for the most significant influencing features on compensation.</p>
+<h3 id="anticipated-total-hours-worked">Anticipated Total Hours Worked</h3>
+<a href="images/gender-analysis-anticipated-hours-worked.png">
+    <figure>
+    <img src="images/gender-analysis-anticipated-hours-worked.png" />
+    <figcaption>
+        Anticipated Hours Worked Per Year By Gender
+    </figcaption>
+    </figure>
+</a>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Female</th>
+<th>Male</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Min</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Q1</td>
+<td>1,924</td>
+<td>1,844</td>
+</tr>
+<tr>
+<td>Median</td>
+<td>2,070</td>
+<td>2,070</td>
+</tr>
+<tr>
+<td>Q3</td>
+<td>2,288</td>
+<td>2,299</td>
+</tr>
+<tr>
+<td>Max</td>
+<td>4,800</td>
+<td>4,200</td>
+</tr>
+</tbody>
+</table>
+<p>A common argument against the gender pay gap is that women are more likely to take time off to take care of their children or various other gender specific needs. Within the ServiceNow industry, however, women anticipate working the same number of hours as men. In fact, there is a slight bias in the distribution that indicates women anticipate that they may work slightly more hours in most cases. While noting that there is a difference between actual hours worked and anticipated hours worked, any assertion that this result should be discarded because it is not actual hours worked should likewise discard the rest of the survey since the entirety is subject to the same self-report bias.</p>
+<h3 id="similarity-of-work">Similarity of Work</h3>
+<a href="images/gender-analysis-skill-rest-api.png">
+    <figure>
+    <img src="images/gender-analysis-skill-rest-api.png" />
+    <figcaption>
+        Population Composition by Frequency of Scripted REST API Development Skill Use and Gender
+    </figcaption>
+    </figure>
+</a>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Frequent Use of Skill Scripted   REST API Development</th>
+<th>Less Frequent Use of Skill   Scripted REST API Development</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Female</td>
+<td>22.50%</td>
+<td>77.50%</td>
+</tr>
+<tr>
+<td>Male</td>
+<td>19.67%</td>
+<td>80.33%</td>
+</tr>
+<tr>
+<td>Other</td>
+<td>14.29%</td>
+<td>85.71%</td>
+</tr>
+</tbody>
+</table>
+<a href="images/gender-analysis-skill-html.png">
+    <figure>
+    <img src="images/gender-analysis-skill-html.png" />
+    <figcaption>
+        Population Composition by Frequency of HTML Skill Use and Gender
+    </figcaption>
+    </figure>
+</a>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Frequent Use of Skill HTML</th>
+<th>Less Frequent Use of Skill HTML</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Female</td>
+<td>37.50%</td>
+<td>62.50%</td>
+</tr>
+<tr>
+<td>Male</td>
+<td>47.54%</td>
+<td>52.46%</td>
+</tr>
+<tr>
+<td>Other</td>
+<td>42.86%</td>
+<td>57.14%</td>
+</tr>
+</tbody>
+</table>
+<p>Another common argument is that these statistics do not compare women and men in a side by side, doing the same job type comparison. Firstly, this analysis has already improved the comparison by its limitation to the ServiceNow industry itself. Therefore, the argument that women choose lower paying career paths does not apply. Secondly, the analysis shows strong indications that the skills, products, and knowledge have very little influence on compensation in the industry to begin with. Lastly, for the sake of argument, the analysis indicates that women and men are in fact using job skills in similar frequency and proportional to their overall population distribution. Simply stated, women and men appear to be performing remarkably similar jobs within the survey results analyzed. Of particular note are the two skills that ranked slighly higher than gender in terms of importance: REST API Development and HTML skills. In both cases, depicted above, it is clearly seen that women have a similar probability of using those potentially higher value skills in their jobs as men. Men are slightly more likely to use HTML in the performance of their job duties, but this is unlikely to have the significance to account for the whole gender pay gap. All of these data points combine to indicate that it is highly unlikely that there is any merit to the argument that women are performing different job duties or making different career choices significant enough to cause the gender pay gap.</p>
+<h3 id="education-similarity">Education Similarity</h3>
+<a href="images/gender-analysis-education.png">
+    <figure>
+    <img src="images/gender-analysis-education.png" />
+    <figcaption>
+        Population Composition by Highest Education Level and Gender
+    </figcaption>
+    </figure>
+</a>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>High School Diploma, GCSEs or   equivalent</th>
+<th>Some College</th>
+<th>Trade or Vocational Degree or   Certificate or equivalent</th>
+<th>Associates Degree or Certificate or   equivalent</th>
+<th>Bachelor&rsquo;s Degree or equivalent</th>
+<th>Master’s Degree or equivalent</th>
+<th>Prefer not to disclose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Female</td>
+<td>7.50%</td>
+<td>2.50%</td>
+<td>0.00%</td>
+<td>0.075</td>
+<td>0.55</td>
+<td>0.25</td>
+<td>0.025</td>
+</tr>
+<tr>
+<td>Male</td>
+<td>2.73%</td>
+<td>8.74%</td>
+<td>1.09%</td>
+<td>3.83%</td>
+<td>57.92%</td>
+<td>0.251366</td>
+<td>0.005464</td>
+</tr>
+<tr>
+<td>Other</td>
+<td>0.00%</td>
+<td>14.29%</td>
+<td>0.00%</td>
+<td>0.00%</td>
+<td>28.57%</td>
+<td>0.428571</td>
+<td>0.142857</td>
+</tr>
+</tbody>
+</table>
+<p>A less frequently used argument is that there is a difference in the education level between men and women which contributes, once again generally related to an assumed difference in priorities between the genders. The analysis finds no merit to this argument as men and women have very similar education level distributions as seen in the chart above. Furthermore, in exploring some of the more specific scenarios it was found that in many higher compensation groups, women completed higher levels of education (generally a Master&rsquo;s Degree) despite receiving lower compensation than men with similar profiles.</p>
+<h3 id="other-explanations">Other Explanations</h3>
+<p>With most of the traditional arguments against the gender pay gap having been addressed, there are still a few other potential rational explanations that can be examined. Women had nearly identical breakdowns of certifications, field of study in college, geographic region, remote work percent, job title, current job level, perception of their contribution, and level of satisfaction compared to men. Women were slightly less likely to consider themselves Senior experienced level instead of Intermediate compared to men but the data shows that those two job levels are more alike than different.</p>
+<a href="images/peer-group-comparison-gender-majority.png">
+    <figure>
+    <img src="images/peer-group-comparison-gender-majority.png" />
+    <figcaption>
+        Compensation by Gender When Compared To Median Compensation of Individual's Peer Group
+    </figcaption>
+    </figure>
+</a>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Below Median</th>
+<th>At Median</th>
+<th>Above Median</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Survey Population</td>
+<td>39.13%</td>
+<td>21.30%</td>
+<td>39.57%</td>
+</tr>
+<tr>
+<td>Female Worker in Female   Majority Environment</td>
+<td>62.50%</td>
+<td>25.00%</td>
+<td>12.50%</td>
+</tr>
+<tr>
+<td>Female Worker in Female   Minority Environment</td>
+<td>57.69%</td>
+<td>15.38%</td>
+<td>26.92%</td>
+</tr>
+<tr>
+<td>Male Worker in Male Majority   Environment</td>
+<td>33.33%</td>
+<td>22.76%</td>
+<td>43.90%</td>
+</tr>
+<tr>
+<td>Male Worker in Male Minority   Environment</td>
+<td>45.71%</td>
+<td>14.29%</td>
+<td>40.00%</td>
+</tr>
+</tbody>
+</table>
+<p>Lastly, team gender composition was examined to determine if an individual&rsquo;s gender was more or less important than their gender relative to their teammates. In a sense, which is more important, individual identity or similarity? As the chart above shows, men in any environment stay relatively close to the population norm in terms of distribution of compensation at, above, and below the median. Both women and men are impacted by working for teams composed of mostly men. In this situation, women are twice as likely to be compensated above median value compared to women in teams composed of mostly men while men have an increased probability of below median compensation compared to men in teams composed of mostly men. Ultimately, from a compensation standpoint, it appears better to be a man in a woman majority work environment than a woman in any work environment in the ServiceNow industry. It is possible that similarity would have a greater influence if women were better represented in the industry overall but current data indicates that gender is more important than similarity to an individual&rsquo;s team.</p>
+<h2 id="ethnicity">Ethnicity</h2>
+<a href="images/total-compensation-by-ethnicity.png">
+    <figure>
+    <img src="images/total-compensation-by-ethnicity.png" />
+    <figcaption>
+        Total Compensation Distribution (Intl$) by Ethnicity Where Country GNI Per Capita > 55840
+    </figcaption>
+    </figure>
+</a>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Whole Population</th>
+<th>Not Black, African or Caribbean</th>
+<th>Black, African or Caribbean</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Min:</td>
+<td>29,200</td>
+<td>29,200</td>
+<td>49,200</td>
+</tr>
+<tr>
+<td>Q1:</td>
+<td>110,514</td>
+<td>111,541</td>
+<td>67,938</td>
+</tr>
+<tr>
+<td>Median:</td>
+<td>135,000</td>
+<td>138,200</td>
+<td>115,500</td>
+</tr>
+<tr>
+<td>Q3:</td>
+<td>172,100</td>
+<td>172,913</td>
+<td>126,547</td>
+</tr>
+<tr>
+<td>Max:</td>
+<td>425,000</td>
+<td>425,000</td>
+<td>275,000</td>
+</tr>
+</tbody>
+</table>
+<p>Similar to Gender, the racial pay gap is another well documented phenomenon from which the ServiceNow industry is not immune. Interestingly, the impact of ethnicity seems limited to countries with stronger economies since most countries with GNI Per Capita &lt;= 55840 had very low racial diversity. For this reason, the rest of the discussion on ethnicity will focus on countries with a GNI Per Capita &gt; 55840.</p>
+<p>The discussion will also tend to focus more on those identifying as Black, African or Caribbean. Although there was some variation, the other ethnic identities fell within 95% of their respective median compensation values while Black, African, and Carribean people were compensated just 84% of the purchasing power of their peers (84 cents per dollar). Overall, ethnicity is ranked 11th in importance but it is troubling that it is ranked so highly despite such a small proportion of the population being impacted. On one hand, the metric used is slightly biased in favor of features with multiple values such as ethnicity. On the other, the bias should be mitigated by low representation of ethnicities other than White / Caucasian and Asian. Given larger represenation of minority ethnicities, there is a high probability that Ethnicitiy would have ranked much higher.</p>
+<h3 id="peer-group-comparison-1">Peer Group Comparison</h3>
+<a href="images/peer-group-comparison-ethnicity.png">
+    <figure>
+    <img src="images/peer-group-comparison-ethnicity.png" />
+    <figcaption>
+        Compensation by Ethnicity When Compared To Median Compensation of Individual's Peer Group
+    </figcaption>
+    </figure>
+</a>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Below Median</th>
+<th>At Median</th>
+<th>Above Median</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Survey Population</td>
+<td>39.13%</td>
+<td>21.30%</td>
+<td>39.57%</td>
+</tr>
+<tr>
+<td>Arab</td>
+<td>0.00%</td>
+<td>0.00%</td>
+<td>100.00%</td>
+</tr>
+<tr>
+<td>Asian</td>
+<td>42.20%</td>
+<td>20.18%</td>
+<td>37.61%</td>
+</tr>
+<tr>
+<td>Black, African or Caribbean</td>
+<td>71.43%</td>
+<td>14.29%</td>
+<td>14.29%</td>
+</tr>
+<tr>
+<td>Hispanic or Latino</td>
+<td>11.11%</td>
+<td>33.33%</td>
+<td>55.56%</td>
+</tr>
+<tr>
+<td>Mixed / multiple ethnic groups</td>
+<td>0.00%</td>
+<td>0.00%</td>
+<td>100.00%</td>
+</tr>
+<tr>
+<td>Native American</td>
+<td>100.00%</td>
+<td>0.00%</td>
+<td>0.00%</td>
+</tr>
+<tr>
+<td>Prefer not to disclose</td>
+<td>16.67%</td>
+<td>50.00%</td>
+<td>33.33%</td>
+</tr>
+<tr>
+<td>White / Caucasian</td>
+<td>37.23%</td>
+<td>21.28%</td>
+<td>41.49%</td>
+</tr>
+</tbody>
+</table>
+<p>Once again, do to the politicized nature of the racial pay gap, extra care will be given to analyze potential covariants and control for alternative arguments. First, the peer group comparison strongly indicates that there are significant differences depending on ethnicity. Once again, although some ethnicities indicate a strong relationship in the peer group comparison, most of the below and above median compensation values for minority ethnicities were within 95% of the median of their peers. Black, African or Caribbean people, however, are below median compensation 70% of the time while also being compensated just 84% of the median value on average. This figure gives a strong indication as to why ethnicity has such strong importances despite the metric biases. Compared to other features, the impact of ethnicity is quite extreme despite impacting smaller population groups.</p>
+<h3 id="anticipated-work-hours">Anticipated Work Hours</h3>
+<a href="images/ethnicity-analysis-anticipated-hours-worked.png">
+    <figure>
+    <img src="images/ethnicity-analysis-anticipated-hours-worked.png" />
+    <figcaption>
+        Anticipated Hours Worked Per Year By Ethnicity
+    </figcaption>
+    </figure>
+</a>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>White / Caucasian</th>
+<th>Other</th>
+<th>Asian</th>
+<th>Black, African or Caribbean</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Min</td>
+<td>0</td>
+<td>1,840</td>
+<td>1,040</td>
+<td>1,440</td>
+</tr>
+<tr>
+<td>Q1</td>
+<td>1,840</td>
+<td>1,968</td>
+<td>1,992</td>
+<td>1,920</td>
+</tr>
+<tr>
+<td>Median</td>
+<td>1,960</td>
+<td>2,000</td>
+<td>2,096</td>
+<td>2,165</td>
+</tr>
+<tr>
+<td>Q3</td>
+<td>2,169</td>
+<td>2,208</td>
+<td>2,450</td>
+<td>2,263</td>
+</tr>
+<tr>
+<td>Max</td>
+<td>4,200</td>
+<td>2,370</td>
+<td>3,200</td>
+<td>2,300</td>
+</tr>
+</tbody>
+</table>
+<p>The first potential covariant to examine is anticipated work hours this year. In this case, Black, African or Caribbean respondents anticipate working on average 26 work days (8hr) per year more than their White / Caucasian counterparts. Counting weekends, that is over a month of extra work anticipated despite being compensated below median compared to their peers.</p>
+<h3 id="similartiy-of-work">Similartiy of Work</h3>
+<a href="images/ethnicity-analysis-skill-rest-api.png">
+    <figure>
+    <img src="images/ethnicity-analysis-skill-rest-api.png" />
+    <figcaption>
+        Population Composition by Frequency of Scripted REST API Development Skill Use and Ethnicity
+    </figcaption>
+    </figure>
+</a>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Frequent Use of Skill Scripted   REST API Development</th>
+<th>Less Frequent Use of Skill   Scripted REST API Development</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Asian</td>
+<td>24.77%</td>
+<td>75.23%</td>
+</tr>
+<tr>
+<td>Black, African or Caribbean</td>
+<td>28.57%</td>
+<td>71.43%</td>
+</tr>
+<tr>
+<td>Other</td>
+<td>15.00%</td>
+<td>85.00%</td>
+</tr>
+<tr>
+<td>White / Caucasian</td>
+<td>14.89%</td>
+<td>85.11%</td>
+</tr>
+</tbody>
+</table>
+<a href="images/ethnicity-analysis-skill-html.png">
+    <figure>
+    <img src="images/ethnicity-analysis-skill-html.png" />
+    <figcaption>
+        Population Composition by Frequency of HTML Skill Use and Ethnicity
+    </figcaption>
+    </figure>
+</a>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Frequent Use of Skill Scripted   REST API Development</th>
+<th>Less Frequent Use of Skill   Scripted REST API Development</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Asian</td>
+<td>47.71%</td>
+<td>52.29%</td>
+</tr>
+<tr>
+<td>Black, African or Caribbean</td>
+<td>42.86%</td>
+<td>57.14%</td>
+</tr>
+<tr>
+<td>Other</td>
+<td>35.00%</td>
+<td>65.00%</td>
+</tr>
+<tr>
+<td>White / Caucasian</td>
+<td>45.74%</td>
+<td>54.26%</td>
+</tr>
+</tbody>
+</table>
+<p>In terms of similarity of work, the only significant difference is that Black, African or Caribbean respondents are almost twice as likely as White / Caucasian respondents to frequently make use of the higher value skill of Scripted REST API Development. With Scripted REST API Development and HTML skills having the strongest influence in terms of skills use in the respondents current role, there is no indication that the difference in compensation is due to covariance between ethnicity and value of skills used. If anything, Black, African or Caribbean respondents should expect to be compensated higher than median at a higher rate than average based on their skills usage if anything.</p>
+<h3 id="education-similarity-1">Education Similarity</h3>
+<a href="images/ethnicity-analysis-education.png">
+    <figure>
+    <img src="images/ethnicity-analysis-education.png" />
+    <figcaption>
+        Population Composition by Highest Level of Education and Ethnicity
+    </figcaption>
+    </figure>
+</a>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>High School Diploma, GCSEs or   equivalent</th>
+<th>Some College</th>
+<th>Trade or Vocational Degree or Certificate or   equivalent</th>
+<th>Associates Degree or Certificate or   equivalent</th>
+<th>Bachelor&rsquo;s Degree or equivalent</th>
+<th>Master’s Degree or equivalent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Asian</td>
+<td>0.00%</td>
+<td>0.00%</td>
+<td>0.00%</td>
+<td>0.00%</td>
+<td>73.39%</td>
+<td>26.61%</td>
+</tr>
+<tr>
+<td>Black, African or Caribbean</td>
+<td>14.29%</td>
+<td>14.29%</td>
+<td>0.00%</td>
+<td>14.29%</td>
+<td>14.29%</td>
+<td>42.86%</td>
+</tr>
+<tr>
+<td>Other</td>
+<td>0.00%</td>
+<td>10.00%</td>
+<td>0.00%</td>
+<td>10.00%</td>
+<td>45.00%</td>
+<td>20.00%</td>
+</tr>
+<tr>
+<td>White / Caucasian</td>
+<td>7.45%</td>
+<td>15.96%</td>
+<td>2.13%</td>
+<td>7.45%</td>
+<td>42.55%</td>
+<td>24.47%</td>
+</tr>
+</tbody>
+</table>
+<p>According to education, the distribution once again seems to indicate that minorities in general operate under higher expectations for lower compensation. Black, African or Caribbean respondents were significantly more likely to have earned a Master&rsquo;s Degree compared to either the White / Caucasian or the Asian majority groups. They are also more likely to have only a High School Diploma or equivalent but it is important to note that level of education in the ServiceNow industry is correlated with higher compensation and unlikely to influence significantly higher rates of below median compensation. Therefore, even from an education standpoint, Black, African, or Caribbean respondents should expect to be at median or above at a significantly higher rate.</p>
+<h3 id="other-explanations-1">Other Explanations</h3>
+<p>While there is little indication that other features from the dataset significantly impact compensation, it is still worth examining a few remaining trends since some interactions between features may have a compounding effect not detected by the analysis methods used. Unlike with gender, where men and women were fairly comparable in the remaining categories, there are some significant differences between ethnicities in the remaining areas. For example, although all ethnicity groups are represented across the different job roles in a similar distribution, Black, African and Caribbean people are slightly more likely to have no certifications and also are more likely to have completed a business related degree as opposed to a technology specific degree compared to other ethnicities. They are also more likely to identify their skill level as intermediate as opposed to senior, similar to women.</p>
+<p>More interestingly, Black, African, and Caribbean people are about 3 times as likely to believe their organizations would not be negatively impacted if they left or that their organization would not find it challenging to replace them. Overall, they appear to feel much more replaceable in their roles. This is particularly noteworthy as this was the only group found where more than a third felt that they were replaceable. There are many possible interpretations and there is no one positive or negative interpretation that is more likely than any other with the given data. The purpose of highlighting it here is merely to call out the anomaly of such a significant proportion of any given population in the data holding this view. Every other group reviewed overwhelmingly felt that their contributions were in some way difficult to replace.</p>
+<p>Lastly, it is worth noting that similar to the gender analysis, there was an indication that similarity to the ethnic majority of one&rsquo;s team may have some small impact on compensation. Overwhelmingly however, it is far better to be White / Caucasian in a majority-minority team than to be a minority ethnicity on any team from a compensation standpoint.</p>
+<h2 id="disability-status">Disability Status</h2>
+<a href="images/peer-group-comparison-disability-status.png">
+    <figure>
+    <img src="images/peer-group-comparison-disability-status.png" />
+    <figcaption>
+        Compensation by Disability Status When Compared To Median Compensation of Individual's Peer Group
+    </figcaption>
+    </figure>
+</a>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Below Median</th>
+<th>At Median</th>
+<th>Above Median</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Survey Population</td>
+<td>39.13%</td>
+<td>21.30%</td>
+<td>39.57%</td>
+</tr>
+<tr>
+<td>Yes, I have a disability (or   previously had a disability)</td>
+<td>71.43%</td>
+<td>14.29%</td>
+<td>14.29%</td>
+</tr>
+<tr>
+<td>Prefer not to disclose</td>
+<td>50.00%</td>
+<td>33.33%</td>
+<td>16.67%</td>
+</tr>
+<tr>
+<td>No, I do not I have a   disability</td>
+<td>37.79%</td>
+<td>21.20%</td>
+<td>41.01%</td>
+</tr>
+</tbody>
+</table>
+<p>Disability status was ranked 40th out 92 features in terms of importance. Although the individual impact indicates that disability has a similarly strong influence to other demographic features, the overall importance rank is quite low. This was largely in part due to the low representation within the industry.</p>
+<h2 id="geographic-region">Geographic Region</h2>
+<a href="images/peer-group-comparison-us-bea-region.png">
+    <figure>
+    <img src="images/peer-group-comparison-us-bea-region.png" />
+    <figcaption>
+        Compensation by US BEA Region When Compared To Median Compensation of Individual's Peer Group
+    </figcaption>
+    </figure>
+</a>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Below Median</th>
+<th>At Median</th>
+<th>Above Median</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Survey Population</td>
+<td>39.13%</td>
+<td>21.30%</td>
+<td>39.57%</td>
+</tr>
+<tr>
+<td>Far West</td>
+<td>11.11%</td>
+<td>33.33%</td>
+<td>55.56%</td>
+</tr>
+<tr>
+<td>Great Lakes</td>
+<td>18.18%</td>
+<td>18.18%</td>
+<td>63.64%</td>
+</tr>
+<tr>
+<td>Mideast</td>
+<td>44.44%</td>
+<td>22.22%</td>
+<td>33.33%</td>
+</tr>
+<tr>
+<td>New England</td>
+<td>25.00%</td>
+<td>12.50%</td>
+<td>62.50%</td>
+</tr>
+<tr>
+<td>Plains</td>
+<td>50.00%</td>
+<td>33.33%</td>
+<td>16.67%</td>
+</tr>
+<tr>
+<td>Prefer not to disclose</td>
+<td>40.00%</td>
+<td>20.00%</td>
+<td>40.00%</td>
+</tr>
+<tr>
+<td>Rocky Mountain</td>
+<td>40.00%</td>
+<td>20.00%</td>
+<td>40.00%</td>
+</tr>
+<tr>
+<td>Southeast</td>
+<td>65.38%</td>
+<td>7.69%</td>
+<td>26.92%</td>
+</tr>
+<tr>
+<td>Southwest</td>
+<td>30.77%</td>
+<td>30.77%</td>
+<td>38.46%</td>
+</tr>
+</tbody>
+</table>
+<a href="images/peer-group-comparison-india-province.png">
+    <figure>
+    <img src="images/peer-group-comparison-india-province.png" />
+    <figcaption>
+        Compensation by India Province When Compared To Median Compensation of Individual's Peer Group
+    </figcaption>
+    </figure>
+</a>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Below Median</th>
+<th>At Median</th>
+<th>Above Median</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Survey Population</td>
+<td>39.13%</td>
+<td>21.30%</td>
+<td>39.57%</td>
+</tr>
+<tr>
+<td>Andhra Pradesh</td>
+<td>0.00%</td>
+<td>100.00%</td>
+<td>0.00%</td>
+</tr>
+<tr>
+<td>Punjab</td>
+<td>100.00%</td>
+<td>0.00%</td>
+<td>0.00%</td>
+</tr>
+<tr>
+<td>Tamilnadu</td>
+<td>80.00%</td>
+<td>0.00%</td>
+<td>20.00%</td>
+</tr>
+<tr>
+<td>Maharashtra</td>
+<td>47.62%</td>
+<td>9.52%</td>
+<td>42.86%</td>
+</tr>
+<tr>
+<td>Uttar Pradesh</td>
+<td>42.86%</td>
+<td>14.29%</td>
+<td>42.86%</td>
+</tr>
+<tr>
+<td>Telangana</td>
+<td>44.44%</td>
+<td>11.11%</td>
+<td>44.44%</td>
+</tr>
+<tr>
+<td>Karnataka</td>
+<td>38.46%</td>
+<td>15.38%</td>
+<td>46.15%</td>
+</tr>
+<tr>
+<td>Haryana</td>
+<td>25.00%</td>
+<td>25.00%</td>
+<td>50.00%</td>
+</tr>
+<tr>
+<td>Prefer not to disclose</td>
+<td>50.00%</td>
+<td>0.00%</td>
+<td>50.00%</td>
+</tr>
+<tr>
+<td>Delhi</td>
+<td>33.33%</td>
+<td>0.00%</td>
+<td>66.67%</td>
+</tr>
+</tbody>
+</table>
+<p>While country of employment has already been identified as the most important feature, it is still interesting to note that other geographic features still provided yet more information. For example, those in the Southeast Bureau of Economic Analysis region were much more likely to be compensated below median value. Similar could be said for certain regions of India. There is a strong indication that in addition to country economic power, local economic regions also influence compensation. This leaves an open question as to whether metropolitan area economies or other subdivisions have an influence as well. It is very likely that given sufficient data of economic strength for subdivisions of a country, a more accurate compensation prediction model could be generated. If this were to be performed, it would demonstrate that the importance of physical location is even higher to overall compensation than already implied by the current model. Both US and India geographic features ranked 6th and 9th respectively in terms of importance.</p>
+<h2 id="veteran-status">Veteran Status</h2>
+<a href="images/peer-group-comparison-veteran-status.png">
+    <figure>
+    <img src="images/peer-group-comparison-veteran-status.png" />
+    <figcaption>
+        Compensation by Veteran Status When Compared To Median Compensation of Individual's Peer Group
+    </figcaption>
+    </figure>
+</a>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Below Median</th>
+<th>At Median</th>
+<th>Above Median</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Survey Population</td>
+<td>39.13%</td>
+<td>21.30%</td>
+<td>39.57%</td>
+</tr>
+<tr>
+<td>Non-Veteran</td>
+<td>39.81%</td>
+<td>21.30%</td>
+<td>38.89%</td>
+</tr>
+<tr>
+<td>Veteran</td>
+<td>36.36%</td>
+<td>18.18%</td>
+<td>45.45%</td>
+</tr>
+</tbody>
+</table>
+<p>Veteran status ranked 78th out of 92 features in terms of importance in predicting compensation.</p>
+
+        </div>
+
+        <a class="u-url" href="/guides/servicenow-salary-influence-survey-2020/demographic-influence" hidden></a>
+
+        <nav class="pagination">
+          
+            <a href="https://codecreative.io/guides/servicenow-salary-influence-survey-2020/top-influencing-features/" class="pagination-prev">
+              <h4>Previous</h4>
+              <div class="pagination-label">Top Influencing Features</div>
+            </a>
+          
+
+          
+            <a href="https://codecreative.io/guides/servicenow-salary-influence-survey-2020/education-influence/" class="pagination-next">
+              <h4>Next</h4>
+              <div class="pagination-label">Education Influence</div>
+            </a>
+          
+        </nav>
+      </section>
+    </article><div class="subscribe-form">
+  
+  <div id="mc_embed_signup">
+    <form action="https://codecreative.us14.list-manage.com/subscribe/post?u=98c1070493fa133df8ea08394&amp;id=f759c17295" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+      <div id="mc_embed_signup_scroll">
+        <h2>Subscribe</h2>
+        <div class="subtext">Sign up with your email address to receive news and updates.</div>
+        <div>
+          <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Email Address" required>
+
+          
+          <div class="sr-only" aria-hidden="true">
+            <input type="text" name="b_98c1070493fa133df8ea08394_f759c17295" tabindex="-1" value="">
+          </div>
+
+          <input type="submit" value="Sign Up" name="subscribe" id="mc-embedded-subscribe" class="button">
+        </div>
+      </div>
+    </form>
+  </div>
+  
+</div>
+</div>
+
+      </main><footer>
+  <div class="footer-content-wrap">
+    <p class="text-align-center">
+      <a href="/blog">Blog</a>
+      &nbsp;|&nbsp;
+      <a href="/guides">Guides</a>
+      &nbsp;|&nbsp;
+      <a href="/about">About</a>
+      &nbsp;|&nbsp;
+      <a href="/contact">Contact</a>
+    </p>
+    <div class="text-align-center">
+      
+    </div>
+  </div>
+</footer>
+<script type="text/javascript" src="/assets/main.js"></script>
+</body>
+</html>

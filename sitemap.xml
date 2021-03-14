@@ -3,6 +3,16 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://codecreative.io/guides/servicenow-salary-influence-survey-2020/foreword/</loc>
+    <lastmod>2021-03-14T14:40:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://codecreative.io/guides/servicenow-salary-influence-survey-2020/summary/</loc>
+    <lastmod>2021-03-14T14:40:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://codecreative.io/guides/getting-started-with-service-portal/what-is-service-portal/</loc>
     <lastmod>2019-04-21T17:55:11+00:00</lastmod>
   </url>
@@ -15,6 +25,11 @@
   <url>
     <loc>https://codecreative.io/guides/getting-started-on-servicenow/what-is-servicenow/</loc>
     <lastmod>2019-02-23T20:20:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://codecreative.io/guides/servicenow-salary-influence-survey-2020/top-influencing-features/</loc>
+    <lastmod>2021-03-14T14:40:00+00:00</lastmod>
   </url>
   
   <url>
@@ -33,6 +48,16 @@
   </url>
   
   <url>
+    <loc>https://codecreative.io/guides/servicenow-salary-influence-survey-2020/demographic-influence/</loc>
+    <lastmod>2021-03-14T14:40:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://codecreative.io/guides/servicenow-salary-influence-survey-2020/</loc>
+    <lastmod>2021-03-14T14:40:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://codecreative.io/guides/getting-started-with-service-portal/creating-a-theme/</loc>
     <lastmod>2019-04-21T17:55:11+00:00</lastmod>
   </url>
@@ -40,6 +65,11 @@
   <url>
     <loc>https://codecreative.io/guides/getting-started-on-servicenow/get-a-personal-developer-instance/</loc>
     <lastmod>2019-02-23T20:20:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://codecreative.io/guides/servicenow-salary-influence-survey-2020/education-influence/</loc>
+    <lastmod>2021-03-14T14:40:00+00:00</lastmod>
   </url>
   
   <url>
@@ -53,6 +83,11 @@
   </url>
   
   <url>
+    <loc>https://codecreative.io/guides/servicenow-salary-influence-survey-2020/current-role-influence/</loc>
+    <lastmod>2021-03-14T14:40:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://codecreative.io/guides/getting-started-with-service-portal/building-a-homepage/</loc>
     <lastmod>2019-04-21T17:55:11+00:00</lastmod>
   </url>
@@ -60,6 +95,11 @@
   <url>
     <loc>https://codecreative.io/guides/getting-started-on-servicenow/filtering-records-in-the-list-view/</loc>
     <lastmod>2019-02-23T20:20:49+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://codecreative.io/guides/servicenow-salary-influence-survey-2020/experience-scatter-plots/</loc>
+    <lastmod>2021-03-14T14:40:00+00:00</lastmod>
   </url>
   
   <url>
@@ -73,6 +113,11 @@
   </url>
   
   <url>
+    <loc>https://codecreative.io/guides/servicenow-salary-influence-survey-2020/survey-response-reports/</loc>
+    <lastmod>2021-03-14T14:40:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://codecreative.io/guides/getting-started-with-service-portal/css-and-scss-processing/</loc>
     <lastmod>2019-04-21T17:55:11+00:00</lastmod>
   </url>
@@ -83,8 +128,28 @@
   </url>
   
   <url>
+    <loc>https://codecreative.io/guides/servicenow-salary-influence-survey-2020/methods/</loc>
+    <lastmod>2021-03-14T14:40:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://codecreative.io/guides/getting-started-with-service-portal/next-steps/</loc>
     <lastmod>2019-04-21T17:55:11+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://codecreative.io/guides/servicenow-salary-influence-survey-2020/salary-tables/</loc>
+    <lastmod>2021-03-14T14:40:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://codecreative.io/guides/</loc>
+    <lastmod>2021-03-14T14:40:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://codecreative.io/</loc>
+    <lastmod>2021-03-14T14:40:00+00:00</lastmod>
   </url>
   
   <url>
@@ -94,11 +159,6 @@
   
   <url>
     <loc>https://codecreative.io/blog/</loc>
-    <lastmod>2020-09-08T06:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://codecreative.io/</loc>
     <lastmod>2020-09-08T06:00:00+00:00</lastmod>
   </url>
   
@@ -150,11 +210,6 @@
   <url>
     <loc>https://codecreative.io/blog/are-extension-points-worth-it/</loc>
     <lastmod>2019-05-04T16:57:50+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://codecreative.io/guides/</loc>
-    <lastmod>2019-04-21T17:55:11+00:00</lastmod>
   </url>
   
   <url>

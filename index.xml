@@ -6,10 +6,28 @@
     <description>Recent content in Developing Creative Business Solutions On ServiceNow on CodeCreative | A ServiceNow Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 08 Sep 2020 06:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 14 Mar 2021 14:40:00 +0000</lastBuildDate>
     
 	<atom:link href="https://codecreative.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Foreword</title>
+      <link>https://codecreative.io/guides/servicenow-salary-influence-survey-2020/foreword/</link>
+      <pubDate>Sun, 14 Mar 2021 14:40:00 +0000</pubDate>
+      
+      <guid>https://codecreative.io/guides/servicenow-salary-influence-survey-2020/foreword/</guid>
+      <description>First of all, I want to thank everyone for their patience regarding the publishing of the final results of the 2020 ServiceNow Salary Influence Survey. The folks who reached out to ask about it were very polite about it and I appreciate the support. There are a number of reasons for the delay in publishing and as someone who keeps private matters private, I debated extensively on how much to share.</description>
+    </item>
+    
+    <item>
+      <title>Summary</title>
+      <link>https://codecreative.io/guides/servicenow-salary-influence-survey-2020/summary/</link>
+      <pubDate>Sun, 14 Mar 2021 14:40:00 +0000</pubDate>
+      
+      <guid>https://codecreative.io/guides/servicenow-salary-influence-survey-2020/summary/</guid>
+      <description>The 2020 ServiceNow Salary Influence Survey was an openly published survey that ran from September 08, 2020 through October 05, 2020 with the purpose of improving the ServiceNow community&amp;rsquo;s understanding of compensation in the industry. The analysis attempted to identify which features of an individual&amp;rsquo;s profile most significantly influenced compensation as well as provide the more traditional compensation tables to assist members of the ServiceNow community in determining their worth. The survey analyzed over 1700 different variations in the features generated from the 182 questions / survey inputs in the attempt to identify causes of compensation variation.</description>
+    </item>
     
     <item>
       <title>What is Service Portal?</title>
@@ -29,6 +47,15 @@ For front-end web developers, a few libraries are in use which are likely famili
       
       <guid>https://codecreative.io/guides/getting-started-on-servicenow/what-is-servicenow/</guid>
       <description>First and foremost, ServiceNow is a web application you can access through your browser in order to track and automate work. Beyond that basic explanation, ServiceNow is a bit like the software equivalent of the blind men and an elephant parable. What ServiceNow is to you depends largely on which piece of it you get your hands on first. As a company, ServiceNow provides both Platform as a Service (PaaS) and Software as a Service (SaaS) offerings via it&amp;rsquo;s Now Platform in a single tenant architecture.</description>
+    </item>
+    
+    <item>
+      <title>Top Influencing Features</title>
+      <link>https://codecreative.io/guides/servicenow-salary-influence-survey-2020/top-influencing-features/</link>
+      <pubDate>Sun, 14 Mar 2021 14:40:00 +0000</pubDate>
+      
+      <guid>https://codecreative.io/guides/servicenow-salary-influence-survey-2020/top-influencing-features/</guid>
+      <description>The primary goal of the Salary Survey was to identify which features had the strongest influence on an individual&amp;rsquo;s compensation. Ideally, this would have provided insights into what actions an individual could take to maximize their worth. The results of the analysis were significantly less inspiring than anticipated. Overall, the analysis found that when compared to random prediction models, somewhere between 81% and 93% of the ability of the collected data to predict an individual&amp;rsquo;s compensation could be summarized by an individual&amp;rsquo;s country of employment, years of experience, and (for United States based workers) what percent of your total compensation is guaranteed vs variable.</description>
     </item>
     
     <item>
@@ -53,6 +80,16 @@ Each instance can run multiple applications side by side, so a single instance c
     </item>
     
     <item>
+      <title>Demographic Influence</title>
+      <link>https://codecreative.io/guides/servicenow-salary-influence-survey-2020/demographic-influence/</link>
+      <pubDate>Sun, 14 Mar 2021 14:40:00 +0000</pubDate>
+      
+      <guid>https://codecreative.io/guides/servicenow-salary-influence-survey-2020/demographic-influence/</guid>
+      <description>Beyond the top influencing features, the members of the ServiceNow community expressed an interest in exploring what influence a variety of other features may have. In the next section, the influence of demographic features on compensation will be explored. The methods used in this section can be viewed here.
+Gender Total Compensation Distribution (Intl$) by Gender and Country GNI Per Capita    Female (GNI Per Capita &amp;lt;= 55840) Male (GNI Per Capita &amp;lt;= 55840) Female (GNI Per Capita &amp;gt; 55840) Male (GNI Per Capita &amp;gt; 55840)     Min 12,730 11,315 48,880 29,200   Q1 30,646 40,075 76,500 113,527   Median 55,634 63,910 118,560 140,000   Q3 84,866 93,588 129,157 174,500   Max 141,773 198,020 275,000 390,000    The gender pay gap is a thoroughly researched phenomenon and all indications point toward the existence of the pay gap within the ServiceNow industry as well.</description>
+    </item>
+    
+    <item>
       <title>Exercise: Creating a Theme</title>
       <link>https://codecreative.io/guides/getting-started-with-service-portal/creating-a-theme/</link>
       <pubDate>Sun, 21 Apr 2019 17:55:11 +0000</pubDate>
@@ -73,6 +110,15 @@ In this exercise, we will clone the La Jolla Theme record, modify it&amp;rsquo;s
 Obtaining ServiceNow Personal Developer Instance (PDI) is your first step to exploring the full potential of the platform and furthering your skills with it. Let&amp;rsquo;s get started!
 Exercise Follow the below instructions to complete the exercise:
  In a web browser, navigate to https://developer.servicenow.com/   Note: Create an account if you do not already have one   Log in to your account</description>
+    </item>
+    
+    <item>
+      <title>Education Influence</title>
+      <link>https://codecreative.io/guides/servicenow-salary-influence-survey-2020/education-influence/</link>
+      <pubDate>Sun, 14 Mar 2021 14:40:00 +0000</pubDate>
+      
+      <guid>https://codecreative.io/guides/servicenow-salary-influence-survey-2020/education-influence/</guid>
+      <description>Certifications Compensation by Certification When Compared To Median Compensation of Individual&#39;s Peer Group    Below Median At Median Above Median     Survey Population 39.13% 21.30% 39.57%   Certified System Administrator 40.10% 19.80% 40.10%   CIS - IT Service Management 35.23% 15.91% 48.86%   Certified Application Developer 31.82% 19.70% 48.48%   CIS - Discovery 33.33% 23.33% 43.</description>
     </item>
     
     <item>
@@ -101,6 +147,15 @@ Exercise Follow the below instructions to complete the exercise:
     </item>
     
     <item>
+      <title>Current Role Influence</title>
+      <link>https://codecreative.io/guides/servicenow-salary-influence-survey-2020/current-role-influence/</link>
+      <pubDate>Sun, 14 Mar 2021 14:40:00 +0000</pubDate>
+      
+      <guid>https://codecreative.io/guides/servicenow-salary-influence-survey-2020/current-role-influence/</guid>
+      <description>Current Job Level Compensation by Current Job Level When Compared To Median Compensation of Individual&#39;s Peer Group    Below Median At Median Above Median     Entry level 54.55% 27.27% 18.18%   Intermediate or experienced level 44.79% 16.67% 38.54%   Senior experienced level 31.40% 29.07% 39.53%   First-level management 25.00% 12.50% 62.50%   Middle-level management 44.44% 11.</description>
+    </item>
+    
+    <item>
       <title>Exercise: Building a Homepage</title>
       <link>https://codecreative.io/guides/getting-started-with-service-portal/building-a-homepage/</link>
       <pubDate>Sun, 21 Apr 2019 17:55:11 +0000</pubDate>
@@ -125,6 +180,16 @@ Exercise   In your Personal Developer Instance, navigate to Incident &amp;gt; Al
     </item>
     
     <item>
+      <title>Reference: Years of Experience Scatter Plots</title>
+      <link>https://codecreative.io/guides/servicenow-salary-influence-survey-2020/experience-scatter-plots/</link>
+      <pubDate>Sun, 14 Mar 2021 14:40:00 +0000</pubDate>
+      
+      <guid>https://codecreative.io/guides/servicenow-salary-influence-survey-2020/experience-scatter-plots/</guid>
+      <description>This reference page contains the scatter plots depicting the relationship between years of experience and median compensation as discussed in the Top Influencing Features section of the report.
+Australia Based Median Compensation per Years of ServiceNow Experience for Australia Based Workers   Years Median Compensation     4 70,139   5 125,000   6 128,472   8 107,639    Canada Based Median Compensation per Years of ServiceNow Experience for Canada Based Workers   Years Median Compensation     4 105,042   6 67,227   7 75,630   12 79,832   15 75,630   16 138,655   19 147,059   23 181,513   27 84,034   35 100,840    India Based Median Compensation per Years of ServiceNow Experience for India Based Workers   Years Median Compensation     1 17,916   2 23,574   3 19,802   4 42,433   5 40,075   6 47,148   7 63,649   8 84,866   9 56,577   10 94,295   11 198,020   13 138,072   14 150,872   15 99,010   16 101,367   20 147,336    United Kingdom Based Median Compensation per Years of ServiceNow Experience for United Kingdom Based Workers   Years Median Compensation     3 68,014   5 51,471   6 95,588   12 73,529   15 117,666   24 125,000   42 147,059    United States Based - Low Risk Pay Group Median Compensation per Years of ServiceNow Experience for US Based Workers Where Compensation Fixed  85%   Years Median Compensation     1 60,000   2 117,027   3 94,000   4 112,525   5 135,000   6 149,000   7 150,350   8 125,000   9 145,750   11 181,400   13 125,000   16 73,000    United States Based - High Risk Pay Group Median Compensation per Years of ServiceNow Experience for US Based Workers Where Compensation Fixed    Years Median Compensation     2 80,000   3 170,000   4 244,000   5 128,250   6 236,500   7 217,500   8 250,000   9 174,000   10 357,500   11 270,000    </description>
+    </item>
+    
+    <item>
       <title>Exercise: Configuring Widgets</title>
       <link>https://codecreative.io/guides/getting-started-with-service-portal/configuring-widgets/</link>
       <pubDate>Sun, 21 Apr 2019 17:55:11 +0000</pubDate>
@@ -144,6 +209,16 @@ In this exercise, we will explore the basic foundations of Widgets, Widget Insta
       <description>Objective: Practice creating and editing records in the list and form view:
 ServiceNow wouldn&amp;rsquo;t be very useful if you couldn&amp;rsquo;t change the records. Thankfully, there are many different ways to change the data as long as the user has permission. If you are operating in your personal developer instance, you should have admin privileges which will let you edit just about anything.
 Exercise   In your Personal Developer Instance, navigate to Incident &amp;gt; Open</description>
+    </item>
+    
+    <item>
+      <title>Reference: Survey Response Reports</title>
+      <link>https://codecreative.io/guides/servicenow-salary-influence-survey-2020/survey-response-reports/</link>
+      <pubDate>Sun, 14 Mar 2021 14:40:00 +0000</pubDate>
+      
+      <guid>https://codecreative.io/guides/servicenow-salary-influence-survey-2020/survey-response-reports/</guid>
+      <description>The below charts provide a breakdown for each survey question on the ServiceNow Salary Influence Survey 2020. Each chart indicates the percentage of the responding population that selected a particular response for the given question. Some questions were omitted from this summary due to the risk of revealing identifying information. Questions omitted from this summary were still used in the analysis of the data to produce the final results.
+Contents:</description>
     </item>
     
     <item>
@@ -171,6 +246,15 @@ Unfortunately, much of the documentation around this can lead to even more confu
     </item>
     
     <item>
+      <title>Reference: Methods</title>
+      <link>https://codecreative.io/guides/servicenow-salary-influence-survey-2020/methods/</link>
+      <pubDate>Sun, 14 Mar 2021 14:40:00 +0000</pubDate>
+      
+      <guid>https://codecreative.io/guides/servicenow-salary-influence-survey-2020/methods/</guid>
+      <description>Step 1: Survey Response Collection This survey collected results via online submission using a self-hosted LimeSurvey server. The survey began on September 08, 2020 and remained open through October 05, 2020. The survey was openly published on LinkedIn and CodeCreative.io, specifically targeting members of the ServiceNow Community. A list of Survey Questions and summary of responses can be found here. The survey was a multi part form which would save after each part, allowing for some surveys to be submitted incomplete.</description>
+    </item>
+    
+    <item>
       <title>Next Steps</title>
       <link>https://codecreative.io/guides/getting-started-with-service-portal/next-steps/</link>
       <pubDate>Sun, 21 Apr 2019 17:55:11 +0000</pubDate>
@@ -182,6 +266,15 @@ Unfortunately, much of the documentation around this can lead to even more confu
   Create and Configure Portal Pages
   Create and Configure Widgets and Widget Instances
   To grow your skills on Service Portal, there are multiple paths that you can pursue:</description>
+    </item>
+    
+    <item>
+      <title>Reference: Salary Tables</title>
+      <link>https://codecreative.io/guides/servicenow-salary-influence-survey-2020/salary-tables/</link>
+      <pubDate>Sun, 14 Mar 2021 14:40:00 +0000</pubDate>
+      
+      <guid>https://codecreative.io/guides/servicenow-salary-influence-survey-2020/salary-tables/</guid>
+      <description>Role Based Salary Tables The following salary tables were generated directly from the survey responses without considering any outside data. Based on the findings of the analysis, years of experience is the strongest predictor in determining which quartile an individual is most likely to fall into. Depending on the country, the particular experience can vary. For the United States and Australia, ServiceNow experience was most correlated with compensation. For India, IT experience was most relevant.</description>
     </item>
     
     <item>
