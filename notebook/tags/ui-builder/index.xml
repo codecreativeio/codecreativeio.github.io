@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>UI Builder on CodeCreative | A ServiceNow Blog</title>
+    <link>https://codecreative.io/notebook/tags/ui-builder/</link>
+    <description>Recent content in UI Builder on CodeCreative | A ServiceNow Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://codecreative.io/notebook/tags/ui-builder/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>UI Builder: Add Components to Page</title>
+      <link>https://codecreative.io/notebook/ui-builder-add-components-to-page/</link>
+      <pubDate>Wed, 14 Jul 2021 09:38:00 +0000</pubDate>
+      
+      <guid>https://codecreative.io/notebook/ui-builder-add-components-to-page/</guid>
+      <description>Purpose: How to add components to a Page in ServiceNow UI Builder
+ Open the UI Builder editor for an Experience Find the content panel Click the three vertical dots menu icon next to Main (or other container or exist component) Click &amp;ldquo;Add Component&amp;rdquo; Click a component in the menu to add it to the page  </description>
+    </item>
+    
+    <item>
+      <title>UI Builder: Add Header Menu</title>
+      <link>https://codecreative.io/notebook/ui-builder-add-header-menu/</link>
+      <pubDate>Wed, 14 Jul 2021 09:38:00 +0000</pubDate>
+      
+      <guid>https://codecreative.io/notebook/ui-builder-add-header-menu/</guid>
+      <description>Purpose: How to add a header menu to a Portal Experience in ServiceNow UI Builder. The header menu is displayed at the top of every page in a Portal Experience.
+ Open Experience in UI Builder Click &amp;ldquo;Menu&amp;rdquo; Click &amp;ldquo;Edit Experience Settings&amp;rdquo; Click &amp;ldquo;Navigation and Menus&amp;rdquo; Click &amp;ldquo;Advanced Footer Settings&amp;rdquo;  Note: Currently the Advanced Navigation Menu Settings link is broken   Complete UX Page Property form as follows:  Page: current Portal Experience name Name: chrome_menu Route: leave blank Description: any text Value:  [ { &amp;#34;value&amp;#34;: { &amp;#34;label&amp;#34;: { &amp;#34;translatable&amp;#34;: true, &amp;#34;message&amp;#34;: &amp;#34;Knowedge&amp;#34; } }, &amp;#34;children&amp;#34;: { &amp;#34;action&amp;#34;: { &amp;#34;label&amp;#34;: { &amp;#34;translatable&amp;#34;: true, &amp;#34;message&amp;#34;: &amp;#34;Report an issue&amp;#34; }, &amp;#34;type&amp;#34;: &amp;#34;route&amp;#34;, &amp;#34;rightIcon&amp;#34;: &amp;#34;chevron-right-fill&amp;#34;, &amp;#34;value&amp;#34;: { &amp;#34;route&amp;#34;: &amp;#34;catalog&amp;#34;, &amp;#34;fields&amp;#34;: { &amp;#34;sysId&amp;#34;: &amp;#34;3f1dd0320a0a0b99000a53f7604a2ef9&amp;#34; } } }, &amp;#34;items&amp;#34;: [ { &amp;#34;value&amp;#34;: { &amp;#34;label&amp;#34;: { &amp;#34;translatable&amp;#34;: true, &amp;#34;message&amp;#34;: &amp;#34;Categories&amp;#34; } }, &amp;#34;children&amp;#34;: { &amp;#34;action&amp;#34;: { &amp;#34;label&amp;#34;: { &amp;#34;translatable&amp;#34;: true, &amp;#34;message&amp;#34;: &amp;#34;Browse All&amp;#34; }, &amp;#34;type&amp;#34;: &amp;#34;route&amp;#34;, &amp;#34;rightIcon&amp;#34;: &amp;#34;chevron-right-fill&amp;#34;, &amp;#34;value&amp;#34;: { &amp;#34;route&amp;#34;: &amp;#34;article&amp;#34;, &amp;#34;fields&amp;#34;: { &amp;#34;sysId&amp;#34;: &amp;#34;3020c9b1474321009db4b5b08b9a712d&amp;#34; } } }, &amp;#34;items&amp;#34;: [ { &amp;#34;value&amp;#34;: { &amp;#34;label&amp;#34;: { &amp;#34;translatable&amp;#34;: true, &amp;#34;message&amp;#34;: &amp;#34;IT&amp;#34; }, &amp;#34;type&amp;#34;: &amp;#34;route&amp;#34;, &amp;#34;value&amp;#34;: { &amp;#34;route&amp;#34;: &amp;#34;article&amp;#34;, &amp;#34;fields&amp;#34;: { &amp;#34;sysId&amp;#34;: &amp;#34;3020c9b1474321009db4b5b08b9a712d&amp;#34; } } } }, { &amp;#34;value&amp;#34;: { &amp;#34;label&amp;#34;: { &amp;#34;translatable&amp;#34;: true, &amp;#34;message&amp;#34;: &amp;#34;Benefits&amp;#34; }, &amp;#34;type&amp;#34;: &amp;#34;route&amp;#34;, &amp;#34;value&amp;#34;: { &amp;#34;route&amp;#34;: &amp;#34;article&amp;#34;, &amp;#34;fields&amp;#34;: { &amp;#34;sysId&amp;#34;: &amp;#34;3020c9b1474321009db4b5b08b9a712d&amp;#34; } } } } ] } } ] } } ]  Click Submit Close the current browser tab to return to the UI Builder browser tab Close portal settings Click &amp;ldquo;Open&amp;rdquo; to test page  Special thanks to ServiceNow Ninjas</description>
+    </item>
+    
+    <item>
+      <title>UI Builder: Add Logo to Footer</title>
+      <link>https://codecreative.io/notebook/ui-builder-add-logo-to-footer/</link>
+      <pubDate>Wed, 14 Jul 2021 09:38:00 +0000</pubDate>
+      
+      <guid>https://codecreative.io/notebook/ui-builder-add-logo-to-footer/</guid>
+      <description>Purpose: How to add a logo to the footer of a Portal Experience in ServiceNow UI Builder. The logo will appear at the bottom of a Portal Experience on every page.
+ Open Experience in UI Builder Click &amp;ldquo;New&amp;rdquo; Click &amp;ldquo;Edit Experience Settings&amp;rdquo; Click &amp;ldquo;Branding and Theming&amp;rdquo; Click &amp;ldquo;Advanced Settings&amp;rdquo; In the related lists, open the Theme record In the UX Theme Asset related list, click &amp;ldquo;New&amp;rdquo; Complete the form as follows:  Asset: Create a new UX Theme Asset record as follows:  Category: Image Name: any text Attachment: upload an image file to the attachment field   Asset Properties: { &amp;quot;position&amp;quot;: &amp;quot;footer_logo&amp;quot; }   Click Submit Close current browser tab to return to UI Builder browser tab Close portal settings Click &amp;ldquo;Open&amp;rdquo; to test page  </description>
+    </item>
+    
+    <item>
+      <title>UI Builder: Add Logo to Header</title>
+      <link>https://codecreative.io/notebook/ui-builder-add-logo-to-header/</link>
+      <pubDate>Wed, 14 Jul 2021 09:38:00 +0000</pubDate>
+      
+      <guid>https://codecreative.io/notebook/ui-builder-add-logo-to-header/</guid>
+      <description>Purpose: How to add a logo to the header of a Portal Experience in ServiceNow UI Builder. The logo will appear at the top of a Portal Experience on every page.
+ Open Experience in UI Builder Click &amp;ldquo;New&amp;rdquo; Click &amp;ldquo;Edit Experience Settings&amp;rdquo; Click &amp;ldquo;Branding and Theming&amp;rdquo; Click &amp;ldquo;Advanced Settings&amp;rdquo; In the related lists, open the Theme record In the UX Theme Asset related list, click &amp;ldquo;New&amp;rdquo; Complete the form as follows:  Asset: Create a new UX Theme Asset record as follows:  Category: Image Name: any text Attachment: upload an image file to the attachment field   Asset Properties: { &amp;quot;position&amp;quot;: &amp;quot;header_logo&amp;quot; }   Click Submit Close current browser tab to return to UI Builder browser tab Close portal settings Click &amp;ldquo;Open&amp;rdquo; to test page  </description>
+    </item>
+    
+    <item>
+      <title>UI Builder: Change Font Family</title>
+      <link>https://codecreative.io/notebook/ui-builder-change-font-family/</link>
+      <pubDate>Wed, 14 Jul 2021 09:38:00 +0000</pubDate>
+      
+      <guid>https://codecreative.io/notebook/ui-builder-change-font-family/</guid>
+      <description>Purpose: How to change the font family of text in a Portal Experience in ServiceNow UI Builder. This procedure will allow the use of custom fonts in UI Builder Portal Experiences.
+ Open Experience&amp;rsquo;s UI Theme record In UX Theme Asset related list, click &amp;ldquo;New&amp;rdquo; Complete the UX Theme Asset form as follows:  Asset: Create a new UX Theme Asset record as follows:  Category: Font Name: any text Attachments: Attach the font file (.</description>
+    </item>
+    
+    <item>
+      <title>UI Builder: Create Footer</title>
+      <link>https://codecreative.io/notebook/ui-builder-create-footer/</link>
+      <pubDate>Wed, 14 Jul 2021 09:38:00 +0000</pubDate>
+      
+      <guid>https://codecreative.io/notebook/ui-builder-create-footer/</guid>
+      <description>Purpose: How to create a Footer for a Portal Experience in ServiceNow UI Builder. The Footer is displayed at the bottom of every page in a Portal Experience.
+ Open Experience in UI Builder Click &amp;ldquo;menu&amp;rdquo; Click &amp;ldquo;Edit Experience Settings&amp;rdquo; Click &amp;ldquo;Navigation and Menus&amp;rdquo; Click &amp;ldquo;Advanced Footer Settings&amp;rdquo; Complete the form as follows:   Page: select the current Experience name
+  Name: chrome_footer
+  Type: json
+  Route: leave blank to apply to all routes</description>
+    </item>
+    
+    <item>
+      <title>UI Builder: Create Header</title>
+      <link>https://codecreative.io/notebook/ui-builder-create-header/</link>
+      <pubDate>Wed, 14 Jul 2021 09:38:00 +0000</pubDate>
+      
+      <guid>https://codecreative.io/notebook/ui-builder-create-header/</guid>
+      <description>Purpose: How to create a Header for a Portal Experience in ServiceNow UI Builder. The Header is displayed at the top of every page in a Portal Experience.
+ Open Experience in UI Builder Click &amp;ldquo;Menu&amp;rdquo; next to Experience name and logo Click &amp;ldquo;Edit Experience Settings&amp;rdquo; Click &amp;ldquo;Navigation and menus&amp;rdquo; Under Header, click &amp;ldquo;Advanced header settings&amp;rdquo; Fill out the form as follows:  Page: Select the Portal Experience Name Name: chrome_header Type: json Route: leave blank to apply to all routes Description: Any description text Value: { &amp;#34;privatePage&amp;#34;: { &amp;#34;searchEnabled&amp;#34;: true, &amp;#34;userPrefsEnabled&amp;#34;: true, &amp;#34;logoRoute&amp;#34;: { &amp;#34;type&amp;#34;: &amp;#34;route&amp;#34;, &amp;#34;value&amp;#34;: { &amp;#34;route&amp;#34;: &amp;#34;home&amp;#34;, &amp;#34;fields&amp;#34;: {} } }, &amp;#34;globalTools&amp;#34;: { &amp;#34;collapsingMenuId&amp;#34;: 0, &amp;#34;primaryItems&amp;#34;: [ { &amp;#34;label&amp;#34;: &amp;#34;UserMenu&amp;#34;, &amp;#34;icon&amp;#34;: &amp;#34;user&amp;#34;, &amp;#34;type&amp;#34;: &amp;#34;menu&amp;#34;, &amp;#34;primaryDisplay&amp;#34;: &amp;#34;icon&amp;#34;, &amp;#34;value&amp;#34;: { &amp;#34;children&amp;#34;: [ { &amp;#34;condition&amp;#34;: { &amp;#34;roles&amp;#34;: [ &amp;#34;admin&amp;#34; ] }, &amp;#34;label&amp;#34;: { &amp;#34;translatable&amp;#34;: true, &amp;#34;message&amp;#34;: &amp;#34;Configure&amp;#34; }, &amp;#34;type&amp;#34;: &amp;#34;navigation&amp;#34;, &amp;#34;position&amp;#34;: 200, &amp;#34;primaryDisplay&amp;#34;: &amp;#34;none&amp;#34;, &amp;#34;value&amp;#34;: { &amp;#34;type&amp;#34;: &amp;#34;external&amp;#34;, &amp;#34;opensWindow&amp;#34;: &amp;#34;true&amp;#34;, &amp;#34;value&amp;#34;: { &amp;#34;href&amp;#34;: &amp;#34;/nav_to.</description>
+    </item>
+    
+    <item>
+      <title>UI Builder: Create Page</title>
+      <link>https://codecreative.io/notebook/ui-builder-create-page/</link>
+      <pubDate>Wed, 14 Jul 2021 09:38:00 +0000</pubDate>
+      
+      <guid>https://codecreative.io/notebook/ui-builder-create-page/</guid>
+      <description>Purpose: How to create a Page in ServiceNow UI Builder. A Page contains the content that is displayed to the end user and can change from user to user based on rules specified in Variants.
+ Navigate to UI Builder Click the name of the desired Portal Experience from the &amp;ldquo;My Experiences&amp;rdquo; list  Note: For initial homepage, skip to step 4   Click &amp;ldquo;Create a page&amp;rdquo; In the model, complete the form as follows:  Name of Page: any text Path: *any url friendly text Note: To make this the homepage of the Portal Experience, make the name the same as the the UX App Configuration record&amp;rsquo;s Landing Path   Click &amp;ldquo;Create&amp;rdquo; Click &amp;ldquo;Done&amp;rdquo;  </description>
+    </item>
+    
+    <item>
+      <title>UI Builder: Create Theme</title>
+      <link>https://codecreative.io/notebook/ui-builder-create-theme/</link>
+      <pubDate>Wed, 14 Jul 2021 09:38:00 +0000</pubDate>
+      
+      <guid>https://codecreative.io/notebook/ui-builder-create-theme/</guid>
+      <description>Purpose: How to create a Theme for a Portal Experience in ServiceNow UI Builder. A Theme defines CSS Custom Property values and assets that are used to configure the look and feel of a Portal Experience.
+ Open Experience in UI Builder Click &amp;ldquo;Menu&amp;rdquo; next to Experience name and logo Click &amp;ldquo;Edit Experience Settings&amp;rdquo; Click &amp;ldquo;Branding and Theming&amp;rdquo; Click &amp;ldquo;Create a theme&amp;rdquo; Complete the form as follows:  Name: Any text Description: Any text Extends: Default Active: True / Checked   Click &amp;ldquo;Submit&amp;rdquo; Close current browser tab to return to the UI Builder browser tab Close and reopen the Experience Settings panel On &amp;ldquo;Branding and Theming&amp;rdquo; tab, select Theme created in step 6 Click &amp;ldquo;Save all changes&amp;rdquo;  </description>
+    </item>
+    
+    <item>
+      <title>UI Builder: Create UX App Configuration</title>
+      <link>https://codecreative.io/notebook/ui-builder-create-ux-app-configuration/</link>
+      <pubDate>Wed, 14 Jul 2021 09:38:00 +0000</pubDate>
+      
+      <guid>https://codecreative.io/notebook/ui-builder-create-ux-app-configuration/</guid>
+      <description>Purpose: How to create a UX App Configuration record in ServiceNow UI Builder. UX App Configuration records expose a UX Page Registry for use in the UI Builder.
+ Open UX Page Registry record Click Magnifying Glass next to Admin Panel Select &amp;ldquo;UX App Config&amp;rdquo; Tablename Click Magnifying Glass next to Document Click &amp;ldquo;New&amp;rdquo; button on UX App Configurations list view Fill out the UX App Configurations form as follows:  Name: Any Text Active: True / Checked Landing Path: Any URL for page   Click &amp;ldquo;Submit&amp;rdquo; In Select Document modal, select &amp;ldquo;Ok&amp;rdquo; On UX Page Registry record, click &amp;ldquo;Update&amp;rdquo;  </description>
+    </item>
+    
+    <item>
+      <title>UI Builder: Create UX Page Registry</title>
+      <link>https://codecreative.io/notebook/ui-builder-create-ux-page-registry/</link>
+      <pubDate>Wed, 14 Jul 2021 09:38:00 +0000</pubDate>
+      
+      <guid>https://codecreative.io/notebook/ui-builder-create-ux-page-registry/</guid>
+      <description>Purpose: How to create a UX Page Registry record in ServiceNow UI Builder. The UX Page Registry record registers the URL, App Shell / page layout, and some other basic configs for a UI Builder Experience.
+ Open Instance to &amp;ldquo;Hello&amp;rdquo; Page Click Open UI Builder Click &amp;ldquo;+ Create experience in Platform&amp;rdquo; button Verify UX Page Registry List View is now visible Click List View &amp;ldquo;New&amp;rdquo; Button Fill out the UX Page Registry Form as follows:  Title: Any Text App Shell UI: Portal App Shell URL Path: Any Text Active: True / Checked Auth routes: { &amp;quot;login&amp;quot;: &amp;quot;login&amp;quot;, &amp;quot;logout&amp;quot;: &amp;quot;logout&amp;quot; }   Click Submit  </description>
+    </item>
+    
+    <item>
+      <title>UI Builder: Input Data Binding</title>
+      <link>https://codecreative.io/notebook/ui-builder-input-data-binding/</link>
+      <pubDate>Wed, 14 Jul 2021 09:38:00 +0000</pubDate>
+      
+      <guid>https://codecreative.io/notebook/ui-builder-input-data-binding/</guid>
+      <description>Purpose: How to bind Client State Parameters to an Input Component in ServiceNow UI Builder.
+ Open the UI Builder editor for an Experience Select the Input Component or add a new Input to the page if one does not already exist Click &amp;ldquo;Client State&amp;rdquo; icon in the lower left of the editor Click &amp;ldquo;Add&amp;rdquo; to create a new Client State Parameter Give it a name and select &amp;ldquo;String&amp;rdquo; for the type Select the Input Component In the Config tab, set &amp;ldquo;Value&amp;rdquo; to Data Select &amp;ldquo;@State.</description>
+    </item>
+    
+    <item>
+      <title>UI Builder: Start A New Portal Experience</title>
+      <link>https://codecreative.io/notebook/ui-builder-start-a-new-portal-experience/</link>
+      <pubDate>Wed, 14 Jul 2021 09:38:00 +0000</pubDate>
+      
+      <guid>https://codecreative.io/notebook/ui-builder-start-a-new-portal-experience/</guid>
+      <description>Purpose: How to create a new Portal Experience in ServiceNow UI Builder. Portal Experiences allow creating a custom UI using ServiceNow&amp;rsquo;s proprietary UI Web Component framework. These experiences are currently limited in their ability to support a mobile UI.
+ Create a UX Page Registry record Create a UX App Configuration record Create a Homepage Create a header Create a theme Add a logo to the header Create a footer Add a logo to the footer Add a header menu Create additional pages  </description>
+    </item>
+    
+    <item>
+      <title>UI Builder: Theming Basics</title>
+      <link>https://codecreative.io/notebook/ui-builder-theming-basics/</link>
+      <pubDate>Wed, 14 Jul 2021 09:38:00 +0000</pubDate>
+      
+      <guid>https://codecreative.io/notebook/ui-builder-theming-basics/</guid>
+      <description>Purpose: Description of how themes work in ServiceNow&amp;rsquo;s UI Builder Experiences
+Setting Theme CSS Custom Properties UI Builder Experiences use CSS Custom Properties, a feature that is native to modern browsers. In UI Builder, these CSS Custom Property values are controlled by the UX Theme record&amp;rsquo;s JSON value where each property in the JSON is used to set the CSS Custom Property in the page.
+Using a web inspector, CSS Custom Properties can be identified beinging with two dashes &amp;ldquo;&amp;ndash;*&amp;rdquo;.</description>
+    </item>
+    
+  </channel>
+</rss>

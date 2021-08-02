@@ -6,11 +6,7 @@
     <description>Recent content in 2017 on CodeCreative | A ServiceNow Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 15 Sep 2017 15:30:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://codecreative.io/years/2017/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 15 Sep 2017 15:30:00 +0000</lastBuildDate><atom:link href="https://codecreative.io/years/2017/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Interface Design Patterns: Function Pattern</title>
       <link>https://codecreative.io/blog/interface-design-patterns-function-pattern/</link>
@@ -47,7 +43,7 @@ I love the lodash library. It&amp;rsquo;s great for working with arrays in a sim
       <pubDate>Thu, 01 Jun 2017 02:51:00 +0000</pubDate>
       
       <guid>https://codecreative.io/blog/interface-design-patterns-for-script-includes/</guid>
-      <description>Almost two thirds of the customer service agents used the default browser, never questioning whether a better one was availableThe Originals by Adam Grant (2016)It should go on record that I, sometimes irrationally and against my better judgement, question all conventions, policies, and established ways of doing things. In fact, when I read the above from The Originals a couple months ago, I responded by underlining the quote and hastily scribbling around the passage &amp;ldquo;Arg!</description>
+      <description>Almost two thirds of the customer service agents used the default browser, never questioning whether a better one was available  The Originals by Adam Grant (2016)   It should go on record that I, sometimes irrationally and against my better judgement, question all conventions, policies, and established ways of doing things. In fact, when I read the above from The Originals a couple months ago, I responded by underlining the quote and hastily scribbling around the passage &amp;ldquo;Arg!</description>
     </item>
     
     <item>
@@ -165,7 +161,7 @@ In my Service Portal CSS Best Practices post, I mentioned that as widget develop
       <guid>https://codecreative.io/blog/gliderecord-full-text-search-explained/</guid>
       <description>After posting last week&amp;rsquo;s GlideRecord Full Text Search article using 123TEXTQUERY321, Jeff Pierce reached out and reminded me of a better way of doing it using IR_AND_OR_QUERY. So special thanks to him for helping to clear this up!
 I have since updated my previous article to this approach but I wanted to take a moment to dive into the multiple methods of Full Text Search and their differences.
-IR_AND_QUERY IR_AND_QUERY ResultsBehind the scenes, the method previously demonstrated (123TEXTQUERY321) behaves in the same way as using IR_AND_QUERY.</description>
+IR_AND_QUERY   IR_AND_QUERY Results   Behind the scenes, the method previously demonstrated (123TEXTQUERY321) behaves in the same way as using IR_AND_QUERY.</description>
     </item>
     
     <item>
@@ -203,7 +199,7 @@ IR_AND_QUERY IR_AND_QUERY ResultsBehind the scenes, the method previously d
       <pubDate>Wed, 15 Feb 2017 17:00:00 +0000</pubDate>
       
       <guid>https://codecreative.io/blog/what-are-css-widget-scopes-in-service-portal/</guid>
-      <description>Scoped CSS Screenshot from CanIUse.comService Portal as a Content Management System has introduced something that now seems like an obvious oversight in all other CMS applications. In fact, its such a obvious, painful oversight that countless others have attempted some sort of solution. CSS Preprocessors, the HTML5 spec, and the recent CSS and JS specs all introduced scoped concepts such as a scoped attribute, scope pseudo selector, and scoping capability with Shadow DOM most of which was promptly ignored by browsers and removed from spec.</description>
+      <description>Scoped CSS Screenshot from CanIUse.com   Service Portal as a Content Management System has introduced something that now seems like an obvious oversight in all other CMS applications. In fact, its such a obvious, painful oversight that countless others have attempted some sort of solution. CSS Preprocessors, the HTML5 spec, and the recent CSS and JS specs all introduced scoped concepts such as a scoped attribute, scope pseudo selector, and scoping capability with Shadow DOM most of which was promptly ignored by browsers and removed from spec.</description>
     </item>
     
     <item>
@@ -242,7 +238,7 @@ Most of the &amp;ldquo;problem&amp;rdquo; rests in Flexbox&amp;rsquo;s simplicit
       <pubDate>Wed, 25 Jan 2017 17:00:00 +0000</pubDate>
       
       <guid>https://codecreative.io/blog/4-things-to-do-before-building-a-service-portal/</guid>
-      <description>But at the end of the day, if you have a form with 100 fields that are all mandatory to be filled out before a Catalog Item can be submitted, that’s not a [Service Portal] issue.Matt MettenThis. Read that. All of that. YES! (&amp;ldquo;I love quick time harch.&amp;quot;) I read that, I clicked endorse, then I wrote this. So go read that.
+      <description>But at the end of the day, if you have a form with 100 fields that are all mandatory to be filled out before a Catalog Item can be submitted, that’s not a [Service Portal] issue.  Matt Metten   This. Read that. All of that. YES! (&amp;ldquo;I love quick time harch.&amp;quot;) I read that, I clicked endorse, then I wrote this. So go read that.
 I have spent quite a bit of my time evangelizing Service Portal as well.</description>
     </item>
     

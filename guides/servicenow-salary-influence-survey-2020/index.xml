@@ -6,11 +6,7 @@
     <description>Recent content in ServiceNow Salary Influence Survey 2020 on CodeCreative | A ServiceNow Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 14 Mar 2021 14:40:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://codecreative.io/guides/servicenow-salary-influence-survey-2020/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 14 Mar 2021 14:40:00 +0000</lastBuildDate><atom:link href="https://codecreative.io/guides/servicenow-salary-influence-survey-2020/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Foreword</title>
       <link>https://codecreative.io/guides/servicenow-salary-influence-survey-2020/foreword/</link>
@@ -45,7 +41,7 @@
       
       <guid>https://codecreative.io/guides/servicenow-salary-influence-survey-2020/demographic-influence/</guid>
       <description>Beyond the top influencing features, the members of the ServiceNow community expressed an interest in exploring what influence a variety of other features may have. In the next section, the influence of demographic features on compensation will be explored. The methods used in this section can be viewed here.
-Gender Total Compensation Distribution (Intl$) by Gender and Country GNI Per Capita    Female (GNI Per Capita &amp;lt;= 55840) Male (GNI Per Capita &amp;lt;= 55840) Female (GNI Per Capita &amp;gt; 55840) Male (GNI Per Capita &amp;gt; 55840)     Min 12,730 11,315 48,880 29,200   Q1 30,646 40,075 76,500 113,527   Median 55,634 63,910 118,560 140,000   Q3 84,866 93,588 129,157 174,500   Max 141,773 198,020 275,000 390,000    The gender pay gap is a thoroughly researched phenomenon and all indications point toward the existence of the pay gap within the ServiceNow industry as well.</description>
+Gender   Total Compensation Distribution (Intl$) by Gender and Country GNI Per Capita        Female (GNI Per Capita &amp;lt;= 55840) Male (GNI Per Capita &amp;lt;= 55840) Female (GNI Per Capita &amp;gt; 55840) Male (GNI Per Capita &amp;gt; 55840)     Min 12,730 11,315 48,880 29,200   Q1 30,646 40,075 76,500 113,527   Median 55,634 63,910 118,560 140,000   Q3 84,866 93,588 129,157 174,500   Max 141,773 198,020 275,000 390,000    The gender pay gap is a thoroughly researched phenomenon and all indications point toward the existence of the pay gap within the ServiceNow industry as well.</description>
     </item>
     
     <item>
@@ -54,7 +50,7 @@ Gender Total Compensation Distribution (Intl$) by Gender and Country GNI Per C
       <pubDate>Sun, 14 Mar 2021 14:40:00 +0000</pubDate>
       
       <guid>https://codecreative.io/guides/servicenow-salary-influence-survey-2020/education-influence/</guid>
-      <description>Certifications Compensation by Certification When Compared To Median Compensation of Individual&#39;s Peer Group    Below Median At Median Above Median     Survey Population 39.13% 21.30% 39.57%   Certified System Administrator 40.10% 19.80% 40.10%   CIS - IT Service Management 35.23% 15.91% 48.86%   Certified Application Developer 31.82% 19.70% 48.48%   CIS - Discovery 33.33% 23.33% 43.</description>
+      <description>Certifications   Compensation by Certification When Compared To Median Compensation of Individual&#39;s Peer Group        Below Median At Median Above Median     Survey Population 39.13% 21.30% 39.57%   Certified System Administrator 40.10% 19.80% 40.10%   CIS - IT Service Management 35.23% 15.91% 48.86%   Certified Application Developer 31.82% 19.70% 48.48%   CIS - Discovery 33.33% 23.33% 43.</description>
     </item>
     
     <item>
@@ -63,7 +59,7 @@ Gender Total Compensation Distribution (Intl$) by Gender and Country GNI Per C
       <pubDate>Sun, 14 Mar 2021 14:40:00 +0000</pubDate>
       
       <guid>https://codecreative.io/guides/servicenow-salary-influence-survey-2020/current-role-influence/</guid>
-      <description>Current Job Level Compensation by Current Job Level When Compared To Median Compensation of Individual&#39;s Peer Group    Below Median At Median Above Median     Entry level 54.55% 27.27% 18.18%   Intermediate or experienced level 44.79% 16.67% 38.54%   Senior experienced level 31.40% 29.07% 39.53%   First-level management 25.00% 12.50% 62.50%   Middle-level management 44.44% 11.</description>
+      <description>Current Job Level   Compensation by Current Job Level When Compared To Median Compensation of Individual&#39;s Peer Group        Below Median At Median Above Median     Entry level 54.55% 27.27% 18.18%   Intermediate or experienced level 44.79% 16.67% 38.54%   Senior experienced level 31.40% 29.07% 39.53%   First-level management 25.00% 12.50% 62.50%   Middle-level management 44.44% 11.</description>
     </item>
     
     <item>
@@ -73,7 +69,7 @@ Gender Total Compensation Distribution (Intl$) by Gender and Country GNI Per C
       
       <guid>https://codecreative.io/guides/servicenow-salary-influence-survey-2020/experience-scatter-plots/</guid>
       <description>This reference page contains the scatter plots depicting the relationship between years of experience and median compensation as discussed in the Top Influencing Features section of the report.
-Australia Based Median Compensation per Years of ServiceNow Experience for Australia Based Workers   Years Median Compensation     4 70,139   5 125,000   6 128,472   8 107,639    Canada Based Median Compensation per Years of ServiceNow Experience for Canada Based Workers   Years Median Compensation     4 105,042   6 67,227   7 75,630   12 79,832   15 75,630   16 138,655   19 147,059   23 181,513   27 84,034   35 100,840    India Based Median Compensation per Years of ServiceNow Experience for India Based Workers   Years Median Compensation     1 17,916   2 23,574   3 19,802   4 42,433   5 40,075   6 47,148   7 63,649   8 84,866   9 56,577   10 94,295   11 198,020   13 138,072   14 150,872   15 99,010   16 101,367   20 147,336    United Kingdom Based Median Compensation per Years of ServiceNow Experience for United Kingdom Based Workers   Years Median Compensation     3 68,014   5 51,471   6 95,588   12 73,529   15 117,666   24 125,000   42 147,059    United States Based - Low Risk Pay Group Median Compensation per Years of ServiceNow Experience for US Based Workers Where Compensation Fixed  85%   Years Median Compensation     1 60,000   2 117,027   3 94,000   4 112,525   5 135,000   6 149,000   7 150,350   8 125,000   9 145,750   11 181,400   13 125,000   16 73,000    United States Based - High Risk Pay Group Median Compensation per Years of ServiceNow Experience for US Based Workers Where Compensation Fixed    Years Median Compensation     2 80,000   3 170,000   4 244,000   5 128,250   6 236,500   7 217,500   8 250,000   9 174,000   10 357,500   11 270,000    </description>
+Australia Based   Median Compensation per Years of ServiceNow Experience for Australia Based Workers       Years Median Compensation     4 70,139   5 125,000   6 128,472   8 107,639    Canada Based   Median Compensation per Years of ServiceNow Experience for Canada Based Workers       Years Median Compensation     4 105,042   6 67,227   7 75,630   12 79,832   15 75,630   16 138,655   19 147,059   23 181,513   27 84,034   35 100,840    India Based   Median Compensation per Years of ServiceNow Experience for India Based Workers       Years Median Compensation     1 17,916   2 23,574   3 19,802   4 42,433   5 40,075   6 47,148   7 63,649   8 84,866   9 56,577   10 94,295   11 198,020   13 138,072   14 150,872   15 99,010   16 101,367   20 147,336    United Kingdom Based   Median Compensation per Years of ServiceNow Experience for United Kingdom Based Workers       Years Median Compensation     3 68,014   5 51,471   6 95,588   12 73,529   15 117,666   24 125,000   42 147,059    United States Based - Low Risk Pay Group   Median Compensation per Years of ServiceNow Experience for US Based Workers Where Compensation Fixed  85%       Years Median Compensation     1 60,000   2 117,027   3 94,000   4 112,525   5 135,000   6 149,000   7 150,350   8 125,000   9 145,750   11 181,400   13 125,000   16 73,000    United States Based - High Risk Pay Group   Median Compensation per Years of ServiceNow Experience for US Based Workers Where Compensation Fixed      Years Median Compensation     2 80,000   3 170,000   4 244,000   5 128,250   6 236,500   7 217,500   8 250,000   9 174,000   10 357,500   11 270,000    </description>
     </item>
     
     <item>

@@ -6,11 +6,7 @@
     <description>Recent content in Developing Creative Business Solutions On ServiceNow on CodeCreative | A ServiceNow Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 14 Mar 2021 14:40:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://codecreative.io/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 27 Jul 2021 21:00:00 +0000</lastBuildDate><atom:link href="https://codecreative.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Foreword</title>
       <link>https://codecreative.io/guides/servicenow-salary-influence-survey-2020/foreword/</link>
@@ -65,7 +61,7 @@ For front-end web developers, a few libraries are in use which are likely famili
       
       <guid>https://codecreative.io/guides/getting-started-with-service-portal/branding-the-portal/</guid>
       <description>Objective: To use the Service Portal Branding Editor to modify the branding of a portal.
-Exercise GoalModifying the basic branding is a great way to get introduced to Service Portal. It is an easy skill to pick up which requires no code and can be performed by administrators.
+  Exercise Goal   Modifying the basic branding is a great way to get introduced to Service Portal. It is an easy skill to pick up which requires no code and can be performed by administrators.
 In this exercise, we will clone the baseline ITSM portal to create our own portal to modify through the rest of this guide.</description>
     </item>
     
@@ -75,7 +71,7 @@ In this exercise, we will clone the baseline ITSM portal to create our own porta
       <pubDate>Sat, 23 Feb 2019 20:20:49 +0000</pubDate>
       
       <guid>https://codecreative.io/guides/getting-started-on-servicenow/what-is-a-servicenow-instance/</guid>
-      <description>This is a ServiceNow InstanceAs mentioned in the previous section, ServiceNow operates using a single tenant architecture meaning that each customer gets their own copy or multiple copies of ServiceNow in the cloud. These copies are known as ServiceNow instances. Users can access an instance via web browser using each instance&amp;rsquo;s unique URL such as https://companyname.service-now.com.
+      <description>This is a ServiceNow Instance   As mentioned in the previous section, ServiceNow operates using a single tenant architecture meaning that each customer gets their own copy or multiple copies of ServiceNow in the cloud. These copies are known as ServiceNow instances. Users can access an instance via web browser using each instance&amp;rsquo;s unique URL such as https://companyname.service-now.com.
 Each instance can run multiple applications side by side, so a single instance could potentially host an ITSM, HR, CSM, and Custom Apps all at the same base URL.</description>
     </item>
     
@@ -86,7 +82,7 @@ Each instance can run multiple applications side by side, so a single instance c
       
       <guid>https://codecreative.io/guides/servicenow-salary-influence-survey-2020/demographic-influence/</guid>
       <description>Beyond the top influencing features, the members of the ServiceNow community expressed an interest in exploring what influence a variety of other features may have. In the next section, the influence of demographic features on compensation will be explored. The methods used in this section can be viewed here.
-Gender Total Compensation Distribution (Intl$) by Gender and Country GNI Per Capita    Female (GNI Per Capita &amp;lt;= 55840) Male (GNI Per Capita &amp;lt;= 55840) Female (GNI Per Capita &amp;gt; 55840) Male (GNI Per Capita &amp;gt; 55840)     Min 12,730 11,315 48,880 29,200   Q1 30,646 40,075 76,500 113,527   Median 55,634 63,910 118,560 140,000   Q3 84,866 93,588 129,157 174,500   Max 141,773 198,020 275,000 390,000    The gender pay gap is a thoroughly researched phenomenon and all indications point toward the existence of the pay gap within the ServiceNow industry as well.</description>
+Gender   Total Compensation Distribution (Intl$) by Gender and Country GNI Per Capita        Female (GNI Per Capita &amp;lt;= 55840) Male (GNI Per Capita &amp;lt;= 55840) Female (GNI Per Capita &amp;gt; 55840) Male (GNI Per Capita &amp;gt; 55840)     Min 12,730 11,315 48,880 29,200   Q1 30,646 40,075 76,500 113,527   Median 55,634 63,910 118,560 140,000   Q3 84,866 93,588 129,157 174,500   Max 141,773 198,020 275,000 390,000    The gender pay gap is a thoroughly researched phenomenon and all indications point toward the existence of the pay gap within the ServiceNow industry as well.</description>
     </item>
     
     <item>
@@ -96,7 +92,7 @@ Gender Total Compensation Distribution (Intl$) by Gender and Country GNI Per C
       
       <guid>https://codecreative.io/guides/getting-started-with-service-portal/creating-a-theme/</guid>
       <description>Objective: To create a custom theme and apply it to a Service Portal to further modify the portal style.
-Exercise GoalCreating a theme takes our styles one step further and brings our portal closer to compliance with a corporate style guide. With just a little SASS and CSS we can take our portal a long way.
+  Exercise Goal   Creating a theme takes our styles one step further and brings our portal closer to compliance with a corporate style guide. With just a little SASS and CSS we can take our portal a long way.
 In this exercise, we will clone the La Jolla Theme record, modify it&amp;rsquo;s styles, and apply it to the CodeCreative portal we created in the last exercise.</description>
     </item>
     
@@ -118,7 +114,7 @@ Exercise Follow the below instructions to complete the exercise:
       <pubDate>Sun, 14 Mar 2021 14:40:00 +0000</pubDate>
       
       <guid>https://codecreative.io/guides/servicenow-salary-influence-survey-2020/education-influence/</guid>
-      <description>Certifications Compensation by Certification When Compared To Median Compensation of Individual&#39;s Peer Group    Below Median At Median Above Median     Survey Population 39.13% 21.30% 39.57%   Certified System Administrator 40.10% 19.80% 40.10%   CIS - IT Service Management 35.23% 15.91% 48.86%   Certified Application Developer 31.82% 19.70% 48.48%   CIS - Discovery 33.33% 23.33% 43.</description>
+      <description>Certifications   Compensation by Certification When Compared To Median Compensation of Individual&#39;s Peer Group        Below Median At Median Above Median     Survey Population 39.13% 21.30% 39.57%   Certified System Administrator 40.10% 19.80% 40.10%   CIS - IT Service Management 35.23% 15.91% 48.86%   Certified Application Developer 31.82% 19.70% 48.48%   CIS - Discovery 33.33% 23.33% 43.</description>
     </item>
     
     <item>
@@ -128,7 +124,7 @@ Exercise Follow the below instructions to complete the exercise:
       
       <guid>https://codecreative.io/guides/getting-started-with-service-portal/overriding-styles-with-css-includes/</guid>
       <description>Objective: To further modify the theme and styles, including fonts, using CSS Includes on the Theme record.
-Exercise GoalNow that we have a basic theme, let&amp;rsquo;s introduce some new fonts and styles using Theme CSS Includes. CSS Includes are the best place to put CSS styles that should be applied across every page of the portal.
+  Exercise Goal   Now that we have a basic theme, let&amp;rsquo;s introduce some new fonts and styles using Theme CSS Includes. CSS Includes are the best place to put CSS styles that should be applied across every page of the portal.
 In this exercise, we will create a CSS Include, add it to our CodeCreative Theme record, and update our portals styles to reflect the Exercise Goal pictured above.</description>
     </item>
     
@@ -152,7 +148,7 @@ Exercise Follow the below instructions to complete the exercise:
       <pubDate>Sun, 14 Mar 2021 14:40:00 +0000</pubDate>
       
       <guid>https://codecreative.io/guides/servicenow-salary-influence-survey-2020/current-role-influence/</guid>
-      <description>Current Job Level Compensation by Current Job Level When Compared To Median Compensation of Individual&#39;s Peer Group    Below Median At Median Above Median     Entry level 54.55% 27.27% 18.18%   Intermediate or experienced level 44.79% 16.67% 38.54%   Senior experienced level 31.40% 29.07% 39.53%   First-level management 25.00% 12.50% 62.50%   Middle-level management 44.44% 11.</description>
+      <description>Current Job Level   Compensation by Current Job Level When Compared To Median Compensation of Individual&#39;s Peer Group        Below Median At Median Above Median     Entry level 54.55% 27.27% 18.18%   Intermediate or experienced level 44.79% 16.67% 38.54%   Senior experienced level 31.40% 29.07% 39.53%   First-level management 25.00% 12.50% 62.50%   Middle-level management 44.44% 11.</description>
     </item>
     
     <item>
@@ -162,7 +158,7 @@ Exercise Follow the below instructions to complete the exercise:
       
       <guid>https://codecreative.io/guides/getting-started-with-service-portal/building-a-homepage/</guid>
       <description>Objective: To create a customized homepage for the portal.
-Exercise GoalWith the portal level components coming together strong, let&amp;rsquo;s turn our attention to the page level components. Service Portal comes with a built in layout engine that makes assembling pages a breeze.
+  Exercise Goal   With the portal level components coming together strong, let&amp;rsquo;s turn our attention to the page level components. Service Portal comes with a built in layout engine that makes assembling pages a breeze.
 In this exercise, we will explore cloning and customizing pages in Service Portal by creating a custom homepage.
 Exercise Follow the below instructions to complete the exercise:</description>
     </item>
@@ -186,7 +182,7 @@ Exercise   In your Personal Developer Instance, navigate to Incident &amp;gt; Al
       
       <guid>https://codecreative.io/guides/servicenow-salary-influence-survey-2020/experience-scatter-plots/</guid>
       <description>This reference page contains the scatter plots depicting the relationship between years of experience and median compensation as discussed in the Top Influencing Features section of the report.
-Australia Based Median Compensation per Years of ServiceNow Experience for Australia Based Workers   Years Median Compensation     4 70,139   5 125,000   6 128,472   8 107,639    Canada Based Median Compensation per Years of ServiceNow Experience for Canada Based Workers   Years Median Compensation     4 105,042   6 67,227   7 75,630   12 79,832   15 75,630   16 138,655   19 147,059   23 181,513   27 84,034   35 100,840    India Based Median Compensation per Years of ServiceNow Experience for India Based Workers   Years Median Compensation     1 17,916   2 23,574   3 19,802   4 42,433   5 40,075   6 47,148   7 63,649   8 84,866   9 56,577   10 94,295   11 198,020   13 138,072   14 150,872   15 99,010   16 101,367   20 147,336    United Kingdom Based Median Compensation per Years of ServiceNow Experience for United Kingdom Based Workers   Years Median Compensation     3 68,014   5 51,471   6 95,588   12 73,529   15 117,666   24 125,000   42 147,059    United States Based - Low Risk Pay Group Median Compensation per Years of ServiceNow Experience for US Based Workers Where Compensation Fixed  85%   Years Median Compensation     1 60,000   2 117,027   3 94,000   4 112,525   5 135,000   6 149,000   7 150,350   8 125,000   9 145,750   11 181,400   13 125,000   16 73,000    United States Based - High Risk Pay Group Median Compensation per Years of ServiceNow Experience for US Based Workers Where Compensation Fixed    Years Median Compensation     2 80,000   3 170,000   4 244,000   5 128,250   6 236,500   7 217,500   8 250,000   9 174,000   10 357,500   11 270,000    </description>
+Australia Based   Median Compensation per Years of ServiceNow Experience for Australia Based Workers       Years Median Compensation     4 70,139   5 125,000   6 128,472   8 107,639    Canada Based   Median Compensation per Years of ServiceNow Experience for Canada Based Workers       Years Median Compensation     4 105,042   6 67,227   7 75,630   12 79,832   15 75,630   16 138,655   19 147,059   23 181,513   27 84,034   35 100,840    India Based   Median Compensation per Years of ServiceNow Experience for India Based Workers       Years Median Compensation     1 17,916   2 23,574   3 19,802   4 42,433   5 40,075   6 47,148   7 63,649   8 84,866   9 56,577   10 94,295   11 198,020   13 138,072   14 150,872   15 99,010   16 101,367   20 147,336    United Kingdom Based   Median Compensation per Years of ServiceNow Experience for United Kingdom Based Workers       Years Median Compensation     3 68,014   5 51,471   6 95,588   12 73,529   15 117,666   24 125,000   42 147,059    United States Based - Low Risk Pay Group   Median Compensation per Years of ServiceNow Experience for US Based Workers Where Compensation Fixed  85%       Years Median Compensation     1 60,000   2 117,027   3 94,000   4 112,525   5 135,000   6 149,000   7 150,350   8 125,000   9 145,750   11 181,400   13 125,000   16 73,000    United States Based - High Risk Pay Group   Median Compensation per Years of ServiceNow Experience for US Based Workers Where Compensation Fixed      Years Median Compensation     2 80,000   3 170,000   4 244,000   5 128,250   6 236,500   7 217,500   8 250,000   9 174,000   10 357,500   11 270,000    </description>
     </item>
     
     <item>
@@ -196,7 +192,7 @@ Australia Based Median Compensation per Years of ServiceNow Experience for Aus
       
       <guid>https://codecreative.io/guides/getting-started-with-service-portal/configuring-widgets/</guid>
       <description>Objective: To configure and create simple Widgets in Service Portal
-Exercise GoalOne more step to finish up our portal: Widgets. Widgets are the heart and soul of the Service Portal world. All of the content from the header to the footer, the menus, the lists, the forms, all of it is driven by Widgets. Widgets can be as simple or complex as you need.
+  Exercise Goal   One more step to finish up our portal: Widgets. Widgets are the heart and soul of the Service Portal world. All of the content from the header to the footer, the menus, the lists, the forms, all of it is driven by Widgets. Widgets can be as simple or complex as you need.
 In this exercise, we will explore the basic foundations of Widgets, Widget Instances, and Instance options which are necessary to begin Widget development.</description>
     </item>
     
@@ -278,6 +274,159 @@ Unfortunately, much of the documentation around this can lead to even more confu
     </item>
     
     <item>
+      <title>CodeCreative Refresh 2021</title>
+      <link>https://codecreative.io/blog/codecreative-refresh-2021/</link>
+      <pubDate>Tue, 27 Jul 2021 21:00:00 +0000</pubDate>
+      
+      <guid>https://codecreative.io/blog/codecreative-refresh-2021/</guid>
+      <description>It&amp;rsquo;s still a little hard to believe it, but apparently I have been doing this CodeCreative thing for 6 years. It was back in May 2015 that Sarah and I put together the original brand mark, video intro, and the first website iteration. Things have come a long way since then. We&amp;rsquo;ve experimented with different content like courses, guides, and live streaming. We&amp;rsquo;ve helped mentor people into the industry and helped others land jobs.</description>
+    </item>
+    
+    <item>
+      <title>UI Builder: Add Components to Page</title>
+      <link>https://codecreative.io/notebook/ui-builder-add-components-to-page/</link>
+      <pubDate>Wed, 14 Jul 2021 09:38:00 +0000</pubDate>
+      
+      <guid>https://codecreative.io/notebook/ui-builder-add-components-to-page/</guid>
+      <description>Purpose: How to add components to a Page in ServiceNow UI Builder
+ Open the UI Builder editor for an Experience Find the content panel Click the three vertical dots menu icon next to Main (or other container or exist component) Click &amp;ldquo;Add Component&amp;rdquo; Click a component in the menu to add it to the page  </description>
+    </item>
+    
+    <item>
+      <title>UI Builder: Add Header Menu</title>
+      <link>https://codecreative.io/notebook/ui-builder-add-header-menu/</link>
+      <pubDate>Wed, 14 Jul 2021 09:38:00 +0000</pubDate>
+      
+      <guid>https://codecreative.io/notebook/ui-builder-add-header-menu/</guid>
+      <description>Purpose: How to add a header menu to a Portal Experience in ServiceNow UI Builder. The header menu is displayed at the top of every page in a Portal Experience.
+ Open Experience in UI Builder Click &amp;ldquo;Menu&amp;rdquo; Click &amp;ldquo;Edit Experience Settings&amp;rdquo; Click &amp;ldquo;Navigation and Menus&amp;rdquo; Click &amp;ldquo;Advanced Footer Settings&amp;rdquo;  Note: Currently the Advanced Navigation Menu Settings link is broken   Complete UX Page Property form as follows:  Page: current Portal Experience name Name: chrome_menu Route: leave blank Description: any text Value:  [ { &amp;#34;value&amp;#34;: { &amp;#34;label&amp;#34;: { &amp;#34;translatable&amp;#34;: true, &amp;#34;message&amp;#34;: &amp;#34;Knowedge&amp;#34; } }, &amp;#34;children&amp;#34;: { &amp;#34;action&amp;#34;: { &amp;#34;label&amp;#34;: { &amp;#34;translatable&amp;#34;: true, &amp;#34;message&amp;#34;: &amp;#34;Report an issue&amp;#34; }, &amp;#34;type&amp;#34;: &amp;#34;route&amp;#34;, &amp;#34;rightIcon&amp;#34;: &amp;#34;chevron-right-fill&amp;#34;, &amp;#34;value&amp;#34;: { &amp;#34;route&amp;#34;: &amp;#34;catalog&amp;#34;, &amp;#34;fields&amp;#34;: { &amp;#34;sysId&amp;#34;: &amp;#34;3f1dd0320a0a0b99000a53f7604a2ef9&amp;#34; } } }, &amp;#34;items&amp;#34;: [ { &amp;#34;value&amp;#34;: { &amp;#34;label&amp;#34;: { &amp;#34;translatable&amp;#34;: true, &amp;#34;message&amp;#34;: &amp;#34;Categories&amp;#34; } }, &amp;#34;children&amp;#34;: { &amp;#34;action&amp;#34;: { &amp;#34;label&amp;#34;: { &amp;#34;translatable&amp;#34;: true, &amp;#34;message&amp;#34;: &amp;#34;Browse All&amp;#34; }, &amp;#34;type&amp;#34;: &amp;#34;route&amp;#34;, &amp;#34;rightIcon&amp;#34;: &amp;#34;chevron-right-fill&amp;#34;, &amp;#34;value&amp;#34;: { &amp;#34;route&amp;#34;: &amp;#34;article&amp;#34;, &amp;#34;fields&amp;#34;: { &amp;#34;sysId&amp;#34;: &amp;#34;3020c9b1474321009db4b5b08b9a712d&amp;#34; } } }, &amp;#34;items&amp;#34;: [ { &amp;#34;value&amp;#34;: { &amp;#34;label&amp;#34;: { &amp;#34;translatable&amp;#34;: true, &amp;#34;message&amp;#34;: &amp;#34;IT&amp;#34; }, &amp;#34;type&amp;#34;: &amp;#34;route&amp;#34;, &amp;#34;value&amp;#34;: { &amp;#34;route&amp;#34;: &amp;#34;article&amp;#34;, &amp;#34;fields&amp;#34;: { &amp;#34;sysId&amp;#34;: &amp;#34;3020c9b1474321009db4b5b08b9a712d&amp;#34; } } } }, { &amp;#34;value&amp;#34;: { &amp;#34;label&amp;#34;: { &amp;#34;translatable&amp;#34;: true, &amp;#34;message&amp;#34;: &amp;#34;Benefits&amp;#34; }, &amp;#34;type&amp;#34;: &amp;#34;route&amp;#34;, &amp;#34;value&amp;#34;: { &amp;#34;route&amp;#34;: &amp;#34;article&amp;#34;, &amp;#34;fields&amp;#34;: { &amp;#34;sysId&amp;#34;: &amp;#34;3020c9b1474321009db4b5b08b9a712d&amp;#34; } } } } ] } } ] } } ]  Click Submit Close the current browser tab to return to the UI Builder browser tab Close portal settings Click &amp;ldquo;Open&amp;rdquo; to test page  Special thanks to ServiceNow Ninjas</description>
+    </item>
+    
+    <item>
+      <title>UI Builder: Add Logo to Footer</title>
+      <link>https://codecreative.io/notebook/ui-builder-add-logo-to-footer/</link>
+      <pubDate>Wed, 14 Jul 2021 09:38:00 +0000</pubDate>
+      
+      <guid>https://codecreative.io/notebook/ui-builder-add-logo-to-footer/</guid>
+      <description>Purpose: How to add a logo to the footer of a Portal Experience in ServiceNow UI Builder. The logo will appear at the bottom of a Portal Experience on every page.
+ Open Experience in UI Builder Click &amp;ldquo;New&amp;rdquo; Click &amp;ldquo;Edit Experience Settings&amp;rdquo; Click &amp;ldquo;Branding and Theming&amp;rdquo; Click &amp;ldquo;Advanced Settings&amp;rdquo; In the related lists, open the Theme record In the UX Theme Asset related list, click &amp;ldquo;New&amp;rdquo; Complete the form as follows:  Asset: Create a new UX Theme Asset record as follows:  Category: Image Name: any text Attachment: upload an image file to the attachment field   Asset Properties: { &amp;quot;position&amp;quot;: &amp;quot;footer_logo&amp;quot; }   Click Submit Close current browser tab to return to UI Builder browser tab Close portal settings Click &amp;ldquo;Open&amp;rdquo; to test page  </description>
+    </item>
+    
+    <item>
+      <title>UI Builder: Add Logo to Header</title>
+      <link>https://codecreative.io/notebook/ui-builder-add-logo-to-header/</link>
+      <pubDate>Wed, 14 Jul 2021 09:38:00 +0000</pubDate>
+      
+      <guid>https://codecreative.io/notebook/ui-builder-add-logo-to-header/</guid>
+      <description>Purpose: How to add a logo to the header of a Portal Experience in ServiceNow UI Builder. The logo will appear at the top of a Portal Experience on every page.
+ Open Experience in UI Builder Click &amp;ldquo;New&amp;rdquo; Click &amp;ldquo;Edit Experience Settings&amp;rdquo; Click &amp;ldquo;Branding and Theming&amp;rdquo; Click &amp;ldquo;Advanced Settings&amp;rdquo; In the related lists, open the Theme record In the UX Theme Asset related list, click &amp;ldquo;New&amp;rdquo; Complete the form as follows:  Asset: Create a new UX Theme Asset record as follows:  Category: Image Name: any text Attachment: upload an image file to the attachment field   Asset Properties: { &amp;quot;position&amp;quot;: &amp;quot;header_logo&amp;quot; }   Click Submit Close current browser tab to return to UI Builder browser tab Close portal settings Click &amp;ldquo;Open&amp;rdquo; to test page  </description>
+    </item>
+    
+    <item>
+      <title>UI Builder: Change Font Family</title>
+      <link>https://codecreative.io/notebook/ui-builder-change-font-family/</link>
+      <pubDate>Wed, 14 Jul 2021 09:38:00 +0000</pubDate>
+      
+      <guid>https://codecreative.io/notebook/ui-builder-change-font-family/</guid>
+      <description>Purpose: How to change the font family of text in a Portal Experience in ServiceNow UI Builder. This procedure will allow the use of custom fonts in UI Builder Portal Experiences.
+ Open Experience&amp;rsquo;s UI Theme record In UX Theme Asset related list, click &amp;ldquo;New&amp;rdquo; Complete the UX Theme Asset form as follows:  Asset: Create a new UX Theme Asset record as follows:  Category: Font Name: any text Attachments: Attach the font file (.</description>
+    </item>
+    
+    <item>
+      <title>UI Builder: Create Footer</title>
+      <link>https://codecreative.io/notebook/ui-builder-create-footer/</link>
+      <pubDate>Wed, 14 Jul 2021 09:38:00 +0000</pubDate>
+      
+      <guid>https://codecreative.io/notebook/ui-builder-create-footer/</guid>
+      <description>Purpose: How to create a Footer for a Portal Experience in ServiceNow UI Builder. The Footer is displayed at the bottom of every page in a Portal Experience.
+ Open Experience in UI Builder Click &amp;ldquo;menu&amp;rdquo; Click &amp;ldquo;Edit Experience Settings&amp;rdquo; Click &amp;ldquo;Navigation and Menus&amp;rdquo; Click &amp;ldquo;Advanced Footer Settings&amp;rdquo; Complete the form as follows:   Page: select the current Experience name
+  Name: chrome_footer
+  Type: json
+  Route: leave blank to apply to all routes</description>
+    </item>
+    
+    <item>
+      <title>UI Builder: Create Header</title>
+      <link>https://codecreative.io/notebook/ui-builder-create-header/</link>
+      <pubDate>Wed, 14 Jul 2021 09:38:00 +0000</pubDate>
+      
+      <guid>https://codecreative.io/notebook/ui-builder-create-header/</guid>
+      <description>Purpose: How to create a Header for a Portal Experience in ServiceNow UI Builder. The Header is displayed at the top of every page in a Portal Experience.
+ Open Experience in UI Builder Click &amp;ldquo;Menu&amp;rdquo; next to Experience name and logo Click &amp;ldquo;Edit Experience Settings&amp;rdquo; Click &amp;ldquo;Navigation and menus&amp;rdquo; Under Header, click &amp;ldquo;Advanced header settings&amp;rdquo; Fill out the form as follows:  Page: Select the Portal Experience Name Name: chrome_header Type: json Route: leave blank to apply to all routes Description: Any description text Value: { &amp;#34;privatePage&amp;#34;: { &amp;#34;searchEnabled&amp;#34;: true, &amp;#34;userPrefsEnabled&amp;#34;: true, &amp;#34;logoRoute&amp;#34;: { &amp;#34;type&amp;#34;: &amp;#34;route&amp;#34;, &amp;#34;value&amp;#34;: { &amp;#34;route&amp;#34;: &amp;#34;home&amp;#34;, &amp;#34;fields&amp;#34;: {} } }, &amp;#34;globalTools&amp;#34;: { &amp;#34;collapsingMenuId&amp;#34;: 0, &amp;#34;primaryItems&amp;#34;: [ { &amp;#34;label&amp;#34;: &amp;#34;UserMenu&amp;#34;, &amp;#34;icon&amp;#34;: &amp;#34;user&amp;#34;, &amp;#34;type&amp;#34;: &amp;#34;menu&amp;#34;, &amp;#34;primaryDisplay&amp;#34;: &amp;#34;icon&amp;#34;, &amp;#34;value&amp;#34;: { &amp;#34;children&amp;#34;: [ { &amp;#34;condition&amp;#34;: { &amp;#34;roles&amp;#34;: [ &amp;#34;admin&amp;#34; ] }, &amp;#34;label&amp;#34;: { &amp;#34;translatable&amp;#34;: true, &amp;#34;message&amp;#34;: &amp;#34;Configure&amp;#34; }, &amp;#34;type&amp;#34;: &amp;#34;navigation&amp;#34;, &amp;#34;position&amp;#34;: 200, &amp;#34;primaryDisplay&amp;#34;: &amp;#34;none&amp;#34;, &amp;#34;value&amp;#34;: { &amp;#34;type&amp;#34;: &amp;#34;external&amp;#34;, &amp;#34;opensWindow&amp;#34;: &amp;#34;true&amp;#34;, &amp;#34;value&amp;#34;: { &amp;#34;href&amp;#34;: &amp;#34;/nav_to.</description>
+    </item>
+    
+    <item>
+      <title>UI Builder: Create Page</title>
+      <link>https://codecreative.io/notebook/ui-builder-create-page/</link>
+      <pubDate>Wed, 14 Jul 2021 09:38:00 +0000</pubDate>
+      
+      <guid>https://codecreative.io/notebook/ui-builder-create-page/</guid>
+      <description>Purpose: How to create a Page in ServiceNow UI Builder. A Page contains the content that is displayed to the end user and can change from user to user based on rules specified in Variants.
+ Navigate to UI Builder Click the name of the desired Portal Experience from the &amp;ldquo;My Experiences&amp;rdquo; list  Note: For initial homepage, skip to step 4   Click &amp;ldquo;Create a page&amp;rdquo; In the model, complete the form as follows:  Name of Page: any text Path: *any url friendly text Note: To make this the homepage of the Portal Experience, make the name the same as the the UX App Configuration record&amp;rsquo;s Landing Path   Click &amp;ldquo;Create&amp;rdquo; Click &amp;ldquo;Done&amp;rdquo;  </description>
+    </item>
+    
+    <item>
+      <title>UI Builder: Create Theme</title>
+      <link>https://codecreative.io/notebook/ui-builder-create-theme/</link>
+      <pubDate>Wed, 14 Jul 2021 09:38:00 +0000</pubDate>
+      
+      <guid>https://codecreative.io/notebook/ui-builder-create-theme/</guid>
+      <description>Purpose: How to create a Theme for a Portal Experience in ServiceNow UI Builder. A Theme defines CSS Custom Property values and assets that are used to configure the look and feel of a Portal Experience.
+ Open Experience in UI Builder Click &amp;ldquo;Menu&amp;rdquo; next to Experience name and logo Click &amp;ldquo;Edit Experience Settings&amp;rdquo; Click &amp;ldquo;Branding and Theming&amp;rdquo; Click &amp;ldquo;Create a theme&amp;rdquo; Complete the form as follows:  Name: Any text Description: Any text Extends: Default Active: True / Checked   Click &amp;ldquo;Submit&amp;rdquo; Close current browser tab to return to the UI Builder browser tab Close and reopen the Experience Settings panel On &amp;ldquo;Branding and Theming&amp;rdquo; tab, select Theme created in step 6 Click &amp;ldquo;Save all changes&amp;rdquo;  </description>
+    </item>
+    
+    <item>
+      <title>UI Builder: Create UX App Configuration</title>
+      <link>https://codecreative.io/notebook/ui-builder-create-ux-app-configuration/</link>
+      <pubDate>Wed, 14 Jul 2021 09:38:00 +0000</pubDate>
+      
+      <guid>https://codecreative.io/notebook/ui-builder-create-ux-app-configuration/</guid>
+      <description>Purpose: How to create a UX App Configuration record in ServiceNow UI Builder. UX App Configuration records expose a UX Page Registry for use in the UI Builder.
+ Open UX Page Registry record Click Magnifying Glass next to Admin Panel Select &amp;ldquo;UX App Config&amp;rdquo; Tablename Click Magnifying Glass next to Document Click &amp;ldquo;New&amp;rdquo; button on UX App Configurations list view Fill out the UX App Configurations form as follows:  Name: Any Text Active: True / Checked Landing Path: Any URL for page   Click &amp;ldquo;Submit&amp;rdquo; In Select Document modal, select &amp;ldquo;Ok&amp;rdquo; On UX Page Registry record, click &amp;ldquo;Update&amp;rdquo;  </description>
+    </item>
+    
+    <item>
+      <title>UI Builder: Create UX Page Registry</title>
+      <link>https://codecreative.io/notebook/ui-builder-create-ux-page-registry/</link>
+      <pubDate>Wed, 14 Jul 2021 09:38:00 +0000</pubDate>
+      
+      <guid>https://codecreative.io/notebook/ui-builder-create-ux-page-registry/</guid>
+      <description>Purpose: How to create a UX Page Registry record in ServiceNow UI Builder. The UX Page Registry record registers the URL, App Shell / page layout, and some other basic configs for a UI Builder Experience.
+ Open Instance to &amp;ldquo;Hello&amp;rdquo; Page Click Open UI Builder Click &amp;ldquo;+ Create experience in Platform&amp;rdquo; button Verify UX Page Registry List View is now visible Click List View &amp;ldquo;New&amp;rdquo; Button Fill out the UX Page Registry Form as follows:  Title: Any Text App Shell UI: Portal App Shell URL Path: Any Text Active: True / Checked Auth routes: { &amp;quot;login&amp;quot;: &amp;quot;login&amp;quot;, &amp;quot;logout&amp;quot;: &amp;quot;logout&amp;quot; }   Click Submit  </description>
+    </item>
+    
+    <item>
+      <title>UI Builder: Input Data Binding</title>
+      <link>https://codecreative.io/notebook/ui-builder-input-data-binding/</link>
+      <pubDate>Wed, 14 Jul 2021 09:38:00 +0000</pubDate>
+      
+      <guid>https://codecreative.io/notebook/ui-builder-input-data-binding/</guid>
+      <description>Purpose: How to bind Client State Parameters to an Input Component in ServiceNow UI Builder.
+ Open the UI Builder editor for an Experience Select the Input Component or add a new Input to the page if one does not already exist Click &amp;ldquo;Client State&amp;rdquo; icon in the lower left of the editor Click &amp;ldquo;Add&amp;rdquo; to create a new Client State Parameter Give it a name and select &amp;ldquo;String&amp;rdquo; for the type Select the Input Component In the Config tab, set &amp;ldquo;Value&amp;rdquo; to Data Select &amp;ldquo;@State.</description>
+    </item>
+    
+    <item>
+      <title>UI Builder: Start A New Portal Experience</title>
+      <link>https://codecreative.io/notebook/ui-builder-start-a-new-portal-experience/</link>
+      <pubDate>Wed, 14 Jul 2021 09:38:00 +0000</pubDate>
+      
+      <guid>https://codecreative.io/notebook/ui-builder-start-a-new-portal-experience/</guid>
+      <description>Purpose: How to create a new Portal Experience in ServiceNow UI Builder. Portal Experiences allow creating a custom UI using ServiceNow&amp;rsquo;s proprietary UI Web Component framework. These experiences are currently limited in their ability to support a mobile UI.
+ Create a UX Page Registry record Create a UX App Configuration record Create a Homepage Create a header Create a theme Add a logo to the header Create a footer Add a logo to the footer Add a header menu Create additional pages  </description>
+    </item>
+    
+    <item>
+      <title>UI Builder: Theming Basics</title>
+      <link>https://codecreative.io/notebook/ui-builder-theming-basics/</link>
+      <pubDate>Wed, 14 Jul 2021 09:38:00 +0000</pubDate>
+      
+      <guid>https://codecreative.io/notebook/ui-builder-theming-basics/</guid>
+      <description>Purpose: Description of how themes work in ServiceNow&amp;rsquo;s UI Builder Experiences
+Setting Theme CSS Custom Properties UI Builder Experiences use CSS Custom Properties, a feature that is native to modern browsers. In UI Builder, these CSS Custom Property values are controlled by the UX Theme record&amp;rsquo;s JSON value where each property in the JSON is used to set the CSS Custom Property in the page.
+Using a web inspector, CSS Custom Properties can be identified beinging with two dashes &amp;ldquo;&amp;ndash;*&amp;rdquo;.</description>
+    </item>
+    
+    <item>
       <title>ServiceNow Salary Influence Survey 2020</title>
       <link>https://codecreative.io/blog/service-now-salary-influence-survey-2020/</link>
       <pubDate>Tue, 08 Sep 2020 06:00:00 +0000</pubDate>
@@ -304,7 +453,7 @@ Seriously though. Red vs Blue reference aside, what characteristics influence yo
       <guid>https://codecreative.io/blog/is-service-portal-going-away/</guid>
       <description>I really enjoyed Jace Benson&amp;rsquo;s latest post Service Portal is going the way of the mammoth and it&amp;rsquo;s ensuing Twitter conversation. But seeing as how I couldn&amp;rsquo;t answer a yes or no question in 280 characters or whatever it is these days, I certainly can&amp;rsquo;t tackle something of this magnitude with so few characters&amp;hellip; so here we are.
 I hope Service Portal does go away
-Truth is, I&amp;rsquo;ve been thinking about this since earlier this summer when people first started asking me about it.</description>
+ Truth is, I&amp;rsquo;ve been thinking about this since earlier this summer when people first started asking me about it.</description>
     </item>
     
     <item>
@@ -324,7 +473,7 @@ No my friends, today it&amp;rsquo;s all about Time Zones in ServiceNow.</descrip
       
       <guid>https://codecreative.io/blog/recording-configuration-vs-customization-which-is-it/</guid>
       <description>The following video is a recording of the Configuration vs Customization: Which Is It session that I presented at Knowledge 19. Special thanks to ServiceNow for providing the opportunity, the recording, and the permission to share it!
-</description>
+  </description>
     </item>
     
     <item>
@@ -334,7 +483,7 @@ No my friends, today it&amp;rsquo;s all about Time Zones in ServiceNow.</descrip
       
       <guid>https://codecreative.io/blog/building-a-modular-public-website-on-service-portal/</guid>
       <description>The following video is a recording of the Building a Modular Public Website on Service Portal session that Thais Pulliam and I presented at Knowledge 19. Special thanks to ServiceNow for providing the opportunity, the recording, and the permission to share it!
-</description>
+  </description>
     </item>
     
     <item>
@@ -344,7 +493,7 @@ No my friends, today it&amp;rsquo;s all about Time Zones in ServiceNow.</descrip
       
       <guid>https://codecreative.io/blog/configuration-vs-customization-which-is-it/</guid>
       <description>The following is a summary of the Configuration vs Customization: Which Is It? session that I presented at Knowledge 19.
-The Official Guidance (Slide 1) Intro
+ The Official Guidance (Slide 1) Intro
 &amp;ldquo;We don&amp;rsquo;t want any customization.&amp;rdquo; It&amp;rsquo;s one of the first things I hear on almost any project. We all know and have been taught that we should avoid ServiceNow customization. The ideal is a purely configured instance. But by day 3 or 4, &amp;ldquo;maybe just this one customization&amp;rdquo;.</description>
     </item>
     
@@ -365,7 +514,7 @@ Do I switch to Extension Points or keep using my tried and true methods?</descri
       
       <guid>https://codecreative.io/blog/service-portal-css-order-of-precedence/</guid>
       <description>In my work on the Getting Started with Service Portal Guide, I decided to include some information on the order the CSS is processed but truth be told I wasn&amp;rsquo;t 100% certain on it myself. Naturally I hit up the ServiceNow Docs and came across the following image:
-Not Entirely Accurate Hierarchy of style application in the Service PortalUsing that as a basis, I began writing an article on the process.</description>
+  Not Entirely Accurate Hierarchy of style application in the Service Portal   Using that as a basis, I began writing an article on the process.</description>
     </item>
     
     <item>
@@ -403,7 +552,7 @@ Do I switch to Extension Points or keep using my tried and true methods?</descri
       
       <guid>https://codecreative.io/blog/goodbye-mac-hello-surface-book-2/</guid>
       <description>One month ago, I switched from a MacBook Pro with Touchbar to Surface Book 2. Short of a miracle, I won&amp;rsquo;t likely be going back any time soon.
-Why switch? My wife and I have owned Apple devices exclusively since 2012 when she got her first MacBook Pro. Since then, we&amp;rsquo;ve at some point owned pretty much everything: MacBook Air, the new MacBook, MacBook Pro, MacBook Pro with Touchbar, 27&amp;rdquo; iMac, iPads, iPad Pros, iPhones, and heck even our router is the Airport Extreme.</description>
+Why switch? My wife and I have owned Apple devices exclusively since 2012 when she got her first MacBook Pro. Since then, we&amp;rsquo;ve at some point owned pretty much everything: MacBook Air, the new MacBook, MacBook Pro, MacBook Pro with Touchbar, 27&amp;quot; iMac, iPads, iPad Pros, iPhones, and heck even our router is the Airport Extreme.</description>
     </item>
     
     <item>
@@ -473,7 +622,7 @@ Introduction The namespace pattern provides a simple mechanism for organizing re
       
       <guid>https://codecreative.io/blog/building-apps-on-servicenow-the-app-publishers-checklist/</guid>
       <description>The following is a summary of the Building Apps on ServiceNow: The App Publishers Checklist session that I presented at Knowledge 18.
-Problem (Slide 2) The Hardest Mistakes to Overcome
+ Problem (Slide 2) The Hardest Mistakes to Overcome
 During my time on the ServiceNow platform, I have had many opportunities to build a wide variety of applications. Some of my apps ended up on the ServiceNow Store like Intelligent Queue while others have been silent contributions to client applications.</description>
     </item>
     
@@ -484,7 +633,7 @@ During my time on the ServiceNow platform, I have had many opportunities to buil
       
       <guid>https://codecreative.io/blog/making-service-portal-widgets-work-together/</guid>
       <description>The following is a summary of the Making Service Portal Widgets Work Together session that I presented at Knowledge 18.
-Problem (Slide 2) Widgets don&amp;rsquo;t play well with others
+ Problem (Slide 2) Widgets don&amp;rsquo;t play well with others
 If you work with Service Portal widgets long enough, you will come across situations where you want to share data between multiple widgets. And inevitably, you will discover that sharing is not something that widgets are very good at.
 (Slide 3) Widgets are isolated by design</description>
     </item>
@@ -534,7 +683,7 @@ I love the lodash library. It&amp;rsquo;s great for working with arrays in a sim
       <pubDate>Thu, 01 Jun 2017 02:51:00 +0000</pubDate>
       
       <guid>https://codecreative.io/blog/interface-design-patterns-for-script-includes/</guid>
-      <description>Almost two thirds of the customer service agents used the default browser, never questioning whether a better one was availableThe Originals by Adam Grant (2016)It should go on record that I, sometimes irrationally and against my better judgement, question all conventions, policies, and established ways of doing things. In fact, when I read the above from The Originals a couple months ago, I responded by underlining the quote and hastily scribbling around the passage &amp;ldquo;Arg!</description>
+      <description>Almost two thirds of the customer service agents used the default browser, never questioning whether a better one was available  The Originals by Adam Grant (2016)   It should go on record that I, sometimes irrationally and against my better judgement, question all conventions, policies, and established ways of doing things. In fact, when I read the above from The Originals a couple months ago, I responded by underlining the quote and hastily scribbling around the passage &amp;ldquo;Arg!</description>
     </item>
     
     <item>
@@ -652,7 +801,7 @@ In my Service Portal CSS Best Practices post, I mentioned that as widget develop
       <guid>https://codecreative.io/blog/gliderecord-full-text-search-explained/</guid>
       <description>After posting last week&amp;rsquo;s GlideRecord Full Text Search article using 123TEXTQUERY321, Jeff Pierce reached out and reminded me of a better way of doing it using IR_AND_OR_QUERY. So special thanks to him for helping to clear this up!
 I have since updated my previous article to this approach but I wanted to take a moment to dive into the multiple methods of Full Text Search and their differences.
-IR_AND_QUERY IR_AND_QUERY ResultsBehind the scenes, the method previously demonstrated (123TEXTQUERY321) behaves in the same way as using IR_AND_QUERY.</description>
+IR_AND_QUERY   IR_AND_QUERY Results   Behind the scenes, the method previously demonstrated (123TEXTQUERY321) behaves in the same way as using IR_AND_QUERY.</description>
     </item>
     
     <item>
@@ -690,7 +839,7 @@ IR_AND_QUERY IR_AND_QUERY ResultsBehind the scenes, the method previously d
       <pubDate>Wed, 15 Feb 2017 17:00:00 +0000</pubDate>
       
       <guid>https://codecreative.io/blog/what-are-css-widget-scopes-in-service-portal/</guid>
-      <description>Scoped CSS Screenshot from CanIUse.comService Portal as a Content Management System has introduced something that now seems like an obvious oversight in all other CMS applications. In fact, its such a obvious, painful oversight that countless others have attempted some sort of solution. CSS Preprocessors, the HTML5 spec, and the recent CSS and JS specs all introduced scoped concepts such as a scoped attribute, scope pseudo selector, and scoping capability with Shadow DOM most of which was promptly ignored by browsers and removed from spec.</description>
+      <description>Scoped CSS Screenshot from CanIUse.com   Service Portal as a Content Management System has introduced something that now seems like an obvious oversight in all other CMS applications. In fact, its such a obvious, painful oversight that countless others have attempted some sort of solution. CSS Preprocessors, the HTML5 spec, and the recent CSS and JS specs all introduced scoped concepts such as a scoped attribute, scope pseudo selector, and scoping capability with Shadow DOM most of which was promptly ignored by browsers and removed from spec.</description>
     </item>
     
     <item>
@@ -729,7 +878,7 @@ Most of the &amp;ldquo;problem&amp;rdquo; rests in Flexbox&amp;rsquo;s simplicit
       <pubDate>Wed, 25 Jan 2017 17:00:00 +0000</pubDate>
       
       <guid>https://codecreative.io/blog/4-things-to-do-before-building-a-service-portal/</guid>
-      <description>But at the end of the day, if you have a form with 100 fields that are all mandatory to be filled out before a Catalog Item can be submitted, that’s not a [Service Portal] issue.Matt MettenThis. Read that. All of that. YES! (&amp;ldquo;I love quick time harch.&amp;quot;) I read that, I clicked endorse, then I wrote this. So go read that.
+      <description>But at the end of the day, if you have a form with 100 fields that are all mandatory to be filled out before a Catalog Item can be submitted, that’s not a [Service Portal] issue.  Matt Metten   This. Read that. All of that. YES! (&amp;ldquo;I love quick time harch.&amp;quot;) I read that, I clicked endorse, then I wrote this. So go read that.
 I have spent quite a bit of my time evangelizing Service Portal as well.</description>
     </item>
     
@@ -757,7 +906,7 @@ I have spent quite a bit of my time evangelizing Service Portal as well.</descri
       <pubDate>Wed, 08 Jun 2016 16:00:00 +0000</pubDate>
       
       <guid>https://codecreative.io/blog/whats-in-a-service-portal-on-servicenow/</guid>
-      <description>ServiceNow Service Portal DesignerHopefully my last post on Service Portal helped you to figure out whether you or your client are ready to take advantage of this new powerful tool. Before we actually dig in and start coding and building portals though, it will help to understand a bit about the components that make up the Service Portal and what they actually do.
+      <description>ServiceNow Service Portal Designer   Hopefully my last post on Service Portal helped you to figure out whether you or your client are ready to take advantage of this new powerful tool. Before we actually dig in and start coding and building portals though, it will help to understand a bit about the components that make up the Service Portal and what they actually do.
 Don’t let the Service Portal Configuration link in the application fool you.</description>
     </item>
     
@@ -767,7 +916,7 @@ Don’t let the Service Portal Configuration link in the application fool you.</
       <pubDate>Wed, 25 May 2016 16:00:00 +0000</pubDate>
       
       <guid>https://codecreative.io/blog/4-reasons-youre-not-ready-for-service-portal/</guid>
-      <description>To IE or not to IE, that is the questionThe most common question I received at Knowledge 16 was “Should we stick with CMS or move forward with Service Portal.” As a developer I want to tell everyone to move to Service Portal if for no other reason than so I never have to touch an iframe ever again. Aside from that, Service Portal is truly a much more refined delivery tool for portals and I can’t recommend it highly enough.</description>
+      <description>To IE or not to IE, that is the question   The most common question I received at Knowledge 16 was “Should we stick with CMS or move forward with Service Portal.” As a developer I want to tell everyone to move to Service Portal if for no other reason than so I never have to touch an iframe ever again. Aside from that, Service Portal is truly a much more refined delivery tool for portals and I can’t recommend it highly enough.</description>
     </item>
     
     <item>
@@ -776,8 +925,8 @@ Don’t let the Service Portal Configuration link in the application fool you.</
       <pubDate>Fri, 13 May 2016 16:00:00 +0000</pubDate>
       
       <guid>https://codecreative.io/blog/service-portal-first-impressions/</guid>
-      <description>ServiceNow Service PortalSo for the last week and a half I have been spending some time exploring the new Service Portal on the ServiceNow developer site. In fact, I may have been spending a bit too much time on it as my In House Designer expressed some displeasure:
-Sarah&#39;s TweetBut the time spent has been fruitful and I have learned quite a bit about this new tool.</description>
+      <description>ServiceNow Service Portal   So for the last week and a half I have been spending some time exploring the new Service Portal on the ServiceNow developer site. In fact, I may have been spending a bit too much time on it as my In House Designer expressed some displeasure:
+  Sarah&#39;s Tweet   But the time spent has been fruitful and I have learned quite a bit about this new tool.</description>
     </item>
     
     <item>
@@ -796,7 +945,7 @@ John didn’t have to respond. His “you’re crazier than a shithouse rat” l
       <pubDate>Thu, 05 May 2016 16:00:00 +0000</pubDate>
       
       <guid>https://codecreative.io/blog/ecmascript-5-in-servicenow-helsinki/</guid>
-      <description>Knowledge 16 ECMAScript SessionOk, so it may not be official yet and I know this is a weird thing to get worked up about. Besides, ECMAScript 5 is so 2011, you say. Weren’t we still talking about DVD’s in 2011? Shouldn’t we be talking about ES 6 / ECMAScript 2015? Aren’t we already using polyfills for that?
+      <description>Knowledge 16 ECMAScript Session   Ok, so it may not be official yet and I know this is a weird thing to get worked up about. Besides, ECMAScript 5 is so 2011, you say. Weren’t we still talking about DVD’s in 2011? Shouldn’t we be talking about ES 6 / ECMAScript 2015? Aren’t we already using polyfills for that?
 I hear you. I’m with you. But let’s not forget that a lot of code runs on top of ServiceNow’s modified Rhino engine, including yours and mine.</description>
     </item>
     
@@ -817,7 +966,7 @@ This year will be my 4th Knowledge Conference, missing only K13 on account of th
       
       <guid>https://codecreative.io/blog/how-to-fix-cms-iframe-resizing/</guid>
       <description>Update (03/21/2017): This script currently only works if the Frame Name on your iFrame is gsft_main. Thanks to Anil Varanasi for catching this!
-Everyone has that one thing that makes them hate their job. And I don’t mean I’m just gonna stop going I hate my job. I mean I could set the building on fire I hate my job. For me, that thing is iFrames. ServiceNow has given them a lot of love over the years but as the dubbed Portal Guy of my team I would like to see them in an episode of Will It Blend.</description>
+  Everyone has that one thing that makes them hate their job. And I don’t mean I’m just gonna stop going I hate my job. I mean I could set the building on fire I hate my job. For me, that thing is iFrames. ServiceNow has given them a lot of love over the years but as the dubbed Portal Guy of my team I would like to see them in an episode of Will It Blend.</description>
     </item>
     
     <item>
@@ -876,24 +1025,14 @@ What Not To Do As my first attempt, I foolishly tried this for the UI Page:</des
     </item>
     
     <item>
-      <title>Thinker. Developer. Creator.</title>
+      <title>Empowering People with ServiceNow</title>
       <link>https://codecreative.io/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://codecreative.io/about/</guid>
       <description>About CodeCreative Vision A better life through opportunity in the tech industry for all who desire it
-Mission To enable individuals to develop creative business solutions on ServiceNow through educational content
-About Travis Hi, I&amp;rsquo;m Travis Toulson and I started this whole CodeCreative thing. I have a passion for well designed software that serves people. I am currently a ServiceNow Developer by trade, but believe it or not IT is my second career.</description>
-    </item>
-    
-    <item>
-      <title>Let&#39;s Chat.</title>
-      <link>https://codecreative.io/contact/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://codecreative.io/contact/</guid>
-      <description>Ask a Question Are these not the answers you&amp;rsquo;re looking for? Let me know what sort of information you are looking for and I will do my best to get back to you with an answer or at least point you in the right direction. If you&amp;rsquo;d like, I might be able to answer your question in an article or a video.
-You can easily reach me on LinkedIn or at tltoulson+cc@gmail.</description>
+Mission Empowering people to develop creative business solutions on ServiceNow by making knowledge accessible, inspiring, and relatable
+Values  Serve first Love people Be transparent Value learning over knowing Inspire others to the same  About Travis Hi, I&amp;rsquo;m Travis Toulson and I started this whole CodeCreative thing. When I was transitioning from working in maintenance and production to IT, I faced a lot of challenges breaking in.</description>
     </item>
     
   </channel>

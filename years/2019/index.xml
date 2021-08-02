@@ -6,10 +6,26 @@
     <description>Recent content in 2019 on CodeCreative | A ServiceNow Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 17 Oct 2019 19:43:31 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 17 Oct 2019 19:43:31 +0000</lastBuildDate><atom:link href="https://codecreative.io/years/2019/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Getting Started on ServiceNow</title>
+      <link>https://codecreative.io/guides/getting-started-on-servicenow/</link>
+      <pubDate>Sat, 23 Feb 2019 20:20:49 +0000</pubDate>
+      
+      <guid>https://codecreative.io/guides/getting-started-on-servicenow/</guid>
+      <description>New to ServiceNow? This guide will help show you the ropes and expose you to the basics of navigating the app and your career on ServiceNow.</description>
+    </item>
     
-	<atom:link href="https://codecreative.io/years/2019/index.xml" rel="self" type="application/rss+xml" />
-    
+    <item>
+      <title>Getting Started with Service Portal</title>
+      <link>https://codecreative.io/guides/getting-started-with-service-portal/</link>
+      <pubDate>Sun, 21 Apr 2019 17:55:11 +0000</pubDate>
+      
+      <guid>https://codecreative.io/guides/getting-started-with-service-portal/</guid>
+      <description>Service Portal provides ServiceNow users with modern, mobile friendly self-service website for IT Services. For more advanced developers it provides a framework for custom UI experiences. This guide will help you get started with basic configuration of the IT Service Portal.
+Prerequisite Skills
+ Basic ServiceNow Familiarity (Read the Getting Started on ServiceNow Guide) Basic CSS / SASS Familiarity Basic HTML Familiarity  </description>
+    </item>
     
     <item>
       <title>Is Service Portal Going Away?</title>
@@ -19,7 +35,7 @@
       <guid>https://codecreative.io/blog/is-service-portal-going-away/</guid>
       <description>I really enjoyed Jace Benson&amp;rsquo;s latest post Service Portal is going the way of the mammoth and it&amp;rsquo;s ensuing Twitter conversation. But seeing as how I couldn&amp;rsquo;t answer a yes or no question in 280 characters or whatever it is these days, I certainly can&amp;rsquo;t tackle something of this magnitude with so few characters&amp;hellip; so here we are.
 I hope Service Portal does go away
-Truth is, I&amp;rsquo;ve been thinking about this since earlier this summer when people first started asking me about it.</description>
+ Truth is, I&amp;rsquo;ve been thinking about this since earlier this summer when people first started asking me about it.</description>
     </item>
     
     <item>
@@ -39,7 +55,7 @@ No my friends, today it&amp;rsquo;s all about Time Zones in ServiceNow.</descrip
       
       <guid>https://codecreative.io/blog/recording-configuration-vs-customization-which-is-it/</guid>
       <description>The following video is a recording of the Configuration vs Customization: Which Is It session that I presented at Knowledge 19. Special thanks to ServiceNow for providing the opportunity, the recording, and the permission to share it!
-</description>
+  </description>
     </item>
     
     <item>
@@ -49,7 +65,7 @@ No my friends, today it&amp;rsquo;s all about Time Zones in ServiceNow.</descrip
       
       <guid>https://codecreative.io/blog/building-a-modular-public-website-on-service-portal/</guid>
       <description>The following video is a recording of the Building a Modular Public Website on Service Portal session that Thais Pulliam and I presented at Knowledge 19. Special thanks to ServiceNow for providing the opportunity, the recording, and the permission to share it!
-</description>
+  </description>
     </item>
     
     <item>
@@ -59,7 +75,7 @@ No my friends, today it&amp;rsquo;s all about Time Zones in ServiceNow.</descrip
       
       <guid>https://codecreative.io/blog/configuration-vs-customization-which-is-it/</guid>
       <description>The following is a summary of the Configuration vs Customization: Which Is It? session that I presented at Knowledge 19.
-The Official Guidance (Slide 1) Intro
+ The Official Guidance (Slide 1) Intro
 &amp;ldquo;We don&amp;rsquo;t want any customization.&amp;rdquo; It&amp;rsquo;s one of the first things I hear on almost any project. We all know and have been taught that we should avoid ServiceNow customization. The ideal is a purely configured instance. But by day 3 or 4, &amp;ldquo;maybe just this one customization&amp;rdquo;.</description>
     </item>
     
@@ -80,7 +96,7 @@ Do I switch to Extension Points or keep using my tried and true methods?</descri
       
       <guid>https://codecreative.io/blog/service-portal-css-order-of-precedence/</guid>
       <description>In my work on the Getting Started with Service Portal Guide, I decided to include some information on the order the CSS is processed but truth be told I wasn&amp;rsquo;t 100% certain on it myself. Naturally I hit up the ServiceNow Docs and came across the following image:
-Not Entirely Accurate Hierarchy of style application in the Service PortalUsing that as a basis, I began writing an article on the process.</description>
+  Not Entirely Accurate Hierarchy of style application in the Service Portal   Using that as a basis, I began writing an article on the process.</description>
     </item>
     
     <item>
@@ -118,7 +134,7 @@ Do I switch to Extension Points or keep using my tried and true methods?</descri
       
       <guid>https://codecreative.io/blog/goodbye-mac-hello-surface-book-2/</guid>
       <description>One month ago, I switched from a MacBook Pro with Touchbar to Surface Book 2. Short of a miracle, I won&amp;rsquo;t likely be going back any time soon.
-Why switch? My wife and I have owned Apple devices exclusively since 2012 when she got her first MacBook Pro. Since then, we&amp;rsquo;ve at some point owned pretty much everything: MacBook Air, the new MacBook, MacBook Pro, MacBook Pro with Touchbar, 27&amp;rdquo; iMac, iPads, iPad Pros, iPhones, and heck even our router is the Airport Extreme.</description>
+Why switch? My wife and I have owned Apple devices exclusively since 2012 when she got her first MacBook Pro. Since then, we&amp;rsquo;ve at some point owned pretty much everything: MacBook Air, the new MacBook, MacBook Pro, MacBook Pro with Touchbar, 27&amp;quot; iMac, iPads, iPad Pros, iPhones, and heck even our router is the Airport Extreme.</description>
     </item>
     
     <item>
