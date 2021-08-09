@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Functional Programming on CodeCreative | A ServiceNow Blog</title>
+    <link>https://codecreative.io/notebook/tags/functional-programming/</link>
+    <description>Recent content in Functional Programming on CodeCreative | A ServiceNow Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://codecreative.io/notebook/tags/functional-programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GlideRecord: Batch Update (Functional)</title>
+      <link>https://codecreative.io/notebook/gliderecord-patterns-batch-update-fp/</link>
+      <pubDate>Sun, 08 Aug 2021 17:01:00 +0000</pubDate>
+      
+      <guid>https://codecreative.io/notebook/gliderecord-patterns-batch-update-fp/</guid>
+      <description>Purpose: How to write a GlideRecord loop to batch update Records in ServiceNow using a Functional Programming style
+Use: Use this script in a Server Script
+/** * Applies the callback function to each incident record * in the query * @param {Function} callback - Callback function applied to each incident record **/ function forEachIncident(callback) { var tableName = &amp;#39;incident&amp;#39;; var incident = new GlideRecord(tableName); incident.query(); while (incident.next()) { callback(incident); // Apply callback to the record  } } /** * Adds comment to a single incident record * @param {GlideRecord} incident - An Incident GlideRecord instance **/ function addComment(incident) { incident.</description>
+    </item>
+    
+    <item>
+      <title>GlideRecord: If Record Exists (Functional)</title>
+      <link>https://codecreative.io/notebook/gliderecord-patterns-if-record-exists-fp/</link>
+      <pubDate>Sun, 08 Aug 2021 17:01:00 +0000</pubDate>
+      
+      <guid>https://codecreative.io/notebook/gliderecord-patterns-if-record-exists-fp/</guid>
+      <description>Purpose: How to execute code conditionally if a matching record exists or is found in ServiceNow using a Functional Programming style
+Use: Use this script in a Server Script
+/** * Handles conditional execution based on the existence of a user record * @param {Function} foundCallback - Function that is executed if the user record is found * @param {Function} notFoundCallback - Function that is executed if the user record is not found **/ function ifUserFound(foundCallback, notFoundCallback) { var tableName = &amp;#39;sys_user&amp;#39;; var user = new GlideRecord(tableName); user.</description>
+    </item>
+    
+  </channel>
+</rss>

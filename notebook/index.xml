@@ -6,7 +6,51 @@
     <description>Recent content in Notebook on CodeCreative | A ServiceNow Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 14 Jul 2021 09:38:00 +0000</lastBuildDate><atom:link href="https://codecreative.io/notebook/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 08 Aug 2021 17:01:00 +0000</lastBuildDate><atom:link href="https://codecreative.io/notebook/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GlideRecord: Batch Update (Functional)</title>
+      <link>https://codecreative.io/notebook/gliderecord-patterns-batch-update-fp/</link>
+      <pubDate>Sun, 08 Aug 2021 17:01:00 +0000</pubDate>
+      
+      <guid>https://codecreative.io/notebook/gliderecord-patterns-batch-update-fp/</guid>
+      <description>Purpose: How to write a GlideRecord loop to batch update Records in ServiceNow using a Functional Programming style
+Use: Use this script in a Server Script
+/** * Applies the callback function to each incident record * in the query * @param {Function} callback - Callback function applied to each incident record **/ function forEachIncident(callback) { var tableName = &amp;#39;incident&amp;#39;; var incident = new GlideRecord(tableName); incident.query(); while (incident.next()) { callback(incident); // Apply callback to the record  } } /** * Adds comment to a single incident record * @param {GlideRecord} incident - An Incident GlideRecord instance **/ function addComment(incident) { incident.</description>
+    </item>
+    
+    <item>
+      <title>GlideRecord: Batch Update (Imperative)</title>
+      <link>https://codecreative.io/notebook/gliderecord-patterns-batch-update/</link>
+      <pubDate>Sun, 08 Aug 2021 17:01:00 +0000</pubDate>
+      
+      <guid>https://codecreative.io/notebook/gliderecord-patterns-batch-update/</guid>
+      <description>Purpose: How to write a GlideRecord loop to batch update Records in ServiceNow
+Use: Use this script in a Server Script
+// This example will loop through all incident records and add a comment var tableName = &amp;#39;incident&amp;#39;; var incident = new GlideRecord(tableName); incident.query(); while (incident.next()) { incident.comments = &amp;#39;This comment will be added&amp;#39;; incident.update(); } </description>
+    </item>
+    
+    <item>
+      <title>GlideRecord: If Record Exists (Functional)</title>
+      <link>https://codecreative.io/notebook/gliderecord-patterns-if-record-exists-fp/</link>
+      <pubDate>Sun, 08 Aug 2021 17:01:00 +0000</pubDate>
+      
+      <guid>https://codecreative.io/notebook/gliderecord-patterns-if-record-exists-fp/</guid>
+      <description>Purpose: How to execute code conditionally if a matching record exists or is found in ServiceNow using a Functional Programming style
+Use: Use this script in a Server Script
+/** * Handles conditional execution based on the existence of a user record * @param {Function} foundCallback - Function that is executed if the user record is found * @param {Function} notFoundCallback - Function that is executed if the user record is not found **/ function ifUserFound(foundCallback, notFoundCallback) { var tableName = &amp;#39;sys_user&amp;#39;; var user = new GlideRecord(tableName); user.</description>
+    </item>
+    
+    <item>
+      <title>GlideRecord: If Record Exists (Imperative)</title>
+      <link>https://codecreative.io/notebook/gliderecord-patterns-if-record-exists/</link>
+      <pubDate>Sun, 08 Aug 2021 17:01:00 +0000</pubDate>
+      
+      <guid>https://codecreative.io/notebook/gliderecord-patterns-if-record-exists/</guid>
+      <description>Purpose: How to execute code conditionally if a matching record exists in ServiceNow
+Use: Use this script in a Server Script
+// This example will execute different code depending on whether a User ID is active or not var tableName = &amp;#39;sys_user&amp;#39;; var user = new GlideRecord(tableName); user.addQuery(&amp;#39;user_id&amp;#39;, &amp;#39;tltoulson&amp;#39;); user.addQuery(&amp;#39;active&amp;#39;, true); user.setLimit(1); // Very important for performance since we only care about one record  user.query(); if (user.next()) { // Code to execute if a matching record exists } else { // Code to execute if a matching record does not exist } </description>
+    </item>
+    
     <item>
       <title>UI Builder: Add Components to Page</title>
       <link>https://codecreative.io/notebook/ui-builder-add-components-to-page/</link>
@@ -24,7 +68,7 @@
       
       <guid>https://codecreative.io/notebook/ui-builder-add-header-menu/</guid>
       <description>Purpose: How to add a header menu to a Portal Experience in ServiceNow UI Builder. The header menu is displayed at the top of every page in a Portal Experience.
- Open Experience in UI Builder Click &amp;ldquo;Menu&amp;rdquo; Click &amp;ldquo;Edit Experience Settings&amp;rdquo; Click &amp;ldquo;Navigation and Menus&amp;rdquo; Click &amp;ldquo;Advanced Footer Settings&amp;rdquo;  Note: Currently the Advanced Navigation Menu Settings link is broken   Complete UX Page Property form as follows:  Page: current Portal Experience name Name: chrome_menu Route: leave blank Description: any text Value:  [ { &amp;#34;value&amp;#34;: { &amp;#34;label&amp;#34;: { &amp;#34;translatable&amp;#34;: true, &amp;#34;message&amp;#34;: &amp;#34;Knowedge&amp;#34; } }, &amp;#34;children&amp;#34;: { &amp;#34;action&amp;#34;: { &amp;#34;label&amp;#34;: { &amp;#34;translatable&amp;#34;: true, &amp;#34;message&amp;#34;: &amp;#34;Report an issue&amp;#34; }, &amp;#34;type&amp;#34;: &amp;#34;route&amp;#34;, &amp;#34;rightIcon&amp;#34;: &amp;#34;chevron-right-fill&amp;#34;, &amp;#34;value&amp;#34;: { &amp;#34;route&amp;#34;: &amp;#34;catalog&amp;#34;, &amp;#34;fields&amp;#34;: { &amp;#34;sysId&amp;#34;: &amp;#34;3f1dd0320a0a0b99000a53f7604a2ef9&amp;#34; } } }, &amp;#34;items&amp;#34;: [ { &amp;#34;value&amp;#34;: { &amp;#34;label&amp;#34;: { &amp;#34;translatable&amp;#34;: true, &amp;#34;message&amp;#34;: &amp;#34;Categories&amp;#34; } }, &amp;#34;children&amp;#34;: { &amp;#34;action&amp;#34;: { &amp;#34;label&amp;#34;: { &amp;#34;translatable&amp;#34;: true, &amp;#34;message&amp;#34;: &amp;#34;Browse All&amp;#34; }, &amp;#34;type&amp;#34;: &amp;#34;route&amp;#34;, &amp;#34;rightIcon&amp;#34;: &amp;#34;chevron-right-fill&amp;#34;, &amp;#34;value&amp;#34;: { &amp;#34;route&amp;#34;: &amp;#34;article&amp;#34;, &amp;#34;fields&amp;#34;: { &amp;#34;sysId&amp;#34;: &amp;#34;3020c9b1474321009db4b5b08b9a712d&amp;#34; } } }, &amp;#34;items&amp;#34;: [ { &amp;#34;value&amp;#34;: { &amp;#34;label&amp;#34;: { &amp;#34;translatable&amp;#34;: true, &amp;#34;message&amp;#34;: &amp;#34;IT&amp;#34; }, &amp;#34;type&amp;#34;: &amp;#34;route&amp;#34;, &amp;#34;value&amp;#34;: { &amp;#34;route&amp;#34;: &amp;#34;article&amp;#34;, &amp;#34;fields&amp;#34;: { &amp;#34;sysId&amp;#34;: &amp;#34;3020c9b1474321009db4b5b08b9a712d&amp;#34; } } } }, { &amp;#34;value&amp;#34;: { &amp;#34;label&amp;#34;: { &amp;#34;translatable&amp;#34;: true, &amp;#34;message&amp;#34;: &amp;#34;Benefits&amp;#34; }, &amp;#34;type&amp;#34;: &amp;#34;route&amp;#34;, &amp;#34;value&amp;#34;: { &amp;#34;route&amp;#34;: &amp;#34;article&amp;#34;, &amp;#34;fields&amp;#34;: { &amp;#34;sysId&amp;#34;: &amp;#34;3020c9b1474321009db4b5b08b9a712d&amp;#34; } } } } ] } } ] } } ]  Click Submit Close the current browser tab to return to the UI Builder browser tab Close portal settings Click &amp;ldquo;Open&amp;rdquo; to test page  Special thanks to ServiceNow Ninjas</description>
+ Open Experience in UI Builder Click &amp;ldquo;Menu&amp;rdquo; Click &amp;ldquo;Edit Experience Settings&amp;rdquo; Click &amp;ldquo;Navigation and Menus&amp;rdquo; Click &amp;ldquo;Advanced Footer Settings&amp;rdquo;  Note: Currently the Advanced Navigation Menu Settings link is broken   Complete UX Page Property form as follows:  Page: current Portal Experience name Name: chrome_menu Route: leave blank Description: any text Value:  [ { &amp;#34;value&amp;#34;: { &amp;#34;label&amp;#34;: { &amp;#34;translatable&amp;#34;: true, &amp;#34;message&amp;#34;: &amp;#34;Knowedge&amp;#34; } }, &amp;#34;children&amp;#34;: { &amp;#34;action&amp;#34;: { &amp;#34;label&amp;#34;: { &amp;#34;translatable&amp;#34;: true, &amp;#34;message&amp;#34;: &amp;#34;Report an issue&amp;#34; }, &amp;#34;type&amp;#34;: &amp;#34;route&amp;#34;, &amp;#34;rightIcon&amp;#34;: &amp;#34;chevron-right-fill&amp;#34;, &amp;#34;value&amp;#34;: { &amp;#34;route&amp;#34;: &amp;#34;catalog&amp;#34;, &amp;#34;fields&amp;#34;: { &amp;#34;sysId&amp;#34;: &amp;#34;3f1dd0320a0a0b99000a53f7604a2ef9&amp;#34; } } }, &amp;#34;items&amp;#34;: [ { &amp;#34;value&amp;#34;: { &amp;#34;label&amp;#34;: { &amp;#34;translatable&amp;#34;: true, &amp;#34;message&amp;#34;: &amp;#34;Categories&amp;#34; } }, &amp;#34;children&amp;#34;: { &amp;#34;action&amp;#34;: { &amp;#34;label&amp;#34;: { &amp;#34;translatable&amp;#34;: true, &amp;#34;message&amp;#34;: &amp;#34;Browse All&amp;#34; }, &amp;#34;type&amp;#34;: &amp;#34;route&amp;#34;, &amp;#34;rightIcon&amp;#34;: &amp;#34;chevron-right-fill&amp;#34;, &amp;#34;value&amp;#34;: { &amp;#34;route&amp;#34;: &amp;#34;article&amp;#34;, &amp;#34;fields&amp;#34;: { &amp;#34;sysId&amp;#34;: &amp;#34;3020c9b1474321009db4b5b08b9a712d&amp;#34; } } }, &amp;#34;items&amp;#34;: [ { &amp;#34;value&amp;#34;: { &amp;#34;label&amp;#34;: { &amp;#34;translatable&amp;#34;: true, &amp;#34;message&amp;#34;: &amp;#34;IT&amp;#34; }, &amp;#34;type&amp;#34;: &amp;#34;route&amp;#34;, &amp;#34;value&amp;#34;: { &amp;#34;route&amp;#34;: &amp;#34;article&amp;#34;, &amp;#34;fields&amp;#34;: { &amp;#34;sysId&amp;#34;: &amp;#34;3020c9b1474321009db4b5b08b9a712d&amp;#34; } } } }, { &amp;#34;value&amp;#34;: { &amp;#34;label&amp;#34;: { &amp;#34;translatable&amp;#34;: true, &amp;#34;message&amp;#34;: &amp;#34;Benefits&amp;#34; }, &amp;#34;type&amp;#34;: &amp;#34;route&amp;#34;, &amp;#34;value&amp;#34;: { &amp;#34;route&amp;#34;: &amp;#34;article&amp;#34;, &amp;#34;fields&amp;#34;: { &amp;#34;sysId&amp;#34;: &amp;#34;3020c9b1474321009db4b5b08b9a712d&amp;#34; } } } } ] } } ] } } ]  Click Submit Close the current browser tab to return to the UI Builder browser tab Close portal settings Click &amp;ldquo;Open&amp;rdquo; to test page  Special thanks to Ninja Bytes</description>
     </item>
     
     <item>
@@ -34,7 +78,7 @@
       
       <guid>https://codecreative.io/notebook/ui-builder-add-logo-to-footer/</guid>
       <description>Purpose: How to add a logo to the footer of a Portal Experience in ServiceNow UI Builder. The logo will appear at the bottom of a Portal Experience on every page.
- Open Experience in UI Builder Click &amp;ldquo;New&amp;rdquo; Click &amp;ldquo;Edit Experience Settings&amp;rdquo; Click &amp;ldquo;Branding and Theming&amp;rdquo; Click &amp;ldquo;Advanced Settings&amp;rdquo; In the related lists, open the Theme record In the UX Theme Asset related list, click &amp;ldquo;New&amp;rdquo; Complete the form as follows:  Asset: Create a new UX Theme Asset record as follows:  Category: Image Name: any text Attachment: upload an image file to the attachment field   Asset Properties: { &amp;quot;position&amp;quot;: &amp;quot;footer_logo&amp;quot; }   Click Submit Close current browser tab to return to UI Builder browser tab Close portal settings Click &amp;ldquo;Open&amp;rdquo; to test page  </description>
+ Open Experience in UI Builder Click &amp;ldquo;New&amp;rdquo; Click &amp;ldquo;Edit Experience Settings&amp;rdquo; Click &amp;ldquo;Branding and Theming&amp;rdquo; Click &amp;ldquo;Advanced Settings&amp;rdquo; In the related lists, open the Theme record In the UX Theme Asset related list, click &amp;ldquo;New&amp;rdquo; Complete the form as follows:  Asset: Create a new UX Theme Asset record as follows:  Category: Image Name: any text Attachment: upload an image file to the attachment field   Asset Properties: { &amp;quot;position&amp;quot;: &amp;quot;footer_logo&amp;quot; }   Click Submit Close current browser tab to return to UI Builder browser tab Close portal settings Click &amp;ldquo;Open&amp;rdquo; to test page  Special thanks to Ninja Bytes</description>
     </item>
     
     <item>
@@ -44,7 +88,7 @@
       
       <guid>https://codecreative.io/notebook/ui-builder-add-logo-to-header/</guid>
       <description>Purpose: How to add a logo to the header of a Portal Experience in ServiceNow UI Builder. The logo will appear at the top of a Portal Experience on every page.
- Open Experience in UI Builder Click &amp;ldquo;New&amp;rdquo; Click &amp;ldquo;Edit Experience Settings&amp;rdquo; Click &amp;ldquo;Branding and Theming&amp;rdquo; Click &amp;ldquo;Advanced Settings&amp;rdquo; In the related lists, open the Theme record In the UX Theme Asset related list, click &amp;ldquo;New&amp;rdquo; Complete the form as follows:  Asset: Create a new UX Theme Asset record as follows:  Category: Image Name: any text Attachment: upload an image file to the attachment field   Asset Properties: { &amp;quot;position&amp;quot;: &amp;quot;header_logo&amp;quot; }   Click Submit Close current browser tab to return to UI Builder browser tab Close portal settings Click &amp;ldquo;Open&amp;rdquo; to test page  </description>
+ Open Experience in UI Builder Click &amp;ldquo;New&amp;rdquo; Click &amp;ldquo;Edit Experience Settings&amp;rdquo; Click &amp;ldquo;Branding and Theming&amp;rdquo; Click &amp;ldquo;Advanced Settings&amp;rdquo; In the related lists, open the Theme record In the UX Theme Asset related list, click &amp;ldquo;New&amp;rdquo; Complete the form as follows:  Asset: Create a new UX Theme Asset record as follows:  Category: Image Name: any text Attachment: upload an image file to the attachment field   Asset Properties: { &amp;quot;position&amp;quot;: &amp;quot;header_logo&amp;quot; }   Click Submit Close current browser tab to return to UI Builder browser tab Close portal settings Click &amp;ldquo;Open&amp;rdquo; to test page  Special thanks to Ninja Bytes</description>
     </item>
     
     <item>
@@ -137,7 +181,7 @@
       
       <guid>https://codecreative.io/notebook/ui-builder-start-a-new-portal-experience/</guid>
       <description>Purpose: How to create a new Portal Experience in ServiceNow UI Builder. Portal Experiences allow creating a custom UI using ServiceNow&amp;rsquo;s proprietary UI Web Component framework. These experiences are currently limited in their ability to support a mobile UI.
- Create a UX Page Registry record Create a UX App Configuration record Create a Homepage Create a header Create a theme Add a logo to the header Create a footer Add a logo to the footer Add a header menu Create additional pages  </description>
+ Create a UX Page Registry record Create a UX App Configuration record Create a Homepage Create a header Create a theme Add a logo to the header Create a footer Add a logo to the footer Add a header menu Create additional pages  Special thanks to Ninja Bytes</description>
     </item>
     
     <item>
