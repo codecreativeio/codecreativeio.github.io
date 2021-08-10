@@ -7,41 +7,41 @@
 <link href="https://fonts.googleapis.com/css?family=Julius+Sans+One|Slabo+13px|Open+Sans:300" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 <link rel="stylesheet" href="https://codecreative.io/assets/main.min.027379b698eb444153d6a3e1866ddba998896e5fdb62795654dfb1256815aca0.css">
-<title>Notebook | CodeCreative | A ServiceNow Blog</title>
-<meta name="description" content="Explore a web notes, procedures, and ideas">
+<title>GlideRecord: Convert to JSON (Functional) | CodeCreative | A ServiceNow Blog</title>
+<meta name="description" content="How to convert a GlideRecord set to a Javascript Object or JSON Object using a Functional Programming style">
 <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?d=20181101201248">
-<link rel="canonical" href="https://codecreative.io/notebook/"><meta property="og:site_name" content="CodeCreative | A ServiceNow Blog">
-<meta property="og:title" content="Notebook">
-<meta property="og:url" content="https://codecreative.io/notebook/">
+<link rel="canonical" href="https://codecreative.io/notebook/gliderecord-patterns-to-json-fp/"><meta property="og:site_name" content="CodeCreative | A ServiceNow Blog">
+<meta property="og:title" content="GlideRecord: Convert to JSON (Functional)">
+<meta property="og:url" content="https://codecreative.io/notebook/gliderecord-patterns-to-json-fp/">
 
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 
-<meta property="og:description" content="Explore a web notes, procedures, and ideas">
-
-  
-    <meta property="og:image" content="https://codecreative.io/notebook/assets/CodeCreative.png">
-  
-
-<meta itemprop="name" content="Notebook">
-<meta itemprop="url" content="https://codecreative.io/notebook/">
-<meta itemprop="description" content="Explore a web notes, procedures, and ideas">
+<meta property="og:description" content="How to convert a GlideRecord set to a Javascript Object or JSON Object using a Functional Programming style">
 
   
-  <meta itemprop="thumbnailUrl" content="https://codecreative.io/notebook/assets/CodeCreative.png">
-  <link rel="image_src" href="https://codecreative.io/notebook/assets/CodeCreative.png">
-  <meta itemprop="image" content="https://codecreative.io/notebook/assets/CodeCreative.png">
+    <meta property="og:image" content="https://codecreative.io/notebook/gliderecord-patterns-to-json-fp/images/social.png">
+  
+
+<meta itemprop="name" content="GlideRecord: Convert to JSON (Functional)">
+<meta itemprop="url" content="https://codecreative.io/notebook/gliderecord-patterns-to-json-fp/">
+<meta itemprop="description" content="How to convert a GlideRecord set to a Javascript Object or JSON Object using a Functional Programming style">
+
+  
+  <meta itemprop="thumbnailUrl" content="https://codecreative.io/notebook/gliderecord-patterns-to-json-fp/images/social.png">
+  <link rel="image_src" href="https://codecreative.io/notebook/gliderecord-patterns-to-json-fp/images/social.png">
+  <meta itemprop="image" content="https://codecreative.io/notebook/gliderecord-patterns-to-json-fp/images/social.png">
   
 
 
-<meta name="twitter:title" content="Notebook">
+<meta name="twitter:title" content="GlideRecord: Convert to JSON (Functional)">
 
-<meta name="twitter:image" content="https://codecreative.io/notebook/assets/CodeCreative.png">
+<meta name="twitter:image" content="https://codecreative.io/notebook/gliderecord-patterns-to-json-fp/images/social.png">
 
-<meta name="twitter:url" content="https://codecreative.io/notebook/">
+<meta name="twitter:url" content="https://codecreative.io/notebook/gliderecord-patterns-to-json-fp/">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:description" content="Explore a web notes, procedures, and ideas">
+<meta name="twitter:description" content="How to convert a GlideRecord set to a Javascript Object or JSON Object using a Functional Programming style">
 
-<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="https://codecreative.io/notebook/index.xml">
+<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="">
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-90280965-1"></script>
 <script>
@@ -51,6 +51,30 @@
 
   gtag('config', 'UA-90280965-1');
 </script>
+
+<script type="application/ld+json">
+{
+    "@context" : "http://schema.org",
+    "@type" : "BlogPosting",
+    "mainEntityOfPage": {
+         "@type": "WebPage",
+         "@id": "https:\/\/codecreative.io\/"
+    },
+    "name" : "GlideRecord: Convert to JSON (Functional)",
+    "headline" : "GlideRecord: Convert to JSON (Functional)",
+    "description" : "How to convert a GlideRecord set to a Javascript Object or JSON Object using a Functional Programming style","image": "https:\/\/codecreative.io\/notebook\/gliderecord-patterns-to-json-fp\/images\/social.png","inLanguage" : "en-US",
+      "author" : "Travis Toulson",
+      "creator" : "Travis Toulson","publisher": "Travis Toulson",
+    "copyrightHolder" : "Travis Toulson",
+    "copyrightYear" : "2021",
+    "datePublished": "2021-08-10T17:01:00Z",
+    "dateModified" : "2021-08-10T17:01:00Z",
+    "url" : "https:\/\/codecreative.io\/notebook\/gliderecord-patterns-to-json-fp\/",
+    "wordCount" : "547",
+    "keywords" : [ "Blog" ]
+}
+</script>
+
 
   </head>
   <body><header role="banner">
@@ -111,7 +135,7 @@
         </li>
       
         <li title="Notebook">
-          <a class="active" href="/notebook/">Notebook</a>
+          <a class="" href="/notebook/">Notebook</a>
         </li>
       
         <li title="About">
@@ -121,80 +145,187 @@
     </ul>
   </nav>
 </header>
-<main><header class="banner notebook">
-    <div class="content-wrap">
-        <div>
-            <h1>Notebook</h1>
-            <div>Explore a web notes, procedures, and ideas</div>
-        </div>
-        
-    </div>
-</header>
+<main>
+  <div class="content text-content content-wrap">
+    <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
-  <div class="content-wrap">
-    <section class="content-section notebook-index">
-      
-      
-      <div>
-        
-        
-          <h3>UI Builder</h3>
-          <ul>
+      <header class="post-header">
+        <div class="channel-title notebook">Notebook</div>
+        <h1 class="post-title p-name" itemprop="name headline">GlideRecord: Convert to JSON (Functional)</h1>
+        <p class="post-meta">
+            <span>Last Updated</span>
+            • <time class="dt-published" datetime="2021-08-10T17:01:00Z" itemprop="datePublished">
+            August 10, 2021
+            </time>
+          
             
-            <li><a href="/notebook/ui-builder-add-components-to-page/">UI Builder: Add Components to Page</a></li>
-            
-            <li><a href="/notebook/ui-builder-add-header-menu/">UI Builder: Add Header Menu</a></li>
-            
-            <li><a href="/notebook/ui-builder-add-logo-to-footer/">UI Builder: Add Logo to Footer</a></li>
-            
-            <li><a href="/notebook/ui-builder-add-logo-to-header/">UI Builder: Add Logo to Header</a></li>
-            
-            <li><a href="/notebook/ui-builder-change-font-family/">UI Builder: Change Font Family</a></li>
-            
-            <li><a href="/notebook/ui-builder-create-footer/">UI Builder: Create Footer</a></li>
-            
-            <li><a href="/notebook/ui-builder-create-header/">UI Builder: Create Header</a></li>
-            
-            <li><a href="/notebook/ui-builder-create-page/">UI Builder: Create Page</a></li>
-            
-            <li><a href="/notebook/ui-builder-create-theme/">UI Builder: Create Theme</a></li>
-            
-            <li><a href="/notebook/ui-builder-create-ux-app-configuration/">UI Builder: Create UX App Configuration</a></li>
-            
-            <li><a href="/notebook/ui-builder-create-ux-page-registry/">UI Builder: Create UX Page Registry</a></li>
-            
-            <li><a href="/notebook/ui-builder-input-data-binding/">UI Builder: Input Data Binding</a></li>
-            
-            <li><a href="/notebook/ui-builder-start-a-new-portal-experience/">UI Builder: Start A New Portal Experience</a></li>
-            
-            <li><a href="/notebook/ui-builder-theming-basics/">UI Builder: Theming Basics</a></li>
-            
-          </ul>
-        
+            • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">Travis Toulson</span></span>
+          
+        </p>
+      </header>
+
+      <div class="post-content e-content" itemprop="articleBody">
+        <p><strong>Purpose:</strong> How to write a GlideRecord loop to convert the GlideRecord to a Javascript Object or JSON Object using a Functional Programming style</p>
+<p><strong>Use:</strong> Use this script in a Server Script.  Typically this will be used in Scripted REST Endpoint, Service Portal Widget&rsquo;s Server Script, or GlideAjax Script Include.  Depending on the specific place used, conversion from a Javascript Object to a JSON string may be automatic.</p>
+<p>This technique can output either an array or an object / map depending on the intended goal. An array is useful when maintaining sort order from GlideRecord is important without additional processing. An object is useful when quick lookups by sys_id or other key is important.</p>
+<h2 id="array-of-records">Array of Records</h2>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="cm">/**
+</span><span class="cm"> * Applies the callback function to each incident record 
+</span><span class="cm"> * in the query
+</span><span class="cm"> * @param {Function} callback - Callback function applied to each incident record
+</span><span class="cm"> **/</span>
+<span class="kd">function</span> <span class="nx">forEachIncident</span><span class="p">(</span><span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">tableName</span> <span class="o">=</span> <span class="s1">&#39;incident&#39;</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">incident</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="nx">tableName</span><span class="p">);</span>
+    <span class="nx">incident</span><span class="p">.</span><span class="nx">setLimit</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+    
+    <span class="nx">incident</span><span class="p">.</span><span class="nx">query</span><span class="p">();</span>
+    <span class="k">while</span> <span class="p">(</span><span class="nx">incident</span><span class="p">.</span><span class="nx">next</span><span class="p">())</span> <span class="p">{</span>
+        <span class="nx">callback</span><span class="p">(</span><span class="nx">incident</span><span class="p">);</span> <span class="c1">// Apply callback to the record
+</span><span class="c1"></span>    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="cm">/**
+</span><span class="cm"> * ArrayOutputBuilder exposes an interface
+</span><span class="cm"> * to compensate for Javascripts lack of
+</span><span class="cm"> * method overloading. Uses a closure to 
+</span><span class="cm"> * hold the array under construction
+</span><span class="cm"> * @returns {Object} - Public interface
+</span><span class="cm"> **/</span>
+<span class="kd">function</span> <span class="nx">ArrayOutputBuilder</span><span class="p">(</span><span class="nx">fieldNames</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">array</span> <span class="o">=</span> <span class="p">[];</span>
+
+    <span class="cm">/**
+</span><span class="cm">     *  Returns the completely built output
+</span><span class="cm">     * @returns {Array} - Final built array of record objects
+</span><span class="cm">     **/</span> 
+    <span class="kd">function</span> <span class="nx">getOutput</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">array</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="cm">/**
+</span><span class="cm">     * Adds a record to the output
+</span><span class="cm">     * @param {GlideRecord} record - GlideRecord to convert to JSON compatible object
+</span><span class="cm">     **/</span>
+    <span class="kd">function</span> <span class="nx">addToOutput</span><span class="p">(</span><span class="nx">record</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">jsRecord</span> <span class="o">=</span> <span class="p">{};</span>
+
+        <span class="c1">// For each field name,
+</span><span class="c1"></span>        <span class="c1">// add field to the object
+</span><span class="c1"></span>        <span class="nx">fieldNames</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">fieldName</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">jsRecord</span><span class="p">[</span><span class="nx">fieldName</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s1">&#39;value&#39;</span><span class="o">:</span> <span class="nx">record</span><span class="p">.</span><span class="nx">getValue</span><span class="p">(</span><span class="nx">fieldName</span><span class="p">),</span>
+                <span class="s1">&#39;displayValue&#39;</span><span class="o">:</span> <span class="nx">record</span><span class="p">.</span><span class="nx">getDisplayValue</span><span class="p">(</span><span class="nx">fieldName</span><span class="p">)</span>
+            <span class="p">};</span>
+        <span class="p">});</span>
+
+        <span class="nx">array</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">jsRecord</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s1">&#39;getOutput&#39;</span><span class="o">:</span> <span class="nx">getOutput</span><span class="p">,</span>
+        <span class="s1">&#39;addToOutput&#39;</span><span class="o">:</span> <span class="nx">addToOutput</span>
+    <span class="p">};</span>
+<span class="p">}</span>
+
+<span class="c1">// This example will build an array of incidents
+</span><span class="c1">// An array is useful for maintaining Sort order
+</span><span class="c1">// But struggles with by key lookups
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">output</span> <span class="o">=</span> <span class="nx">ArrayOutputBuilder</span><span class="p">([</span><span class="s1">&#39;sys_id&#39;</span><span class="p">,</span><span class="s1">&#39;number&#39;</span><span class="p">,</span><span class="s1">&#39;short_description&#39;</span><span class="p">]);</span>
+<span class="nx">forEachIncident</span><span class="p">(</span><span class="nx">output</span><span class="p">.</span><span class="nx">addToOutput</span><span class="p">);</span>
+
+<span class="c1">// Service Portal example use case
+</span><span class="c1"></span><span class="nx">data</span><span class="p">.</span><span class="nx">incidents</span> <span class="o">=</span> <span class="nx">output</span><span class="p">.</span><span class="nx">getOutput</span><span class="p">();</span>
+</code></pre></div><h2 id="map-of-records">Map of Records</h2>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="cm">/**
+</span><span class="cm"> * Applies the callback function to each incident record 
+</span><span class="cm"> * in the query
+</span><span class="cm"> * @param {Function} callback - Callback function applied to each incident record
+</span><span class="cm"> **/</span>
+<span class="kd">function</span> <span class="nx">forEachIncident</span><span class="p">(</span><span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">tableName</span> <span class="o">=</span> <span class="s1">&#39;incident&#39;</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">incident</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="nx">tableName</span><span class="p">);</span>
+    <span class="nx">incident</span><span class="p">.</span><span class="nx">setLimit</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+    
+    <span class="nx">incident</span><span class="p">.</span><span class="nx">query</span><span class="p">();</span>
+    <span class="k">while</span> <span class="p">(</span><span class="nx">incident</span><span class="p">.</span><span class="nx">next</span><span class="p">())</span> <span class="p">{</span>
+        <span class="nx">callback</span><span class="p">(</span><span class="nx">incident</span><span class="p">);</span> <span class="c1">// Apply callback to the record
+</span><span class="c1"></span>    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="cm">/**
+</span><span class="cm"> * ObjectOutputBuilder exposes an interface
+</span><span class="cm"> * to compensate for Javascripts lack of
+</span><span class="cm"> * method overloading.
+</span><span class="cm"> * @returns {Object} - Object exposes the interface
+</span><span class="cm"> **/</span>
+<span class="kd">function</span> <span class="nx">ObjectOutputBuilder</span><span class="p">(</span><span class="nx">fieldNames</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">object</span> <span class="o">=</span> <span class="p">{};</span>
+
+    <span class="cm">/**
+</span><span class="cm">     *  Returns the completely built output
+</span><span class="cm">     * @returns {Object} - Final built object / map of record objects
+</span><span class="cm">     **/</span> 
+    <span class="kd">function</span> <span class="nx">getOutput</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">object</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="cm">/**
+</span><span class="cm">     * Adds a record to the output
+</span><span class="cm">     * @param {GlideRecord} record - GlideRecord to convert to JSON compatible object
+</span><span class="cm">     **/</span>
+    <span class="kd">function</span> <span class="nx">addToOutput</span><span class="p">(</span><span class="nx">record</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">jsRecord</span> <span class="o">=</span> <span class="p">{};</span>
+
+        <span class="c1">// For each field name,
+</span><span class="c1"></span>        <span class="c1">// add field to the object
+</span><span class="c1"></span>        <span class="nx">fieldNames</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">fieldName</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">jsRecord</span><span class="p">[</span><span class="nx">fieldName</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s1">&#39;value&#39;</span><span class="o">:</span> <span class="nx">record</span><span class="p">.</span><span class="nx">getValue</span><span class="p">(</span><span class="nx">fieldName</span><span class="p">),</span>
+                <span class="s1">&#39;displayValue&#39;</span><span class="o">:</span> <span class="nx">record</span><span class="p">.</span><span class="nx">getDisplayValue</span><span class="p">(</span><span class="nx">fieldName</span><span class="p">)</span>
+            <span class="p">};</span>
+        <span class="p">});</span>
+
+        <span class="nx">object</span><span class="p">[</span><span class="nx">record</span><span class="p">.</span><span class="nx">sys_id</span><span class="p">.</span><span class="nx">toString</span><span class="p">()]</span> <span class="o">=</span> <span class="nx">jsRecord</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s1">&#39;getOutput&#39;</span><span class="o">:</span> <span class="nx">getOutput</span><span class="p">,</span>
+        <span class="s1">&#39;addToOutput&#39;</span><span class="o">:</span> <span class="nx">addToOutput</span>
+    <span class="p">};</span>
+<span class="p">}</span>
+
+<span class="c1">// This example will build an array of incidents
+</span><span class="c1">// An array is useful for maintaining Sort order
+</span><span class="c1">// But struggles with by key lookups
+</span><span class="c1"></span><span class="kd">var</span> <span class="nx">output</span> <span class="o">=</span> <span class="nx">ObjectOutputBuilder</span><span class="p">([</span><span class="s1">&#39;sys_id&#39;</span><span class="p">,</span><span class="s1">&#39;number&#39;</span><span class="p">,</span><span class="s1">&#39;short_description&#39;</span><span class="p">]);</span>
+<span class="nx">forEachIncident</span><span class="p">(</span><span class="nx">output</span><span class="p">.</span><span class="nx">addToOutput</span><span class="p">);</span>
+
+<span class="c1">// Service Portal example use case
+</span><span class="c1"></span><span class="nx">data</span><span class="p">.</span><span class="nx">incidents</span> <span class="o">=</span> <span class="nx">output</span><span class="p">.</span><span class="nx">getOutput</span><span class="p">();</span>
+</code></pre></div>
       </div>
 
-      <div>
+      <a class="u-url" href="/notebook/gliderecord-patterns-to-json-fp" hidden></a>
+    </article>
+
+    
+    
+      <h2>Related Notes</h2>
+      <ul>
         
+        <li><a href="/notebook/gliderecord-patterns-batch-update-fp/">GlideRecord: Batch Update (Functional)</a></li>
         
-          <h3>GlideRecord</h3>
-          <ul>
-            
-            <li><a href="/notebook/gliderecord-patterns-to-json-fp/">GlideRecord: Convert to JSON (Functional)</a></li>
-            
-            <li><a href="/notebook/gliderecord-patterns-batch-update-fp/">GlideRecord: Batch Update (Functional)</a></li>
-            
-            <li><a href="/notebook/gliderecord-patterns-if-record-exists-fp/">GlideRecord: If Record Exists (Functional)</a></li>
-            
-            <li><a href="/notebook/gliderecord-patterns-to-json/">GlideRecord: Convert to JSON (Imperative)</a></li>
-            
-            <li><a href="/notebook/gliderecord-patterns-batch-update/">GlideRecord: Batch Update (Imperative)</a></li>
-            
-            <li><a href="/notebook/gliderecord-patterns-if-record-exists/">GlideRecord: If Record Exists (Imperative)</a></li>
-            
-          </ul>
+        <li><a href="/notebook/gliderecord-patterns-if-record-exists-fp/">GlideRecord: If Record Exists (Functional)</a></li>
         
-      </div>
-    <section>
+        <li><a href="/notebook/gliderecord-patterns-to-json/">GlideRecord: Convert to JSON (Imperative)</a></li>
+        
+        <li><a href="/notebook/gliderecord-patterns-batch-update/">GlideRecord: Batch Update (Imperative)</a></li>
+        
+        <li><a href="/notebook/gliderecord-patterns-if-record-exists/">GlideRecord: If Record Exists (Imperative)</a></li>
+        
+      </ul>
+    
   </div><section class="home-chat">
     <div>
 

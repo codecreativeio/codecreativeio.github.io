@@ -7,14 +7,24 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language><atom:link href="https://codecreative.io/notebook/tags/imperative-programming/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>GlideRecord: Convert to JSON (Imperative)</title>
+      <link>https://codecreative.io/notebook/gliderecord-patterns-to-json/</link>
+      <pubDate>Tue, 10 Aug 2021 17:01:00 +0000</pubDate>
+      
+      <guid>https://codecreative.io/notebook/gliderecord-patterns-to-json/</guid>
+      <description>Purpose: How to convert a GlideRecord set to a Javascript Object or JSON Object
+Use: Use this script in a Server Script. Typically this will be used in Scripted REST Endpoint, Service Portal Widget&amp;rsquo;s Server Script, or GlideAjax Script Include. Depending on the specific place used, conversion from a Javascript Object to a JSON string may be automatic.
+This technique can output either an array or an object / map depending on the intended goal.</description>
+    </item>
+    
+    <item>
       <title>GlideRecord: Batch Update (Imperative)</title>
       <link>https://codecreative.io/notebook/gliderecord-patterns-batch-update/</link>
       <pubDate>Sun, 08 Aug 2021 17:01:00 +0000</pubDate>
       
       <guid>https://codecreative.io/notebook/gliderecord-patterns-batch-update/</guid>
       <description>Purpose: How to write a GlideRecord loop to batch update Records in ServiceNow
-Use: Use this script in a Server Script
-// This example will loop through all incident records and add a comment var tableName = &amp;#39;incident&amp;#39;; var incident = new GlideRecord(tableName); incident.query(); while (incident.next()) { incident.comments = &amp;#39;This comment will be added&amp;#39;; incident.update(); } </description>
+Use: Use this script in a Server Script. Typically this will be used in a Background Script, Scheduled Job, or Fix Script in order to execute a batch operation to fix records, particularly after a data import, system upgrade, or app upgrade. In the following example, a fix could be applied to every incident record and a comment added to annotate the fix.</description>
     </item>
     
     <item>
@@ -24,8 +34,7 @@ Use: Use this script in a Server Script
       
       <guid>https://codecreative.io/notebook/gliderecord-patterns-if-record-exists/</guid>
       <description>Purpose: How to execute code conditionally if a matching record exists in ServiceNow
-Use: Use this script in a Server Script
-// This example will execute different code depending on whether a User ID is active or not var tableName = &amp;#39;sys_user&amp;#39;; var user = new GlideRecord(tableName); user.addQuery(&amp;#39;user_id&amp;#39;, &amp;#39;tltoulson&amp;#39;); user.addQuery(&amp;#39;active&amp;#39;, true); user.setLimit(1); // Very important for performance since we only care about one record  user.query(); if (user.next()) { // Code to execute if a matching record exists } else { // Code to execute if a matching record does not exist } </description>
+Use: Use this script in a Server Script to test if a record exists before deciding how the code should continue. This allows handling error cases when a record doesn&amp;rsquo;t exist, creation of expected records, or an alternate handling path depending on whether the record exists or not. The call to setLimit is extremely important to maintaining the best performance by telling the database to stop searching after finding one matching record.</description>
     </item>
     
   </channel>

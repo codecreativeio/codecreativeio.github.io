@@ -70,7 +70,7 @@
     "datePublished": "2021-08-08T17:01:00Z",
     "dateModified" : "2021-08-08T17:01:00Z",
     "url" : "https:\/\/codecreative.io\/notebook\/gliderecord-patterns-if-record-exists-fp\/",
-    "wordCount" : "176",
+    "wordCount" : "240",
     "keywords" : [ "Blog" ]
 }
 </script>
@@ -154,8 +154,8 @@
         <h1 class="post-title p-name" itemprop="name headline">GlideRecord: If Record Exists (Functional)</h1>
         <p class="post-meta">
             <span>Last Updated</span>
-            • <time class="dt-published" datetime="2021-08-08T17:01:00Z" itemprop="datePublished">
-            August 08, 2021
+            • <time class="dt-published" datetime="2021-08-10T17:01:00Z" itemprop="datePublished">
+            August 10, 2021
             </time>
           
             
@@ -166,7 +166,7 @@
 
       <div class="post-content e-content" itemprop="articleBody">
         <p><strong>Purpose:</strong> How to execute code conditionally if a matching record exists or is found in ServiceNow using a Functional Programming style</p>
-<p><strong>Use:</strong> Use this script in a Server Script</p>
+<p><strong>Use:</strong> Use this script in a Server Script to test if a record exists before deciding how the code should continue. This allows handling error cases when a record doesn&rsquo;t exist, creation of expected records, or an alternate handling path depending on whether the record exists or not. The call to <code>setLimit</code> is extremely important to maintaining the best performance by telling the database to stop searching after finding one matching record.</p>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="cm">/**
 </span><span class="cm"> * Handles conditional execution based on the existence of a user record
 </span><span class="cm"> * @param {Function} foundCallback - Function that is executed if the user record is found
@@ -212,7 +212,11 @@
       <h2>Related Notes</h2>
       <ul>
         
+        <li><a href="/notebook/gliderecord-patterns-to-json-fp/">GlideRecord: Convert to JSON (Functional)</a></li>
+        
         <li><a href="/notebook/gliderecord-patterns-batch-update-fp/">GlideRecord: Batch Update (Functional)</a></li>
+        
+        <li><a href="/notebook/gliderecord-patterns-to-json/">GlideRecord: Convert to JSON (Imperative)</a></li>
         
         <li><a href="/notebook/gliderecord-patterns-batch-update/">GlideRecord: Batch Update (Imperative)</a></li>
         

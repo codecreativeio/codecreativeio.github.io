@@ -70,7 +70,7 @@
     "datePublished": "2021-08-08T17:01:00Z",
     "dateModified" : "2021-08-08T17:01:00Z",
     "url" : "https:\/\/codecreative.io\/notebook\/gliderecord-patterns-batch-update\/",
-    "wordCount" : "56",
+    "wordCount" : "111",
     "keywords" : [ "Blog" ]
 }
 </script>
@@ -154,8 +154,8 @@
         <h1 class="post-title p-name" itemprop="name headline">GlideRecord: Batch Update (Imperative)</h1>
         <p class="post-meta">
             <span>Last Updated</span>
-            • <time class="dt-published" datetime="2021-08-08T17:01:00Z" itemprop="datePublished">
-            August 08, 2021
+            • <time class="dt-published" datetime="2021-08-10T17:01:00Z" itemprop="datePublished">
+            August 10, 2021
             </time>
           
             
@@ -166,7 +166,7 @@
 
       <div class="post-content e-content" itemprop="articleBody">
         <p><strong>Purpose:</strong> How to write a GlideRecord loop to batch update Records in ServiceNow</p>
-<p><strong>Use:</strong> Use this script in a Server Script</p>
+<p><strong>Use:</strong> Use this script in a Server Script.  Typically this will be used in a Background Script, Scheduled Job, or Fix Script in order to execute a batch operation to fix records, particularly after a data import, system upgrade, or app upgrade. In the following example, a fix could be applied to every incident record and a comment added to annotate the fix.</p>
 <div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// This example will loop through all incident records and add a comment
 </span><span class="c1"></span><span class="kd">var</span> <span class="nx">tableName</span> <span class="o">=</span> <span class="s1">&#39;incident&#39;</span><span class="p">;</span>
 <span class="kd">var</span> <span class="nx">incident</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GlideRecord</span><span class="p">(</span><span class="nx">tableName</span><span class="p">);</span>
@@ -187,7 +187,11 @@
       <h2>Related Notes</h2>
       <ul>
         
+        <li><a href="/notebook/gliderecord-patterns-to-json/">GlideRecord: Convert to JSON (Imperative)</a></li>
+        
         <li><a href="/notebook/gliderecord-patterns-if-record-exists/">GlideRecord: If Record Exists (Imperative)</a></li>
+        
+        <li><a href="/notebook/gliderecord-patterns-to-json-fp/">GlideRecord: Convert to JSON (Functional)</a></li>
         
         <li><a href="/notebook/gliderecord-patterns-batch-update-fp/">GlideRecord: Batch Update (Functional)</a></li>
         
