@@ -272,7 +272,7 @@
 <h3 id="remove-submissions-with-undisclosed-compensation">Remove Submissions With Undisclosed Compensation</h3>
 <p>The first step involved removing all survey responses that did not disclose the individual&rsquo;s compensation. Without the compensation, the survey was unable to be used in any of the performed analysis. After this cleanup step, 232 usable survey responses remained.</p>
 <h3 id="sanitize-currencies">Sanitize Currencies</h3>
-<p>Next, some work had to be performed to santize the user submitted currencies. This involved converting all submitted currencies to their ISO 4217 Currency Code. For example, any currencies submitted as <em>Indian Rupees</em>, <em>inr</em>, or <em>rupee</em> would be substituted with <em>INR</em>. Additionally, there were a couple of other adjustments and inferences required:</p>
+<p>Next, some work had to be performed to sanitize the user submitted currencies. This involved converting all submitted currencies to their ISO 4217 Currency Code. For example, any currencies submitted as <em>Indian Rupees</em>, <em>inr</em>, or <em>rupee</em> would be substituted with <em>INR</em>. Additionally, there were a couple of other adjustments and inferences required:</p>
 <ul>
 <li>Discarded two surveys where the currency was not provided and could not be inferred based on geographic location</li>
 <li>Converted all submissions in Lakh Rupees to INR</li>
@@ -283,7 +283,7 @@
 <ul>
 <li>Country responses such as <em>US</em>, <em>United States</em>, and <em>America</em> were standardized to <em>United States</em></li>
 <li>One survey listed 11100 years of Total Experience which was changed to 11 years of experience in order to align with the user&rsquo;s 11 years of IT Experience</li>
-<li>Adjusted two surveys which listed percentages over 100% to be exactly 100% under the assumption that these survey responses were exagerating</li>
+<li>Adjusted two surveys which listed percentages over 100% to be exactly 100% under the assumption that these survey responses were exaggerating</li>
 </ul>
 <h3 id="remove-employer-based-responses">Remove Employer Based Responses</h3>
 <p>A section of questions designed to understand the nature of the individual&rsquo;s employer was originally included in the survey. However, due to a misconfigured conditional expression on the survey, most respondents did not complete these questions. For this reason, these question responses were discarded from the analysis. These questions included attributes such as employer industry, size, revenue, etc.</p>
@@ -301,7 +301,7 @@
 <li>US Census Bureau Division</li>
 <li>US Census Bureau Region</li>
 <li>US BEA Region</li>
-<li>Counts of Certifications and Number of Certifications from various Certificaiton Groups the respondent possesses</li>
+<li>Counts of Certifications and Number of Certifications from various Certification Groups the respondent possesses</li>
 <li>Boolean features indicating whether or not a respondent has exactly zero, exactly one, or an exact combination of various certifications</li>
 <li>Skill Scores computed across various skill groupings such as Soft Skills, Management, Sales and Marketing, Architectural, and Development indicating a scored frequency of use</li>
 <li>Product Scores computed across both ServiceNow Applications (ITSM, CSM, ITBM, etc) and ServiceNow Capabilities (Service Portal, Virtual Agent, Performance Analytics, etc) indicating a scored frequency of use</li>
@@ -309,7 +309,7 @@
 <li>Satisfaction scores indicating how positive or negative a respondents sentiment is overall</li>
 </ul>
 <h3 id="purchasing-power-parity-adjustment">Purchasing Power Parity Adjustment</h3>
-<p>In order to enable comparisons across international currentcies, all currency values were converted from the survey respondants local currency to Inernational Dollars (Intl$ or GK$) using the <a href="https://data.oecd.org/conversion/purchasing-power-parities-ppp.htm">2019 Purchasing Power Parity index</a>. This index is published by the Eurostat-OECD as a method of equalizing and comparing the purchasing power of different currencies in their local markets. This adjustment makes it much easier to directly compare compensation amounts across international borders by converting local currency to the equivalent purchasing power of the US Dollar (USD). In this report, currency values of Intl$ indicate that the currency has been converted using the PPP index. The conversion rates used in this survey report are published below:</p>
+<p>In order to enable comparisons across international currencies, all currency values were converted from the survey respondents local currency to International Dollars (Intl$ or GK$) using the <a href="https://data.oecd.org/conversion/purchasing-power-parities-ppp.htm">2019 Purchasing Power Parity index</a>. This index is published by the Eurostat-OECD as a method of equalizing and comparing the purchasing power of different currencies in their local markets. This adjustment makes it much easier to directly compare compensation amounts across international borders by converting local currency to the equivalent purchasing power of the US Dollar (USD). In this report, currency values of Intl$ indicate that the currency has been converted using the PPP index. The conversion rates used in this survey report are published below:</p>
 <table>
 <thead>
 <tr>
@@ -397,7 +397,7 @@
 </tbody>
 </table>
 <h3 id="gni-dollars-per-capita-atlas-2019">GNI Dollars per Capita (Atlas) 2019</h3>
-<p>Another calculated measure to improve comparison across international borders is GNI Dollars per Capita. Respondants country of employment was mapped to their <a href="https://blogs.worldbank.org/opendata/new-country-classifications-income-level-2019-2020#:~:text=The%20classification%20of%20countries%20is,also%20influence%20GNI%20per%20capita.">Gross National Income per Capita using the Atlas method as of 2019</a>. This indicator provides a continuous variable for compairng different countries by their economic power. This specific indicator was selected during exploratory analysis as it provided the lowest variance of the international economic indicators. Below is the table of values used in this analysis:</p>
+<p>Another calculated measure to improve comparison across international borders is GNI Dollars per Capita. Respondents country of employment was mapped to their <a href="https://blogs.worldbank.org/opendata/new-country-classifications-income-level-2019-2020#:~:text=The%20classification%20of%20countries%20is,also%20influence%20GNI%20per%20capita.">Gross National Income per Capita using the Atlas method as of 2019</a>. This indicator provides a continuous variable for comparing different countries by their economic power. This specific indicator was selected during exploratory analysis as it provided the lowest variance of the international economic indicators. Below is the table of values used in this analysis:</p>
 <table>
 <thead>
 <tr>
@@ -521,7 +521,7 @@
 <li>Repeat steps 3 through 4 with the subset as the current dataset until one of the following conditions is met
 <ul>
 <li>No suitable feature is found in step 4</li>
-<li>All copmensation values within the subset are within the 50% Salary Window as calculated in step 3.5</li>
+<li>All compensation values within the subset are within the 50% Salary Window as calculated in step 3.5</li>
 </ul>
 </li>
 </ol>
@@ -553,7 +553,7 @@
 <li>Repeat steps 2 through 5 for each Feature included in the optimum prediction model</li>
 <li>Sort the features in descending order of Feature Importance</li>
 </ol>
-<p>The highest Feature Importance values indicate the most significant features in the optimum prediction model. Note that when a Feature Importance is negative, although leaving the feature out reduced the error it is generally implied that the decrease in error occured by random chance. Features with negative feature importance are therefore the least significant.</p>
+<p>The highest Feature Importance values indicate the most significant features in the optimum prediction model. Note that when a Feature Importance is negative, although leaving the feature out reduced the error it is generally implied that the decrease in error occurred by random chance. Features with negative feature importance are therefore the least significant.</p>
 <h3 id="multiple-regression-prediction">Multiple Regression Prediction</h3>
 <p>It was discovered during exploratory analysis that leaf nodes can use multiple regression of continuous features instead of a single predicted value or a split. For example, one of the generated models split on Country of employment and then used a polynomial regression with years of experience as the x value to compute the predicted compensation. This generated significantly simpler models with only marginal increases in MAPE. The use of these models further demonstrated the importance of specific features.</p>
 <h2 id="step-4-targeted-feature-analysis">Step 4: Targeted Feature Analysis</h2>

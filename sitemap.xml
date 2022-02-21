@@ -2,8 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://codecreative.io/guides/servicenow-salary-influence-survey-2021/foreword/</loc>
+    <lastmod>2022-02-20T20:46:00+00:00</lastmod>
+  </url><url>
+    <loc>https://codecreative.io/guides/servicenow-salary-influence-survey-2021/</loc>
+    <lastmod>2022-02-20T20:46:00+00:00</lastmod>
+  </url><url>
     <loc>https://codecreative.io/guides/servicenow-salary-influence-survey-2020/foreword/</loc>
     <lastmod>2021-03-14T14:40:00+00:00</lastmod>
+  </url><url>
+    <loc>https://codecreative.io/guides/servicenow-salary-influence-survey-2021/summary/</loc>
+    <lastmod>2022-02-20T20:46:00+00:00</lastmod>
   </url><url>
     <loc>https://codecreative.io/guides/servicenow-salary-influence-survey-2020/summary/</loc>
     <lastmod>2021-03-14T14:40:00+00:00</lastmod>
@@ -17,6 +26,9 @@
     <loc>https://codecreative.io/guides/getting-started-on-servicenow/what-is-servicenow/</loc>
     <lastmod>2019-02-23T20:20:49+00:00</lastmod>
   </url><url>
+    <loc>https://codecreative.io/guides/servicenow-salary-influence-survey-2021/top-influencing-features/</loc>
+    <lastmod>2022-02-20T20:46:00+00:00</lastmod>
+  </url><url>
     <loc>https://codecreative.io/guides/servicenow-salary-influence-survey-2020/top-influencing-features/</loc>
     <lastmod>2021-03-14T14:40:00+00:00</lastmod>
   </url><url>
@@ -28,6 +40,9 @@
   </url><url>
     <loc>https://codecreative.io/guides/getting-started-on-servicenow/what-is-a-servicenow-instance/</loc>
     <lastmod>2019-02-23T20:20:49+00:00</lastmod>
+  </url><url>
+    <loc>https://codecreative.io/guides/servicenow-salary-influence-survey-2021/demographic-influence/</loc>
+    <lastmod>2022-02-20T20:46:00+00:00</lastmod>
   </url><url>
     <loc>https://codecreative.io/guides/servicenow-salary-influence-survey-2020/demographic-influence/</loc>
     <lastmod>2021-03-14T14:40:00+00:00</lastmod>
@@ -68,6 +83,9 @@
     <loc>https://codecreative.io/guides/getting-started-on-servicenow/creating-and-editing-records/</loc>
     <lastmod>2019-02-23T20:20:49+00:00</lastmod>
   </url><url>
+    <loc>https://codecreative.io/guides/servicenow-salary-influence-survey-2021/negotiation-influence/</loc>
+    <lastmod>2022-02-20T20:46:00+00:00</lastmod>
+  </url><url>
     <loc>https://codecreative.io/guides/servicenow-salary-influence-survey-2020/survey-response-reports/</loc>
     <lastmod>2021-03-14T14:40:00+00:00</lastmod>
   </url><url>
@@ -83,8 +101,29 @@
     <loc>https://codecreative.io/guides/getting-started-with-service-portal/next-steps/</loc>
     <lastmod>2019-04-21T17:55:11+00:00</lastmod>
   </url><url>
+    <loc>https://codecreative.io/guides/servicenow-salary-influence-survey-2021/survey-response-reports/</loc>
+    <lastmod>2022-02-20T20:46:00+00:00</lastmod>
+  </url><url>
     <loc>https://codecreative.io/guides/servicenow-salary-influence-survey-2020/salary-tables/</loc>
     <lastmod>2021-03-14T14:40:00+00:00</lastmod>
+  </url><url>
+    <loc>https://codecreative.io/guides/servicenow-salary-influence-survey-2021/methods/</loc>
+    <lastmod>2022-02-20T20:46:00+00:00</lastmod>
+  </url><url>
+    <loc>https://codecreative.io/guides/servicenow-salary-influence-survey-2021/salary-tables/</loc>
+    <lastmod>2022-02-20T20:46:00+00:00</lastmod>
+  </url><url>
+    <loc>https://codecreative.io/years/2022/</loc>
+    <lastmod>2022-02-20T20:46:00+00:00</lastmod>
+  </url><url>
+    <loc>https://codecreative.io/guides/</loc>
+    <lastmod>2022-02-20T20:46:00+00:00</lastmod>
+  </url><url>
+    <loc>https://codecreative.io/</loc>
+    <lastmod>2022-02-20T20:46:00+00:00</lastmod>
+  </url><url>
+    <loc>https://codecreative.io/years/</loc>
+    <lastmod>2022-02-20T20:46:00+00:00</lastmod>
   </url><url>
     <loc>https://codecreative.io/years/2021/</loc>
     <lastmod>2021-10-03T15:51:00+00:00</lastmod>
@@ -92,13 +131,7 @@
     <loc>https://codecreative.io/blog/</loc>
     <lastmod>2021-10-03T15:51:00+00:00</lastmod>
   </url><url>
-    <loc>https://codecreative.io/</loc>
-    <lastmod>2021-10-03T15:51:00+00:00</lastmod>
-  </url><url>
     <loc>https://codecreative.io/blog/on-pay-and-negotiations/</loc>
-    <lastmod>2021-10-03T15:51:00+00:00</lastmod>
-  </url><url>
-    <loc>https://codecreative.io/years/</loc>
     <lastmod>2021-10-03T15:51:00+00:00</lastmod>
   </url><url>
     <loc>https://codecreative.io/notebook/gliderecord-patterns-to-json-fp/</loc>
@@ -169,9 +202,6 @@
   </url><url>
     <loc>https://codecreative.io/notebook/ui-builder-theming-basics/</loc>
     <lastmod>2021-07-14T10:03:00+00:00</lastmod>
-  </url><url>
-    <loc>https://codecreative.io/guides/</loc>
-    <lastmod>2021-03-14T14:40:00+00:00</lastmod>
   </url><url>
     <loc>https://codecreative.io/years/2020/</loc>
     <lastmod>2020-09-08T06:00:00+00:00</lastmod>

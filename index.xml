@@ -6,7 +6,16 @@
     <description>Recent content in Developing Creative Business Solutions On ServiceNow on CodeCreative | A ServiceNow Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 03 Oct 2021 15:51:00 +0000</lastBuildDate><atom:link href="https://codecreative.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 20 Feb 2022 20:46:00 +0000</lastBuildDate><atom:link href="https://codecreative.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Foreword / FAQ</title>
+      <link>https://codecreative.io/guides/servicenow-salary-influence-survey-2021/foreword/</link>
+      <pubDate>Sun, 20 Feb 2022 20:46:00 +0000</pubDate>
+      
+      <guid>https://codecreative.io/guides/servicenow-salary-influence-survey-2021/foreword/</guid>
+      <description>Once again I would like to thank everyone for their patience and participation. A new year and a new set of complications but the analysis is done and the report is published. Since publishing last year&amp;rsquo;s report I have received a lot of feedback, public and private. Some of it has been great and led to some improvements this year. Some of it was valid critique that I found helpful. Some of it was less than polite.</description>
+    </item>
+    
     <item>
       <title>Foreword</title>
       <link>https://codecreative.io/guides/servicenow-salary-influence-survey-2020/foreword/</link>
@@ -14,6 +23,15 @@
       
       <guid>https://codecreative.io/guides/servicenow-salary-influence-survey-2020/foreword/</guid>
       <description>First of all, I want to thank everyone for their patience regarding the publishing of the final results of the 2020 ServiceNow Salary Influence Survey. The folks who reached out to ask about it were very polite about it and I appreciate the support. There are a number of reasons for the delay in publishing and as someone who keeps private matters private, I debated extensively on how much to share.</description>
+    </item>
+    
+    <item>
+      <title>Summary</title>
+      <link>https://codecreative.io/guides/servicenow-salary-influence-survey-2021/summary/</link>
+      <pubDate>Sun, 20 Feb 2022 20:46:00 +0000</pubDate>
+      
+      <guid>https://codecreative.io/guides/servicenow-salary-influence-survey-2021/summary/</guid>
+      <description>The 2021 ServiceNow Salary Influence Survey was an openly published survey that ran from September 27, 2021 to October 19, 2021 with the purpose of improving the ServiceNow community’s understanding of compensation in the industry. The analysis continued the investigation from the previous year&amp;rsquo;s survey to identify which features of an individual’s profile most significantly influenced compensation as well as provide the more traditional compensation tables to assist members of the ServiceNow community in determining their worth.</description>
     </item>
     
     <item>
@@ -47,6 +65,15 @@ For front-end web developers, a few libraries are in use which are likely famili
     
     <item>
       <title>Top Influencing Features</title>
+      <link>https://codecreative.io/guides/servicenow-salary-influence-survey-2021/top-influencing-features/</link>
+      <pubDate>Sun, 20 Feb 2022 20:46:00 +0000</pubDate>
+      
+      <guid>https://codecreative.io/guides/servicenow-salary-influence-survey-2021/top-influencing-features/</guid>
+      <description>Similar to last year, the primary goal of the Salary Survey was to identify which features had the strongest influence on an individual’s compensation. The results of this years survey validated the major findings regarding the most important features. Overall, this year&amp;rsquo;s survey found that somewhere between 85% and 94% of the ability of the collected data to predict an individual&amp;rsquo;s compensation could be summarized by an individual&amp;rsquo;s country of employment, years of experience, and (for United States based workers) what percent of your total compensation is guaranteed vs variable (method).</description>
+    </item>
+    
+    <item>
+      <title>Top Influencing Features</title>
       <link>https://codecreative.io/guides/servicenow-salary-influence-survey-2020/top-influencing-features/</link>
       <pubDate>Sun, 14 Mar 2021 14:40:00 +0000</pubDate>
       
@@ -73,6 +100,16 @@ In this exercise, we will clone the baseline ITSM portal to create our own porta
       <guid>https://codecreative.io/guides/getting-started-on-servicenow/what-is-a-servicenow-instance/</guid>
       <description>This is a ServiceNow Instance   As mentioned in the previous section, ServiceNow operates using a single tenant architecture meaning that each customer gets their own copy or multiple copies of ServiceNow in the cloud. These copies are known as ServiceNow instances. Users can access an instance via web browser using each instance&amp;rsquo;s unique URL such as https://companyname.service-now.com.
 Each instance can run multiple applications side by side, so a single instance could potentially host an ITSM, HR, CSM, and Custom Apps all at the same base URL.</description>
+    </item>
+    
+    <item>
+      <title>Demographic Influence</title>
+      <link>https://codecreative.io/guides/servicenow-salary-influence-survey-2021/demographic-influence/</link>
+      <pubDate>Sun, 20 Feb 2022 20:46:00 +0000</pubDate>
+      
+      <guid>https://codecreative.io/guides/servicenow-salary-influence-survey-2021/demographic-influence/</guid>
+      <description>Beyond the top influencing features, the members of the ServiceNow community expressed an interest in exploring what influence a variety of other features may have. In the next section, the influence of demographic features on compensation will be explored. The methods used in this section can be viewed here.
+Gender   Total Compensation Distribution by Gender and Country GNI Per Capita        Survey Population Female (GNI Per Capita &amp;lt;= 37895) Male (GNI Per Capita &amp;lt;= 37895) Female (GNI Per Capita &amp;gt; 37895) Male (GNI Per Capita &amp;gt; 37895)     Min 1500 28195 1500 40739 15724   Q1 90000 29718.</description>
     </item>
     
     <item>
@@ -208,6 +245,15 @@ Exercise   In your Personal Developer Instance, navigate to Incident &amp;gt; Op
     </item>
     
     <item>
+      <title>Negotiation Influence</title>
+      <link>https://codecreative.io/guides/servicenow-salary-influence-survey-2021/negotiation-influence/</link>
+      <pubDate>Sun, 20 Feb 2022 20:46:00 +0000</pubDate>
+      
+      <guid>https://codecreative.io/guides/servicenow-salary-influence-survey-2021/negotiation-influence/</guid>
+      <description>Negotiation as a tactic to increase individual compensation is well established in both industry literature and research literature, so it may seem surprising that negotiation did not rank in the top influencing features. With a negative feature importance, the LOCO method implies that negotiation features are not important in predicting an individual&amp;rsquo;s compensation. To accurately frame the conversation, it should be noted that this analysis was examining real-world impact of behaviors on compensation.</description>
+    </item>
+    
+    <item>
       <title>Reference: Survey Response Reports</title>
       <link>https://codecreative.io/guides/servicenow-salary-influence-survey-2020/survey-response-reports/</link>
       <pubDate>Sun, 14 Mar 2021 14:40:00 +0000</pubDate>
@@ -265,12 +311,40 @@ Unfortunately, much of the documentation around this can lead to even more confu
     </item>
     
     <item>
+      <title>Reference: Survey Response Reports</title>
+      <link>https://codecreative.io/guides/servicenow-salary-influence-survey-2021/survey-response-reports/</link>
+      <pubDate>Sun, 20 Feb 2022 20:46:00 +0000</pubDate>
+      
+      <guid>https://codecreative.io/guides/servicenow-salary-influence-survey-2021/survey-response-reports/</guid>
+      <description>The below charts provide a breakdown for each survey question on the ServiceNow Salary Influence Survey 2020. Each chart indicates the percentage of the responding population that selected a particular response for the given question. Some questions were omitted from this summary due to the risk of revealing identifying information. Questions omitted from this summary were still used in the analysis of the data to produce the final results.
+Contents:</description>
+    </item>
+    
+    <item>
       <title>Reference: Salary Tables</title>
       <link>https://codecreative.io/guides/servicenow-salary-influence-survey-2020/salary-tables/</link>
       <pubDate>Sun, 14 Mar 2021 14:40:00 +0000</pubDate>
       
       <guid>https://codecreative.io/guides/servicenow-salary-influence-survey-2020/salary-tables/</guid>
       <description>Role Based Salary Tables The following salary tables were generated directly from the survey responses without considering any outside data. Based on the findings of the analysis, years of experience is the strongest predictor in determining which quartile an individual is most likely to fall into. Depending on the country, the particular experience can vary. For the United States and Australia, ServiceNow experience was most correlated with compensation. For India, IT experience was most relevant.</description>
+    </item>
+    
+    <item>
+      <title>Reference: Methods</title>
+      <link>https://codecreative.io/guides/servicenow-salary-influence-survey-2021/methods/</link>
+      <pubDate>Sun, 20 Feb 2022 20:46:00 +0000</pubDate>
+      
+      <guid>https://codecreative.io/guides/servicenow-salary-influence-survey-2021/methods/</guid>
+      <description>Step 1: Survey Response Collection This survey collected results via online submission using PaperForm. The survey began on September 27, 2021 and remained open through October 19, 2021. The survey was openly published on LinkedIn and CodeCreative.io, specifically targeting members of the ServiceNow Community. A list of Survey Questions and summary of responses can be found here. The survey was a multi part form which would save after each part, allowing for some surveys to be submitted incomplete.</description>
+    </item>
+    
+    <item>
+      <title>Reference: Salary Tables</title>
+      <link>https://codecreative.io/guides/servicenow-salary-influence-survey-2021/salary-tables/</link>
+      <pubDate>Sun, 20 Feb 2022 20:46:00 +0000</pubDate>
+      
+      <guid>https://codecreative.io/guides/servicenow-salary-influence-survey-2021/salary-tables/</guid>
+      <description>Role Based Salary Tables The following salary tables were generated directly from the survey responses without considering any outside data. The findings of the survey indicate that these salary tables are not actually the most effective way to predict compensation. In order to maintain consistency with traditional salary table based approaches, the decision was made to include the job titles in the tables. Country and role breakdowns with too few responses submitted were omitted both to preserve anonymity and to reduce the risk of publishing skewed data.</description>
     </item>
     
     <item>

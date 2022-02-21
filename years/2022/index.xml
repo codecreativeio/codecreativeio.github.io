@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>2022 on CodeCreative | A ServiceNow Blog</title>
+    <link>https://codecreative.io/years/2022/</link>
+    <description>Recent content in 2022 on CodeCreative | A ServiceNow Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 20 Feb 2022 20:46:00 +0000</lastBuildDate><atom:link href="https://codecreative.io/years/2022/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ServiceNow Salary Influence Survey 2021</title>
+      <link>https://codecreative.io/guides/servicenow-salary-influence-survey-2021/</link>
+      <pubDate>Sun, 20 Feb 2022 20:46:00 +0000</pubDate>
+      
+      <guid>https://codecreative.io/guides/servicenow-salary-influence-survey-2021/</guid>
+      <description>This guide contains the results of the ServiceNow Salary Influence Survey 2021. This survey was conducted to determine what compensation workers in the ServiceNow ecosystem can expect and what factors influence that compensation.</description>
+    </item>
+    
+  </channel>
+</rss>
